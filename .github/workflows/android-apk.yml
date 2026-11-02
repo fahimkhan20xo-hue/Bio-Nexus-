@@ -41,6 +41,14 @@ jobs:
       - name: Generate Android platform files
         run: flutter create . --platforms=android --project-name=bionexus
 
+      - name: Allow internet access in release APK
+        run: |
+          MANIFEST=android/app/src/main/AndroidManifest.xml
+          if ! grep -q "android.permission.INTERNET" "$MANIFEST"; then
+            sed -i '0,/<application/s//<uses-permission android:name="android.permission.INTERNET"\/>\n    <application/' "$MANIFEST"
+          fi
+          grep -n "INTERNET" "$MANIFEST"
+
       - name: Debug Dart files
         run: |
           echo "Dart files:"
@@ -69,3 +77,4 @@ jobs:
           name: BioNexus-APK
           path: build/app/outputs/flutter-apk/app-release.apk
           if-no-files-found: error
+          
