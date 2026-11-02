@@ -1,0 +1,469 @@
+# Species sync report
+
+Total species in database: 430
+Added this run: 29
+
+## Added
+- Rosa chinensis
+- Drosophila melanogaster
+- Rana temporaria
+- Barringtonia racemosa
+- Plumeria pudica
+- Nymphaea pubescens
+- Hemidesmus indicus
+- Boerhavia diffusa
+- Centella asiatica
+- Dioscorea alata
+- Euryale ferox
+- Trichosanthes dioica
+- Musa balbisiana
+- Neofelis nebulosa
+- Macaca radiata
+- Ursus thibetanus
+- Moschus chrysogaster
+- Lycaon pictus
+- Odobenus rosmarus
+- Zalophus californianus
+- Trichechus manatus
+- Dendrocitta vagabunda
+- Microcarbo niger
+- Gallinago gallinago
+- Anas platyrhynchos domesticus
+- Chironex fleckeri
+- Legionella pneumophila
+- Chlamydia trachomatis
+- Shigella dysenteriae
+
+## Pronunciation filled in
+- Oryza sativa
+- Triticum aestivum
+- Zea mays
+- Corchorus capsularis
+- Camellia sinensis
+- Coffea arabica
+- Saccharum officinarum
+- Gossypium hirsutum
+- Nicotiana tabacum
+- Glycine max
+- Helianthus annuus
+- Arachis hypogaea
+- Brassica nigra
+- Ficus benghalensis
+- Ficus religiosa
+- Azadirachta indica
+- Bambusa vulgaris
+- Hevea brasiliensis
+- Tectona grandis
+- Heritiera fomes
+- Mangifera indica
+- Artocarpus heterophyllus
+- Musa paradisiaca
+- Carica papaya
+- Psidium guajava
+- Malus domestica
+- Citrus sinensis
+- Ananas comosus
+- Litchi chinensis
+- Citrullus lanatus
+- Cocos nucifera
+- Punica granatum
+- Phyllanthus emblica
+- Tamarindus indica
+- Nymphaea nouchali
+- Rosa rubiginosa
+- Nelumbo nucifera
+- Hibiscus rosa-sinensis
+- Tagetes erecta
+- Jasminum sambac
+- Solanum tuberosum
+- Solanum lycopersicum
+- Solanum melongena
+- Allium cepa
+- Allium sativum
+- Zingiber officinale
+- Curcuma longa
+- Capsicum annuum
+- Abelmoschus esculentus
+- Brassica oleracea var. capitata
+- Brassica oleracea var. botrytis
+- Daucus carota
+- Raphanus sativus
+- Cucumis sativus
+- Spinacia oleracea
+- Coriandrum sativum
+- Elettaria cardamomum
+- Cinnamomum verum
+- Syzygium aromaticum
+- Piper nigrum
+- Homo sapiens
+- Panthera tigris
+- Panthera leo
+- Panthera pardus
+- Elephas maximus
+- Bos taurus
+- Bubalus bubalis
+- Capra hircus
+- Ovis aries
+- Canis lupus familiaris
+- Felis catus
+- Equus caballus
+- Axis axis
+- Balaenoptera musculus
+- Rattus rattus
+- Oryctolagus cuniculus
+- Naja naja
+- Crocodylus porosus
+- Hemidactylus frenatus
+- Duttaphrynus melanostictus
+- Copsychus saularis
+- Pavo cristatus
+- Corvus splendens
+- Columba livia
+- Passer domesticus
+- Haliaeetus leucocephalus
+- Tyto alba
+- Tenualosa ilisha
+- Labeo rohita
+- Gibelion catla
+- Clarias batrachus
+- Penaeus monodon
+- Apis mellifera
+- Bombyx mori
+- Aedes aegypti
+- Periplaneta americana
+- Pheretima posthuma
+- Escherichia coli
+- Vibrio cholerae
+- Plasmodium falciparum
+- Ocimum tenuiflorum
+- Aloe vera
+- Bacopa monnieri
+- Withania somnifera
+- Andrographis paniculata
+- Justicia adhatoda
+- Terminalia chebula
+- Terminalia bellirica
+- Swietenia mahagoni
+- Polyalthia longifolia
+- Shorea robusta
+- Bombax ceiba
+- Butea monosperma
+- Delonix regia
+- Peltophorum pterocarpum
+- Moringa oleifera
+- Eucalyptus globulus
+- Polianthes tuberosa
+- Amorphophallus paeoniifolius
+- Mimosa pudica
+- Manilkara zapota
+- Annona reticulata
+- Ziziphus mauritiana
+- Spondias dulcis
+- Ficus carica
+- Elaeocarpus serratus
+- Syzygium samarangense
+- Aegle marmelos
+- Limonia acidissima
+- Averrhoa carambola
+- Selenicereus undatus
+- Fragaria × ananassa
+- Prunus avium
+- Persea americana
+- Actinidia deliciosa
+- Vitis vinifera
+- Baccaurea ramiflora
+- Diospyros blancoi
+- Artocarpus lakoocha
+- Ursus maritimus
+- Ailuropoda melanoleuca
+- Giraffa camelopardalis
+- Equus quagga
+- Hippopotamus amphibius
+- Rhinoceros unicornis
+- Macropus rufus
+- Acinonyx jubatus
+- Crocuta crocuta
+- Prionailurus viverrinus
+- Manis crassicaudata
+- Canis aureus
+- Vulpes vulpes
+- Urva edwardsii
+- Camelus dromedarius
+- Lama glama
+- Pteropus giganteus
+- Funambulus palmarum
+- Hystrix indica
+- Ornithorhynchus anatinus
+- Carcharodon carcharias
+- Octopus vulgaris
+- Chelonia mydas
+- Ophiophagus hannah
+- Daboia russelii
+- Chamaeleo calyptratus
+- Hoplobatrachus tigerinus
+- Aurelia aurita
+- Asterias rubens
+- Orcinus orca
+- Platanista gangetica
+- Pampus argenteus
+- Lates calcarifer
+- Anabas testudineus
+- Heteropneustes fossilis
+- Pangasius pangasius
+- Ompok pabda
+- Mystus tengara
+- Scylla serrata
+- Rhincodon typus
+- Struthio camelus
+- Aptenodytes forsteri
+- Mellisuga helenae
+- Orthotomus sutorius
+- Ploceus philippinus
+- Pycnonotus cafer
+- Acridotheres tristis
+- Halcyon smyrnensis
+- Haliastur indus
+- Gyps bengalensis
+- Mycobacterium tuberculosis
+- Salmonella enterica
+- Streptococcus pneumoniae
+- Lactobacillus acidophilus
+- Saccharomyces cerevisiae
+- Penicillium chrysogenum
+- Amoeba proteus
+- Paramecium caudatum
+- Bacillus anthracis
+- Clostridium tetani
+- Lawsonia inermis
+- Trigonella foenum-graecum
+- Nigella sativa
+- Asparagus racemosus
+- Rauvolfia serpentina
+- Terminalia arjuna
+- Glycyrrhiza glabra
+- Tinospora cordifolia
+- Santalum album
+- Nyctanthes arbor-tristis
+- Neolamarckia cadamba
+- Mesua ferrea
+- Saraca asoca
+- Clitoria ternatea
+- Mirabilis jalapa
+- Bauhinia variegata
+- Murraya paniculata
+- Bougainvillea spectabilis
+- Dahlia pinnata
+- Eichhornia crassipes
+- Lens culinaris
+- Vigna radiata
+- Vigna mungo
+- Cicer arietinum
+- Pisum sativum
+- Cajanus cajan
+- Sorghum bicolor
+- Pennisetum glaucum
+- Hordeum vulgare
+- Avena sativa
+- Sesamum indicum
+- Linum usitatissimum
+- Anacardium occidentale
+- Prunus dulcis
+- Pistacia vera
+- Juglans regia
+- Ricinus communis
+- Murraya koenigii
+- Ipomoea batatas
+- Gorilla gorilla
+- Pan troglodytes
+- Pongo pygmaeus
+- Macaca mulatta
+- Semnopithecus entellus
+- Ailurus fulgens
+- Melursus ursinus
+- Ursus arctos
+- Panthera uncia
+- Panthera onca
+- Canis lupus pallipes
+- Rusa unicolor
+- Antilope cervicapra
+- Boselaphus tragocamelus
+- Bos gaurus
+- Sus scrofa
+- Erinaceus europaeus
+- Lutra lutra
+- Phascolarctos cinereus
+- Vicugna pacos
+- Eudynamys scolopaceus
+- Psittacula krameri
+- Spilopelia chinensis
+- Dinopium benghalense
+- Dicrurus macrocercus
+- Leucogeranus leucogeranus
+- Buceros bicornis
+- Gracula religiosa
+- Musca domestica
+- Solenopsis invicta
+- Coptotermes formosanus
+- Danaus plexippus
+- Schistocerca gregaria
+- Cimex lectularius
+- Pediculus humanus capitis
+- Anopheles gambiae
+- Ptyas mucosa
+- Python molurus
+- Gavialis gangeticus
+- Hemidactylus flaviviridis
+- Tyrannosaurus rex
+- Raphus cucullatus
+- Mammuthus primigenius
+- Thylacinus cynocephalus
+- Otodus megalodon
+- Ectopistes migratorius
+- Yersinia pestis
+- Mycobacterium leprae
+- Treponema pallidum
+- Clostridium botulinum
+- Clostridium perfringens
+- Candida albicans
+- Aspergillus niger
+- Erysiphe necator
+- Rhizobium leguminosarum
+- Anabaena azollae
+- Arthrospira platensis
+- Thalassiosira pseudonana
+- Leishmania donovani
+- Wuchereria bancrofti
+- Calotropis gigantea
+- Datura stramonium
+- Piper betle
+- Areca catechu
+- Crocus sativus
+- Vanilla planifolia
+- Trachyspermum ammi
+- Foeniculum vulgare
+- Amaranthus tricolor
+- Ipomoea aquatica
+- Basella alba
+- Enhydra fluctuans
+- Brassica oleracea var. gongylodes
+- Brassica rapa subsp. rapa
+- Beta vulgaris
+- Brassica oleracea var. italica
+- Capsicum annuum var. grossum
+- Trichosanthes cucumerina
+- Luffa acutangula
+- Luffa aegyptiaca
+- Alstonia scholaris
+- Ceiba pentandra
+- Lagerstroemia speciosa
+- Couroupita guianensis
+- Cassia fistula
+- Barringtonia acutangula
+- Mimusops elengi
+- Cestrum nocturnum
+- Gardenia jasminoides
+- Agave amica
+- Nymphaea nouchali var. caerulea
+- Dendrobium nobile
+- Tulipa gesneriana
+- Dianthus caryophyllus
+- Chrysanthemum morifolium
+- Lilium candidum
+- Euphorbia pulcherrima
+- Zinnia elegans
+- Ophiocordyceps sinensis
+- Penicillium notatum
+- Puma concolor
+- Lynx lynx
+- Cuon alpinus
+- Canis latrans
+- Canis dingo
+- Ursus arctos horribilis
+- Helarctos malayanus
+- Cerastes cerastes
+- Dendroaspis polylepis
+- Oxyuranus microlepidotus
+- Eunectes murinus
+- Boa constrictor
+- Alligator mississippiensis
+- Varanus komodoensis
+- Varanus salvator
+- Castor fiber
+- Cavia porcellus
+- Mesocricetus auratus
+- Hydrochoerus hydrochaeris
+- Dasypus novemcinctus
+- Aquila chrysaetos
+- Falco peregrinus
+- Bubo virginianus
+- Anser anser
+- Phoenicopterus roseus
+- Pelecanus onocrotalus
+- Fratercula arctica
+- Thunnus albacares
+- Salmo salar
+- Oncorhynchus mykiss
+- Anguilla anguilla
+- Pygocentrus nattereri
+- Sphyrna lewini
+- Electrophorus electricus
+- Carassius auratus
+- Poecilia reticulata
+- Hippocampus comes
+- Architeuthis dux
+- Homarus americanus
+- Strongylocentrotus purpuratus
+- Variola virus
+- Varicella zoster virus
+- Measles morbillivirus
+- Rabies lyssavirus
+- Dengue virus
+- Enterovirus C
+- Influenza A virus
+- Hepatitis B virus
+- Human immunodeficiency virus
+- Zaire ebolavirus
+- Bordetella pertussis
+- Corynebacterium diphtheriae
+- Staphylococcus aureus
+- Pseudomonas aeruginosa
+- Helicobacter pylori
+- Neisseria gonorrhoeae
+- Giardia duodenalis
+- Toxoplasma gondii
+- Entamoeba histolytica
+- Taenia solium
+- Hydra vulgaris
+- Fasciola hepatica
+- Gallus gallus
+
+## Skipped (fix the name or add by hand)
+- Bubalus arnee: already in the database as "Bubalus bubalis"
+- Hippocampus erectus: GBIF has no class for this name
+- Salmonella typhi: already in the database as "Salmonella enterica"
+
+## Notes
+- Rana temporaria: no Bengali name
+- Plumeria pudica: no common name found, scientific name used
+- Plumeria pudica: no Japanese name
+- Nymphaea pubescens: no Japanese name
+- Hemidesmus indicus: no common name found, scientific name used
+- Hemidesmus indicus: no Japanese name
+- Boerhavia diffusa: no Bengali name
+- Trichosanthes dioica: no Japanese name
+- Macaca radiata: no Bengali name
+- Moschus chrysogaster: no Bengali name
+- Zalophus californianus: no Bengali name
+- Trichechus manatus: no Bengali name
+- Gallinago gallinago: no Bengali name
+- Anas platyrhynchos domesticus: no Bengali name
+- Anas platyrhynchos domesticus: no Japanese name
+- Chironex fleckeri: no common name found, scientific name used
+- Chironex fleckeri: no Bengali name
+- Legionella pneumophila: no common name found, scientific name used
+- Legionella pneumophila: no Bengali name
+- Chlamydia trachomatis: no common name found, scientific name used
+- Shigella dysenteriae: no common name found, scientific name used
+- Shigella dysenteriae: no Bengali name
+
+Data sources: GBIF (classification), Wikipedia and Wikidata (names).
