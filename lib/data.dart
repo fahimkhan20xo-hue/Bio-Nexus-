@@ -37,6 +37,9 @@ class Species {
   final String kingdom, phylum, klass, order, family, genus, species;
   final String pronunciation, description;
 
+  /// True when this record was looked up online by the user (not verified).
+  final bool fromOnline;
+
   const Species({
     required this.scientific,
     required this.common,
@@ -51,6 +54,7 @@ class Species {
     required this.species,
     required this.pronunciation,
     required this.description,
+    this.fromOnline = false,
   });
 
   /// Required keys: scientific, common, bangla, kingdom, phylum, class, order, family.
@@ -74,8 +78,26 @@ class Species {
       species: g('species', parts.length > 1 ? parts[1] : ''),
       pronunciation: g('pronunciation'),
       description: g('description'),
+      fromOnline: j['online'] == true,
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'scientific': scientific,
+        'common': common,
+        'bangla': bangla,
+        'japanese': japanese,
+        'kingdom': kingdom,
+        'phylum': phylum,
+        'class': klass,
+        'order': order,
+        'family': family,
+        'genus': genus,
+        'species': species,
+        'pronunciation': pronunciation,
+        'description': description,
+        'online': fromOnline,
+      };
 
   /// Main display name in the chosen language (falls back to English).
   String name(Lang l) {
@@ -99,6 +121,76 @@ class Species {
 }
 
 List<Species> speciesData = [];
+
+/// Species the user looked up online. Saved on the device and kept across updates.
+List<Species> userSpecies = [];
+
+Future<File> _userFile() async {
+  final dir = await getApplicationSupportDirectory();
+  return File('${dir.path}/bionexus_user_species.json');
+}
+
+Future<List<Species>> _readUserSpecies() async {
+  try {
+    final f = await _userFile();
+    if (!await f.exists()) return [];
+    final raw = jsonDecode(await f.readAsString());
+    if (raw is! List) return [];
+    final out = <Species>[];
+    for (final item in raw) {
+      if (item is Map) {
+        final m = Map<String, dynamic>.from(item);
+        m['online'] = true;
+        out.add(Species.fromJson(m));
+      }
+    }
+    return out;
+  } catch (e) {
+    debugPrint('Could not read online-added species: $e');
+    return [];
+  }
+}
+
+Future<void> _writeUserSpecies() async {
+  try {
+    final f = await _userFile();
+    await f.writeAsString(jsonEncode(userSpecies.map((s) => s.toJson()).toList()), flush: true);
+  } catch (e) {
+    debugPrint('Could not save online-added species: $e');
+  }
+}
+
+/// Built-in species plus the user's online-added ones (built-in wins on duplicates).
+List<Species> _mergeUser(List<Species> base) {
+  final have = base.map((s) => s.scientific.toLowerCase()).toSet();
+  final out = [...base];
+  for (final s in userSpecies) {
+    if (have.add(s.scientific.toLowerCase())) out.add(s);
+  }
+  out.sort((a, b) => a.scientific.compareTo(b.scientific));
+  return out;
+}
+
+/// Adds an online-found species to the app (and saves it). Returns the stored record.
+Future<Species> addUserSpecies(Species s) async {
+  final key = s.scientific.toLowerCase();
+  for (final e in speciesData) {
+    if (e.scientific.toLowerCase() == key) return e;
+  }
+  userSpecies = [...userSpecies, s];
+  speciesData = _mergeUser(speciesData);
+  await _writeUserSpecies();
+  return s;
+}
+
+/// Removes every online-added species. Returns how many were removed.
+Future<int> clearUserSpecies() async {
+  final n = speciesData.where((s) => s.fromOnline).length;
+  userSpecies = [];
+  speciesData = speciesData.where((s) => !s.fromOnline).toList();
+  await _writeUserSpecies();
+  return n;
+}
 
 /// Version of the online database currently installed (0 = built-in data only).
 int speciesDbVersion = 0;
@@ -209,11 +301,12 @@ Future<List<Species>> loadSpecies() async {
   }
 
   final cache = await _readCache();
+  userSpecies = await _readUserSpecies();
   if (cache != null && cache.version > 0 && cache.species.isNotEmpty) {
     speciesDbVersion = cache.version;
-    return cache.species;
+    return _mergeUser(cache.species);
   }
-  return bundled;
+  return _mergeUser(bundled);
 }
 
 /// Checks GitHub periodically and safely replaces the local cache only after
@@ -259,7 +352,7 @@ Future<bool> syncRemoteSpecies({VoidCallback? onUpdated, bool force = false}) as
     final minimumCount = speciesData.isEmpty ? 1 : (speciesData.length * 0.8).floor();
     final updated = _decodeSpecies(dataResponse.body, minimumCount: minimumCount);
     await _writeCache(remoteVersion, updated);
-    speciesData = updated;
+    speciesData = _mergeUser(updated);
     speciesDbVersion = remoteVersion;
     if (force) lastSyncStatus = 'updated';
     onUpdated?.call();

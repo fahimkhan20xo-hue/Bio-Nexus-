@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'data.dart';
 import 'quiz.dart';
 import 'images.dart';
+import 'online.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -309,14 +310,79 @@ class _HomePageState extends State<HomePage> {
       ),
       Expanded(
         child: list.isEmpty
-            ? Center(child: Text(t('No species found.', 'কোনো প্রজাতি পাওয়া যায়নি।', '見つかりませんでした。')))
+            ? Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                    Text(t('No species found.', 'কোনো প্রজাতি পাওয়া যায়নি।', '見つかりませんでした。')),
+                    if (_canSearchOnline) ...[
+                      const SizedBox(height: 14),
+                      _onlineButton(),
+                    ],
+                  ]),
+                ),
+              )
             : ListView.builder(
                 padding: const EdgeInsets.fromLTRB(16, 4, 16, 18),
-                itemCount: list.length,
-                itemBuilder: (context, i) => _speciesCard(list[i]),
+                itemCount: list.length + (_canSearchOnline ? 1 : 0),
+                itemBuilder: (context, i) => i < list.length
+                    ? _speciesCard(list[i])
+                    : Padding(padding: const EdgeInsets.only(top: 4), child: _onlineButton()),
               ),
       ),
     ]);
+  }
+
+  bool get _canSearchOnline => tab != 2 && query.trim().length >= 3;
+
+  Widget _onlineButton() => OutlinedButton.icon(
+        icon: const Icon(Icons.public),
+        label: Text(t('Not found? Search online', 'পাচ্ছো না? অনলাইনে খোঁজো', '見つからない?オンラインで検索')),
+        onPressed: _searchOnline,
+      );
+
+  Future<void> _searchOnline() async {
+    final q = query.trim();
+    final nav = Navigator.of(context);
+    final messenger = ScaffoldMessenger.of(context);
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => AlertDialog(
+        content: Row(children: [
+          const SizedBox(width: 24, height: 24, child: CircularProgressIndicator(strokeWidth: 2.5)),
+          const SizedBox(width: 16),
+          Expanded(child: Text(t('Searching online...', 'অনলাইনে খোঁজা হচ্ছে...', 'オンラインで検索中...'))),
+        ]),
+      ),
+    );
+    final r = await lookupOnline(q);
+    if (!mounted) return;
+    nav.pop();
+    final found = r.species;
+    if (found == null) {
+      final String msg;
+      switch (r.error) {
+        case 'offline':
+          msg = t('No internet connection.', 'ইন্টারনেট সংযোগ পাওয়া যায়নি।', 'インターネットに接続できません。');
+          break;
+        case 'incomplete':
+          msg = t('Found, but its classification is incomplete, so it cannot be added.',
+              'পাওয়া গেছে, কিন্তু শ্রেণিবিন্যাস অসম্পূর্ণ, তাই যোগ করা যায়নি।',
+              '見つかりましたが、分類が不完全なため追加できません。');
+          break;
+        default:
+          msg = t('Not found online either. Try the English or scientific name.',
+              'অনলাইনেও পাওয়া যায়নি। ইংরেজি বা বৈজ্ঞানিক নাম দিয়ে চেষ্টা করো।',
+              'オンラインでも見つかりません。英語名か学名でお試しください。');
+      }
+      messenger.showSnackBar(SnackBar(content: Text(msg)));
+      return;
+    }
+    final stored = await addUserSpecies(found);
+    if (!mounted) return;
+    setState(() {});
+    nav.push(MaterialPageRoute(builder: (_) => SpeciesPage(species: stored, lang: lang)));
   }
 
   Widget _speciesCard(Species s) => Card(
@@ -462,6 +528,19 @@ class _HomePageState extends State<HomePage> {
               setState(() {});
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.public_off),
+            title: Text(t('Remove online-added species', 'অনলাইন থেকে যোগ করা প্রজাতি মুছো', 'オンライン追加の種を削除')),
+            subtitle: Text('${speciesData.where((s) => s.fromOnline).length}'),
+            onTap: () async {
+              final n = await clearUserSpecies();
+              if (!mounted) return;
+              setState(() {});
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text('${t('Removed', 'মুছে ফেলা হয়েছে', '削除しました')}: $n'),
+              ));
+            },
+          ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.storage),
@@ -514,6 +593,18 @@ class SpeciesPage extends StatelessWidget {
                 leading: const Icon(Icons.record_voice_over),
                 title: Text(t('Pronunciation guide', 'উচ্চারণ নির্দেশিকা', '発音ガイド')),
                 subtitle: Text(species.pronunciation),
+              ),
+            ),
+          ],
+          if (species.fromOnline) ...[
+            const SizedBox(height: 12),
+            Card(
+              child: ListTile(
+                leading: const Icon(Icons.public),
+                title: Text(t('Added from online sources', 'অনলাইন থেকে যোগ করা', 'オンラインから追加')),
+                subtitle: Text(t('Data from GBIF, Wikipedia and Wikidata. Not verified yet, please double check.',
+                    'GBIF, Wikipedia ও Wikidata থেকে নেওয়া তথ্য। এখনো যাচাই করা হয়নি, নিজে মিলিয়ে নিও।',
+                    'GBIF・Wikipedia・Wikidataのデータです。未確認のため、ご自身でご確認ください。')),
               ),
             ),
           ],
