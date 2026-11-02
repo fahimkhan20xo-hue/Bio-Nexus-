@@ -1,0 +1,38 @@
+name: Sync species database
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'database/names.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch species details
+        run: python sync_species.py
+
+      - name: Commit updated database
+        run: |
+          git config user.name "bionexus-bot"
+          git config user.email "bionexus-bot@users.noreply.github.com"
+          git add database
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Sync species database"
+            git push
+          fi
