@@ -409,3 +409,34 @@ Taenia solium | টেনিয়া সোলিয়াম
 Hydra vulgaris | হাইড্রা ভালগারিস
 Fasciola hepatica | ফ্যাসিওলা হেপাটিকা
 Gallus gallus | গ্যালাস গ্যালাস
+
+# --- Part 5 (401-430): new species. (Panthera uncia #411 is already in the app, so it is left out.) ---
+Barringtonia racemosa | ব্যারিংটনিয়া রেসিমোসা
+Plumeria pudica | প্লুমেরিয়া পিউডিকা
+Nymphaea pubescens | নিম্ফিয়া পিউবেসেন্স
+Hemidesmus indicus | হেমিডেসমাস ইন্ডিকাস
+Boerhavia diffusa | বোয়েরহাভিয়া ডিফিউসা
+Centella asiatica | সেন্টেলা এশিয়াটিকা
+Dioscorea alata | ডায়োসকোরিয়া অ্যালাটা
+Euryale ferox | ইউরিয়ালি ফেরক্স
+Trichosanthes dioica | ট্রাইকোস্যানথিস ডায়োইকা
+Musa balbisiana | মুসা বালবিসিয়ানা
+Neofelis nebulosa | নিওফেলিস নেবুলোসা
+Macaca radiata | ম্যাকাকা র‍্যাডিয়াটা
+Bubalus arnee | বুবালাস আর্নি
+Ursus thibetanus | আরসাস থিবেটানাস
+Moschus chrysogaster | মোসকাস ক্রাইসোগ্যাস্টার
+Lycaon pictus | লাইকাওন পিকটাস
+Odobenus rosmarus | ওডোবেনাস রসমারাস
+Zalophus californianus | জ্যালোফাস ক্যালিফর্নিয়ানাস
+Trichechus manatus | ট্রাইকেকাস ম্যানাটাস
+Dendrocitta vagabunda | ডেনড্রোসিট্টা ভ্যাগাবুন্ডা
+Microcarbo niger | মাইক্রোকার্বো নাইগার
+Gallinago gallinago | গ্যালিনাগো গ্যালিনাগো
+Anas platyrhynchos domesticus | অ্যানাস প্ল্যাটিরিঙ্কোস ডোমেস্টিকাস
+Hippocampus erectus | হিপ্পোক্যাম্পাস ইরেকটাস
+Chironex fleckeri | কাইরোনেক্স ফ্লেকেরি
+Legionella pneumophila | লিজিয়োনেলা নিউমোফিলা
+Salmonella typhi | সালমোনেলা টাইফি
+Chlamydia trachomatis | ক্ল্যামিডিয়া ট্র্যাকোম্যাটিস
+Shigella dysenteriae | শিগেলা ডিসেন্টেরিয়ে
