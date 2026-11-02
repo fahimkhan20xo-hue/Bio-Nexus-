@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'data.dart';
 import 'quiz.dart';
+import 'images.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,7 @@ class _BioNexusAppState extends State<BioNexusApp> {
     loadAppPrefs().then((p) {
       if (p != null && mounted) setState(() { lang = p.lang; dark = p.dark; });
     });
+    loadPhotoPref();
     // The bundled/cached database is already available; this refresh runs in
     // the background and rebuilds the UI only if a newer database is installed.
     syncRemoteSpecies(onUpdated: () {
@@ -326,9 +328,12 @@ class _HomePageState extends State<HomePage> {
         ),
         child: ListTile(
           contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-          leading: CircleAvatar(
-            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-            child: Icon(Icons.biotech, color: Theme.of(context).colorScheme.onPrimaryContainer),
+          leading: SpeciesThumb(
+            scientific: s.scientific,
+            fallback: CircleAvatar(
+              backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+              child: Icon(Icons.biotech, color: Theme.of(context).colorScheme.onPrimaryContainer),
+            ),
           ),
           title: Text(s.scientific, style: const TextStyle(fontWeight: FontWeight.bold, fontStyle: FontStyle.italic)),
           subtitle: Padding(
@@ -406,6 +411,29 @@ class _HomePageState extends State<HomePage> {
             title: Text(t('Dark mode', 'ডার্ক মোড', 'ダークモード')),
             secondary: const Icon(Icons.dark_mode),
           ),
+          ValueListenableBuilder<bool>(
+            valueListenable: savePhotos,
+            builder: (context, on, _) => SwitchListTile(
+              value: on,
+              onChanged: (v) => setSavePhotos(v),
+              title: Text(t('Save photos on device', 'ছবি ডিভাইসে সেভ করো', '写真を端末に保存')),
+              subtitle: Text(on
+                  ? t('Saved photos also work offline.', 'সেভ করা ছবি অফলাইনেও দেখা যাবে।', '保存した写真はオフラインでも見られます。')
+                  : t('Photos show only when online and are not saved.', 'ছবি শুধু অনলাইনে দেখা যাবে, সেভ হবে না।', '写真はオンライン時のみ表示され、保存されません。')),
+              secondary: const Icon(Icons.photo_library),
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.delete_outline),
+            title: Text(t('Delete saved photos', 'সেভ করা ছবি মুছে ফেলো', '保存した写真を削除')),
+            onTap: () async {
+              final n = await clearSavedPhotos();
+              if (!mounted) return;
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text('${t('Deleted', 'মুছে ফেলা হয়েছে', '削除しました')}: $n'),
+              ));
+            },
+          ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.storage),
@@ -443,14 +471,7 @@ class SpeciesPage extends StatelessWidget {
       body: ScienceBackground(child: ListView(
         padding: const EdgeInsets.all(18),
         children: [
-          Container(
-            height: 145,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(22),
-              gradient: const LinearGradient(colors: [Color(0xFF075E54), Color(0xFF15947D)]),
-            ),
-            child: const Center(child: Icon(Icons.biotech, color: Colors.white, size: 72)),
-          ),
+          SpeciesHero(scientific: species.scientific, lang: lang),
           const SizedBox(height: 18),
           Text(species.scientific, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontStyle: FontStyle.italic, fontWeight: FontWeight.bold)),
           const SizedBox(height: 5),
