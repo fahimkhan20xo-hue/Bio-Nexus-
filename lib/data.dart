@@ -100,6 +100,12 @@ class Species {
 
 List<Species> speciesData = [];
 
+/// Version of the online database currently installed (0 = built-in data only).
+int speciesDbVersion = 0;
+
+/// Result of the last forced check: 'updated', 'latest' or 'error'.
+String lastSyncStatus = '';
+
 // Public, read-only database hosted in this app's GitHub repository.
 const String _remoteManifestUrl =
     'https://raw.githubusercontent.com/fahimkhan20xo-hue/Bio-Nexus-/main/database/version.json';
@@ -204,6 +210,7 @@ Future<List<Species>> loadSpecies() async {
 
   final cache = await _readCache();
   if (cache != null && cache.version > 0 && cache.species.isNotEmpty) {
+    speciesDbVersion = cache.version;
     return cache.species;
   }
   return bundled;
@@ -212,11 +219,12 @@ Future<List<Species>> loadSpecies() async {
 /// Checks GitHub periodically and safely replaces the local cache only after
 /// the manifest, downloaded JSON, and record schema have all been validated.
 /// Returns true only when a newer database was installed.
-Future<bool> syncRemoteSpecies({VoidCallback? onUpdated}) async {
+Future<bool> syncRemoteSpecies({VoidCallback? onUpdated, bool force = false}) async {
   try {
     final cache = await _readCache();
     final now = DateTime.now().toUtc();
-    if (cache?.checkedAt != null &&
+    if (!force &&
+        cache?.checkedAt != null &&
         now.difference(cache!.checkedAt!) < _checkInterval) {
       return false;
     }
@@ -236,6 +244,7 @@ Future<bool> syncRemoteSpecies({VoidCallback? onUpdated}) async {
     final localVersion = cache?.version ?? 0;
     if (remoteVersion <= localVersion) {
       if (cache != null) await _writeCache(cache.version, cache.species);
+      if (force) lastSyncStatus = 'latest';
       return false;
     }
 
@@ -251,12 +260,15 @@ Future<bool> syncRemoteSpecies({VoidCallback? onUpdated}) async {
     final updated = _decodeSpecies(dataResponse.body, minimumCount: minimumCount);
     await _writeCache(remoteVersion, updated);
     speciesData = updated;
+    speciesDbVersion = remoteVersion;
+    if (force) lastSyncStatus = 'updated';
     onUpdated?.call();
     debugPrint('BioNexus database updated to version $remoteVersion (${updated.length} records).');
     return true;
   } catch (e) {
     // Network or validation failures never replace the last known-good data.
     debugPrint('BioNexus online database check skipped: $e');
+    if (force) lastSyncStatus = 'error';
     return false;
   }
 }

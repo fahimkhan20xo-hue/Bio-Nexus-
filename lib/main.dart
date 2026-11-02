@@ -434,6 +434,34 @@ class _HomePageState extends State<HomePage> {
               ));
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.sync),
+            title: Text(t('Check for database update', 'ডেটাবেস আপডেট দেখো', 'データベースの更新を確認')),
+            subtitle: Text(
+              '${t('Version', 'সংস্করণ', 'バージョン')}: ${speciesDbVersion == 0 ? t('built-in', 'বিল্ট-ইন', '内蔵') : speciesDbVersion} • ${speciesData.length} ${t('species', 'টি প্রজাতি', '種')}',
+            ),
+            onTap: () async {
+              final messenger = ScaffoldMessenger.of(context);
+              messenger.showSnackBar(SnackBar(content: Text(t('Checking...', 'দেখা হচ্ছে...', '確認中...'))));
+              final updated = await syncRemoteSpecies(force: true, onUpdated: () {
+                if (mounted) setState(() {});
+              });
+              if (!mounted) return;
+              final String msg;
+              if (updated) {
+                msg = t('Updated to version $speciesDbVersion (${speciesData.length} species).',
+                    'আপডেট হয়েছে: সংস্করণ $speciesDbVersion (${speciesData.length} টি প্রজাতি)।',
+                    'バージョン$speciesDbVersionに更新しました(${speciesData.length}種)。');
+              } else if (lastSyncStatus == 'error') {
+                msg = t('Could not check. Please check your internet.', 'চেক করা যায়নি, ইন্টারনেট দেখো।', '確認できませんでした。インターネットを確認してください。');
+              } else {
+                msg = t('Already up to date (version $speciesDbVersion).', 'ডেটাবেস এখনই সর্বশেষ (সংস্করণ $speciesDbVersion)।', 'すでに最新です(バージョン$speciesDbVersion)。');
+              }
+              messenger.hideCurrentSnackBar();
+              messenger.showSnackBar(SnackBar(content: Text(msg)));
+              setState(() {});
+            },
+          ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.storage),
