@@ -41,6 +41,16 @@ jobs:
       - name: Generate Android platform files
         run: flutter create . --platforms=android --project-name=bionexus
 
+      - name: Debug Dart files
+        run: |
+          echo "Dart files:"
+          find . -type f \( -name 'main.dart' -o -name 'quiz.dart' -o -name 'data.dart' \) -print
+          echo "lib directory:"
+          ls -la lib/
+          echo "Check quiz.dart:"
+          test -f lib/quiz.dart && echo "quiz.dart EXISTS" || echo "quiz.dart MISSING"
+          grep -n "class QuizPage" lib/quiz.dart || true
+
       - name: Get dependencies
         run: flutter pub get
 
