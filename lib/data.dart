@@ -1,7 +1,10 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 
 /// Interface languages.
 enum Lang { en, bn, ja }
@@ -97,22 +100,163 @@ class Species {
 
 List<Species> speciesData = [];
 
-/// Loads every species from assets/species.json (sorted A-Z, duplicates skipped).
-Future<List<Species>> loadSpecies() async {
-  try {
-    final raw = await rootBundle.loadString('assets/species.json');
-    final list = (jsonDecode(raw) as List).cast<Map<String, dynamic>>();
-    final seen = <String>{};
-    final out = <Species>[];
-    for (final j in list) {
-      final s = Species.fromJson(j);
-      if (s.scientific.isEmpty || !seen.add(s.scientific.toLowerCase())) continue;
-      out.add(s);
+// Public, read-only database hosted in this app's GitHub repository.
+const String _remoteManifestUrl =
+    'https://raw.githubusercontent.com/fahimkhan20xo-hue/Bio-Nexus-/main/database/version.json';
+const String _remoteSpeciesUrl =
+    'https://raw.githubusercontent.com/fahimkhan20xo-hue/Bio-Nexus-/main/database/species.json';
+const Duration _networkTimeout = Duration(seconds: 15);
+const Duration _checkInterval = Duration(hours: 6);
+
+class _SpeciesCache {
+  final int version;
+  final DateTime? checkedAt;
+  final List<Species> species;
+  const _SpeciesCache(this.version, this.checkedAt, this.species);
+}
+
+Future<File> _cacheFile() async {
+  final dir = await getApplicationSupportDirectory();
+  return File('${dir.path}/bionexus_species_cache.json');
+}
+
+List<Species> _decodeSpecies(String raw, {int minimumCount = 1}) {
+  final decoded = jsonDecode(raw);
+  if (decoded is! List || decoded.length < minimumCount) {
+    throw const FormatException('Species database is empty or incomplete.');
+  }
+
+  final seen = <String>{};
+  final out = <Species>[];
+  for (final item in decoded) {
+    if (item is! Map) throw const FormatException('Invalid species record.');
+    final json = Map<String, dynamic>.from(item);
+    for (final key in ['scientific', 'common', 'kingdom', 'phylum', 'class', 'order', 'family']) {
+      if ((json[key] ?? '').toString().trim().isEmpty) {
+        throw FormatException('A species record is missing "$key".');
+      }
     }
-    out.sort((a, b) => a.scientific.compareTo(b.scientific));
-    return out;
+    final species = Species.fromJson(json);
+    if (seen.add(species.scientific.toLowerCase())) out.add(species);
+  }
+
+  if (out.length < minimumCount) {
+    throw const FormatException('Species database contains too few unique records.');
+  }
+  out.sort((a, b) => a.scientific.compareTo(b.scientific));
+  return out;
+}
+
+Future<_SpeciesCache?> _readCache() async {
+  try {
+    final file = await _cacheFile();
+    if (!await file.exists()) return null;
+    final envelope = jsonDecode(await file.readAsString()) as Map<String, dynamic>;
+    final version = (envelope['version'] as num?)?.toInt() ?? 0;
+    final checked = DateTime.tryParse((envelope['checkedAt'] ?? '').toString());
+    final rawData = jsonEncode(envelope['data']);
+    final cachedSpecies = _decodeSpecies(rawData);
+    return _SpeciesCache(version, checked, cachedSpecies);
   } catch (e) {
-    debugPrint('Could not load species.json: $e');
-    return [];
+    debugPrint('Ignoring invalid BioNexus cache: $e');
+    return null;
+  }
+}
+
+Future<void> _writeCache(int version, List<Species> species) async {
+  final file = await _cacheFile();
+  final temp = File('${file.path}.tmp');
+  final payload = <String, dynamic>{
+    'version': version,
+    'checkedAt': DateTime.now().toUtc().toIso8601String(),
+    'data': species
+        .map((s) => {
+              'scientific': s.scientific,
+              'common': s.common,
+              'bangla': s.bangla,
+              'japanese': s.japanese,
+              'kingdom': s.kingdom,
+              'phylum': s.phylum,
+              'class': s.klass,
+              'order': s.order,
+              'family': s.family,
+              'genus': s.genus,
+              'species': s.species,
+              'pronunciation': s.pronunciation,
+              'description': s.description,
+            })
+        .toList(),
+  };
+  await temp.writeAsString(jsonEncode(payload), flush: true);
+  await temp.rename(file.path);
+}
+
+/// Loads the bundled database first, then uses a valid newer on-device cache.
+/// This keeps the app usable offline and avoids blocking startup on the network.
+Future<List<Species>> loadSpecies() async {
+  List<Species> bundled;
+  try {
+    bundled = _decodeSpecies(await rootBundle.loadString('assets/species.json'));
+  } catch (e) {
+    debugPrint('Could not load bundled species.json: $e');
+    bundled = [];
+  }
+
+  final cache = await _readCache();
+  if (cache != null && cache.version > 0 && cache.species.isNotEmpty) {
+    return cache.species;
+  }
+  return bundled;
+}
+
+/// Checks GitHub periodically and safely replaces the local cache only after
+/// the manifest, downloaded JSON, and record schema have all been validated.
+/// Returns true only when a newer database was installed.
+Future<bool> syncRemoteSpecies({VoidCallback? onUpdated}) async {
+  try {
+    final cache = await _readCache();
+    final now = DateTime.now().toUtc();
+    if (cache?.checkedAt != null &&
+        now.difference(cache!.checkedAt!) < _checkInterval) {
+      return false;
+    }
+
+    final manifestResponse = await http
+        .get(Uri.parse(_remoteManifestUrl))
+        .timeout(_networkTimeout);
+    if (manifestResponse.statusCode != 200) {
+      throw HttpException('Manifest request returned ${manifestResponse.statusCode}.');
+    }
+    final manifest = jsonDecode(manifestResponse.body) as Map<String, dynamic>;
+    final remoteVersion = (manifest['version'] as num?)?.toInt();
+    if (remoteVersion == null || remoteVersion < 1) {
+      throw const FormatException('Invalid database version manifest.');
+    }
+
+    final localVersion = cache?.version ?? 0;
+    if (remoteVersion <= localVersion) {
+      if (cache != null) await _writeCache(cache.version, cache.species);
+      return false;
+    }
+
+    final dataResponse = await http
+        .get(Uri.parse(_remoteSpeciesUrl))
+        .timeout(_networkTimeout);
+    if (dataResponse.statusCode != 200) {
+      throw HttpException('Database request returned ${dataResponse.statusCode}.');
+    }
+
+    // The remote file is the complete master list, not an additions-only patch.
+    final minimumCount = speciesData.isEmpty ? 1 : (speciesData.length * 0.8).floor();
+    final updated = _decodeSpecies(dataResponse.body, minimumCount: minimumCount);
+    await _writeCache(remoteVersion, updated);
+    speciesData = updated;
+    onUpdated?.call();
+    debugPrint('BioNexus database updated to version $remoteVersion (${updated.length} records).');
+    return true;
+  } catch (e) {
+    // Network or validation failures never replace the last known-good data.
+    debugPrint('BioNexus online database check skipped: $e');
+    return false;
   }
 }
