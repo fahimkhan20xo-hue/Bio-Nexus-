@@ -1,93 +1,641 @@
+import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'data.dart';
+
+// ---------------------------------------------------------------------------
+// Saved app settings (language + theme). Stored in a small JSON file so they
+// survive closing the app. Uses path_provider, which the app already has.
+// ---------------------------------------------------------------------------
+
+class AppPrefs {
+  final Lang lang;
+  final bool dark;
+  const AppPrefs(this.lang, this.dark);
+}
+
+Future<File> _prefsFile() async {
+  final dir = await getApplicationSupportDirectory();
+  return File('${dir.path}/bionexus_prefs.json');
+}
+
+Future<AppPrefs?> loadAppPrefs() async {
+  try {
+    final f = await _prefsFile();
+    if (!await f.exists()) return null;
+    final m = jsonDecode(await f.readAsString()) as Map<String, dynamic>;
+    final i = Lang.values.indexWhere((l) => l.name == m['lang']);
+    return AppPrefs(i < 0 ? Lang.bn : Lang.values[i], m['dark'] == true);
+  } catch (e) {
+    debugPrint('Could not load prefs: $e');
+    return null;
+  }
+}
+
+Future<void> saveAppPrefs(Lang lang, bool dark) async {
+  try {
+    final f = await _prefsFile();
+    await f.writeAsString(jsonEncode({'lang': lang.name, 'dark': dark}), flush: true);
+  } catch (e) {
+    debugPrint('Could not save prefs: $e');
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Quiz
+// ---------------------------------------------------------------------------
+
+enum _Stage { setup, running, result }
+
+enum _QType { sci, family, order }
+
+enum _Mode { sci, family, order, mixed }
+
+class _Q {
+  final _QType type;
+  final Species s;
+  final String answer;
+  final List<String> options;
+  const _Q(this.type, this.s, this.answer, this.options);
+}
+
+class _Miss {
+  final _Q q;
+  final String picked;
+  const _Miss(this.q, this.picked);
+}
 
 class QuizPage extends StatefulWidget {
   final Lang lang;
   const QuizPage({super.key, required this.lang});
+
   @override
   State<QuizPage> createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
   final _rng = Random();
-  late Species _answer;
-  late List<Species> _options;
-  int _score = 0, _total = 0;
-  Species? _picked;
+  _Stage stage = _Stage.setup;
+  int count = 10;
+  _Mode mode = _Mode.mixed;
+  List<_Q> questions = [];
+  List<_Miss> misses = [];
+  int index = 0;
+  int score = 0;
+  String? picked;
 
-  String t(String en, String bn, String ja) => tr(widget.lang, en, bn, ja);
+  Lang get lang => widget.lang;
+  String t(String en, String bn, String ja) => tr(lang, en, bn, ja);
 
-  @override
-  void initState() {
-    super.initState();
-    _next();
+  // ---------- building questions ----------
+
+  String _value(_QType type, Species s) =>
+      type == _QType.sci ? s.scientific : (type == _QType.family ? s.family : s.order);
+
+  Species? _bySci(String name) {
+    for (final s in speciesData) {
+      if (s.scientific == name) return s;
+    }
+    return null;
+  }
+
+  Species? _example(_QType type, String value, Species except) {
+    final list = speciesData.where((e) => _value(type, e) == value && e.scientific != except.scientific).toList();
+    return list.isEmpty ? null : list[_rng.nextInt(list.length)];
+  }
+
+  List<String> _makeOptions(_QType type, Species s, String answer) {
+    final same = speciesData
+        .where((e) => e.kingdom == s.kingdom)
+        .map((e) => _value(type, e))
+        .where((v) => v.isNotEmpty && v != answer)
+        .toSet()
+        .toList()
+      ..shuffle(_rng);
+    final other = speciesData
+        .map((e) => _value(type, e))
+        .where((v) => v.isNotEmpty && v != answer)
+        .toSet()
+        .toList()
+      ..shuffle(_rng);
+    final picks = <String>[];
+    for (final v in [...same, ...other]) {
+      if (picks.length >= 3) break;
+      if (!picks.contains(v)) picks.add(v);
+    }
+    return [answer, ...picks]..shuffle(_rng);
+  }
+
+  List<_Q> _build() {
+    final all = speciesData.where((s) => s.scientific.isNotEmpty).toList()..shuffle(_rng);
+    final out = <_Q>[];
+    for (final s in all) {
+      if (out.length >= count) break;
+      final types = <_QType>[];
+      if (mode == _Mode.sci || mode == _Mode.mixed) types.add(_QType.sci);
+      if ((mode == _Mode.family || mode == _Mode.mixed) && s.family.isNotEmpty) types.add(_QType.family);
+      if ((mode == _Mode.order || mode == _Mode.mixed) && s.order.isNotEmpty) types.add(_QType.order);
+      if (types.isEmpty) continue;
+      final type = types[_rng.nextInt(types.length)];
+      final answer = _value(type, s);
+      final opts = _makeOptions(type, s, answer);
+      if (opts.length < 2) continue;
+      out.add(_Q(type, s, answer, opts));
+    }
+    return out;
+  }
+
+  // ---------- explanations ----------
+
+  String _info(_Q q) {
+    final s = q.s;
+    final n = s.name(lang);
+    switch (q.type) {
+      case _QType.sci:
+        return t(
+          '${s.scientific} is the scientific name of $n (family ${s.family}).',
+          '${s.scientific} হলো $n-এর বৈজ্ঞানিক নাম (গোত্র: ${s.family})।',
+          '${s.scientific} は$nの学名です(科: ${s.family})。',
+        );
+      case _QType.family:
+        return t(
+          '${s.scientific} ($n) belongs to family ${s.family} (order ${s.order}, class ${s.klass}).',
+          '${s.scientific} ($n) গোত্র ${s.family}-এর অন্তর্গত (বর্গ: ${s.order}, শ্রেণি: ${s.klass})।',
+          '${s.scientific}($n)は${s.family}科に属します(目: ${s.order}、綱: ${s.klass})。',
+        );
+      case _QType.order:
+        return t(
+          '${s.scientific} ($n) belongs to order ${s.order} (class ${s.klass}, family ${s.family}).',
+          '${s.scientific} ($n) বর্গ ${s.order}-এর অন্তর্গত (শ্রেণি: ${s.klass}, গোত্র: ${s.family})।',
+          '${s.scientific}($n)は${s.order}目に属します(綱: ${s.klass}、科: ${s.family})。',
+        );
+    }
+  }
+
+  String _wrongNote(_Q q, String pickedValue) {
+    if (q.type == _QType.sci) {
+      final p = _bySci(pickedValue);
+      if (p == null) return '';
+      final pn = p.name(lang);
+      return t(
+        'You chose $pickedValue, which is the scientific name of $pn (family ${p.family}).',
+        'তুমি $pickedValue বেছেছ, এটি $pn-এর বৈজ্ঞানিক নাম (গোত্র: ${p.family})।',
+        '選んだ $pickedValue は$pnの学名です(科: ${p.family})。',
+      );
+    }
+    final ex = _example(q.type, pickedValue, q.s);
+    final label = q.type == _QType.family ? t('family', 'গোত্র', '科') : t('order', 'বর্গ', '目');
+    final exText = ex == null ? '' : '${ex.scientific} (${ex.name(lang)})';
+    return t(
+      'You chose $pickedValue, a different $label${ex == null ? '.' : ' that includes, for example, $exText.'}',
+      'তুমি $pickedValue বেছেছ, এটি অন্য একটি $label${ex == null ? '।' : '; যেমন এর মধ্যে আছে $exText।'}',
+      '選んだ $pickedValue は別の$labelです${ex == null ? '。' : '(例: $exText)。'}',
+    );
+  }
+
+  String _explain(_Q q, String chosen) =>
+      chosen == q.answer ? _info(q) : '${_info(q)}\n${_wrongNote(q, chosen)}';
+
+  // ---------- actions ----------
+
+  void _start() {
+    final qs = _build();
+    if (qs.isEmpty) return;
+    setState(() {
+      questions = qs;
+      misses = [];
+      index = 0;
+      score = 0;
+      picked = null;
+      stage = _Stage.running;
+    });
+  }
+
+  void _practiceMistakes() {
+    final qs = misses.map((m) => _Q(m.q.type, m.q.s, m.q.answer, [...m.q.options]..shuffle(_rng))).toList();
+    setState(() {
+      questions = qs;
+      misses = [];
+      index = 0;
+      score = 0;
+      picked = null;
+      stage = _Stage.running;
+    });
+  }
+
+  void _pick(String o) {
+    final q = questions[index];
+    setState(() {
+      picked = o;
+      if (o == q.answer) {
+        score++;
+      } else {
+        misses.add(_Miss(q, o));
+      }
+    });
   }
 
   void _next() {
-    final pool = speciesData.where((s) => s.scientific.isNotEmpty).toList();
-    if (pool.length < 2) {
-      _options = [];
-      return;
+    setState(() {
+      picked = null;
+      if (index + 1 >= questions.length) {
+        stage = _Stage.result;
+      } else {
+        index++;
+      }
+    });
+  }
+
+  // ---------- UI ----------
+
+  @override
+  Widget build(BuildContext context) {
+    Widget body;
+    switch (stage) {
+      case _Stage.setup:
+        body = _setup();
+        break;
+      case _Stage.running:
+        body = _question(questions[index]);
+        break;
+      case _Stage.result:
+        body = _result();
+        break;
     }
-    pool.shuffle(_rng);
-    _options = pool.take(min(4, pool.length)).toList();
-    _answer = _options[_rng.nextInt(_options.length)];
-    _picked = null;
+    return Scaffold(
+      appBar: AppBar(title: Text(t('Quick quiz', 'কুইক কুইজ', 'クイッククイズ'))),
+      body: ScienceBackground(child: body),
+    );
+  }
+
+  Widget _heading(String text) => Padding(
+        padding: const EdgeInsets.only(top: 18, bottom: 8),
+        child: Text(text, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+      );
+
+  Widget _setup() {
+    final modes = <_Mode, String>{
+      _Mode.mixed: t('Mixed', 'মিশ্র', 'ミックス'),
+      _Mode.sci: t('Scientific names', 'বৈজ্ঞানিক নাম', '学名'),
+      _Mode.family: t('Family', 'গোত্র', '科'),
+      _Mode.order: t('Order', 'বর্গ', '目'),
+    };
+    return ListView(
+      padding: const EdgeInsets.all(18),
+      children: [
+        Text(t('Practice setup', 'প্র্যাকটিস সেটআপ', '練習の設定'),
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold)),
+        _heading(t('Number of questions', 'কয়টি প্রশ্ন', '問題数')),
+        Wrap(spacing: 8, runSpacing: 8, children: [
+          for (final c in [10, 20, 30, 50])
+            ChoiceChip(label: Text('$c'), selected: count == c, onSelected: (_) => setState(() => count = c)),
+        ]),
+        _heading(t('Question type', 'প্রশ্নের ধরন', '問題の種類')),
+        Wrap(spacing: 8, runSpacing: 8, children: [
+          for (final e in modes.entries)
+            ChoiceChip(label: Text(e.value), selected: mode == e.key, onSelected: (_) => setState(() => mode = e.key)),
+        ]),
+        const SizedBox(height: 28),
+        FilledButton(
+          onPressed: speciesData.length < 4 ? null : _start,
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(t('Start', 'শুরু করো', 'スタート')),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _optionTile(_Q q, String o) {
+    final answered = picked != null;
+    final isCorrect = o == q.answer;
+    final isPicked = o == picked;
+    Color? bg;
+    Color? border;
+    IconData? icon;
+    Color? iconColor;
+    if (answered && isCorrect) {
+      bg = Colors.green.withValues(alpha: .25);
+      border = Colors.green;
+      icon = Icons.check_circle;
+      iconColor = Colors.green;
+    } else if (answered && isPicked) {
+      bg = Colors.red.withValues(alpha: .22);
+      border = Colors.red;
+      icon = Icons.cancel;
+      iconColor = Colors.red;
+    }
+    return Card(
+      elevation: 0,
+      color: bg,
+      margin: const EdgeInsets.only(bottom: 10),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+        side: BorderSide(color: border ?? Theme.of(context).dividerColor.withValues(alpha: .6), width: border == null ? 1 : 2),
+      ),
+      child: ListTile(
+        title: Text(o, style: TextStyle(fontStyle: q.type == _QType.sci ? FontStyle.italic : FontStyle.normal)),
+        trailing: icon == null ? null : Icon(icon, color: iconColor),
+        onTap: answered ? null : () => _pick(o),
+      ),
+    );
+  }
+
+  Widget _question(_Q q) {
+    final s = q.s;
+    String prompt;
+    switch (q.type) {
+      case _QType.sci:
+        prompt = t('What is the scientific name of:', 'এর বৈজ্ঞানিক নাম কী:', '学名はどれ:');
+        break;
+      case _QType.family:
+        prompt = t('Which family does this species belong to?', 'এই প্রজাতিটি কোন গোত্রের?', 'この種は何科?');
+        break;
+      case _QType.order:
+        prompt = t('Which order does this species belong to?', 'এই প্রজাতিটি কোন বর্গের?', 'この種は何目?');
+        break;
+    }
+    final title = q.type == _QType.sci ? s.name(lang) : s.scientific;
+    final answered = picked != null;
+    final correct = picked == q.answer;
+    final last = index + 1 >= questions.length;
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        LinearProgressIndicator(value: (index + (answered ? 1 : 0)) / questions.length),
+        const SizedBox(height: 10),
+        Row(children: [
+          Text('${index + 1} / ${questions.length}', style: const TextStyle(fontWeight: FontWeight.bold)),
+          const Spacer(),
+          Text('${t('Score', 'স্কোর', 'スコア')}: $score'),
+        ]),
+        const SizedBox(height: 16),
+        Text(prompt, style: Theme.of(context).textTheme.bodyMedium),
+        const SizedBox(height: 4),
+        Text(title,
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontStyle: q.type == _QType.sci ? FontStyle.normal : FontStyle.italic,
+                )),
+        const SizedBox(height: 16),
+        for (final o in q.options) _optionTile(q, o),
+        if (answered) ...[
+          Container(
+            margin: const EdgeInsets.only(top: 4, bottom: 12),
+            padding: const EdgeInsets.all(14),
+            decoration: BoxDecoration(
+              color: (correct ? Colors.green : Colors.red).withValues(alpha: .1),
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                correct ? t('Correct!', 'সঠিক!', '正解!') : t('Wrong', 'ভুল', '不正解'),
+                style: TextStyle(fontWeight: FontWeight.bold, color: correct ? Colors.green : Colors.red),
+              ),
+              const SizedBox(height: 6),
+              Text(_explain(q, picked!)),
+            ]),
+          ),
+          FilledButton(
+            onPressed: _next,
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Text(last ? t('See result', 'ফলাফল দেখো', '結果を見る') : t('Next', 'পরবর্তী', '次へ')),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _result() {
+    final total = questions.length;
+    final percent = total == 0 ? 0 : (score * 100 / total).round();
+    return ListView(
+      padding: const EdgeInsets.all(16),
+      children: [
+        const SizedBox(height: 8),
+        const Icon(Icons.emoji_events, size: 64),
+        const SizedBox(height: 8),
+        Center(child: Text('$score / $total', style: Theme.of(context).textTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold))),
+        Center(child: Text('$percent%', style: Theme.of(context).textTheme.titleLarge)),
+        const SizedBox(height: 16),
+        FilledButton(
+          onPressed: () => setState(() => stage = _Stage.setup),
+          child: Padding(padding: const EdgeInsets.all(8), child: Text(t('New quiz', 'নতুন কুইজ', '新しいクイズ'))),
+        ),
+        if (misses.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          OutlinedButton(
+            onPressed: _practiceMistakes,
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Text(t('Practice my mistakes again', 'ভুলগুলো আবার প্র্যাকটিস করো', '間違いをもう一度')),
+            ),
+          ),
+          _heading('${t('Your mistakes', 'তোমার ভুলগুলো', '間違えた問題')} (${misses.length})'),
+          for (final m in misses) _missCard(m),
+        ] else
+          Padding(
+            padding: const EdgeInsets.only(top: 18),
+            child: Center(child: Text(t('No mistakes. Great job!', 'কোনো ভুল নেই। দারুণ!', '間違いなし。すばらしい!'))),
+          ),
+      ],
+    );
+  }
+
+  Widget _missCard(_Miss m) {
+    final q = m.q;
+    final isSci = q.type == _QType.sci;
+    final title = isSci ? q.s.name(lang) : q.s.scientific;
+    TextStyle italicIf(bool on) => TextStyle(fontStyle: on ? FontStyle.italic : FontStyle.normal, fontWeight: FontWeight.w600);
+    return Card(
+      elevation: 0,
+      margin: const EdgeInsets.only(bottom: 10),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(14),
+        side: BorderSide(color: Theme.of(context).dividerColor.withValues(alpha: .6)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(title, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold, fontStyle: isSci ? FontStyle.normal : FontStyle.italic)),
+          const SizedBox(height: 8),
+          Row(children: [
+            const Icon(Icons.cancel, color: Colors.red, size: 18),
+            const SizedBox(width: 6),
+            Expanded(child: Text(m.picked, style: italicIf(isSci))),
+          ]),
+          const SizedBox(height: 4),
+          Row(children: [
+            const Icon(Icons.check_circle, color: Colors.green, size: 18),
+            const SizedBox(width: 6),
+            Expanded(child: Text(q.answer, style: italicIf(isSci))),
+          ]),
+          const SizedBox(height: 8),
+          Text(_explain(q, m.picked), style: Theme.of(context).textTheme.bodySmall),
+        ]),
+      ),
+    );
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Animated science background: rotating DNA helices + drifting cells/molecules
+// Pure Flutter drawing, no extra packages or image files.
+// ---------------------------------------------------------------------------
+
+final Stopwatch _bgClock = Stopwatch()..start();
+
+double _fr(double v) => v - v.floorToDouble();
+
+class ScienceBackground extends StatefulWidget {
+  final Widget child;
+  const ScienceBackground({super.key, required this.child});
+
+  @override
+  State<ScienceBackground> createState() => _ScienceBackgroundState();
+}
+
+class _ScienceBackgroundState extends State<ScienceBackground> with SingleTickerProviderStateMixin {
+  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(seconds: 1))..repeat();
+
+  @override
+  void dispose() {
+    _c.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(t('Quick quiz', 'কুইক কুইজ', 'クイッククイズ'))),
-      body: _options.isEmpty
-          ? Center(child: Text(t('Not enough species', 'যথেষ্ট প্রজাতি নেই', '種が足りません')))
-          : ListView(
-              padding: const EdgeInsets.all(16),
-              children: [
-                Text('${t('Score', 'স্কোর', 'スコア')}: $_score / $_total',
-                    style: const TextStyle(fontWeight: FontWeight.bold)),
-                const SizedBox(height: 16),
-                Text(t('What is the scientific name of:', 'এর বৈজ্ঞানিক নাম কী:', '学名はどれ:'),
-                    style: Theme.of(context).textTheme.bodyMedium),
-                const SizedBox(height: 4),
-                Text(_answer.name(widget.lang),
-                    style: Theme.of(context).textTheme.headlineSmall),
-                const SizedBox(height: 16),
-                for (final o in _options)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: FilledButton.tonal(
-                      style: _picked == null
-                          ? null
-                          : FilledButton.styleFrom(
-                              backgroundColor: o == _answer
-                                  ? Colors.green.shade400
-                                  : (o == _picked ? Colors.red.shade400 : null),
-                            ),
-                      onPressed: _picked != null
-                          ? null
-                          : () => setState(() {
-                                _picked = o;
-                                _total++;
-                                if (o == _answer) _score++;
-                              }),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Text(o.scientific,
-                            style: const TextStyle(fontStyle: FontStyle.italic)),
-                      ),
-                    ),
-                  ),
-                if (_picked != null)
-                  FilledButton(
-                    onPressed: () => setState(_next),
-                    child: Text(t('Next', 'পরবর্তী', '次へ')),
-                  ),
-              ],
-            ),
-    );
+    final color = Theme.of(context).colorScheme.primary;
+    return Stack(children: [
+      Positioned.fill(
+        child: IgnorePointer(
+          child: RepaintBoundary(child: CustomPaint(painter: _BgPainter(_c, color))),
+        ),
+      ),
+      widget.child,
+    ]);
   }
+}
+
+class _BgPainter extends CustomPainter {
+  final Color color;
+  _BgPainter(Listenable repaint, this.color) : super(repaint: repaint);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final t = _bgClock.elapsedMilliseconds / 1000.0;
+    _molecules(canvas, size, t);
+    _helix(canvas, size, t, cx: size.width * 0.10, amp: 34, speed: 0.9, alpha: .30);
+    _helix(canvas, size, t, cx: size.width * 0.92, amp: 26, speed: -0.7, alpha: .22);
+  }
+
+  void _helix(Canvas canvas, Size size, double t,
+      {required double cx, required double amp, required double speed, required double alpha}) {
+    final strand = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.8
+      ..color = color.withValues(alpha: alpha * .6);
+    final rung = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.4
+      ..color = color.withValues(alpha: alpha * .7);
+    final fill = Paint()..style = PaintingStyle.fill;
+    final pa = Path();
+    final pb = Path();
+    final n = (size.height / 14).ceil() + 3;
+    final rows = <List<double>>[];
+    for (var i = 0; i < n; i++) {
+      final y = -14.0 + i * 14.0;
+      final th = y * 0.02 + t * speed;
+      final s = sin(th);
+      final c = cos(th);
+      final ax = cx + amp * s;
+      final bx = cx - amp * s;
+      if (i == 0) {
+        pa.moveTo(ax, y);
+        pb.moveTo(bx, y);
+      } else {
+        pa.lineTo(ax, y);
+        pb.lineTo(bx, y);
+      }
+      rows.add([y, ax, bx, c]);
+    }
+    canvas.drawPath(pa, strand);
+    canvas.drawPath(pb, strand);
+    void dot(double x, double y, double z) {
+      fill.color = color.withValues(alpha: (alpha * (0.55 + 0.45 * z)).clamp(0.0, 1.0));
+      canvas.drawCircle(Offset(x, y), 3.6 + 2.2 * z, fill);
+    }
+
+    for (var i = 0; i < rows.length; i++) {
+      final y = rows[i][0], ax = rows[i][1], bx = rows[i][2], c = rows[i][3];
+      if (i.isEven) canvas.drawLine(Offset(ax, y), Offset(bx, y), rung);
+      if (c >= 0) {
+        dot(bx, y, -c);
+        dot(ax, y, c);
+      } else {
+        dot(ax, y, c);
+        dot(bx, y, -c);
+      }
+    }
+  }
+
+  void _molecules(Canvas canvas, Size size, double t) {
+    final fill = Paint()..style = PaintingStyle.fill;
+    final line = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.6;
+    for (var k = 1; k <= 10; k++) {
+      final fx = _fr(sin(k * 12.9898) * 43758.5453);
+      final fy = _fr(sin(k * 78.233) * 12345.6789);
+      final fz = _fr(sin(k * 39.425) * 9876.5432);
+      final r = 9 + fz * 15;
+      final x = fx * size.width + 16 * sin(t * .35 + k);
+      final y = (fy * size.height - t * (6 + fz * 8)) % size.height;
+      final a = .10 + .08 * fz;
+      line.color = color.withValues(alpha: a * 1.5);
+      fill.color = color.withValues(alpha: a);
+      final p = Offset(x, y);
+      switch (k % 3) {
+        case 0: // cell with nucleus
+          canvas.drawCircle(p, r, line);
+          canvas.drawCircle(Offset(x + r * .25, y - r * .2), r * .35, fill);
+          break;
+        case 1: // ring molecule
+          final path = Path();
+          final rot = t * .25 * (k.isEven ? 1 : -1);
+          for (var i = 0; i < 6; i++) {
+            final ang = rot + i * pi / 3;
+            final v = Offset(x + r * cos(ang), y + r * sin(ang));
+            if (i == 0) {
+              path.moveTo(v.dx, v.dy);
+            } else {
+              path.lineTo(v.dx, v.dy);
+            }
+            canvas.drawCircle(v, 2.6, fill);
+          }
+          path.close();
+          canvas.drawPath(path, line);
+          break;
+        default: // two-atom molecule
+          final ang = t * .4 + k;
+          final p1 = Offset(x + cos(ang) * r * .8, y + sin(ang) * r * .8);
+          final p2 = Offset(x - cos(ang) * r * .8, y - sin(ang) * r * .8);
+          canvas.drawLine(p1, p2, line);
+          canvas.drawCircle(p1, r * .35, fill);
+          canvas.drawCircle(p2, r * .25, fill);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(_BgPainter old) => old.color != color;
 }

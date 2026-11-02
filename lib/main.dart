@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'data.dart';
 import 'quiz.dart';
 
@@ -18,6 +17,20 @@ class BioNexusApp extends StatefulWidget {
 class _BioNexusAppState extends State<BioNexusApp> {
   Lang lang = Lang.bn;
   bool dark = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // Restore the saved language and theme.
+    loadAppPrefs().then((p) {
+      if (p != null && mounted) setState(() { lang = p.lang; dark = p.dark; });
+    });
+    // The bundled/cached database is already available; this refresh runs in
+    // the background and rebuilds the UI only if a newer database is installed.
+    syncRemoteSpecies(onUpdated: () {
+      if (mounted) setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +53,8 @@ class _BioNexusAppState extends State<BioNexusApp> {
       home: HomePage(
         lang: lang,
         dark: dark,
-        onLang: (l) => setState(() => lang = l),
-        onTheme: () => setState(() => dark = !dark),
+        onLang: (l) { setState(() => lang = l); saveAppPrefs(lang, dark); },
+        onTheme: () { setState(() => dark = !dark); saveAppPrefs(lang, dark); },
       ),
     );
   }
@@ -137,7 +150,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(tooltip: 'Theme', onPressed: widget.onTheme, icon: Icon(widget.dark ? Icons.light_mode : Icons.dark_mode)),
         ],
       ),
-      body: body,
+      body: ScienceBackground(child: body),
       bottomNavigationBar: NavigationBar(
         selectedIndex: tab,
         onDestinationSelected: (v) => setState(() {
@@ -427,7 +440,7 @@ class SpeciesPage extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(title: Text(t('Species details', 'প্রজাতির বিবরণ', '種の詳細'))),
-      body: ListView(
+      body: ScienceBackground(child: ListView(
         padding: const EdgeInsets.all(18),
         children: [
           Container(
@@ -484,7 +497,7 @@ class SpeciesPage extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall,
           ),
         ],
-      ),
+      )),
     );
   }
 }
