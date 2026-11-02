@@ -19,3 +19,30 @@ Cloud sync, Supabase, persistent SQLite, authentication, real audio, images, and
 
 ## Build
 Use the included GitHub Actions workflow to build an APK in the cloud.
+
+## Features
+- 400+ species with full classification (Kingdom to Species), Bengali, English and Japanese names
+- Interface in English, Bengali and Japanese
+- Quick quiz (scientific names, common names, families, orders)
+- Explore filter by group (plants, animals, fungi, bacteria, viruses, protists)
+
+## Adding more species
+All species live in `assets/species.json`. Add a new block like this (comma between blocks):
+
+```json
+{
+  "scientific": "Panthera leo",
+  "common": "Lion",
+  "bangla": "সিংহ",
+  "japanese": "ライオン",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Mammalia",
+  "order": "Carnivora",
+  "family": "Felidae",
+  "pronunciation": "PAN-thuh-ruh LEE-oh",
+  "description": "Optional short overview."
+}
+```
+`genus` and `species` are filled in automatically from the scientific name. `japanese`, `pronunciation` and `description` are optional (the app falls back to the English name).
+Commit to `main` and GitHub Actions builds a new APK. Verify every entry against GBIF / ITIS / Catalogue of Life.
