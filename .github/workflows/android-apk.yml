@@ -1,11 +1,9 @@
-
 name: Build BioNexus APK
 
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 permissions:
   contents: read
@@ -13,35 +11,51 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Setup Flutter
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
 
-      - name: Create Android project
-        run: flutter create . --platforms=android
+      - name: Restore permanent signing key
+        env:
+          KEYSTORE_B64: ${{ secrets.DEBUG_KEYSTORE_BASE64 }}
+        run: |
+          if [ -z "$KEYSTORE_B64" ]; then
+            echo "::error::Secret DEBUG_KEYSTORE_BASE64 is missing. Add it in Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          mkdir -p ~/.android
+          echo "$KEYSTORE_B64" | base64 -d > ~/.android/debug.keystore
 
-      - name: Install dependencies
+      - name: Generate Android platform files
+        run: flutter create . --platforms=android --project-name=bionexus
+
+      - name: Get dependencies
         run: flutter pub get
 
-      - name: Analyze project
+      - name: Analyze
         run: flutter analyze --no-fatal-infos --no-fatal-warnings
 
       - name: Run tests
         run: flutter test
 
       - name: Build release APK
-        run: flutter build apk --release
+        run: flutter build apk --release --build-number=${{ github.run_number }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: BioNexus-APK
           path: build/app/outputs/flutter-apk/app-release.apk
-          
+          if-no-files-found: error
