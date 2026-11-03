@@ -3,6 +3,7 @@ import 'data.dart';
 import 'quiz.dart';
 import 'images.dart';
 import 'online.dart';
+import 'updater.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -87,6 +88,25 @@ class _HomePageState extends State<HomePage> {
 
   Lang get lang => widget.lang;
   String t(String en, String bn, String ja) => tr(lang, en, bn, ja);
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _checkUpdateQuietly());
+  }
+
+  Future<void> _checkUpdateQuietly() async {
+    final info = await checkAppUpdate();
+    if (!mounted || info == null || !info.isNewer) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      duration: const Duration(seconds: 12),
+      content: Text(t('A new version of BioNexus is available.', 'BioNexus-এর নতুন সংস্করণ এসেছে।', 'BioNexusの新しいバージョンがあります。')),
+      action: SnackBarAction(
+        label: t('Download', 'ডাউনলোড', 'ダウンロード'),
+        onPressed: () => openDownload(info.url),
+      ),
+    ));
+  }
 
   List<String> get kingdoms => speciesData.map((s) => s.kingdom).toSet().toList()..sort();
 
@@ -413,7 +433,7 @@ class _HomePageState extends State<HomePage> {
               favorites.contains(s.scientific) ? favorites.remove(s.scientific) : favorites.add(s.scientific);
             }),
           ),
-          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SpeciesPage(species: s, lang: lang))),
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => SpeciesPage(species: s, lang: lang, list: tab == 0 ? speciesData : filtered))),
         ),
       );
 
@@ -501,6 +521,38 @@ class _HomePageState extends State<HomePage> {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.system_update),
+            title: Text(t('Check for app update', 'অ্যাপ আপডেট দেখো', 'アプリの更新を確認')),
+            subtitle: Text('${t('Current build', 'বর্তমান বিল্ড', '現在のビルド')}: ${kBuildNumber == 0 ? '-' : kBuildNumber}'),
+            onTap: () async {
+              final messenger = ScaffoldMessenger.of(context);
+              messenger.showSnackBar(SnackBar(content: Text(t('Checking...', 'দেখা হচ্ছে...', '確認中...'))));
+              final info = await checkAppUpdate();
+              if (!mounted) return;
+              messenger.hideCurrentSnackBar();
+              if (info == null) {
+                messenger.showSnackBar(SnackBar(
+                  content: Text(t('Could not check. Please check your internet.', 'চেক করা যায়নি, ইন্টারনেট দেখো।', '確認できませんでした。インターネットを確認してください。')),
+                ));
+                return;
+              }
+              if (!info.isNewer) {
+                messenger.showSnackBar(SnackBar(
+                  content: Text(t('You have the latest version.', 'তোমার অ্যাপ সর্বশেষ সংস্করণে আছে।', '最新バージョンです。')),
+                ));
+                return;
+              }
+              messenger.showSnackBar(SnackBar(
+                duration: const Duration(seconds: 12),
+                content: Text(t('New version available (build ${info.build}).', 'নতুন সংস্করণ এসেছে (বিল্ড ${info.build})।', '新しいバージョンがあります(ビルド${info.build})。')),
+                action: SnackBarAction(
+                  label: t('Download', 'ডাউনলোড', 'ダウンロード'),
+                  onPressed: () => openDownload(info.url),
+                ),
+              ));
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.sync),
             title: Text(t('Check for database update', 'ডেটাবেস আপডেট দেখো', 'データベースの更新を確認')),
             subtitle: Text(
@@ -556,10 +608,71 @@ class _HomePageState extends State<HomePage> {
       );
 }
 
-class SpeciesPage extends StatelessWidget {
+/// Species detail screen. Swipe right to go to the next species in the list
+/// you came from (swipe left to go back).
+class SpeciesPage extends StatefulWidget {
   final Species species;
   final Lang lang;
-  const SpeciesPage({super.key, required this.species, required this.lang});
+  final List<Species> list;
+  const SpeciesPage({super.key, required this.species, required this.lang, this.list = const []});
+
+  @override
+  State<SpeciesPage> createState() => _SpeciesPageState();
+}
+
+class _SpeciesPageState extends State<SpeciesPage> {
+  late final List<Species> items;
+  late final PageController controller;
+  late int index;
+
+  @override
+  void initState() {
+    super.initState();
+    items = widget.list.isEmpty ? [widget.species] : widget.list;
+    final i = items.indexWhere((s) => s.scientific == widget.species.scientific);
+    index = i < 0 ? 0 : i;
+    controller = PageController(initialPage: index);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final lang = widget.lang;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(tr(lang, 'Species details', 'প্রজাতির বিবরণ', '種の詳細')),
+        actions: [
+          if (items.length > 1)
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: Text('${index + 1} / ${items.length}'),
+              ),
+            ),
+        ],
+      ),
+      body: ScienceBackground(
+        child: PageView.builder(
+          controller: controller,
+          reverse: true, // swipe right = next species
+          itemCount: items.length,
+          onPageChanged: (i) => setState(() => index = i),
+          itemBuilder: (context, i) => _SpeciesBody(species: items[i], lang: lang),
+        ),
+      ),
+    );
+  }
+}
+
+class _SpeciesBody extends StatelessWidget {
+  final Species species;
+  final Lang lang;
+  const _SpeciesBody({required this.species, required this.lang});
 
   @override
   Widget build(BuildContext context) {
@@ -573,9 +686,7 @@ class SpeciesPage extends StatelessWidget {
       MapEntry(t('Genus', 'গণ (Genus)', '属'), species.genus),
       MapEntry(t('Species', 'প্রজাতি (Species)', '種'), species.species),
     ];
-    return Scaffold(
-      appBar: AppBar(title: Text(t('Species details', 'প্রজাতির বিবরণ', '種の詳細'))),
-      body: ScienceBackground(child: ListView(
+    return ListView(
         padding: const EdgeInsets.all(18),
         children: [
           SpeciesHero(scientific: species.scientific, lang: lang),
@@ -637,7 +748,6 @@ class SpeciesPage extends StatelessWidget {
             style: Theme.of(context).textTheme.bodySmall,
           ),
         ],
-      )),
     );
   }
 }
