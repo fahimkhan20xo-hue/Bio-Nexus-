@@ -171,6 +171,60 @@ Future<SpeciesImageData?> getSpeciesImage(String sci, {bool online = true}) asyn
   return _inflight.putIfAbsent(sci, () => _download(sci).whenComplete(() => _inflight.remove(sci)));
 }
 
+/// Bumped whenever saved photos are deleted, so list thumbnails refresh.
+final ValueNotifier<int> photosVersion = ValueNotifier<int>(0);
+
+String photoKey(String sci) => _key(sci);
+
+class SavedPhoto {
+  final String key;
+  final File file;
+  final String credit;
+  final int bytes;
+  const SavedPhoto(this.key, this.file, this.credit, this.bytes);
+}
+
+/// Every photo saved on the device.
+Future<List<SavedPhoto>> listSavedPhotos() async {
+  final out = <SavedPhoto>[];
+  try {
+    final d = await _imgDir();
+    await for (final e in d.list()) {
+      if (e is File && e.path.endsWith('.img')) {
+        final name = e.uri.pathSegments.last;
+        final key = name.substring(0, name.length - 4);
+        final meta = File('${d.path}/$key.txt');
+        final credit = await meta.exists() ? await meta.readAsString() : '';
+        out.add(SavedPhoto(key, e, credit, await e.length()));
+      }
+    }
+  } catch (e) {
+    debugPrint('Could not list photos: $e');
+  }
+  return out;
+}
+
+/// Deletes only the chosen photos. Returns how many were removed.
+Future<int> deleteSavedPhotos(Set<String> keys) async {
+  var n = 0;
+  try {
+    final d = await _imgDir();
+    for (final k in keys) {
+      final img = File('${d.path}/$k.img');
+      if (await img.exists()) {
+        await img.delete();
+        n++;
+      }
+      final meta = File('${d.path}/$k.txt');
+      if (await meta.exists()) await meta.delete();
+    }
+  } catch (e) {
+    debugPrint('Could not delete photos: $e');
+  }
+  _temp.clear();
+  return n;
+}
+
 /// Deletes all saved photos. Returns how many photos were removed.
 Future<int> clearSavedPhotos() async {
   var n = 0;
@@ -202,6 +256,23 @@ class SpeciesThumb extends StatefulWidget {
 
 class _SpeciesThumbState extends State<SpeciesThumb> {
   late Future<SpeciesImageData?> _f = getSpeciesImage(widget.scientific, online: false);
+
+  @override
+  void initState() {
+    super.initState();
+    photosVersion.addListener(_reload);
+  }
+
+  @override
+  void dispose() {
+    photosVersion.removeListener(_reload);
+    super.dispose();
+  }
+
+  void _reload() {
+    if (!mounted) return;
+    setState(() => _f = getSpeciesImage(widget.scientific, online: false));
+  }
 
   @override
   void didUpdateWidget(covariant SpeciesThumb old) {

@@ -183,6 +183,16 @@ Future<Species> addUserSpecies(Species s) async {
   return s;
 }
 
+/// Removes only the chosen online-added species. Returns how many were removed.
+Future<int> removeUserSpecies(Set<String> scientificNames) async {
+  final lower = scientificNames.map((s) => s.toLowerCase()).toSet();
+  final before = userSpecies.length;
+  userSpecies = userSpecies.where((s) => !lower.contains(s.scientific.toLowerCase())).toList();
+  speciesData = speciesData.where((s) => !(s.fromOnline && lower.contains(s.scientific.toLowerCase()))).toList();
+  await _writeUserSpecies();
+  return before - userSpecies.length;
+}
+
 /// Removes every online-added species. Returns how many were removed.
 Future<int> clearUserSpecies() async {
   final n = speciesData.where((s) => s.fromOnline).length;

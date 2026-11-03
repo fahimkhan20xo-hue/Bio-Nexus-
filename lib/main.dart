@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'data.dart';
 import 'quiz.dart';
 import 'images.dart';
+import 'manage.dart';
 import 'online.dart';
 import 'updater.dart';
 
@@ -510,14 +511,15 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.delete_outline),
-            title: Text(t('Delete saved photos', 'সেভ করা ছবি মুছে ফেলো', '保存した写真を削除')),
+            leading: const Icon(Icons.delete_sweep),
+            title: Text(t('Manage saved data', 'সেভ করা ডেটা ম্যানেজ করো', '保存データの管理')),
+            subtitle: Text(t('Choose which saved photos and online-added species to delete',
+                'কোন সেভ করা ছবি ও অনলাইনে যোগ করা প্রজাতি মুছবে বেছে নাও',
+                '削除する保存写真とオンライン追加の種を選択')),
+            trailing: const Icon(Icons.chevron_right),
             onTap: () async {
-              final n = await clearSavedPhotos();
-              if (!mounted) return;
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text('${t('Deleted', 'মুছে ফেলা হয়েছে', '削除しました')}: $n'),
-              ));
+              await Navigator.push(context, MaterialPageRoute(builder: (_) => ManageSavedPage(lang: lang)));
+              if (mounted) setState(() {});
             },
           ),
           ListTile(
@@ -578,19 +580,6 @@ class _HomePageState extends State<HomePage> {
               messenger.hideCurrentSnackBar();
               messenger.showSnackBar(SnackBar(content: Text(msg)));
               setState(() {});
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.public_off),
-            title: Text(t('Remove online-added species', 'অনলাইন থেকে যোগ করা প্রজাতি মুছো', 'オンライン追加の種を削除')),
-            subtitle: Text('${speciesData.where((s) => s.fromOnline).length}'),
-            onTap: () async {
-              final n = await clearUserSpecies();
-              if (!mounted) return;
-              setState(() {});
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                content: Text('${t('Removed', 'মুছে ফেলা হয়েছে', '削除しました')}: $n'),
-              ));
             },
           ),
           const Divider(),
@@ -662,7 +651,30 @@ class _SpeciesPageState extends State<SpeciesPage> {
           reverse: true, // swipe right = next species
           itemCount: items.length,
           onPageChanged: (i) => setState(() => index = i),
-          itemBuilder: (context, i) => _SpeciesBody(species: items[i], lang: lang),
+          itemBuilder: (context, i) => AnimatedBuilder(
+            animation: controller,
+            child: _SpeciesBody(species: items[i], lang: lang),
+            builder: (context, child) {
+              // How far this page is from the centre: 0 = in front, +-1 = next/previous.
+              var page = index.toDouble();
+              if (controller.hasClients && controller.position.haveDimensions) {
+                page = controller.page ?? page;
+              }
+              final v = (page - i).clamp(-1.0, 1.0).toDouble();
+              final a = v.abs();
+              return Opacity(
+                opacity: 1 - 0.5 * a,
+                child: Transform(
+                  alignment: Alignment.center,
+                  transform: Matrix4.identity()
+                    ..setEntry(3, 2, 0.0015) // perspective
+                    ..rotateY(-v * 1.0) // rotation while swiping
+                    ..scale(1 - 0.12 * a, 1 - 0.12 * a, 1.0),
+                  child: child,
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
