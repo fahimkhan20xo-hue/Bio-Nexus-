@@ -4,9 +4,14 @@ on:
   workflow_dispatch:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - 'database/**'
+      - 'sync_species.py'
+      - '.github/workflows/sync-species.yml'
+      - '**.md'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -49,6 +54,9 @@ jobs:
           fi
           grep -n "INTERNET" "$MANIFEST"
 
+      - name: Add url_launcher (used to open the update download)
+        run: flutter pub add url_launcher
+
       - name: Debug Dart files
         run: |
           echo "Dart files:"
@@ -69,7 +77,7 @@ jobs:
         run: flutter test
 
       - name: Build release APK
-        run: flutter build apk --release --build-number=${{ github.run_number }}
+        run: flutter build apk --release --build-number=${{ github.run_number }} --dart-define=BUILD_NUMBER=${{ github.run_number }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
@@ -77,4 +85,13 @@ jobs:
           name: BioNexus-APK
           path: build/app/outputs/flutter-apk/app-release.apk
           if-no-files-found: error
-          
+
+      - name: Publish release (used by the in-app update check)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="build-${{ github.run_number }}"
+          cp build/app/outputs/flutter-apk/app-release.apk BioNexus.apk
+          gh release create "$TAG" BioNexus.apk --title "BioNexus build ${{ github.run_number }}" --notes "Automatic build ${{ github.run_number }}" --latest \
+            || gh release upload "$TAG" BioNexus.apk --clobber
+            
