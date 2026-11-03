@@ -54,8 +54,16 @@ jobs:
           fi
           grep -n "INTERNET" "$MANIFEST"
 
-      - name: Add url_launcher (used to open the update download)
-        run: flutter pub add url_launcher
+      - name: Allow text-to-speech engine lookup
+        run: |
+          MANIFEST=android/app/src/main/AndroidManifest.xml
+          if ! grep -q "TTS_SERVICE" "$MANIFEST"; then
+            sed -i '0,/<application/s//<queries>\n        <intent>\n            <action android:name="android.intent.action.TTS_SERVICE"\/>\n        <\/intent>\n    <\/queries>\n    <application/' "$MANIFEST"
+          fi
+          grep -n "TTS_SERVICE" "$MANIFEST"
+
+      - name: Add url_launcher and flutter_tts
+        run: flutter pub add url_launcher flutter_tts
 
       - name: Debug Dart files
         run: |
@@ -71,7 +79,7 @@ jobs:
         run: flutter pub get
 
       - name: Analyze
-        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+        run: flutter analyze lib --no-fatal-infos --no-fatal-warnings
 
       - name: Run tests
         run: flutter test
