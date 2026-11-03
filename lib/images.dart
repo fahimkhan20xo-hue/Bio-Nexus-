@@ -335,7 +335,7 @@ class _SpeciesHeroState extends State<SpeciesHero> {
             ),
             child: d == null
                 ? icon
-                : Image(image: d.provider, fit: BoxFit.cover, errorBuilder: (_, __, ___) => icon),
+                : Image(image: ResizeImage(d.provider, width: 900), fit: BoxFit.cover, errorBuilder: (_, __, ___) => icon),
           ),
           if (d != null)
             Padding(

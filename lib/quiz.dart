@@ -492,6 +492,9 @@ class _QuizPageState extends State<QuizPage> {
 
 final Stopwatch _bgClock = Stopwatch()..start();
 
+/// Set to true while the screen is being swiped/scrolled so the background stops drawing.
+final ValueNotifier<bool> bgPaused = ValueNotifier<bool>(false);
+
 double _fr(double v) => v - v.floorToDouble();
 
 class ScienceBackground extends StatefulWidget {
@@ -506,7 +509,22 @@ class _ScienceBackgroundState extends State<ScienceBackground> with SingleTicker
   late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(seconds: 1))..repeat();
 
   @override
+  void initState() {
+    super.initState();
+    bgPaused.addListener(_onPause);
+  }
+
+  void _onPause() {
+    if (bgPaused.value) {
+      _c.stop();
+    } else if (!_c.isAnimating) {
+      _c.repeat();
+    }
+  }
+
+  @override
   void dispose() {
+    bgPaused.removeListener(_onPause);
     _c.dispose();
     super.dispose();
   }
