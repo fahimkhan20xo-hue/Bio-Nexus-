@@ -6,8 +6,9 @@ import 'quiz.dart' show ScienceBackground;
 class _CmpRow {
   final String label, a, b;
   final bool taxon;
-  const _CmpRow(this.label, this.a, this.b, this.taxon);
-  bool get same => a.isNotEmpty && a == b;
+  final bool? sameOverride;
+  const _CmpRow(this.label, this.a, this.b, this.taxon, [this.sameOverride]);
+  bool get same => sameOverride ?? (a.isNotEmpty && a == b);
 }
 
 /// Put two species side by side and see which taxonomy levels they share.
@@ -99,28 +100,69 @@ class _ComparePageState extends State<ComparePage> {
     );
   }
 
-  Widget _rowTile(_CmpRow r) {
-    final scheme = Theme.of(context).colorScheme;
-    final italic = r.taxon ? FontStyle.italic : FontStyle.normal;
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.fromLTRB(14, 10, 14, 12),
-      decoration: BoxDecoration(
-        color: r.same ? Colors.green.withValues(alpha: .18) : scheme.surfaceContainerHighest.withValues(alpha: .45),
-        borderRadius: BorderRadius.circular(14),
-        border: r.same ? Border.all(color: Colors.green.withValues(alpha: .7)) : null,
-      ),
+  Widget _headerCell(Species sp) {
+    final onP = Theme.of(context).colorScheme.onPrimaryContainer;
+    return Expanded(
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Row(children: [
-          Expanded(child: Text(r.label, style: Theme.of(context).textTheme.bodySmall)),
-          if (r.same) const Icon(Icons.check_circle, color: Colors.green, size: 18),
-        ]),
-        const SizedBox(height: 4),
-        Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Expanded(child: Text(r.a.isEmpty ? '-' : r.a, style: TextStyle(fontStyle: italic, fontWeight: FontWeight.w600))),
-          const SizedBox(width: 10),
-          Expanded(child: Text(r.b.isEmpty ? '-' : r.b, style: TextStyle(fontStyle: italic, fontWeight: FontWeight.w600))),
-        ]),
+        Text(sp.scientific, style: TextStyle(fontWeight: FontWeight.bold, fontStyle: FontStyle.italic, color: onP)),
+        const SizedBox(height: 2),
+        Text(sp.name(lang), style: TextStyle(fontSize: 12, color: onP)),
+      ]),
+    );
+  }
+
+  Widget _table(Species x, Species y, List<_CmpRow> rows) {
+    final scheme = Theme.of(context).colorScheme;
+    final tones = [scheme.surfaceContainerHighest, scheme.surfaceContainerHigh];
+    const labelW = 80.0;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(16),
+      child: Column(children: [
+        Container(
+          color: scheme.primaryContainer,
+          padding: const EdgeInsets.fromLTRB(12, 12, 12, 12),
+          child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            const SizedBox(width: labelW),
+            _headerCell(x),
+            const SizedBox(width: 8),
+            _headerCell(y),
+          ]),
+        ),
+        for (var i = 0; i < rows.length; i++)
+          Container(
+            color: rows[i].same ? Color.alphaBlend(Colors.green.withValues(alpha: .30), scheme.surface) : tones[i % 2],
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 12),
+            child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              SizedBox(
+                width: labelW,
+                child: Row(children: [
+                  Flexible(
+                    child: Text(
+                      rows[i].label,
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: scheme.primary),
+                    ),
+                  ),
+                  if (rows[i].same) ...[
+                    const SizedBox(width: 4),
+                    const Icon(Icons.check_circle, color: Colors.green, size: 16),
+                  ],
+                ]),
+              ),
+              Expanded(
+                child: Text(
+                  rows[i].a.isEmpty ? '-' : rows[i].a,
+                  style: const TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.w600),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  rows[i].b.isEmpty ? '-' : rows[i].b,
+                  style: const TextStyle(fontStyle: FontStyle.italic, fontWeight: FontWeight.w600),
+                ),
+              ),
+            ]),
+          ),
       ]),
     );
   }
@@ -175,10 +217,11 @@ class _ComparePageState extends State<ComparePage> {
           ),
         ),
         const SizedBox(height: 10),
-        _rowTile(_CmpRow(t('Name', 'নাম', '名前'), x.name(lang), y.name(lang), false)),
-        _rowTile(_CmpRow(t('Scientific name', 'বৈজ্ঞানিক নাম', '学名'), x.scientific, y.scientific, true)),
-        for (final r in taxa) _rowTile(r),
-        const SizedBox(height: 4),
+        _table(x, y, [
+          ...taxa,
+          _CmpRow(t('Species', 'প্রজাতি', '種'), x.species, y.species, true, x.scientific == y.scientific),
+        ]),
+        const SizedBox(height: 12),
         OutlinedButton.icon(
           onPressed: () => setState(() {
             final tmp = a;

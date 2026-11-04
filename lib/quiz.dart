@@ -83,7 +83,8 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  static const int secsPerQuestion = 20;
+  int secs = 20; // seconds per question when the timer is on
+  final TextEditingController _secCtl = TextEditingController(text: '20');
 
   Random _rng = Random();
   _Stage stage = _Stage.setup;
@@ -100,7 +101,7 @@ class _QuizPageState extends State<QuizPage> {
   int score = 0;
   int streak = 0;
   int bestStreak = 0;
-  int left = secsPerQuestion;
+  int left = 20;
   int elapsedSeconds = 0;
   String? picked;
   Timer? _timer;
@@ -112,6 +113,7 @@ class _QuizPageState extends State<QuizPage> {
   @override
   void dispose() {
     _timer?.cancel();
+    _secCtl.dispose();
     super.dispose();
   }
 
@@ -260,7 +262,7 @@ class _QuizPageState extends State<QuizPage> {
       score = 0;
       streak = 0;
       bestStreak = 0;
-      left = secsPerQuestion;
+      left = secs;
       picked = null;
       stage = _Stage.running;
     });
@@ -345,7 +347,7 @@ class _QuizPageState extends State<QuizPage> {
     setState(() {
       picked = null;
       index++;
-      left = secsPerQuestion;
+      left = secs;
     });
     _startTimer();
   }
@@ -465,8 +467,42 @@ class _QuizPageState extends State<QuizPage> {
           contentPadding: EdgeInsets.zero,
           value: timed,
           onChanged: (v) => setState(() => timed = v),
-          title: Text(t('Timed ($secsPerQuestion seconds per question)', 'সময় সীমা (প্রতি প্রশ্নে $secsPerQuestion সেকেন্ড)', '時間制限(1問$secsPerQuestion秒)')),
+          title: Text(t('Timed quiz', 'সময় সীমা সহ কুইজ', '時間制限つき')),
+          subtitle: Text(timed
+              ? t('Set the seconds for each question', 'প্রতি প্রশ্নের সেকেন্ড ঠিক করো', '1問あたりの秒数を設定')
+              : t('Off', 'বন্ধ', 'オフ')),
         ),
+        if (timed) ...[
+          Wrap(spacing: 8, runSpacing: 8, children: [
+            for (final v in [5, 10, 20, 30, 60])
+              ChoiceChip(
+                label: Text('${v}s'),
+                selected: secs == v,
+                onSelected: (_) => setState(() {
+                  secs = v;
+                  _secCtl.text = '$v';
+                }),
+              ),
+          ]),
+          const SizedBox(height: 10),
+          SizedBox(
+            width: 190,
+            child: TextField(
+              controller: _secCtl,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: t('Custom seconds (1 - 600)', 'নিজের সেকেন্ড (১ - ৬০০)', '秒数を入力 (1〜600)'),
+                suffixText: 's',
+                border: const OutlineInputBorder(),
+                isDense: true,
+              ),
+              onChanged: (v) {
+                final n = int.tryParse(v.trim());
+                if (n != null) setState(() => secs = n.clamp(1, 600));
+              },
+            ),
+          ),
+        ],
         const SizedBox(height: 14),
         FilledButton(
           onPressed: speciesData.length < 4 ? null : _startPractice,
@@ -551,7 +587,7 @@ class _QuizPageState extends State<QuizPage> {
             const SizedBox(width: 6),
             Expanded(
               child: LinearProgressIndicator(
-                value: left / secsPerQuestion,
+                value: left / secs,
                 minHeight: 6,
                 borderRadius: BorderRadius.circular(6),
                 color: left <= 5 ? Colors.red : null,
