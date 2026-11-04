@@ -126,6 +126,15 @@ jobs:
         run: |
           TAG="build-${{ github.run_number }}"
           cp build/app/outputs/flutter-apk/app-release.apk BioNexus.apk
-          gh release create "$TAG" BioNexus.apk --title "BioNexus build ${{ github.run_number }}" --notes "Automatic build ${{ github.run_number }}. Signing certificate SHA-256: ${CERT_FP:-unknown}" --latest \
-            || gh release upload "$TAG" BioNexus.apk --clobber
-            
+          NOTES="Automatic build ${{ github.run_number }}. Signing certificate SHA-256: ${CERT_FP:-unknown}"
+          for i in 1 2 3 4 5; do
+            if gh release view "$TAG" >/dev/null 2>&1; then
+              gh release upload "$TAG" BioNexus.apk --clobber && exit 0
+            else
+              gh release create "$TAG" BioNexus.apk --title "BioNexus build ${{ github.run_number }}" --notes "$NOTES" --latest && exit 0
+            fi
+            echo "Attempt $i failed (GitHub may be busy). Retrying in 20 seconds..."
+            sleep 20
+          done
+          exit 1
+          
