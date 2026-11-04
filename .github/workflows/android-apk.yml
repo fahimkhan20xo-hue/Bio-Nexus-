@@ -46,6 +46,19 @@ jobs:
       - name: Generate Android platform files
         run: flutter create . --platforms=android --project-name=bionexus
 
+      - name: Check the signing key and force Gradle to use it
+        run: |
+          KS="$HOME/.android/debug.keystore"
+          keytool -list -v -keystore "$KS" -storepass android -alias androiddebugkey | grep -E "Alias name|Owner|SHA256"
+          KEYSTORE_FP=$(keytool -list -v -keystore "$KS" -storepass android -alias androiddebugkey | grep "SHA256:" | head -1 | sed 's/.*SHA256: *//' | tr -d ':' | tr 'A-F' 'a-f')
+          echo "KEYSTORE_FP=$KEYSTORE_FP" >> "$GITHUB_ENV"
+          echo "Keystore SHA-256: $KEYSTORE_FP"
+          echo "" >> android/gradle.properties
+          echo "android.injected.signing.store.file=$KS" >> android/gradle.properties
+          echo "android.injected.signing.store.password=android" >> android/gradle.properties
+          echo "android.injected.signing.key.alias=androiddebugkey" >> android/gradle.properties
+          echo "android.injected.signing.key.password=android" >> android/gradle.properties
+
       - name: Allow internet access in release APK
         run: |
           MANIFEST=android/app/src/main/AndroidManifest.xml
@@ -94,6 +107,11 @@ jobs:
           FP=$("$APKSIGNER" verify --print-certs build/app/outputs/flutter-apk/app-release.apk | grep -i "certificate SHA-256 digest" | head -1 | awk '{print $NF}')
           echo "Signing certificate SHA-256: $FP"
           echo "CERT_FP=$FP" >> "$GITHUB_ENV"
+          if [ "$FP" != "$KEYSTORE_FP" ]; then
+            echo "::warning::The APK is NOT signed with the restored keystore (APK $FP, keystore $KEYSTORE_FP)"
+          else
+            echo "OK: the APK is signed with the restored keystore."
+          fi
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
