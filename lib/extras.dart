@@ -108,9 +108,13 @@ Future<SpeciesExtra?> _fetch(String sci) async {
         .timeout(const Duration(seconds: 15));
     if (r.statusCode == 200) {
       final d = jsonDecode(utf8.decode(r.bodyBytes));
-      final b = (d is Map ? d['results']?['bindings'] : null) as List?;
-      if (b != null && b.isNotEmpty) {
-        iucn = _tidyIucn((b.first['l']?['value'] ?? '').toString());
+      dynamic b;
+      if (d is Map && d['results'] is Map) b = d['results']['bindings'];
+      if (b is List && b.isNotEmpty) {
+        final first = b.first;
+        if (first is Map && first['l'] is Map) {
+          iucn = _tidyIucn((first['l']['value'] ?? '').toString());
+        }
       }
     }
 
