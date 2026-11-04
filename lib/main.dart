@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'data.dart';
 import 'quiz.dart';
+import 'compare.dart';
+import 'dashboard.dart';
+import 'extras.dart';
 import 'images.dart';
 import 'manage.dart';
 import 'online.dart';
 import 'pronounce.dart';
 import 'speech.dart';
+import 'stats.dart';
+import 'tree.dart';
 import 'updater.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   speciesData = await loadSpecies();
+  await stats.load();
   runApp(const BioNexusApp());
 }
 
@@ -450,6 +456,10 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 
+  void _openSpecies(BuildContext c, Species s, List<Species> list) {
+    Navigator.push(c, MaterialPageRoute(builder: (_) => SpeciesPage(species: s, lang: lang, list: list)));
+  }
+
   // ---------- Study ----------
   Widget _study() => ListView(
         padding: const EdgeInsets.all(18),
@@ -465,6 +475,39 @@ class _HomePageState extends State<HomePage> {
               subtitle: Text(t('Scientific names, families and orders.', 'বৈজ্ঞানিক নাম, গোত্র ও বর্গ।', '学名・科・目の問題。')),
               trailing: const Icon(Icons.chevron_right),
               onTap: openQuiz,
+            ),
+          ),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.compare_arrows),
+              title: Text(t('Compare species', 'প্রজাতির তুলনা', '種の比較')),
+              subtitle: Text(t('Put two species side by side.', 'দুটি প্রজাতি পাশাপাশি দেখো।', '2つの種を並べて比べます。')),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ComparePage(lang: lang))),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.account_tree),
+              title: Text(t('Taxonomy tree', 'শ্রেণিবিন্যাস গাছ', '分類ツリー')),
+              subtitle: Text(t('Kingdom down to species, level by level.', 'জগৎ থেকে প্রজাতি, ধাপে ধাপে।', '界から種まで、階級ごとに。')),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => TaxonomyTreePage(lang: lang, open: _openSpecies)),
+              ),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.insights),
+              title: Text(t('My progress', 'আমার অগ্রগতি', '学習の進捗')),
+              subtitle: Text(t('Quiz results, weak topics, weekly activity.', 'কুইজের ফল, দুর্বল বিষয়, সাপ্তাহিক কাজ।', 'クイズ結果・苦手・今週の学習。')),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => DashboardPage(lang: lang, open: _openSpecies)),
+              ),
             ),
           ),
           Card(
@@ -635,6 +678,7 @@ class _SpeciesPageState extends State<SpeciesPage> {
     final i = items.indexWhere((s) => s.scientific == widget.species.scientific);
     index = i < 0 ? 0 : i;
     controller = PageController(initialPage: index);
+    stats.addViewed(items[index].scientific);
   }
 
   @override
@@ -667,6 +711,7 @@ class _SpeciesPageState extends State<SpeciesPage> {
           itemCount: items.length,
           onPageChanged: (i) {
             stopSpeaking();
+            stats.addViewed(items[i].scientific);
             setState(() => index = i);
           },
           itemBuilder: (context, i) => AnimatedBuilder(
@@ -759,6 +804,7 @@ class _SpeciesBody extends StatelessWidget {
                   ]),
                 ),
               )),
+          ExtraCard(species: species, lang: lang),
           if (species.description.isNotEmpty) ...[
             const SizedBox(height: 12),
             Text(t('Overview', 'সংক্ষিপ্ত পরিচিতি', '概要'), style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
@@ -1059,6 +1105,14 @@ class _ListenRow extends StatelessWidget {
           icon: const Icon(Icons.record_voice_over),
           label: Text(tr(lang, 'Bangla', 'বাংলা', 'ベンガル語')),
         ),
+      OutlinedButton.icon(
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => ComparePage(lang: lang, first: species)),
+        ),
+        icon: const Icon(Icons.compare_arrows),
+        label: Text(tr(lang, 'Compare', 'তুলনা', '比較')),
+      ),
     ]);
   }
 }

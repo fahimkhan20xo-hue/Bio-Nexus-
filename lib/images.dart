@@ -335,7 +335,18 @@ class _SpeciesHeroState extends State<SpeciesHero> {
             ),
             child: d == null
                 ? icon
-                : Image(image: ResizeImage(d.provider, width: 900), fit: BoxFit.cover, errorBuilder: (_, __, ___) => icon),
+                : GestureDetector(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => _ZoomPage(provider: d.provider, title: widget.scientific)),
+                    ),
+                    child: Image(
+                      image: ResizeImage(d.provider, width: 900),
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      errorBuilder: (_, __, ___) => icon,
+                    ),
+                  ),
           ),
           if (d != null)
             Padding(
@@ -352,6 +363,32 @@ class _SpeciesHeroState extends State<SpeciesHero> {
             ),
         ]);
       },
+    );
+  }
+}
+
+/// Full-screen photo you can pinch to zoom.
+class _ZoomPage extends StatelessWidget {
+  final ImageProvider provider;
+  final String title;
+  const _ZoomPage({required this.provider, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        title: Text(title, style: const TextStyle(fontStyle: FontStyle.italic)),
+      ),
+      body: Center(
+        child: InteractiveViewer(
+          minScale: 1,
+          maxScale: 6,
+          child: Image(image: provider, fit: BoxFit.contain),
+        ),
+      ),
     );
   }
 }
