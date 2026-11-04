@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'data.dart';
+import 'fx.dart';
 import 'stats.dart';
 
 // ---------------------------------------------------------------------------
@@ -791,10 +792,12 @@ class _ScienceBackgroundState extends State<ScienceBackground> with SingleTicker
   void initState() {
     super.initState();
     bgPaused.addListener(_onPause);
+    fxEnabled.addListener(_onPause);
+    if (!fxEnabled.value) _c.stop();
   }
 
   void _onPause() {
-    if (bgPaused.value) {
+    if (bgPaused.value || !fxEnabled.value) {
       _c.stop();
     } else if (!_c.isAnimating) {
       _c.repeat();
@@ -804,6 +807,7 @@ class _ScienceBackgroundState extends State<ScienceBackground> with SingleTicker
   @override
   void dispose() {
     bgPaused.removeListener(_onPause);
+    fxEnabled.removeListener(_onPause);
     _c.dispose();
     super.dispose();
   }
@@ -811,14 +815,20 @@ class _ScienceBackgroundState extends State<ScienceBackground> with SingleTicker
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).colorScheme.primary;
-    return Stack(children: [
-      Positioned.fill(
-        child: IgnorePointer(
-          child: RepaintBoundary(child: CustomPaint(painter: _BgPainter(_c, color))),
-        ),
-      ),
-      widget.child,
-    ]);
+    return ValueListenableBuilder<bool>(
+      valueListenable: fxEnabled,
+      builder: (context, fx, _) {
+        if (!fx) return widget.child; // simple mode: no animated background
+        return Stack(children: [
+          Positioned.fill(
+            child: IgnorePointer(
+              child: RepaintBoundary(child: CustomPaint(painter: _BgPainter(_c, color))),
+            ),
+          ),
+          widget.child,
+        ]);
+      },
+    );
   }
 }
 

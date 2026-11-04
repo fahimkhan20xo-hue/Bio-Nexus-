@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
 import 'data.dart';
+import 'fx.dart';
 
 // Species photos come from Wikipedia / Wikimedia Commons.
 //
@@ -315,15 +316,7 @@ class _SpeciesHeroState extends State<SpeciesHero> {
       builder: (context, snap) {
         final d = snap.data;
         final waiting = snap.connectionState != ConnectionState.done;
-        final icon = Center(
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-            const Icon(Icons.biotech, color: Colors.white, size: 72),
-            if (waiting) ...[
-              const SizedBox(height: 10),
-              const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white70)),
-            ],
-          ]),
-        );
+        const icon = Center(child: Icon(Icons.biotech, color: Colors.white, size: 72));
         return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
             height: 210,
@@ -331,10 +324,15 @@ class _SpeciesHeroState extends State<SpeciesHero> {
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(22),
-              gradient: const LinearGradient(colors: [Color(0xFF075E54), Color(0xFF15947D)]),
+              gradient: Emerald.hero,
             ),
             child: d == null
-                ? icon
+                ? (waiting
+                    ? const Stack(alignment: Alignment.center, children: [
+                        Positioned.fill(child: ShimmerBox(radius: 0)),
+                        icon,
+                      ])
+                    : icon)
                 : GestureDetector(
                     onTap: () => Navigator.push(
                       context,

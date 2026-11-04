@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'data.dart';
+import 'fx.dart';
 import 'quiz.dart' show ScienceBackground;
 import 'stats.dart';
 import 'tree.dart' show OpenSpecies;
@@ -31,7 +32,7 @@ class _DashboardPageState extends State<DashboardPage> {
         child: Text(text, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
       );
 
-  Widget _statCard(IconData icon, String value, String label) {
+  Widget _statCard(IconData icon, String value, String label, {int? number}) {
     return Expanded(
       child: Card(
         elevation: 0,
@@ -44,7 +45,9 @@ class _DashboardPageState extends State<DashboardPage> {
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Icon(icon, color: Theme.of(context).colorScheme.primary),
             const SizedBox(height: 8),
-            Text(value, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold)),
+            number != null
+                ? AnimatedCount(number, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold))
+                : Text(value, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold)),
             Text(label, style: Theme.of(context).textTheme.bodySmall),
           ]),
         ),
@@ -164,15 +167,15 @@ class _DashboardPageState extends State<DashboardPage> {
           padding: const EdgeInsets.all(16),
           children: [
             Row(children: [
-              _statCard(Icons.school, '${stats.learnedCount}', '${t('species learned', 'টি প্রজাতি শেখা', '種を習得')} / ${speciesData.length}'),
+              _statCard(Icons.school, '${stats.learnedCount}', '${t('species learned', 'টি প্রজাতি শেখা', '種を習得')} / ${speciesData.length}', number: stats.learnedCount),
               const SizedBox(width: 10),
-              _statCard(Icons.quiz, '${stats.quizzes.length}', t('quizzes taken', 'টি কুইজ দেওয়া', '回のクイズ')),
+              _statCard(Icons.quiz, '${stats.quizzes.length}', t('quizzes taken', 'টি কুইজ দেওয়া', '回のクイズ'), number: stats.quizzes.length),
             ]),
             const SizedBox(height: 10),
             Row(children: [
               _ring(),
               const SizedBox(width: 10),
-              _statCard(Icons.local_fire_department, '${stats.dayStreak}', t('day streak', 'দিনের ধারা', '日連続')),
+              _statCard(Icons.local_fire_department, '${stats.dayStreak}', t('day streak', 'দিনের ধারা', '日連続'), number: stats.dayStreak),
             ]),
             _heading(t('Questions this week', 'এই সপ্তাহের প্রশ্ন', '今週の問題数')),
             _weekBars(),

@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
 import 'data.dart';
+import 'fx.dart';
 
 // Extra facts for the species page, from Wikipedia (short summary) and
 // Wikidata (IUCN conservation status). Saved on the device after the first load.
@@ -161,7 +162,11 @@ class _ExtraCardState extends State<ExtraCard> {
         if (snap.connectionState != ConnectionState.done) {
           return const Padding(
             padding: EdgeInsets.only(top: 12),
-            child: LinearProgressIndicator(minHeight: 2),
+            child: Column(children: [
+              ShimmerBox(height: 58, radius: 14),
+              SizedBox(height: 8),
+              ShimmerBox(height: 110, radius: 14),
+            ]),
           );
         }
         final e = snap.data;
