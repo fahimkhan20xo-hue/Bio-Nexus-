@@ -87,6 +87,14 @@ jobs:
       - name: Build release APK
         run: flutter build apk --release --build-number=${{ github.run_number }} --dart-define=BUILD_NUMBER=${{ github.run_number }}
 
+      - name: Show APK signing certificate
+        continue-on-error: true
+        run: |
+          APKSIGNER=$(ls $ANDROID_HOME/build-tools/*/apksigner | sort -V | tail -1)
+          FP=$("$APKSIGNER" verify --print-certs build/app/outputs/flutter-apk/app-release.apk | grep -i "certificate SHA-256 digest" | head -1 | awk '{print $NF}')
+          echo "Signing certificate SHA-256: $FP"
+          echo "CERT_FP=$FP" >> "$GITHUB_ENV"
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
@@ -100,6 +108,6 @@ jobs:
         run: |
           TAG="build-${{ github.run_number }}"
           cp build/app/outputs/flutter-apk/app-release.apk BioNexus.apk
-          gh release create "$TAG" BioNexus.apk --title "BioNexus build ${{ github.run_number }}" --notes "Automatic build ${{ github.run_number }}" --latest \
+          gh release create "$TAG" BioNexus.apk --title "BioNexus build ${{ github.run_number }}" --notes "Automatic build ${{ github.run_number }}. Signing certificate SHA-256: ${CERT_FP:-unknown}" --latest \
             || gh release upload "$TAG" BioNexus.apk --clobber
             
