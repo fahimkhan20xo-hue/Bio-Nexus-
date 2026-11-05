@@ -17,6 +17,10 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  bool _moreRecent = false;
+  bool _moreHistory = false;
+  static const int _fewCount = 3;
+
   Lang get lang => widget.lang;
   String t(String en, String bn, String ja) => tr(lang, en, bn, ja);
 
@@ -133,6 +137,22 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
+  Widget _moreButton(int total, bool expanded, VoidCallback onTap) {
+    if (total <= _fewCount) return const SizedBox.shrink();
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: TextButton.icon(
+        onPressed: onTap,
+        icon: Icon(expanded ? Icons.expand_less : Icons.expand_more),
+        label: Text(
+          expanded
+              ? t('Show less', 'কম দেখাও', '少なく表示')
+              : '${t('View more', 'আরও দেখো', 'もっと見る')} (${total - _fewCount})',
+        ),
+      ),
+    );
+  }
+
   Future<void> _reset() async {
     final ok = await showDialog<bool>(
       context: context,
@@ -202,7 +222,7 @@ class _DashboardPageState extends State<DashboardPage> {
             if (recent.isEmpty)
               Text(t('Species you open will show here.', 'যে প্রজাতি খুলবে এখানে দেখা যাবে।', '開いた種がここに表示されます。'))
             else
-              for (final s in recent)
+              for (final s in (_moreRecent ? recent : recent.take(_fewCount)))
                 Card(
                   elevation: 0,
                   child: ListTile(
@@ -212,11 +232,12 @@ class _DashboardPageState extends State<DashboardPage> {
                     onTap: () => widget.open(context, s, recent),
                   ),
                 ),
+            _moreButton(recent.length, _moreRecent, () => setState(() => _moreRecent = !_moreRecent)),
             _heading(t('Quiz history', 'কুইজ হিস্ট্রি', 'クイズ履歴')),
             if (history.isEmpty)
               Text(t('No quizzes yet.', 'এখনো কোনো কুইজ হয়নি।', 'まだクイズがありません。'))
             else
-              for (final q in history)
+              for (final q in (_moreHistory ? history : history.take(_fewCount)))
                 Card(
                   elevation: 0,
                   child: ListTile(
@@ -225,6 +246,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     subtitle: Text('${q.day} • ${q.daily ? t('Daily', 'দৈনিক', 'デイリー') : q.difficulty} • ${q.seconds ~/ 60}:${(q.seconds % 60).toString().padLeft(2, '0')}'),
                   ),
                 ),
+            _moreButton(history.length, _moreHistory, () => setState(() => _moreHistory = !_moreHistory)),
           ],
         ),
       ),

@@ -191,6 +191,7 @@ class _HomePageState extends State<HomePage> {
         body = _library();
     }
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
         title: Row(children: [
           Container(
@@ -217,20 +218,20 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: ScienceBackground(child: body),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: tab,
-        onDestinationSelected: (v) => setState(() {
+      bottomNavigationBar: _GlassNavBar(
+        index: tab,
+        onTap: (v) => setState(() {
           tab = v;
           query = '';
           _searchCtl.clear();
           kingdomFilter = null;
         }),
-        destinations: [
-          NavigationDestination(icon: const Icon(Icons.home_outlined), selectedIcon: const Icon(Icons.home), label: t('Home', 'হোম', 'ホーム')),
-          NavigationDestination(icon: const Icon(Icons.explore_outlined), selectedIcon: const Icon(Icons.explore), label: t('Explore', 'এক্সপ্লোর', '探索')),
-          NavigationDestination(icon: const Icon(Icons.bookmark_border), selectedIcon: const Icon(Icons.bookmark), label: t('Saved', 'সংরক্ষিত', '保存')),
-          NavigationDestination(icon: const Icon(Icons.school_outlined), selectedIcon: const Icon(Icons.school), label: t('Study', 'পড়াশোনা', '学習')),
-          NavigationDestination(icon: const Icon(Icons.settings_outlined), selectedIcon: const Icon(Icons.settings), label: t('Settings', 'সেটিংস', '設定')),
+        items: [
+          _NavItem(Icons.home_outlined, Icons.home, t('Home', 'হোম', 'ホーム')),
+          _NavItem(Icons.explore_outlined, Icons.explore, t('Explore', 'এক্সপ্লোর', '探索')),
+          _NavItem(Icons.bookmark_border, Icons.bookmark, t('Saved', 'সংরক্ষিত', '保存')),
+          _NavItem(Icons.school_outlined, Icons.school, t('Study', 'পড়াশোনা', '学習')),
+          _NavItem(Icons.settings_outlined, Icons.settings, t('Settings', 'সেটিংস', '設定')),
         ],
       ),
     );
@@ -272,7 +273,7 @@ class _HomePageState extends State<HomePage> {
 
     final speciesWord = t('species', 'টি প্রজাতি', '種');
     return ListView(
-      padding: const EdgeInsets.only(bottom: 24),
+      padding: const EdgeInsets.only(bottom: 110),
       children: [
         // ---- Welcome ----
         Container(
@@ -533,7 +534,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               )
             : ListView.builder(
-                padding: const EdgeInsets.fromLTRB(16, 4, 16, 18),
+                padding: const EdgeInsets.fromLTRB(16, 4, 16, 110),
                 itemCount: list.length + (_canSearchOnline ? 1 : 0),
                 itemBuilder: (context, i) => i < list.length
                     ? _speciesCard(list[i])
@@ -626,7 +627,7 @@ class _HomePageState extends State<HomePage> {
 
   // ---------- Study ----------
   Widget _study() => ListView(
-        padding: const EdgeInsets.all(18),
+        padding: const EdgeInsets.fromLTRB(18, 18, 18, 110),
         children: [
           Text(t('Study zone', 'স্টাডি জোন', '学習ゾーン'), style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
@@ -691,7 +692,7 @@ class _HomePageState extends State<HomePage> {
 
   // ---------- Settings ----------
   Widget _settings() => ListView(
-        padding: const EdgeInsets.all(18),
+        padding: const EdgeInsets.fromLTRB(18, 18, 18, 110),
         children: [
           Text(t('Settings', 'সেটিংস', '設定'), style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold)),
           const SizedBox(height: 14),
@@ -1390,6 +1391,78 @@ class _SpotlightCardState extends State<_SpotlightCard> {
           ),
         );
       },
+    );
+  }
+}
+
+
+class _NavItem {
+  final IconData icon, selectedIcon;
+  final String label;
+  const _NavItem(this.icon, this.selectedIcon, this.label);
+}
+
+/// Floating emerald glass bottom bar.
+class _GlassNavBar extends StatelessWidget {
+  final int index;
+  final ValueChanged<int> onTap;
+  final List<_NavItem> items;
+  const _GlassNavBar({required this.index, required this.onTap, required this.items});
+
+  @override
+  Widget build(BuildContext context) {
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    final fx = fxEnabled.value;
+    final tint = dark
+        ? Emerald.c900.withValues(alpha: fx ? .55 : .96)
+        : Colors.white.withValues(alpha: fx ? .72 : .97);
+    final activeColor = dark ? Emerald.c400 : Emerald.c700;
+    final idleColor = Theme.of(context).colorScheme.onSurface.withValues(alpha: .62);
+    return SafeArea(
+      top: false,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+        child: GlassCard(
+          radius: 28,
+          tint: tint,
+          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+          child: Row(children: [
+            for (var i = 0; i < items.length; i++)
+              Expanded(
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(22),
+                  onTap: () => onTap(i),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      AnimatedContainer(
+                        duration: Duration(milliseconds: fx ? 260 : 0),
+                        curve: Curves.easeOutCubic,
+                        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: i == index ? Emerald.c500.withValues(alpha: dark ? .28 : .22) : Colors.transparent,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Icon(i == index ? items[i].selectedIcon : items[i].icon, size: 24, color: i == index ? activeColor : idleColor),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        items[i].label,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: i == index ? FontWeight.w800 : FontWeight.w500,
+                          color: i == index ? activeColor : idleColor,
+                        ),
+                      ),
+                    ]),
+                  ),
+                ),
+              ),
+          ]),
+        ),
+      ),
     );
   }
 }
