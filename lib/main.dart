@@ -217,15 +217,42 @@ class _HomePageState extends State<HomePage> {
           IconButton(tooltip: 'Theme', onPressed: widget.onTheme, icon: Icon(widget.dark ? Icons.light_mode : Icons.dark_mode)),
         ],
       ),
-      body: ScienceBackground(child: body),
+      body: ScienceBackground(
+        child: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onHorizontalDragStart: (_) => _dragDx = 0,
+          onHorizontalDragUpdate: (d) => _dragDx += d.delta.dx,
+          onHorizontalDragEnd: (d) {
+            final v = d.primaryVelocity ?? 0;
+            // swipe right = next tab, swipe left = previous tab
+            if (_dragDx > 70 && v > 250) {
+              _goTab(tab + 1);
+            } else if (_dragDx < -70 && v < -250) {
+              _goTab(tab - 1);
+            }
+          },
+          child: AnimatedSwitcher(
+            duration: Duration(milliseconds: fxEnabled.value ? 280 : 0),
+            switchInCurve: Curves.easeOutCubic,
+            switchOutCurve: Curves.easeInCubic,
+            transitionBuilder: (child, anim) {
+              final incoming = child.key == ValueKey<int>(tab);
+              final sign = incoming ? -_dir : _dir;
+              return FadeTransition(
+                opacity: anim,
+                child: SlideTransition(
+                  position: Tween<Offset>(begin: Offset(sign * 0.18, 0), end: Offset.zero).animate(anim),
+                  child: child,
+                ),
+              );
+            },
+            child: KeyedSubtree(key: ValueKey<int>(tab), child: body),
+          ),
+        ),
+      ),
       bottomNavigationBar: _GlassNavBar(
         index: tab,
-        onTap: (v) => setState(() {
-          tab = v;
-          query = '';
-          _searchCtl.clear();
-          kingdomFilter = null;
-        }),
+        onTap: _goTab,
         items: [
           _NavItem(Icons.home_outlined, Icons.home, t('Home', 'হোম', 'ホーム')),
           _NavItem(Icons.explore_outlined, Icons.explore, t('Explore', 'এক্সপ্লোর', '探索')),
@@ -238,6 +265,20 @@ class _HomePageState extends State<HomePage> {
   }
 
   // ---------- Home ----------
+  int _dir = 1; // 1 = moving to a later tab, -1 = to an earlier tab
+  double _dragDx = 0;
+
+  void _goTab(int i) {
+    if (i < 0 || i > 4 || i == tab) return;
+    setState(() {
+      _dir = i > tab ? 1 : -1;
+      tab = i;
+      query = '';
+      _searchCtl.clear();
+      kingdomFilter = null;
+    });
+  }
+
   final TextEditingController _searchCtl = TextEditingController(); // Explore search box
   final TextEditingController _homeSearch = TextEditingController(); // Home search box
 
@@ -691,14 +732,25 @@ class _HomePageState extends State<HomePage> {
       );
 
   // ---------- Settings ----------
+  Widget _box(Widget child) => GlassCard(
+        margin: const EdgeInsets.only(bottom: 10),
+        padding: EdgeInsets.zero,
+        blur: false,
+        child: child,
+      );
+
   Widget _settings() => ListView(
         padding: const EdgeInsets.fromLTRB(18, 18, 18, 110),
         children: [
           Text(t('Settings', 'সেটিংস', '設定'), style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold)),
           const SizedBox(height: 14),
-          Text(t('Language', 'ভাষা', '言語'), style: const TextStyle(fontWeight: FontWeight.w600)),
-          const SizedBox(height: 8),
-          SegmentedButton<Lang>(
+          _box(
+            Padding(
+              padding: const EdgeInsets.all(14),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text(t('Language', 'ভাষা', '言語'), style: const TextStyle(fontWeight: FontWeight.w600)),
+                const SizedBox(height: 10),
+                SegmentedButton<Lang>(
             segments: const [
               ButtonSegment(value: Lang.en, label: Text('English')),
               ButtonSegment(value: Lang.bn, label: Text('বাংলা')),
@@ -707,14 +759,19 @@ class _HomePageState extends State<HomePage> {
             selected: {lang},
             onSelectionChanged: (s) => widget.onLang(s.first),
           ),
-          const SizedBox(height: 8),
-          SwitchListTile(
+              ]),
+            ),
+          ),
+          _box(
+            SwitchListTile(
             value: widget.dark,
             onChanged: (_) => widget.onTheme(),
             title: Text(t('Dark mode', 'ডার্ক মোড', 'ダークモード')),
             secondary: const Icon(Icons.dark_mode),
           ),
-          ValueListenableBuilder<bool>(
+          ),
+          _box(
+            ValueListenableBuilder<bool>(
             valueListenable: fxEnabled,
             builder: (context, on, _) => SwitchListTile(
               value: on,
@@ -726,7 +783,9 @@ class _HomePageState extends State<HomePage> {
               secondary: const Icon(Icons.auto_awesome),
             ),
           ),
-          ValueListenableBuilder<bool>(
+          ),
+          _box(
+            ValueListenableBuilder<bool>(
             valueListenable: savePhotos,
             builder: (context, on, _) => SwitchListTile(
               value: on,
@@ -738,7 +797,9 @@ class _HomePageState extends State<HomePage> {
               secondary: const Icon(Icons.photo_library),
             ),
           ),
-          ListTile(
+          ),
+          _box(
+            ListTile(
             leading: const Icon(Icons.delete_sweep),
             title: Text(t('Manage saved data', 'সেভ করা ডেটা ম্যানেজ করো', '保存データの管理')),
             subtitle: Text(t('Choose which saved photos and online-added species to delete',
@@ -750,7 +811,9 @@ class _HomePageState extends State<HomePage> {
               if (mounted) setState(() {});
             },
           ),
-          ListTile(
+          ),
+          _box(
+            ListTile(
             leading: const Icon(Icons.system_update),
             title: Text(t('Check for app update', 'অ্যাপ আপডেট দেখো', 'アプリの更新を確認')),
             subtitle: Text('${t('Current build', 'বর্তমান বিল্ড', '現在のビルド')}: ${kBuildNumber == 0 ? '-' : kBuildNumber}'),
@@ -782,7 +845,9 @@ class _HomePageState extends State<HomePage> {
               ));
             },
           ),
-          ListTile(
+          ),
+          _box(
+            ListTile(
             leading: const Icon(Icons.sync),
             title: Text(t('Check for database update', 'ডেটাবেস আপডেট দেখো', 'データベースの更新を確認')),
             subtitle: Text(
@@ -810,16 +875,20 @@ class _HomePageState extends State<HomePage> {
               setState(() {});
             },
           ),
-          const Divider(),
-          ListTile(
+          ),
+          _box(
+            ListTile(
             leading: const Icon(Icons.storage),
             title: Text(t('Local species database', 'লোকাল প্রজাতি ডেটাবেস', 'ローカル種データベース')),
             subtitle: Text('${speciesData.length} ${t('species, works without internet.', 'টি প্রজাতি, ইন্টারনেট ছাড়াই চলে।', '種を収録。オフラインで動作します。')}'),
           ),
-          ListTile(
+          ),
+          _box(
+            ListTile(
             leading: const Icon(Icons.info_outline),
             title: const Text('BioNexus v1.1.0'),
             subtitle: Text(t('Early build', 'প্রাথমিক সংস্করণ', '初期バージョン')),
+          ),
           ),
         ],
       );
