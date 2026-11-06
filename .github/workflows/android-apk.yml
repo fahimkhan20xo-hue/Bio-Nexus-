@@ -46,6 +46,16 @@ jobs:
       - name: Generate Android platform files
         run: flutter create . --platforms=android --project-name=bionexus
 
+      - name: Set up Python (for the app icon)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set the app icon
+        run: |
+          pip install pillow
+          python make_icons.py
+
       - name: Check the signing key and force Gradle to use it
         run: |
           KS="$HOME/.android/debug.keystore"
