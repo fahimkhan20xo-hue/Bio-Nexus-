@@ -468,6 +468,19 @@
   "pronunciation": "অ্যালো ভেরা"
  },
  {
+  "scientific": "Alpinia galanga",
+  "common": "Greater galangal",
+  "bangla": "সুগন্ধাবচ",
+  "japanese": "ナンキョウソウ",
+  "kingdom": "Plantae",
+  "phylum": "Tracheophyta",
+  "class": "Liliopsida",
+  "order": "Zingiberales",
+  "family": "Zingiberaceae",
+  "description": "Species of flowering plant",
+  "pronunciation": "অ্যালপিনিয়া গ্যালাঙ্গা"
+ },
+ {
   "scientific": "Alstonia scholaris",
   "common": "Devil tree",
   "bangla": "ছাতিম গাছ",
@@ -477,6 +490,19 @@
   "order": "Gentianales",
   "family": "Apocynaceae",
   "pronunciation": "অ্যালস্টোনিয়া স্কলারিস"
+ },
+ {
+  "scientific": "Amanita muscaria",
+  "common": "Fly agaric",
+  "bangla": "অ্যামানিটা মাস্কারিয়া",
+  "japanese": "ベニテングタケ",
+  "kingdom": "Fungi",
+  "phylum": "Basidiomycota",
+  "class": "Agaricomycetes",
+  "order": "Agaricales",
+  "family": "Amanitaceae",
+  "description": "Species of mushroom",
+  "pronunciation": "অ্যামানিটা মাসকারিয়া"
  },
  {
   "scientific": "Amaranthus tricolor",
@@ -626,6 +652,19 @@
   "family": "Anatidae",
   "description": "Type of poultry",
   "pronunciation": "অ্যানাস প্ল্যাটিরিঙ্কোস ডোমেস্টিকাস"
+ },
+ {
+  "scientific": "Anastomus oscitans",
+  "common": "Asian openbill",
+  "bangla": "এশীয় শামুকখোল",
+  "japanese": "シロスキハシコウ",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Aves",
+  "order": "Ciconiiformes",
+  "family": "Ciconiidae",
+  "description": "Species of bird",
+  "pronunciation": "অ্যানাস্টোমাস অসসিট্যান্স"
  },
  {
   "scientific": "Ancylostoma duodenale",
@@ -1049,6 +1088,19 @@
   "order": "Asparagales",
   "family": "Asparagaceae",
   "pronunciation": "অ্যাসপারাগাস রেসিমোসাস"
+ },
+ {
+  "scientific": "Aspergillus flavus",
+  "common": "Aspergillus flavus",
+  "bangla": "",
+  "japanese": "アルペルギルス・フラブス",
+  "kingdom": "Fungi",
+  "phylum": "Ascomycota",
+  "class": "Eurotiomycetes",
+  "order": "Eurotiales",
+  "family": "Aspergillaceae",
+  "description": "Species of fungus",
+  "pronunciation": "অ্যাসপারজিলাস ফ্লাভাস"
  },
  {
   "scientific": "Aspergillus niger",
@@ -1974,6 +2026,19 @@
   "pronunciation": "বুডর্কাস ট্যাক্সিকালার"
  },
  {
+  "scientific": "Bufo bufo",
+  "common": "Common toad",
+  "bangla": "",
+  "japanese": "ヨーロッパヒキガエル",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Amphibia",
+  "order": "Anura",
+  "family": "Bufonidae",
+  "description": "Species of amphibian",
+  "pronunciation": "বুফো বুফো"
+ },
+ {
   "scientific": "Burkholderia cepacia",
   "common": "Burkholderia cepacia complex",
   "bangla": "",
@@ -2035,6 +2100,19 @@
   "family": "Scolopacidae",
   "description": "Species of bird",
   "pronunciation": "ক্যালিড্রিস পিগমিয়া"
+ },
+ {
+  "scientific": "Callinectes sapidus",
+  "common": "Atlantic Blue Crab",
+  "bangla": "",
+  "japanese": "アオガニ",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "class": "Malacostraca",
+  "order": "Decapoda",
+  "family": "Portunidae",
+  "description": "Species of crustacean",
+  "pronunciation": "ক্যালিনেক্টিস স্যাপিডাস"
  },
  {
   "scientific": "Calliphora vicina",
@@ -2842,6 +2920,19 @@
   "pronunciation": "সাইসার অ্যারিয়েটিনাম"
  },
  {
+  "scientific": "Ciconia ciconia",
+  "common": "White stork",
+  "bangla": "ধলা মানিকজোড়",
+  "japanese": "シュバシコウ",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Aves",
+  "order": "Ciconiiformes",
+  "family": "Ciconiidae",
+  "description": "Species of bird",
+  "pronunciation": "সিকোনিয়া সিকোনিয়া"
+ },
+ {
   "scientific": "Cimex lectularius",
   "common": "Bed bug",
   "bangla": "ছারপোকা",
@@ -2852,6 +2943,19 @@
   "order": "Hemiptera",
   "family": "Cimicidae",
   "pronunciation": "সাইমেক্স লেকচুলারিয়াস"
+ },
+ {
+  "scientific": "Cinnamomum camphora",
+  "common": "Camphora officinarum",
+  "bangla": "কর্পূর গাছ",
+  "japanese": "クスノキ",
+  "kingdom": "Plantae",
+  "phylum": "Tracheophyta",
+  "class": "Magnoliopsida",
+  "order": "Laurales",
+  "family": "Lauraceae",
+  "description": "Species of tree",
+  "pronunciation": "সিন্নামোমাম ক্যাম্ফোরা"
  },
  {
   "scientific": "Cinnamomum verum",
@@ -2928,6 +3032,32 @@
   "family": "Rutaceae",
   "description": "Citrus fruit native to tropical Southeast Asia",
   "pronunciation": "সিট্রাস ম্যাক্রোপ্টেরা"
+ },
+ {
+  "scientific": "Citrus limon",
+  "common": "Lemon",
+  "bangla": "",
+  "japanese": "",
+  "kingdom": "Plantae",
+  "phylum": "Tracheophyta",
+  "class": "Magnoliopsida",
+  "order": "Sapindales",
+  "family": "Rutaceae",
+  "description": "Yellow citrus fruit",
+  "pronunciation": "সিট্রাস লিমন"
+ },
+ {
+  "scientific": "Citrus maxima",
+  "common": "Pomelo",
+  "bangla": "জাম্বুরা",
+  "japanese": "ザボン",
+  "kingdom": "Plantae",
+  "phylum": "Tracheophyta",
+  "class": "Magnoliopsida",
+  "order": "Sapindales",
+  "family": "Rutaceae",
+  "description": "Citrus fruit from Southeast Asia",
+  "pronunciation": "সিট্রাস ম্যাক্সিমা"
  },
  {
   "scientific": "Citrus sinensis",
@@ -3530,6 +3660,19 @@
   "pronunciation": "কারকিউমা লঙ্গা"
  },
  {
+  "scientific": "Curcuma zedoaria",
+  "common": "Zedoary",
+  "bangla": "",
+  "japanese": "ガジュツ",
+  "kingdom": "Plantae",
+  "phylum": "Tracheophyta",
+  "class": "Liliopsida",
+  "order": "Zingiberales",
+  "family": "Zingiberaceae",
+  "description": "Species of flowering plant",
+  "pronunciation": "কারকিউমা জেডোয়ারিয়া"
+ },
+ {
   "scientific": "Cydia pomonella",
   "common": "Codling moth",
   "bangla": "",
@@ -3541,6 +3684,19 @@
   "family": "Tortricidae",
   "description": "Species of moth that feeds on fruit (Cydia pomonella)",
   "pronunciation": "সিডিয়া পোমোনেলা"
+ },
+ {
+  "scientific": "Cygnus olor",
+  "common": "Mute swan",
+  "bangla": "",
+  "japanese": "コブハクチョウ",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Aves",
+  "order": "Anseriformes",
+  "family": "Anatidae",
+  "description": "Large species of waterfowl",
+  "pronunciation": "সিগনাস ওলর"
  },
  {
   "scientific": "Cymbopogon citratus",
@@ -3567,6 +3723,19 @@
   "family": "Poaceae",
   "description": "Species of grass",
   "pronunciation": "সাইনোডন ড্যাকটাইলন"
+ },
+ {
+  "scientific": "Cynopterus sphinx",
+  "common": "Greater short-nosed fruit bat",
+  "bangla": "",
+  "japanese": "",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Mammalia",
+  "order": "Chiroptera",
+  "family": "Pteropodidae",
+  "description": "Species of bat",
+  "pronunciation": "সাইনোপ্টেরাস স্ফিংক্স"
  },
  {
   "scientific": "Daboia russelii",
@@ -3884,6 +4053,19 @@
   "pronunciation": "ডিক্রুরাস প্যারাডিসিয়াস"
  },
  {
+  "scientific": "Dictyostelium discoideum",
+  "common": "Dictyostelium discoideum",
+  "bangla": "",
+  "japanese": "キイロタマホコリカビ",
+  "kingdom": "Protista",
+  "phylum": "Mycetozoa",
+  "class": "Dictyosteliomycetes",
+  "order": "Dictyosteliales",
+  "family": "Dictyosteliaceae",
+  "description": "Species of slime mould",
+  "pronunciation": "ডিক্টিওস্টেলিয়াম ডিসকয়ডিয়াম"
+ },
+ {
   "scientific": "Dillenia pentagyna",
   "common": "Dillenia pentagyna",
   "bangla": "",
@@ -4113,6 +4295,19 @@
   "pronunciation": "ড্রসোফিলা মেলানোগ্যাস্টার"
  },
  {
+  "scientific": "Dugong dugon",
+  "common": "Dugong",
+  "bangla": "ডুগং",
+  "japanese": "ジュゴン",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Mammalia",
+  "order": "Sirenia",
+  "family": "Dugongidae",
+  "description": "Species of marine mammal",
+  "pronunciation": "ডুগং ডুগন"
+ },
+ {
   "scientific": "Dupetor flavicollis",
   "common": "Black bittern",
   "bangla": "",
@@ -4186,6 +4381,19 @@
   "order": "Commelinales",
   "family": "Pontederiaceae",
   "pronunciation": "আইকর্নিয়া ক্র্যাসিপিস"
+ },
+ {
+  "scientific": "Eisenia fetida",
+  "common": "Eisenia fetida",
+  "bangla": "",
+  "japanese": "シマミミズ",
+  "kingdom": "Animalia",
+  "phylum": "Annelida",
+  "class": "Clitellata",
+  "order": "Crassiclitellata",
+  "family": "Lumbricidae",
+  "description": "Species of annelid worm",
+  "pronunciation": "আইসেনিয়া ফেটিডা"
  },
  {
   "scientific": "Elaeocarpus floribundus",
@@ -4534,6 +4742,19 @@
   "pronunciation": "ইউনেকটিস মিউরিনাস"
  },
  {
+  "scientific": "Euphlyctis cyanophlyctis",
+  "common": "Euphlyctis cyanophlyctis",
+  "bangla": "কটকটি ব্যাঙ",
+  "japanese": "",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Amphibia",
+  "order": "Anura",
+  "family": "Dicroglossidae",
+  "description": "Species of amphibian skiper frog species",
+  "pronunciation": "ইউফ্লিকটিস সায়ানোফ্লিকটিস"
+ },
+ {
   "scientific": "Euphorbia hirta",
   "common": "Euphorbia hirta",
   "bangla": "দুধিয়া",
@@ -4786,6 +5007,19 @@
   "pronunciation": "ফিউন্যাম্বুলাস পামারাম"
  },
  {
+  "scientific": "Fusarium oxysporum",
+  "common": "Fusarium oxysporum",
+  "bangla": "",
+  "japanese": "フザリウム・オキシスポラム",
+  "kingdom": "Fungi",
+  "phylum": "Ascomycota",
+  "class": "Sordariomycetes",
+  "order": "Hypocreales",
+  "family": "Nectriaceae",
+  "description": "Species of fungus",
+  "pronunciation": "ফুজারিয়াম অক্সিস্পোরাম"
+ },
+ {
   "scientific": "Galeocerdo cuvier",
   "common": "Tiger shark",
   "bangla": "বাঘ হাঙ্গর",
@@ -4822,6 +5056,19 @@
   "order": "Galliformes",
   "family": "Phasianidae",
   "pronunciation": "গ্যালাস গ্যালাস"
+ },
+ {
+  "scientific": "Ganoderma lucidum",
+  "common": "Lacquered bracket",
+  "bangla": "",
+  "japanese": "霊芝",
+  "kingdom": "Fungi",
+  "phylum": "Basidiomycota",
+  "class": "Agaricomycetes",
+  "order": "Polyporales",
+  "family": "Polyporaceae",
+  "description": "Species of fungus",
+  "pronunciation": "গ্যানোডার্মা লুসিডাম"
  },
  {
   "scientific": "Gardenia jasminoides",
@@ -5483,6 +5730,19 @@
   "pronunciation": "হিপটেজ বেঙ্গালেনসিস"
  },
  {
+  "scientific": "Hirudo medicinalis",
+  "common": "Medicinal leech",
+  "bangla": "",
+  "japanese": "医療用ヒル",
+  "kingdom": "Animalia",
+  "phylum": "Annelida",
+  "class": "Clitellata",
+  "order": "Arhynchobdellida",
+  "family": "Hirudinidae",
+  "description": "Species of annelid worm",
+  "pronunciation": "হিরুডো মেডিসিন্যালিস"
+ },
+ {
   "scientific": "Hirundo rustica",
   "common": "Barn swallow",
   "bangla": "পাতি আবাবিল",
@@ -6095,6 +6355,19 @@
   "pronunciation": "লেন্স কুলিনারিস"
  },
  {
+  "scientific": "Lentinula edodes",
+  "common": "Shiitake",
+  "bangla": "",
+  "japanese": "シイタケ",
+  "kingdom": "Fungi",
+  "phylum": "Basidiomycota",
+  "class": "Agaricomycetes",
+  "order": "Agaricales",
+  "family": "Omphalotaceae",
+  "description": "Species of edible mushroom",
+  "pronunciation": "লেনটিনুলা এডোডেস"
+ },
+ {
   "scientific": "Leopardus pardalis",
   "common": "Ocelot",
   "bangla": "",
@@ -6145,6 +6418,19 @@
   "family": "Alydidae",
   "description": "Species of true bug",
   "pronunciation": "লেপ্টোকরিসা অ্যাকিউটা"
+ },
+ {
+  "scientific": "Leptoptilos javanicus",
+  "common": "Lesser adjutant",
+  "bangla": "মদনটাক",
+  "japanese": "コハゲコウ",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Aves",
+  "order": "Ciconiiformes",
+  "family": "Ciconiidae",
+  "description": "Species of bird",
+  "pronunciation": "লেপটোপ্টিলোস জাভানিকাস"
  },
  {
   "scientific": "Lepus nigricollis",
@@ -6309,6 +6595,19 @@
   "pronunciation": "লোকাস্টা মাইগ্রেটোরিয়া"
  },
  {
+  "scientific": "Lonchura punctulata",
+  "common": "Scaly-breasted munia",
+  "bangla": "তিলা মুনিয়া",
+  "japanese": "シマキンパラ",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Aves",
+  "order": "Passeriformes",
+  "family": "Estrildidae",
+  "description": "Species of bird native to South and Southeast Asia",
+  "pronunciation": "লঙ্কিউরা পাংকটুলাটা"
+ },
+ {
   "scientific": "Lontra canadensis",
   "common": "North American river otter",
   "bangla": "",
@@ -6383,6 +6682,19 @@
   "order": "Cucurbitales",
   "family": "Cucurbitaceae",
   "pronunciation": "লুফা ইজিপটিয়াকা"
+ },
+ {
+  "scientific": "Lumbricus terrestris",
+  "common": "Earthworm",
+  "bangla": "",
+  "japanese": "",
+  "kingdom": "Animalia",
+  "phylum": "Annelida",
+  "class": "Clitellata",
+  "order": "Crassiclitellata",
+  "family": "Lumbricidae",
+  "description": "Species of annelid worm",
+  "pronunciation": "লামব্রিকাস টেরেস্ট্রিস"
  },
  {
   "scientific": "Lutra lutra",
@@ -6538,6 +6850,19 @@
   "pronunciation": "ম্যাকাকা সাইলেনাস"
  },
  {
+  "scientific": "Macrobrachium rosenbergii",
+  "common": "Giant River Prawn",
+  "bangla": "",
+  "japanese": "オニテナガエビ",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "class": "Malacostraca",
+  "order": "Decapoda",
+  "family": "Palaemonidae",
+  "description": "Species of prawn",
+  "pronunciation": "ম্যাক্রোব্র্যাকিয়াম রোজেনবার্গি"
+ },
+ {
   "scientific": "Macronectes giganteus",
   "common": "Southern giant petrel",
   "bangla": "",
@@ -6587,6 +6912,19 @@
   "family": "Sapotaceae",
   "description": "Species of tree",
   "pronunciation": "মাধুকা লঙ্গিফোলিয়া"
+ },
+ {
+  "scientific": "Magallana gigas",
+  "common": "Pacific oyster",
+  "bangla": "",
+  "japanese": "",
+  "kingdom": "Animalia",
+  "phylum": "Mollusca",
+  "class": "Bivalvia",
+  "order": "Ostreida",
+  "family": "Ostreidae",
+  "description": "Species of bivalve",
+  "pronunciation": "ক্র্যাসোস্ট্রিয়া গাইগাস"
  },
  {
   "scientific": "Magnolia champaca",
@@ -6854,6 +7192,19 @@
   "family": "Plantaginaceae",
   "description": "Species of flowering plant",
   "pronunciation": "ব্যাকোপা প্রোকাম্বেন্স"
+ },
+ {
+  "scientific": "Megaptera novaeangliae",
+  "common": "Humpback whale",
+  "bangla": "কুঁজো তিমি",
+  "japanese": "ザトウクジラ",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Mammalia",
+  "order": "Cetacea",
+  "family": "Balaenopteridae",
+  "description": "Large baleen whale species",
+  "pronunciation": "মেগাপ্টেরা নোভায়াংলিয়ে"
  },
  {
   "scientific": "Melaleuca leucadendra",
@@ -7273,6 +7624,19 @@
   "pronunciation": "মুররায়া প্যানিকুলাটা"
  },
  {
+  "scientific": "Mus musculus",
+  "common": "House mouse",
+  "bangla": "ঘর নেঙটি ইঁদুর",
+  "japanese": "ハツカネズミ",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Mammalia",
+  "order": "Rodentia",
+  "family": "Muridae",
+  "description": "Most common species of mice",
+  "pronunciation": "মাস মাসকুলাস"
+ },
+ {
   "scientific": "Musa balbisiana",
   "common": "Banana",
   "bangla": "বিচি কলা",
@@ -7438,6 +7802,19 @@
   "pronunciation": "মাইকোপ্লাজমা নিউমোনিয়ে"
  },
  {
+  "scientific": "Mycteria leucocephala",
+  "common": "Painted stork",
+  "bangla": "রাঙা মানিকজোড়",
+  "japanese": "インドトキコウ",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Aves",
+  "order": "Ciconiiformes",
+  "family": "Ciconiidae",
+  "description": "Species of bird",
+  "pronunciation": "মিক্টেরিয়া লিউকোসেফালা"
+ },
+ {
   "scientific": "Mydaus javanensis",
   "common": "Sunda stink badger",
   "bangla": "",
@@ -7449,6 +7826,19 @@
   "family": "Mephitidae",
   "description": "Species of carnivore",
   "pronunciation": "মাইডাস জাভানেনসিস"
+ },
+ {
+  "scientific": "Myristica fragrans",
+  "common": "Nutmeg",
+  "bangla": "জয়ত্রি",
+  "japanese": "ニクズク",
+  "kingdom": "Plantae",
+  "phylum": "Tracheophyta",
+  "class": "Magnoliopsida",
+  "order": "Magnoliales",
+  "family": "Myristicaceae",
+  "description": "Evergreen tree, source of nutmeg and mace",
+  "pronunciation": "মিরিস্টিকা ফ্র্যাগ্র্যান্স"
  },
  {
   "scientific": "Myrmecobius fasciatus",
@@ -7473,6 +7863,19 @@
   "order": "Siluriformes",
   "family": "Bagridae",
   "pronunciation": "মিস্টাস টেংরা"
+ },
+ {
+  "scientific": "Mytilus edulis",
+  "common": "Blue mussel",
+  "bangla": "",
+  "japanese": "ヨーロッパイガイ",
+  "kingdom": "Animalia",
+  "phylum": "Mollusca",
+  "class": "Bivalvia",
+  "order": "Mytilida",
+  "family": "Mytilidae",
+  "description": "Species of mollusc",
+  "pronunciation": "মাইটিলাস এডুলিস"
  },
  {
   "scientific": "Naegleria fowleri",
@@ -9035,6 +9438,32 @@
   "pronunciation": "ফিজালিয়া ফিজালিস"
  },
  {
+  "scientific": "Physeter macrocephalus",
+  "common": "Sperm whale",
+  "bangla": "আম্বর মাছ (তিমি)",
+  "japanese": "マッコウクジラ",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Mammalia",
+  "order": "Cetacea",
+  "family": "Physeteridae",
+  "description": "Largest species of toothed whale",
+  "pronunciation": "ফাইসেটার ম্যাক্রোসেফালাস"
+ },
+ {
+  "scientific": "Phytophthora infestans",
+  "common": "Phytophthora infestans",
+  "bangla": "",
+  "japanese": "ジャガイモ疫病菌",
+  "kingdom": "Protista",
+  "phylum": "Oomycota",
+  "class": "Peronosporea",
+  "order": "Peronosporales",
+  "family": "Peronosporaceae",
+  "description": "Species of single-celled organism",
+  "pronunciation": "ফাইটোফথোরা ইনফেস্ট্যান্স"
+ },
+ {
   "scientific": "Pica pica",
   "common": "Eurasian magpie",
   "bangla": "ইউরেশীয় ম্যাগপাই",
@@ -9109,6 +9538,19 @@
   "order": "Piperales",
   "family": "Piperaceae",
   "pronunciation": "পাইপার বিটেল"
+ },
+ {
+  "scientific": "Piper longum",
+  "common": "Long pepper",
+  "bangla": "পিপুল",
+  "japanese": "ヒハツ",
+  "kingdom": "Plantae",
+  "phylum": "Tracheophyta",
+  "class": "Magnoliopsida",
+  "order": "Piperales",
+  "family": "Piperaceae",
+  "description": "Species of plant cultivated for use as spice",
+  "pronunciation": "পাইপার লঙ্গাম"
  },
  {
   "scientific": "Piper nigrum",
@@ -9308,6 +9750,19 @@
   "family": "Asparagaceae",
   "description": "Species of flowering plant",
   "pronunciation": "পলিগোনাটাম ভার্টিসিলাটাম"
+ },
+ {
+  "scientific": "Polypedates leucomystax",
+  "common": "Common tree frog",
+  "bangla": "",
+  "japanese": "シロアゴガエル",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Amphibia",
+  "order": "Anura",
+  "family": "Rhacophoridae",
+  "description": "Species of amphibian",
+  "pronunciation": "পলিপেডেটস লিউকোমিস্ট্যাক্স"
  },
  {
   "scientific": "Pongamia pinnata",
@@ -9822,6 +10277,19 @@
   "order": "Columbiformes",
   "family": "Columbidae",
   "pronunciation": "র‍্যাফাস কুকুল্যাটাস"
+ },
+ {
+  "scientific": "Rattus norvegicus",
+  "common": "Brown rat",
+  "bangla": "",
+  "japanese": "ドブネズミ",
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Mammalia",
+  "order": "Rodentia",
+  "family": "Muridae",
+  "description": "Species of common rat",
+  "pronunciation": "র‍্যাটাস নরভেজিকাস"
  },
  {
   "scientific": "Rattus rattus",
@@ -10903,6 +11371,19 @@
   "order": "Myrtales",
   "family": "Myrtaceae",
   "pronunciation": "সিজিজিয়াম অ্যারোমাটিকাম"
+ },
+ {
+  "scientific": "Syzygium cumini",
+  "common": "Java plum",
+  "bangla": "জাম",
+  "japanese": "ドゥハット",
+  "kingdom": "Plantae",
+  "phylum": "Tracheophyta",
+  "class": "Magnoliopsida",
+  "order": "Myrtales",
+  "family": "Myrtaceae",
+  "description": "Species of tree",
+  "pronunciation": "সিজিজিয়াম কিউমিনি"
  },
  {
   "scientific": "Syzygium heyneanum",

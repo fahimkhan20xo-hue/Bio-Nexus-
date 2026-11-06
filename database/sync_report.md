@@ -1,86 +1,46 @@
 # Species sync report
 
-Total species in database: 976
-Added this run: 77
+Total species in database: 1013
+Added this run: 37
 
 ## Added
-- Cucurbita maxima
-- Cucurbita pepo
-- Lagenaria siceraria
-- Benincasa hispida
-- Cucumis melo
-- Lactuca sativa
-- Brassica juncea
-- Brassica napus
-- Phaseolus vulgaris
-- Vicia faba
-- Lathyrus sativus
-- Vigna unguiculata
-- Manihot esculenta
-- Cymbopogon citratus
-- Mentha spicata
-- Salvia rosmarinus
-- Loxodonta africana
-- Hylobates lar
-- Pongo abelii
-- Mandrillus sphinx
-- Papio anubis
-- Lemur catta
-- Tremarctos ornatus
-- Ursus americanus
-- Canis lupus
-- Lynx rufus
-- Suricata suricatta
-- Phacochoerus africanus
-- Tursiops truncatus
-- Delphinus delphis
-- Meleagris gallopavo
-- Dromaius novaehollandiae
-- Spheniscus demersus
-- Accipiter badius
-- Milvus migrans
-- Bubo bubo
-- Psittacula eupatria
-- Cuculus canorus
-- Centropus sinensis
-- Alcedo atthis
-- Corvus macrorhynchos
-- Pica pica
-- Turdus merula
-- Hirundo rustica
-- Apis cerana
-- Bombus terrestris
-- Oecophylla smaragdina
-- Papilio polytes
-- Danaus chrysippus
-- Pieris brassicae
-- Catopsilia pomona
-- Anopheles stephensi
-- Culex quinquefasciatus
-- Aedes albopictus
-- Blattella germanica
-- Gryllus bimaculatus
-- Locusta migratoria
-- Mantis religiosa
-- Coccinella septempunctata
-- Pila globosa
-- Bacillus subtilis
-- Bacillus thuringiensis
-- Enterococcus faecalis
-- Haemophilus influenzae
-- Neisseria meningitidis
-- Borreliella burgdorferi
-- Lactobacillus delbrueckii
-- Bifidobacterium longum
-- Azotobacter vinelandii
-- Nostoc commune
-- Chlorella vulgaris
-- Euglena gracilis
-- Volvox globator
-- Trypanosoma cruzi
-- Naegleria fowleri
-- Agaricus bisporus
-- Pleurotus ostreatus
+- Curcuma zedoaria
+- Alpinia galanga
+- Piper longum
+- Cinnamomum camphora
+- Myristica fragrans
+- Syzygium cumini
+- Citrus limon
+- Citrus maxima
+- Physeter macrocephalus
+- Megaptera novaeangliae
+- Dugong dugon
+- Cynopterus sphinx
+- Mus musculus
+- Rattus norvegicus
+- Lonchura punctulata
+- Cygnus olor
+- Ciconia ciconia
+- Leptoptilos javanicus
+- Anastomus oscitans
+- Mycteria leucocephala
+- Bufo bufo
+- Polypedates leucomystax
+- Euphlyctis cyanophlyctis
+- Lumbricus terrestris
+- Eisenia fetida
+- Hirudo medicinalis
+- Mytilus edulis
+- Magallana gigas
+- Macrobrachium rosenbergii
+- Callinectes sapidus
+- Lentinula edodes
+- Amanita muscaria
+- Ganoderma lucidum
+- Aspergillus flavus
+- Fusarium oxysporum
+- Phytophthora infestans
+- Dictyostelium discoideum
 
 ## Skipped (fix the name or add by hand)
 - Bubalus arnee: already in the database as "Bubalus bubalis"
@@ -207,6 +167,7 @@ Added this run: 77
 - Thevetia peruviana: already in the database as "Cascabela thevetia"
 - Neogale vison: GBIF found no exact match (closest: Neogale Gray, 1865). Check the spelling.
 - Sarcophaga haemorrhoidalis: already in the database as "Sarcophaga africa"
+- Rosmarinus officinalis: already in the database as "Salvia rosmarinus"
 - Chelonoidis niger: GBIF has no order for this name
 - Geochelone elegans: GBIF has no order for this name
 - Nilssonia gangetica: GBIF has no order for this name
@@ -228,82 +189,45 @@ Added this run: 77
 - Trichogaster fasciata: GBIF found no exact match (closest: Animalia). Check the spelling.
 - Lepidocephalichthys guntea: GBIF has no class for this name
 - Acinetobacter baumannii: GBIF found no exact match (closest: Acinetobacter baumannii_B B). Check the spelling.
+- Borrelia burgdorferi: already in the database as "Borreliella burgdorferi"
 - Plasmodium vivax: GBIF found no exact match (closest: no suggestion). Check the spelling.
 - Plasmodium malariae: GBIF has no phylum, class, order, family for this name
+- Badis badis: GBIF has no class for this name
+- Anguilla bengalensis: GBIF has no class for this name
+- Nandus nandus: GBIF has no class for this name
 
 ## Notes
-- Cucurbita maxima: no Bengali name
-- Cucurbita pepo: no Bengali name
-- Phaseolus vulgaris: no Bengali name
-- Vicia faba: no Bengali name
-- Salvia rosmarinus: "Rosmarinus officinalis" is a synonym, saved as accepted name "Salvia rosmarinus"
-- Loxodonta africana: no Bengali name
-- Hylobates lar: no Bengali name
-- Pongo abelii: no Bengali name
-- Mandrillus sphinx: no Bengali name
-- Papio anubis: no Bengali name
-- Lemur catta: no Bengali name
-- Tremarctos ornatus: no Bengali name
-- Ursus americanus: no Bengali name
-- Lynx rufus: no Bengali name
-- Phacochoerus africanus: no Bengali name
-- Tursiops truncatus: no Bengali name
-- Delphinus delphis: no Bengali name
-- Meleagris gallopavo: no Bengali name
-- Spheniscus demersus: no Bengali name
-- Bubo bubo: no Bengali name
-- Pica pica: no Japanese name
-- Apis cerana: no Bengali name
-- Bombus terrestris: no Bengali name
-- Oecophylla smaragdina: no Bengali name
-- Pieris brassicae: no Bengali name
-- Catopsilia pomona: no common name found, scientific name used
-- Anopheles stephensi: no common name found, scientific name used
-- Anopheles stephensi: no Bengali name
-- Anopheles stephensi: no Japanese name
-- Culex quinquefasciatus: no Bengali name
-- Blattella germanica: no Bengali name
-- Gryllus bimaculatus: no Bengali name
-- Locusta migratoria: no Bengali name
-- Mantis religiosa: no Bengali name
-- Coccinella septempunctata: no Bengali name
-- Pila globosa: no Bengali name
-- Pila globosa: no Japanese name
-- Bacillus subtilis: no common name found, scientific name used
-- Bacillus subtilis: no Bengali name
-- Bacillus thuringiensis: no common name found, scientific name used
-- Bacillus thuringiensis: no Bengali name
-- Enterococcus faecalis: no common name found, scientific name used
-- Enterococcus faecalis: no Bengali name
-- Haemophilus influenzae: no common name found, scientific name used
-- Neisseria meningitidis: no common name found, scientific name used
-- Neisseria meningitidis: no Bengali name
-- Borreliella burgdorferi: "Borrelia burgdorferi" is a synonym, saved as accepted name "Borreliella burgdorferi"
-- Borreliella burgdorferi: no common name found, scientific name used
-- Borreliella burgdorferi: no Bengali name
-- Borreliella burgdorferi: no Japanese name
-- Lactobacillus delbrueckii: no common name found, scientific name used
-- Lactobacillus delbrueckii: no Bengali name
-- Bifidobacterium longum: no common name found, scientific name used
-- Azotobacter vinelandii: no common name found, scientific name used
-- Azotobacter vinelandii: no Bengali name
-- Azotobacter vinelandii: no Japanese name
-- Nostoc commune: no common name found, scientific name used
-- Nostoc commune: no Bengali name
-- Chlorella vulgaris: no common name found, scientific name used
-- Chlorella vulgaris: no Bengali name
-- Chlorella vulgaris: no Japanese name
-- Euglena gracilis: no common name found, scientific name used
-- Euglena gracilis: no Bengali name
-- Euglena gracilis: no Japanese name
-- Volvox globator: no common name found, scientific name used
-- Volvox globator: no Bengali name
-- Volvox globator: no Japanese name
-- Trypanosoma cruzi: no common name found, scientific name used
-- Trypanosoma cruzi: no Bengali name
-- Naegleria fowleri: no common name found, scientific name used
-- Agaricus bisporus: no common name found, scientific name used
-- Agaricus bisporus: no Bengali name
-- Pleurotus ostreatus: no Bengali name
+- Curcuma zedoaria: no Bengali name
+- Citrus limon: no Bengali name
+- Citrus limon: no Japanese name
+- Cynopterus sphinx: no Bengali name
+- Cynopterus sphinx: no Japanese name
+- Rattus norvegicus: no Bengali name
+- Cygnus olor: no Bengali name
+- Bufo bufo: no Bengali name
+- Polypedates leucomystax: no Bengali name
+- Euphlyctis cyanophlyctis: no common name found, scientific name used
+- Euphlyctis cyanophlyctis: no Japanese name
+- Lumbricus terrestris: no Bengali name
+- Lumbricus terrestris: no Japanese name
+- Eisenia fetida: no common name found, scientific name used
+- Eisenia fetida: no Bengali name
+- Hirudo medicinalis: no Bengali name
+- Mytilus edulis: no Bengali name
+- Magallana gigas: "Crassostrea gigas" is a synonym, saved as accepted name "Magallana gigas"
+- Magallana gigas: no Bengali name
+- Magallana gigas: no Japanese name
+- Macrobrachium rosenbergii: no Bengali name
+- Callinectes sapidus: no Bengali name
+- Lentinula edodes: no Bengali name
+- Ganoderma lucidum: no Bengali name
+- Aspergillus flavus: no common name found, scientific name used
+- Aspergillus flavus: no Bengali name
+- Fusarium oxysporum: no common name found, scientific name used
+- Fusarium oxysporum: no Bengali name
+- Phytophthora infestans: no common name found, scientific name used
+- Phytophthora infestans: no Bengali name
+- Dictyostelium discoideum: no common name found, scientific name used
+- Dictyostelium discoideum: no Bengali name
 
 Data sources: GBIF (classification), Wikipedia and Wikidata (names).
