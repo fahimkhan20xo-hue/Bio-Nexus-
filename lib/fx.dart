@@ -12,9 +12,23 @@ import 'package:path_provider/path_provider.dart';
 
 final ValueNotifier<bool> fxEnabled = ValueNotifier<bool>(true);
 
+/// Which look the app uses.
+enum ThemeStyle { emerald, cells }
+
+final ValueNotifier<ThemeStyle> themeStyle = ValueNotifier<ThemeStyle>(ThemeStyle.emerald);
+
 Future<File> _fxFile() async {
   final d = await getApplicationSupportDirectory();
   return File('${d.path}/bionexus_fx.json');
+}
+
+Future<void> _saveFx() async {
+  try {
+    final f = await _fxFile();
+    await f.writeAsString(jsonEncode({'fx': fxEnabled.value, 'style': themeStyle.value.name}), flush: true);
+  } catch (e) {
+    debugPrint('Could not save fx setting: $e');
+  }
 }
 
 Future<void> loadFx() async {
@@ -23,6 +37,8 @@ Future<void> loadFx() async {
     if (!await f.exists()) return;
     final m = jsonDecode(await f.readAsString()) as Map<String, dynamic>;
     fxEnabled.value = m['fx'] != false;
+    final i = ThemeStyle.values.indexWhere((s) => s.name == m['style']);
+    if (i >= 0) themeStyle.value = ThemeStyle.values[i];
   } catch (e) {
     debugPrint('Could not load fx setting: $e');
   }
@@ -30,12 +46,12 @@ Future<void> loadFx() async {
 
 Future<void> setFx(bool v) async {
   fxEnabled.value = v;
-  try {
-    final f = await _fxFile();
-    await f.writeAsString(jsonEncode({'fx': v}), flush: true);
-  } catch (e) {
-    debugPrint('Could not save fx setting: $e');
-  }
+  await _saveFx();
+}
+
+Future<void> setThemeStyle(ThemeStyle s) async {
+  themeStyle.value = s;
+  await _saveFx();
 }
 
 /// Emerald palette used across the app.
@@ -46,11 +62,17 @@ class Emerald {
   static const Color c500 = Color(0xFF10B981);
   static const Color c400 = Color(0xFF34D399);
   static const Color c200 = Color(0xFFA7F3D0);
-  static const LinearGradient hero = LinearGradient(
-    colors: [c900, c700, c500],
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-  );
+  static LinearGradient get hero => themeStyle.value == ThemeStyle.cells
+      ? const LinearGradient(
+          colors: [Color(0xFF3B0764), Color(0xFF7E22CE), Color(0xFF10B981)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        )
+      : const LinearGradient(
+          colors: [c900, c700, c500],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        );
 }
 
 /// Frosted-glass card. Blur is only used when effects are on (and [blur] is true).
@@ -78,8 +100,13 @@ class GlassCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = Theme.of(context).brightness == Brightness.dark;
     final fx = fxEnabled.value;
-    final base = dark ? Colors.white.withValues(alpha: .07) : Colors.white.withValues(alpha: .72);
-    final border = dark ? Colors.white.withValues(alpha: .14) : Colors.white.withValues(alpha: .9);
+    final cells = themeStyle.value == ThemeStyle.cells;
+    final base = cells
+        ? const Color(0xFF2B1457).withValues(alpha: .46)
+        : (dark ? Colors.white.withValues(alpha: .07) : Colors.white.withValues(alpha: .72));
+    final border = cells
+        ? Emerald.c400.withValues(alpha: .28)
+        : (dark ? Colors.white.withValues(alpha: .14) : Colors.white.withValues(alpha: .9));
     final r = BorderRadius.circular(radius);
 
     Widget inner = Container(
@@ -112,7 +139,7 @@ class GlassCard extends StatelessWidget {
               borderRadius: r,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: dark ? .28 : .08),
+                  color: cells ? const Color(0xFF7C3AED).withValues(alpha: .22) : Colors.black.withValues(alpha: dark ? .28 : .08),
                   blurRadius: 18,
                   offset: const Offset(0, 8),
                 ),

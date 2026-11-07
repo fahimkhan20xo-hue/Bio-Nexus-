@@ -49,30 +49,50 @@ class _BioNexusAppState extends State<BioNexusApp> {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<bool>(
-      valueListenable: fxEnabled,
-      builder: (context, fx, _) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'BioNexus',
-        themeMode: dark ? ThemeMode.dark : ThemeMode.light,
-        theme: _buildTheme(Brightness.light),
-        darkTheme: _buildTheme(Brightness.dark),
-        home: HomePage(
-          lang: lang,
-          dark: dark,
-          onLang: (l) { setState(() => lang = l); saveAppPrefs(lang, dark); },
-          onTheme: () { setState(() => dark = !dark); saveAppPrefs(lang, dark); },
-        ),
-      ),
+    return ValueListenableBuilder<ThemeStyle>(
+      valueListenable: themeStyle,
+      builder: (context, style, _) {
+        final cells = style == ThemeStyle.cells;
+        return ValueListenableBuilder<bool>(
+          valueListenable: fxEnabled,
+          builder: (context, fx, _) => MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'BioNexus',
+            themeMode: cells ? ThemeMode.dark : (dark ? ThemeMode.dark : ThemeMode.light),
+            theme: _buildTheme(cells ? Brightness.dark : Brightness.light, cells: cells),
+            darkTheme: _buildTheme(Brightness.dark, cells: cells),
+            home: HomePage(
+              lang: lang,
+              dark: dark,
+              onLang: (l) { setState(() => lang = l); saveAppPrefs(lang, dark); },
+              onTheme: () { setState(() => dark = !dark); saveAppPrefs(lang, dark); },
+            ),
+          ),
+        );
+      },
     );
   }
 }
 
 /// Emerald green theme with tighter, bolder headings.
-ThemeData _buildTheme(Brightness b) {
+ThemeData _buildTheme(Brightness b, {bool cells = false}) {
   final dark = b == Brightness.dark;
-  final scheme = ColorScheme.fromSeed(seedColor: dark ? Emerald.c500 : Emerald.c600, brightness: b);
-  final bg = dark ? const Color(0xFF08120F) : const Color(0xFFF0FAF5);
+  final ColorScheme scheme = cells
+      ? ColorScheme.fromSeed(seedColor: const Color(0xFF7C3AED), brightness: Brightness.dark).copyWith(
+          primary: Emerald.c400,
+          onPrimary: const Color(0xFF042F1E),
+          primaryContainer: const Color(0xFF3B0A6B),
+          onPrimaryContainer: const Color(0xFFD9FBEA),
+          secondary: const Color(0xFFE879F9),
+          surface: const Color(0xFF140B26),
+          onSurface: const Color(0xFFF1EAFF),
+          surfaceContainerHigh: const Color(0xFF22123F),
+          surfaceContainerHighest: const Color(0xFF2A1750),
+        )
+      : ColorScheme.fromSeed(seedColor: dark ? Emerald.c500 : Emerald.c600, brightness: b);
+  final bg = cells
+      ? const Color(0xFF0B0716)
+      : (dark ? const Color(0xFF08120F) : const Color(0xFFF0FAF5));
   final base = ThemeData(colorScheme: scheme, useMaterial3: true, brightness: b);
   final tt = base.textTheme;
   return base.copyWith(
@@ -93,7 +113,7 @@ ThemeData _buildTheme(Brightness b) {
       elevation: 0,
     ),
     navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: dark ? const Color(0xFF0D1B17) : Colors.white,
+      backgroundColor: cells ? const Color(0xFF140B26) : (dark ? const Color(0xFF0D1B17) : Colors.white),
       surfaceTintColor: Colors.transparent,
       indicatorColor: Emerald.c500.withValues(alpha: .22),
     ),
@@ -214,7 +234,15 @@ class _HomePageState extends State<HomePage> {
               PopupMenuItem(value: Lang.ja, child: Text('日本語')),
             ],
           ),
-          IconButton(tooltip: 'Theme', onPressed: widget.onTheme, icon: Icon(widget.dark ? Icons.light_mode : Icons.dark_mode)),
+          IconButton(
+            tooltip: 'Theme',
+            onPressed: themeStyle.value == ThemeStyle.cells
+                ? () => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(t('Cell Nebula is always dark.', 'সেল নেবুলা সবসময় ডার্ক থাকে।', 'セルネビュラは常にダークです。')),
+                    ))
+                : widget.onTheme,
+            icon: Icon(themeStyle.value == ThemeStyle.cells || !widget.dark ? Icons.dark_mode : Icons.light_mode),
+          ),
         ],
       ),
       body: ScienceBackground(
@@ -732,6 +760,33 @@ class _HomePageState extends State<HomePage> {
       );
 
   // ---------- Settings ----------
+  Widget _themeChoice(ThemeStyle s, String label, List<Color> colors) {
+    final selected = themeStyle.value == s;
+    return Expanded(
+      child: GestureDetector(
+        onTap: () => setThemeStyle(s),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 250),
+          height: 84,
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            gradient: LinearGradient(colors: colors, begin: Alignment.topLeft, end: Alignment.bottomRight),
+            border: Border.all(color: selected ? Colors.white : Colors.transparent, width: 2),
+          ),
+          child: Stack(children: [
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Text(label, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 13)),
+            ),
+            if (selected)
+              const Align(alignment: Alignment.topRight, child: Icon(Icons.check_circle, color: Colors.white, size: 20)),
+          ]),
+        ),
+      ),
+    );
+  }
+
   Widget _box(Widget child) => GlassCard(
         margin: const EdgeInsets.only(bottom: 10),
         padding: EdgeInsets.zero,
@@ -763,9 +818,24 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           _box(
+            Padding(
+              padding: const EdgeInsets.all(14),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text(t('Theme', 'থিম', 'テーマ'), style: const TextStyle(fontWeight: FontWeight.w600)),
+                const SizedBox(height: 10),
+                Row(children: [
+                  _themeChoice(ThemeStyle.emerald, t('Emerald', 'এমারেল্ড', 'エメラルド'), const [Emerald.c900, Emerald.c500]),
+                  const SizedBox(width: 10),
+                  _themeChoice(ThemeStyle.cells, t('Cell Nebula 3D', 'সেল নেবুলা ৩ডি', 'セルネビュラ3D'),
+                      const [Color(0xFF3B0764), Color(0xFF7E22CE), Color(0xFF10B981)]),
+                ]),
+              ]),
+            ),
+          ),
+          _box(
             SwitchListTile(
-            value: widget.dark,
-            onChanged: (_) => widget.onTheme(),
+            value: widget.dark || themeStyle.value == ThemeStyle.cells,
+            onChanged: themeStyle.value == ThemeStyle.cells ? null : (_) => widget.onTheme(),
             title: Text(t('Dark mode', 'ডার্ক মোড', 'ダークモード')),
             secondary: const Icon(Icons.dark_mode),
           ),
@@ -1482,10 +1552,13 @@ class _GlassNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = Theme.of(context).brightness == Brightness.dark;
     final fx = fxEnabled.value;
-    final tint = dark
-        ? Emerald.c900.withValues(alpha: fx ? .55 : .96)
-        : Colors.white.withValues(alpha: fx ? .72 : .97);
-    final activeColor = dark ? Emerald.c400 : Emerald.c700;
+    final cells = themeStyle.value == ThemeStyle.cells;
+    final tint = cells
+        ? const Color(0xFF1B0B33).withValues(alpha: fx ? .62 : .97)
+        : (dark
+            ? Emerald.c900.withValues(alpha: fx ? .55 : .96)
+            : Colors.white.withValues(alpha: fx ? .72 : .97));
+    final activeColor = cells ? Emerald.c400 : (dark ? Emerald.c400 : Emerald.c700);
     final idleColor = Theme.of(context).colorScheme.onSurface.withValues(alpha: .62);
     return SafeArea(
       top: false,
