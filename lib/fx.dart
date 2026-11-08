@@ -64,7 +64,8 @@ class Emerald {
   static const Color c200 = Color(0xFFA7F3D0);
   static LinearGradient get hero => themeStyle.value == ThemeStyle.cells
       ? const LinearGradient(
-          colors: [Color(0xFF3B0764), Color(0xFF7E22CE), Color(0xFF10B981)],
+          colors: [Color(0xFF2E1065), Color(0xFF6D28D9), Color(0xFF0891B2), Color(0xFF10B981)],
+          stops: [0.0, 0.38, 0.72, 1.0],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         )
@@ -102,10 +103,10 @@ class GlassCard extends StatelessWidget {
     final fx = fxEnabled.value;
     final cells = themeStyle.value == ThemeStyle.cells;
     final base = cells
-        ? const Color(0xFF2B1457).withValues(alpha: .46)
+        ? const Color(0xFF1C0F33).withValues(alpha: .50)
         : (dark ? Colors.white.withValues(alpha: .07) : Colors.white.withValues(alpha: .72));
     final border = cells
-        ? Emerald.c400.withValues(alpha: .28)
+        ? const Color(0xFF63E8E5).withValues(alpha: .24)
         : (dark ? Colors.white.withValues(alpha: .14) : Colors.white.withValues(alpha: .9));
     final r = BorderRadius.circular(radius);
 
@@ -139,7 +140,7 @@ class GlassCard extends StatelessWidget {
               borderRadius: r,
               boxShadow: [
                 BoxShadow(
-                  color: cells ? const Color(0xFF7C3AED).withValues(alpha: .22) : Colors.black.withValues(alpha: dark ? .28 : .08),
+                  color: cells ? const Color(0xFFB51C9C).withValues(alpha: .20) : Colors.black.withValues(alpha: dark ? .28 : .08),
                   blurRadius: 18,
                   offset: const Offset(0, 8),
                 ),
@@ -242,4 +243,36 @@ Route<T> fxRoute<T>(WidgetBuilder builder) {
       );
     },
   );
+}
+
+
+/// Frosted-glass band behind every app bar (drawn between the background and the pages).
+class GlassTopStrip extends StatelessWidget {
+  const GlassTopStrip({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final dark = Theme.of(context).brightness == Brightness.dark;
+    final cells = themeStyle.value == ThemeStyle.cells;
+    final fx = fxEnabled.value;
+    final height = MediaQuery.of(context).padding.top + kToolbarHeight;
+    final tint = cells
+        ? const Color(0xFF10091B).withValues(alpha: fx ? .58 : .96)
+        : (dark
+            ? const Color(0xFF08120F).withValues(alpha: fx ? .50 : .96)
+            : Colors.white.withValues(alpha: fx ? .60 : .97));
+    Widget bar = Container(
+      height: height,
+      decoration: BoxDecoration(
+        color: tint,
+        border: Border(
+          bottom: BorderSide(color: (cells ? const Color(0xFF63E8E5) : Emerald.c500).withValues(alpha: .20)),
+        ),
+      ),
+    );
+    if (fx) {
+      bar = ClipRect(child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 16, sigmaY: 16), child: bar));
+    }
+    return IgnorePointer(child: bar);
+  }
 }

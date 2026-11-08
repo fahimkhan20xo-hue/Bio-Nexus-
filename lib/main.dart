@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'data.dart';
 import 'quiz.dart';
 import 'compare.dart';
@@ -61,6 +62,15 @@ class _BioNexusAppState extends State<BioNexusApp> {
             themeMode: cells ? ThemeMode.dark : (dark ? ThemeMode.dark : ThemeMode.light),
             theme: _buildTheme(cells ? Brightness.dark : Brightness.light, cells: cells),
             darkTheme: _buildTheme(Brightness.dark, cells: cells),
+            builder: (context, child) => ColoredBox(
+              color: Theme.of(context).canvasColor,
+              child: AppBackground(
+                child: Stack(children: [
+                  const Positioned(top: 0, left: 0, right: 0, child: GlassTopStrip()),
+                  Positioned.fill(child: child ?? const SizedBox.shrink()),
+                ]),
+              ),
+            ),
             home: HomePage(
               lang: lang,
               dark: dark,
@@ -79,24 +89,25 @@ ThemeData _buildTheme(Brightness b, {bool cells = false}) {
   final dark = b == Brightness.dark;
   final ColorScheme scheme = cells
       ? ColorScheme.fromSeed(seedColor: const Color(0xFF7C3AED), brightness: Brightness.dark).copyWith(
-          primary: Emerald.c400,
-          onPrimary: const Color(0xFF042F1E),
-          primaryContainer: const Color(0xFF3B0A6B),
-          onPrimaryContainer: const Color(0xFFD9FBEA),
-          secondary: const Color(0xFFE879F9),
-          surface: const Color(0xFF140B26),
+          primary: const Color(0xFF5EEAD4),
+          onPrimary: const Color(0xFF042F2A),
+          primaryContainer: const Color(0xFF2B1457),
+          onPrimaryContainer: const Color(0xFFD4FBF3),
+          secondary: const Color(0xFFF18ADB),
+          surface: const Color(0xFF100A1C),
           onSurface: const Color(0xFFF1EAFF),
-          surfaceContainerHigh: const Color(0xFF22123F),
-          surfaceContainerHighest: const Color(0xFF2A1750),
+          surfaceContainerHigh: const Color(0xFF1C1230),
+          surfaceContainerHighest: const Color(0xFF241840),
         )
       : ColorScheme.fromSeed(seedColor: dark ? Emerald.c500 : Emerald.c600, brightness: b);
   final bg = cells
-      ? const Color(0xFF0B0716)
+      ? const Color(0xFF080510)
       : (dark ? const Color(0xFF08120F) : const Color(0xFFF0FAF5));
   final base = ThemeData(colorScheme: scheme, useMaterial3: true, brightness: b);
   final tt = base.textTheme;
   return base.copyWith(
-    scaffoldBackgroundColor: bg,
+    scaffoldBackgroundColor: Colors.transparent,
+    canvasColor: bg,
     textTheme: tt.copyWith(
       headlineMedium: tt.headlineMedium?.copyWith(fontWeight: FontWeight.w800, letterSpacing: -0.5, height: 1.15),
       headlineSmall: tt.headlineSmall?.copyWith(fontWeight: FontWeight.w700, letterSpacing: -0.3, height: 1.2),
@@ -107,13 +118,15 @@ ThemeData _buildTheme(Brightness b, {bool cells = false}) {
       bodySmall: tt.bodySmall?.copyWith(height: 1.35, letterSpacing: 0.2),
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: bg,
+      backgroundColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
       scrolledUnderElevation: 0,
       elevation: 0,
+      systemOverlayStyle: (dark || cells ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark)
+          .copyWith(statusBarColor: Colors.transparent),
     ),
     navigationBarTheme: NavigationBarThemeData(
-      backgroundColor: cells ? const Color(0xFF140B26) : (dark ? const Color(0xFF0D1B17) : Colors.white),
+      backgroundColor: cells ? const Color(0xFF10091B) : (dark ? const Color(0xFF0D1B17) : Colors.white),
       surfaceTintColor: Colors.transparent,
       indicatorColor: Emerald.c500.withValues(alpha: .22),
     ),
@@ -827,7 +840,7 @@ class _HomePageState extends State<HomePage> {
                   _themeChoice(ThemeStyle.emerald, t('Emerald', 'এমারেল্ড', 'エメラルド'), const [Emerald.c900, Emerald.c500]),
                   const SizedBox(width: 10),
                   _themeChoice(ThemeStyle.cells, t('Cell Nebula 3D', 'সেল নেবুলা ৩ডি', 'セルネビュラ3D'),
-                      const [Color(0xFF3B0764), Color(0xFF7E22CE), Color(0xFF10B981)]),
+                      const [Color(0xFF2E1065), Color(0xFF6D28D9), Color(0xFF0891B2), Color(0xFF10B981)]),
                 ]),
               ]),
             ),
@@ -848,7 +861,9 @@ class _HomePageState extends State<HomePage> {
               onChanged: (v) => setFx(v),
               title: Text(t('3D effects & animations', '৩ডি ইফেক্ট ও অ্যানিমেশন', '3D効果とアニメーション')),
               subtitle: Text(on
-                  ? t('DNA background, page rotation, blur and motion', 'DNA ব্যাকগ্রাউন্ড, পেজ ঘোরা, ব্লার ও মুভমেন্ট', 'DNA背景・ページ回転・ぼかし・動き')
+                  ? (themeStyle.value == ThemeStyle.cells
+                      ? t('Animated cellular universe, depth, blur and motion', 'অ্যানিমেটেড সেলুলার ইউনিভার্স, ডেপথ, ব্লার ও মুভমেন্ট', '細胞宇宙のアニメーション・奥行き・ぼかし・動き')
+                      : t('DNA background, page rotation, blur and motion', 'DNA ব্যাকগ্রাউন্ড, পেজ ঘোরা, ব্লার ও মুভমেন্ট', 'DNA背景・ページ回転・ぼかし・動き'))
                   : t('Simple mode: faster on low-end phones', 'সিম্পল মোড: কম শক্তির ফোনে দ্রুত চলবে', 'シンプルモード:低スペック端末で軽く動作')),
               secondary: const Icon(Icons.auto_awesome),
             ),
@@ -1554,12 +1569,12 @@ class _GlassNavBar extends StatelessWidget {
     final fx = fxEnabled.value;
     final cells = themeStyle.value == ThemeStyle.cells;
     final tint = cells
-        ? const Color(0xFF1B0B33).withValues(alpha: fx ? .62 : .97)
+        ? const Color(0xFF10091B).withValues(alpha: fx ? .64 : .97)
         : (dark
             ? Emerald.c900.withValues(alpha: fx ? .55 : .96)
             : Colors.white.withValues(alpha: fx ? .72 : .97));
-    final activeColor = cells ? Emerald.c400 : (dark ? Emerald.c400 : Emerald.c700);
-    final idleColor = Theme.of(context).colorScheme.onSurface.withValues(alpha: .62);
+    final activeColor = cells ? const Color(0xFF5EEAD4) : (dark ? Emerald.c400 : Emerald.c700);
+    final idleColor = cells ? const Color(0xFFB9A8DC).withValues(alpha: .75) : Theme.of(context).colorScheme.onSurface.withValues(alpha: .62);
     return SafeArea(
       top: false,
       child: Padding(

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'cell_nebula_painter.dart';
 import 'data.dart';
 import 'fx.dart';
 import 'stats.dart';
@@ -777,15 +778,15 @@ final ValueNotifier<bool> bgPaused = ValueNotifier<bool>(false);
 
 double _fr(double v) => v - v.floorToDouble();
 
-class ScienceBackground extends StatefulWidget {
+class AppBackground extends StatefulWidget {
   final Widget child;
-  const ScienceBackground({super.key, required this.child});
+  const AppBackground({super.key, required this.child});
 
   @override
-  State<ScienceBackground> createState() => _ScienceBackgroundState();
+  State<AppBackground> createState() => _AppBackgroundState();
 }
 
-class _ScienceBackgroundState extends State<ScienceBackground> with SingleTickerProviderStateMixin {
+class _AppBackgroundState extends State<AppBackground> with SingleTickerProviderStateMixin {
   late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(seconds: 1))..repeat();
 
   @override
@@ -830,7 +831,7 @@ class _ScienceBackgroundState extends State<ScienceBackground> with SingleTicker
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [Color(0xFF0B0716), Color(0xFF1B0B33)],
+                    colors: [Color(0xFF080510), Color(0xFF10091B)],
                   ),
                 ),
                 child: widget.child,
@@ -841,7 +842,7 @@ class _ScienceBackgroundState extends State<ScienceBackground> with SingleTicker
             Positioned.fill(
               child: IgnorePointer(
                 child: RepaintBoundary(
-                  child: CustomPaint(painter: cells ? _CellPainter(_c) : _BgPainter(_c, color)),
+                  child: CustomPaint(painter: cells ? CellNebulaPainter(_c) : _BgPainter(_c, color)),
                 ),
               ),
             ),
@@ -851,6 +852,16 @@ class _ScienceBackgroundState extends State<ScienceBackground> with SingleTicker
       ),
     );
   }
+}
+
+/// Pages still wrap their content in this. The animated background now lives once,
+/// behind the whole app (see AppBackground), so this just returns the page.
+class ScienceBackground extends StatelessWidget {
+  final Widget child;
+  const ScienceBackground({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) => child;
 }
 
 class _BgPainter extends CustomPainter {
@@ -966,190 +977,4 @@ class _BgPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_BgPainter old) => old.color != color;
-}
-
-
-// ---------------------------------------------------------------------------
-// "Cell Nebula" background: translucent cells with glowing green rims,
-// drifting slowly in a dark purple space.
-// ---------------------------------------------------------------------------
-
-class _Cell {
-  final double fx, fy, z, phase, aspect;
-  const _Cell(this.fx, this.fy, this.z, this.phase, this.aspect);
-}
-
-final List<_Cell> _cellList = (() {
-  final l = List<_Cell>.generate(11, (k) {
-    final i = k + 1;
-    return _Cell(
-      _fr(sin(i * 12.9898) * 43758.5453),
-      _fr(sin(i * 78.233) * 12345.6789),
-      _fr(sin(i * 39.425) * 9876.5432),
-      _fr(sin(i * 3.17) * 5432.1) * 6.28,
-      0.88 + 0.26 * _fr(sin(i * 5.5) * 777.7),
-    );
-  });
-  l.sort((a, b) => a.z.compareTo(b.z)); // far cells first, near cells on top
-  return l;
-})();
-
-class _CellPainter extends CustomPainter {
-  _CellPainter(Listenable repaint) : super(repaint: repaint);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final t = _bgClock.elapsedMilliseconds / 1000.0;
-    final w = size.width;
-    final h = size.height;
-
-    // deep purple space with two soft glows
-    final full = Offset.zero & size;
-    canvas.drawRect(
-      full,
-      Paint()
-        ..shader = const LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [Color(0xFF0B0716), Color(0xFF16092B)],
-        ).createShader(full),
-    );
-    _glow(canvas, Offset(w * 0.88, h * 0.92), w * 0.85, const Color(0xFFC026D3), .20);
-    _glow(canvas, Offset(w * 0.08, h * 0.10), w * 0.75, const Color(0xFF10B981), .11);
-
-    // tiny floating bubbles
-    final bubbleFill = Paint()..style = PaintingStyle.fill;
-    final bubbleRim = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1;
-    for (var k = 1; k <= 16; k++) {
-      final fx = _fr(sin(k * 21.7) * 31415.9);
-      final fy = _fr(sin(k * 9.31) * 27182.8);
-      final fz = _fr(sin(k * 4.77) * 1618.0);
-      final r = 2.5 + 6 * fz;
-      final span = h + 2 * r;
-      final y = ((fy * span - t * (4 + 9 * fz)) % span) - r;
-      final x = fx * w + sin(t * 0.3 + k) * 10;
-      bubbleFill.color = const Color(0xFFA855F7).withValues(alpha: .14 + .1 * fz);
-      bubbleRim.color = const Color(0xFFBEF264).withValues(alpha: .20 + .20 * fz);
-      canvas.drawCircle(Offset(x, y), r, bubbleFill);
-      canvas.drawCircle(Offset(x, y), r, bubbleRim);
-    }
-
-    for (final c in _cellList) {
-      _cell(canvas, size, c, t);
-    }
-  }
-
-  void _glow(Canvas canvas, Offset c, double r, Color col, double a) {
-    final rect = Rect.fromCircle(center: c, radius: r);
-    canvas.drawCircle(
-      c,
-      r,
-      Paint()
-        ..shader = RadialGradient(colors: [col.withValues(alpha: a), col.withValues(alpha: 0)]).createShader(rect),
-    );
-  }
-
-  void _cell(Canvas canvas, Size size, _Cell c, double t) {
-    final w = size.width;
-    final h = size.height;
-    final r = 30 + 105 * c.z;
-    final span = h + 2 * r;
-    final cy = ((c.fy * span - t * (3 + 7 * c.z)) % span) - r;
-    final cx = c.fx * w + sin(t * 0.15 + c.phase) * (14 + 26 * c.z);
-    final a = 0.35 + 0.65 * c.z; // nearer cells are stronger
-    final far = c.z < 0.35;
-    final center = Offset(cx, cy);
-
-    // wobbling outline
-    final path = Path();
-    const n = 40;
-    for (var i = 0; i <= n; i++) {
-      final th = i / n * 2 * pi;
-      final rad = r * (1 + 0.05 * sin(3 * th + t * 0.55 + c.phase) + 0.035 * sin(5 * th - t * 0.4 + c.phase * 1.7));
-      final p = Offset(cx + rad * cos(th) * c.aspect, cy + rad * sin(th) / c.aspect);
-      if (i == 0) {
-        path.moveTo(p.dx, p.dy);
-      } else {
-        path.lineTo(p.dx, p.dy);
-      }
-    }
-    path.close();
-
-    // glassy purple body
-    final rect = Rect.fromCircle(center: center, radius: r * 1.15);
-    final fill = Paint()
-      ..style = PaintingStyle.fill
-      ..shader = RadialGradient(
-        center: const Alignment(-.35, -.4),
-        radius: 1.0,
-        colors: [
-          const Color(0xFFF0ABFC).withValues(alpha: .50 * a),
-          const Color(0xFF9333EA).withValues(alpha: .34 * a),
-          const Color(0xFF3B0764).withValues(alpha: .20 * a),
-        ],
-        stops: const [0, .62, 1],
-      ).createShader(rect);
-    if (far) fill.maskFilter = const MaskFilter.blur(BlurStyle.normal, 5);
-    canvas.drawPath(path, fill);
-
-    // glowing green rim
-    final rim = Paint()
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.2 + 2.2 * c.z
-      ..color = const Color(0xFFBEF264).withValues(alpha: .55 * a);
-    if (far) rim.maskFilter = const MaskFilter.blur(BlurStyle.normal, 3);
-    canvas.drawPath(path, rim);
-    canvas.drawPath(
-      path,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 0.8
-        ..color = Colors.white.withValues(alpha: .22 * a),
-    );
-
-    // light reflection on the top-left edge
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: r * 0.82),
-      pi * 1.05,
-      pi * 0.38,
-      false,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 1.6 + 1.6 * c.z
-        ..strokeCap = StrokeCap.round
-        ..color = Colors.white.withValues(alpha: .30 * a),
-    );
-
-    // nucleus and small vesicles inside the cell
-    final nc = center + Offset(cos(t * 0.22 + c.phase) * r * 0.18, sin(t * 0.18 + c.phase) * r * 0.16);
-    canvas.drawCircle(nc, r * 0.34, Paint()..color = const Color(0xFFD946EF).withValues(alpha: .16 * a));
-    canvas.drawCircle(
-      nc,
-      r * 0.34,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 1.2
-        ..color = const Color(0xFFF0ABFC).withValues(alpha: .40 * a),
-    );
-    for (var j = 0; j < 4; j++) {
-      final ang = c.phase + j * 1.7 + t * 0.1;
-      final d = r * (0.45 + 0.1 * j);
-      final vp = center + Offset(cos(ang) * d, sin(ang) * d * 0.8);
-      final vr = r * (0.045 + 0.01 * j);
-      canvas.drawCircle(vp, vr, Paint()..color = Colors.white.withValues(alpha: .26 * a));
-      canvas.drawCircle(
-        vp,
-        vr,
-        Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 0.8
-          ..color = const Color(0xFFBEF264).withValues(alpha: .35 * a),
-      );
-    }
-  }
-
-  @override
-  bool shouldRepaint(_CellPainter old) => false;
 }
