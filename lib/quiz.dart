@@ -778,6 +778,10 @@ final ValueNotifier<bool> bgPaused = ValueNotifier<bool>(false);
 
 double _fr(double v) => v - v.floorToDouble();
 
+class _FrameTick extends ChangeNotifier {
+  void ping() => notifyListeners();
+}
+
 class AppBackground extends StatefulWidget {
   final Widget child;
   const AppBackground({super.key, required this.child});
@@ -789,11 +793,21 @@ class AppBackground extends StatefulWidget {
 class _AppBackgroundState extends State<AppBackground> with SingleTickerProviderStateMixin {
   late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(seconds: 1))..repeat();
 
+  // The background is redrawn every second frame (about 30 fps). It moves slowly,
+  // so it looks the same but costs half as much on the phone.
+  final _FrameTick _tick = _FrameTick();
+  int _frame = 0;
+
+  void _onFrame() {
+    if ((_frame++ & 1) == 0) _tick.ping();
+  }
+
   @override
   void initState() {
     super.initState();
     bgPaused.addListener(_onPause);
     fxEnabled.addListener(_onPause);
+    _c.addListener(_onFrame);
     if (!fxEnabled.value) _c.stop();
   }
 
@@ -809,6 +823,8 @@ class _AppBackgroundState extends State<AppBackground> with SingleTickerProvider
   void dispose() {
     bgPaused.removeListener(_onPause);
     fxEnabled.removeListener(_onPause);
+    _c.removeListener(_onFrame);
+    _tick.dispose();
     _c.dispose();
     super.dispose();
   }
@@ -842,7 +858,7 @@ class _AppBackgroundState extends State<AppBackground> with SingleTickerProvider
             Positioned.fill(
               child: IgnorePointer(
                 child: RepaintBoundary(
-                  child: CustomPaint(painter: cells ? CellNebulaPainter(_c) : _BgPainter(_c, color)),
+                  child: CustomPaint(painter: cells ? CellNebulaPainter(_tick) : _BgPainter(_tick, color)),
                 ),
               ),
             ),

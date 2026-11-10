@@ -128,7 +128,7 @@ ThemeData _buildTheme(Brightness b, {bool cells = false}) {
     navigationBarTheme: NavigationBarThemeData(
       backgroundColor: cells ? const Color(0xFF10091B) : (dark ? const Color(0xFF0D1B17) : Colors.white),
       surfaceTintColor: Colors.transparent,
-      indicatorColor: Emerald.c500.withValues(alpha: .22),
+      indicatorColor: (cells ? const Color(0xFF8B5CF6) : Emerald.c500).withValues(alpha: .24),
     ),
   );
 }
@@ -230,7 +230,11 @@ class _HomePageState extends State<HomePage> {
           Container(
             width: 36,
             height: 36,
-            decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary, borderRadius: BorderRadius.circular(11)),
+            decoration: BoxDecoration(
+              color: themeStyle.value == ThemeStyle.cells ? null : Theme.of(context).colorScheme.primary,
+              gradient: themeStyle.value == ThemeStyle.cells ? Emerald.hero : null,
+              borderRadius: BorderRadius.circular(11),
+            ),
             child: const Icon(Icons.biotech, color: Colors.white),
           ),
           const SizedBox(width: 10),
@@ -365,13 +369,13 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.circular(28),
             gradient: Emerald.hero,
             boxShadow: fxEnabled.value
-                ? [BoxShadow(color: Emerald.c600.withValues(alpha: .35), blurRadius: 24, offset: const Offset(0, 12))]
+                ? [BoxShadow(color: Emerald.glow, blurRadius: 24, offset: const Offset(0, 12))]
                 : null,
           ),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(
               t('EXPLORE LIFE. DISCOVER SCIENCE.', 'জীবনকে জানো। বিজ্ঞানকে আবিষ্কার করো।', '生命を探る。科学を発見する。'),
-              style: const TextStyle(color: Emerald.c200, fontSize: 10.5, fontWeight: FontWeight.w700, letterSpacing: 1.2),
+              style: TextStyle(color: Emerald.lightText, fontSize: 10.5, fontWeight: FontWeight.w700, letterSpacing: 1.2),
             ),
             const SizedBox(height: 10),
             Text(
@@ -499,14 +503,15 @@ class _HomePageState extends State<HomePage> {
         width: 156,
         child: GlassCard(
           radius: 20,
+          blur: false,
           padding: const EdgeInsets.all(12),
           onTap: () => Navigator.push(context, fxRoute((_) => SpeciesPage(species: s, lang: lang, list: list))),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             SpeciesThumb(
               scientific: s.scientific,
               fallback: CircleAvatar(
-                backgroundColor: Emerald.c500.withValues(alpha: .2),
-                child: Icon(_kingdomIcon(s.kingdom), color: Emerald.c600),
+                backgroundColor: Emerald.tint,
+                child: Icon(_kingdomIcon(s.kingdom), color: Emerald.accent),
               ),
             ),
             const Spacer(),
@@ -524,6 +529,7 @@ class _HomePageState extends State<HomePage> {
     return GlassCard(
       radius: 22,
       padding: const EdgeInsets.all(16),
+      blur: false,
       onTap: () => Navigator.push(
         context,
         fxRoute((_) => GroupPage(kingdom: k, lang: lang, favorites: favorites, onChanged: () => setState(() {}))),
@@ -531,8 +537,8 @@ class _HomePageState extends State<HomePage> {
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         CircleAvatar(
           radius: 22,
-          backgroundColor: Emerald.c500.withValues(alpha: .2),
-          child: Icon(_kingdomIcon(k), color: Emerald.c600),
+          backgroundColor: Emerald.tint,
+          child: Icon(_kingdomIcon(k), color: Emerald.accent),
         ),
         const SizedBox(height: 14),
         Text(kingdomLabel(lang, k), style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
@@ -1190,8 +1196,8 @@ Widget _groupRow(
     onTap: onTap,
     child: Row(children: [
       CircleAvatar(
-        backgroundColor: Emerald.c500.withValues(alpha: .2),
-        child: Icon(icon, color: Emerald.c600),
+        backgroundColor: Emerald.tint,
+        child: Icon(icon, color: Emerald.accent),
       ),
       const SizedBox(width: 14),
       Expanded(
@@ -1508,7 +1514,7 @@ class _SpotlightCardState extends State<_SpotlightCard> {
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   decoration: BoxDecoration(color: Colors.black.withValues(alpha: .35), borderRadius: BorderRadius.circular(20)),
                   child: Row(mainAxisSize: MainAxisSize.min, children: [
-                    const Icon(Icons.auto_awesome, size: 14, color: Emerald.c200),
+                    Icon(Icons.auto_awesome, size: 14, color: Emerald.lightText),
                     const SizedBox(width: 5),
                     Text(
                       tr(lang, 'Spotlight', 'আজকের স্পটলাইট', '今日の注目'),
@@ -1597,7 +1603,7 @@ class _GlassNavBar extends StatelessWidget {
                         curve: Curves.easeOutCubic,
                         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
                         decoration: BoxDecoration(
-                          color: i == index ? Emerald.c500.withValues(alpha: dark ? .28 : .22) : Colors.transparent,
+                          color: i == index ? Emerald.pill(dark) : Colors.transparent,
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: Icon(i == index ? items[i].selectedIcon : items[i].icon, size: 24, color: i == index ? activeColor : idleColor),

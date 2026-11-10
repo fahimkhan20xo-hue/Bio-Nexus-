@@ -10,7 +10,7 @@ class CellNebulaPainter extends CustomPainter {
 
   static final Stopwatch _clock = Stopwatch()..start();
 
-  static final List<_NebulaCell> _cells = List.generate(19, (i) {
+  static final List<_NebulaCell> _cells = List.generate(12, (i) {
     final n = i + 1.0;
     double f(double x) => x - x.floorToDouble();
     return _NebulaCell(
@@ -65,7 +65,7 @@ class CellNebulaPainter extends CustomPainter {
 
   void _drawDust(Canvas canvas, Size size, double t) {
     final fill = Paint()..style = PaintingStyle.fill;
-    for (var i = 1; i <= 70; i++) {
+    for (var i = 1; i <= 36; i++) {
       double f(double x) => x - x.floorToDouble();
       final x0 = f(math.sin(i * 21.7) * 31415.9);
       final y0 = f(math.sin(i * 9.31) * 27182.8);
@@ -85,12 +85,12 @@ class CellNebulaPainter extends CustomPainter {
     final x = c.fx * size.width +
         math.sin(t * .11 + c.phase) * (10 + 22 * c.depth);
     final opacity = .30 + .68 * c.depth;
-    final blur = c.depth < .24 ? 5.0 : (c.depth < .42 ? 2.0 : 0.0);
+    final blur = c.depth < .24 ? 4.0 : 0.0;
     final center = Offset(x, y);
     final r = radius;
 
     final path = Path();
-    const points = 48;
+    const points = 36;
     for (var i = 0; i <= points; i++) {
       final angle = i / points * math.pi * 2;
       final wobble = 1 +

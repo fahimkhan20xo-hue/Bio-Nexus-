@@ -62,6 +62,24 @@ class Emerald {
   static const Color c500 = Color(0xFF10B981);
   static const Color c400 = Color(0xFF34D399);
   static const Color c200 = Color(0xFFA7F3D0);
+  static bool get _cells => themeStyle.value == ThemeStyle.cells;
+
+  /// Icon colour on a tinted circle (cyan in Cell Nebula, emerald otherwise).
+  static Color get accent => _cells ? const Color(0xFF5EEAD4) : c600;
+
+  /// Tinted circle behind an icon.
+  static Color get tint => (_cells ? const Color(0xFFA855F7) : c500).withValues(alpha: .20);
+
+  /// Light accent used for small headings on a coloured card.
+  static Color get lightText => _cells ? const Color(0xFFA5F3FC) : c200;
+
+  /// Selected pill in the bottom bar.
+  static Color pill(bool dark) =>
+      (_cells ? const Color(0xFF8B5CF6) : c500).withValues(alpha: _cells ? .32 : (dark ? .28 : .22));
+
+  /// Soft glow under big coloured cards.
+  static Color get glow => (_cells ? const Color(0xFF7C3AED) : c600).withValues(alpha: .35);
+
   static LinearGradient get hero => themeStyle.value == ThemeStyle.cells
       ? const LinearGradient(
           colors: [Color(0xFF2E1065), Color(0xFF6D28D9), Color(0xFF0891B2), Color(0xFF10B981)],
@@ -135,7 +153,7 @@ class GlassCard extends StatelessWidget {
 
     return Container(
       margin: margin,
-      decoration: fx
+      decoration: (fx && blur)
           ? BoxDecoration(
               borderRadius: r,
               boxShadow: [
@@ -225,26 +243,33 @@ class _ShimmerBoxState extends State<ShimmerBox> with SingleTickerProviderStateM
   }
 }
 
-/// Page route with a soft fade, slide and scale. Plain route when effects are off.
+/// Page route. The old page fades out first, then the new page fades in (no overlap).
+/// Plain route when effects are off.
 Route<T> fxRoute<T>(WidgetBuilder builder) {
   if (!fxEnabled.value) return MaterialPageRoute<T>(builder: builder);
   return PageRouteBuilder<T>(
-    transitionDuration: const Duration(milliseconds: 340),
+    transitionDuration: const Duration(milliseconds: 320),
     reverseTransitionDuration: const Duration(milliseconds: 260),
     pageBuilder: (context, animation, secondary) => builder(context),
     transitionsBuilder: (context, animation, secondary, child) {
-      final curved = CurvedAnimation(parent: animation, curve: Curves.easeOutCubic, reverseCurve: Curves.easeInCubic);
-      return FadeTransition(
-        opacity: curved,
-        child: SlideTransition(
-          position: Tween<Offset>(begin: const Offset(0, 0.05), end: Offset.zero).animate(curved),
-          child: ScaleTransition(scale: Tween<double>(begin: 0.98, end: 1.0).animate(curved), child: child),
-        ),
+      return AnimatedBuilder(
+        animation: Listenable.merge([animation, secondary]),
+        child: child,
+        builder: (context, child) {
+          final a = animation.value;
+          final s = secondary.value;
+          final fadeIn = ((a - 0.45) / 0.55).clamp(0.0, 1.0);
+          final fadeOut = (1 - s / 0.45).clamp(0.0, 1.0);
+          final lift = 0.04 * (1 - Curves.easeOutCubic.transform(a));
+          return Opacity(
+            opacity: fadeIn * fadeOut,
+            child: FractionalTranslation(translation: Offset(0, lift), child: child),
+          );
+        },
       );
     },
   );
 }
-
 
 /// Frosted-glass band behind every app bar (drawn between the background and the pages).
 class GlassTopStrip extends StatelessWidget {
