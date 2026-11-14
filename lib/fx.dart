@@ -3,7 +3,9 @@ import 'dart:io';
 import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show RenderBox;
 import 'package:path_provider/path_provider.dart';
 
 // Visual effects shared by the whole app. Everything here respects the
@@ -243,33 +245,98 @@ class _ShimmerBoxState extends State<ShimmerBox> with SingleTickerProviderStateM
   }
 }
 
-/// How much of the transition the old page needs to disappear (smaller = shorter dip).
-const double _fxSplit = 0.3;
+// ---------------------------------------------------------------------------
+// Page transition: the tapped card grows into the new page ("container
+// transform") and shrinks back into the card on back. The new page is solid
+// while it moves, so the old page never shows through (no overlap), and nothing
+// fades to blank.
+// ---------------------------------------------------------------------------
 
-/// The page transition: the old page fades out first, then the new page fades in
-/// (no overlap). Used by fxRoute and, through [FxPageTransitions], by every
-/// other page route too (including the Home page underneath).
-Widget fxTransition(Animation<double> animation, Animation<double> secondary, Widget child) {
+Rect? _fxOrigin;
+DateTime _fxOriginAt = DateTime(2000);
+
+/// Called for every finger-down anywhere in the app (see MaterialApp.builder).
+/// Remembers the card that was touched so the next page can grow out of it.
+void fxRecordTap(PointerDownEvent e) {
+  Rect rect = Rect.fromCenter(center: e.position, width: 150, height: 96);
+  try {
+    final result = HitTestResult();
+    WidgetsBinding.instance.hitTestInView(result, e.position, e.viewId);
+    for (final entry in result.path) {
+      final t = entry.target;
+      if (t is RenderBox && t.attached && t.hasSize) {
+        final s = t.size;
+        if (s.width >= 64 && s.height >= 52 && s.height <= 460) {
+          rect = t.localToGlobal(Offset.zero) & s;
+          break;
+        }
+      }
+    }
+  } catch (err) {
+    debugPrint('fxRecordTap: $err');
+  }
+  _fxOrigin = rect;
+  _fxOriginAt = DateTime.now();
+}
+
+Rect? _takeFxOrigin() {
+  final r = _fxOrigin;
+  _fxOrigin = null;
+  if (r == null) return null;
+  return DateTime.now().difference(_fxOriginAt).inMilliseconds < 800 ? r : null;
+}
+
+/// The new page grows from [origin] (or the screen centre) to full screen.
+Widget fxExpand(BuildContext context, Rect? origin, Animation<double> animation, Widget child) {
+  final size = MediaQuery.sizeOf(context);
+  final full = Offset.zero & size;
+  final from = origin ?? Rect.fromCenter(center: size.center(Offset.zero), width: size.width * .5, height: size.height * .12);
+  final cover = Theme.of(context).canvasColor;
   return AnimatedBuilder(
-    animation: Listenable.merge([animation, secondary]),
+    animation: animation,
     child: child,
     builder: (context, child) {
-      final a = animation.value;
-      final s = secondary.value;
-      final fadeIn = Curves.easeOut.transform(((a - _fxSplit) / (1 - _fxSplit)).clamp(0.0, 1.0));
-      final fadeOut = Curves.easeIn.transform((1 - s / _fxSplit).clamp(0.0, 1.0));
-      final lift = 0.015 * (1 - Curves.easeOutCubic.transform(a));
-      return Opacity(
-        opacity: fadeIn * fadeOut,
-        child: FractionalTranslation(translation: Offset(0, lift), child: child),
-      );
+      final t = Curves.easeInOutCubic.transform(animation.value.clamp(0.0, 1.0));
+      final rect = Rect.lerp(from, full, t)!;
+      final radius = 22.0 * (1 - t);
+      final rise = (t / 0.25).clamp(0.0, 1.0);
+      final fall = (1 - (t - 0.9) / 0.1).clamp(0.0, 1.0);
+      final coverAlpha = rise < fall ? rise : fall;
+      final content = ((t - 0.3) / 0.5).clamp(0.0, 1.0);
+      return Stack(children: [
+        Positioned.fromRect(
+          rect: rect,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(radius),
+            child: ColoredBox(
+              color: cover.withValues(alpha: coverAlpha),
+              child: OverflowBox(
+                alignment: Alignment.topLeft,
+                minWidth: size.width,
+                maxWidth: size.width,
+                minHeight: size.height,
+                maxHeight: size.height,
+                child: Opacity(opacity: content, child: child),
+              ),
+            ),
+          ),
+        ),
+      ]);
     },
   );
 }
 
-/// Theme-level page transition. Without this the first page (Home) used the
-/// default Android transition and never faded out, so the next page's content
-/// showed on top of it while going in and out (the "overlap" bug).
+/// The page underneath stays as it is, and is only hidden once the new page
+/// fully covers it (so nothing flickers).
+Widget fxHideUnder(Animation<double> secondary, Widget child) {
+  return AnimatedBuilder(
+    animation: secondary,
+    child: child,
+    builder: (context, child) => Opacity(opacity: secondary.value >= 0.9 ? 0.0 : 1.0, child: child),
+  );
+}
+
+/// Used for the first page (Home) and any other route made by the theme.
 class FxPageTransitions extends PageTransitionsBuilder {
   const FxPageTransitions();
 
@@ -284,18 +351,21 @@ class FxPageTransitions extends PageTransitionsBuilder {
     if (!fxEnabled.value) {
       return const ZoomPageTransitionsBuilder().buildTransitions<T>(route, context, animation, secondaryAnimation, child);
     }
-    return fxTransition(animation, secondaryAnimation, child);
+    return fxHideUnder(secondaryAnimation, child);
   }
 }
 
 /// Page route. Plain route when effects are off.
 Route<T> fxRoute<T>(WidgetBuilder builder) {
   if (!fxEnabled.value) return MaterialPageRoute<T>(builder: builder);
+  final origin = _takeFxOrigin();
   return PageRouteBuilder<T>(
-    transitionDuration: const Duration(milliseconds: 240),
-    reverseTransitionDuration: const Duration(milliseconds: 200),
+    opaque: true,
+    transitionDuration: const Duration(milliseconds: 380),
+    reverseTransitionDuration: const Duration(milliseconds: 320),
     pageBuilder: (context, animation, secondary) => builder(context),
-    transitionsBuilder: (context, animation, secondary, child) => fxTransition(animation, secondary, child),
+    transitionsBuilder: (context, animation, secondary, child) =>
+        fxHideUnder(secondary, fxExpand(context, origin, animation, child)),
   );
 }
 

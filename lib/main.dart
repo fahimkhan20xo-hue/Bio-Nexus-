@@ -62,13 +62,17 @@ class _BioNexusAppState extends State<BioNexusApp> {
             themeMode: cells ? ThemeMode.dark : (dark ? ThemeMode.dark : ThemeMode.light),
             theme: _buildTheme(cells ? Brightness.dark : Brightness.light, cells: cells),
             darkTheme: _buildTheme(Brightness.dark, cells: cells),
-            builder: (context, child) => ColoredBox(
-              color: Theme.of(context).canvasColor,
-              child: AppBackground(
-                child: Stack(children: [
-                  const Positioned(top: 0, left: 0, right: 0, child: GlassTopStrip()),
-                  Positioned.fill(child: child ?? const SizedBox.shrink()),
-                ]),
+            builder: (context, child) => Listener(
+              behavior: HitTestBehavior.translucent,
+              onPointerDown: fxRecordTap,
+              child: ColoredBox(
+                color: Theme.of(context).canvasColor,
+                child: AppBackground(
+                  child: Stack(children: [
+                    const Positioned(top: 0, left: 0, right: 0, child: GlassTopStrip()),
+                    Positioned.fill(child: child ?? const SizedBox.shrink()),
+                  ]),
+                ),
               ),
             ),
             home: HomePage(
