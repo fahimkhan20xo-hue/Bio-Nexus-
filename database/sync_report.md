@@ -1,46 +1,2084 @@
 # Species sync report
 
-Total species in database: 1013
-Added this run: 37
+Total species in database: 3088
+Added this run: 2075
 
 ## Added
-- Curcuma zedoaria
-- Alpinia galanga
-- Piper longum
-- Cinnamomum camphora
-- Myristica fragrans
-- Syzygium cumini
-- Citrus limon
-- Citrus maxima
-- Physeter macrocephalus
-- Megaptera novaeangliae
-- Dugong dugon
-- Cynopterus sphinx
-- Mus musculus
-- Rattus norvegicus
-- Lonchura punctulata
-- Cygnus olor
-- Ciconia ciconia
-- Leptoptilos javanicus
-- Anastomus oscitans
-- Mycteria leucocephala
-- Bufo bufo
-- Polypedates leucomystax
-- Euphlyctis cyanophlyctis
-- Lumbricus terrestris
-- Eisenia fetida
-- Hirudo medicinalis
-- Mytilus edulis
-- Magallana gigas
-- Macrobrachium rosenbergii
-- Callinectes sapidus
-- Lentinula edodes
-- Amanita muscaria
-- Ganoderma lucidum
-- Aspergillus flavus
-- Fusarium oxysporum
-- Phytophthora infestans
-- Dictyostelium discoideum
+- Spongia officinalis
+- Euplectella aspergillum
+- Leucosolenia botryoides
+- Sycon ciliatum
+- Ephydatia fluviatilis
+- Cliona celata
+- Axinella polypoides
+- Aplysina aerophoba
+- Haliclona oculata
+- Xestospongia muta
+- Chondrilla nucula
+- Tethya aurantium
+- Geodia cydonium
+- Hydra viridissima
+- Obelia geniculata
+- Chrysaora quinquecirrha
+- Cyanea capillata
+- Pelagia noctiluca
+- Rhizostoma pulmo
+- Turritopsis dohrnii
+- Velella velella
+- Porpita porpita
+- Anemonia viridis
+- Metridium senile
+- Actinia equina
+- Stichodactyla gigantea
+- Condylactis gigantea
+- Corallium rubrum
+- Tubipora musica
+- Gorgonia ventalina
+- Acropora palmata
+- Montastraea cavernosa
+- Pocillopora damicornis
+- Porites porites
+- Nematostella vectensis
+- Cassiopea andromeda
+- Aequorea victoria
+- Tripedalia cystophora
+- Pennatula phosphorea
+- Alcyonium digitatum
+- Fasciola gigantica
+- Schistosoma mansoni
+- Schistosoma haematobium
+- Schistosoma japonicum
+- Clonorchis sinensis
+- Opisthorchis viverrini
+- Paragonimus westermani
+- Taenia saginata
+- Echinococcus granulosus
+- Echinococcus multilocularis
+- Rodentolepis nana
+- Diphyllobothrium latum
+- Dipylidium caninum
+- Moniezia expansa
+- Gyrodactylus salaris
+- Polystoma integerrimum
+- Dicrocoelium dendriticum
+- Ascaris suum
+- Enterobius vermicularis
+- Necator americanus
+- Brugia malayi
+- Onchocerca volvulus
+- Loa loa
+- Dracunculus medinensis
+- Strongyloides stercoralis
+- Caenorhabditis elegans
+- Toxocara canis
+- Toxocara cati
+- Meloidogyne incognita
+- Heterodera glycines
+- Ditylenchus dipsaci
+- Anisakis simplex
+- Haemonchus contortus
+- Dirofilaria immitis
+- Pristionchus pacificus
+- Steinernema carpocapsae
+- Lumbricus rubellus
+- Eisenia andrei
+- Perionyx excavatus
+- Eudrilus eugeniae
+- Aporrectodea caliginosa
+- Hirudo verbana
+- Haemadipsa zeylanica
+- Hirudinaria manillensis
+- Macrobdella decora
+- Glossiphonia complanata
+- Hediste diversicolor
+- Alitta virens
+- Platynereis dumerilii
+- Aphrodita aculeata
+- Eunice aphroditois
+- Sabella pavonina
+- Spirobranchus giganteus
+- Riftia pachyptila
+- Tubifex tubifex
+- Acanthopleura granulata
+- Neopilina galatheae
+- Haliotis rufescens
+- Haliotis midae
+- Helix pomatia
+- Cornu aspersum
+- Lissachatina fulica
+- Cepaea nemoralis
+- Limax maximus
+- Arion rufus
+- Deroceras reticulatum
+- Pomacea canaliculata
+- Littorina littorea
+- Buccinum undatum
+- Conus geographus
+- Conus textile
+- Conus magus
+- Bolinus brandaris
+- Aliger gigas
+- Charonia tritonis
+- Turbo marmoratus
+- Rochia nilotica
+- Tegula funebralis
+- Crepidula fornicata
+- Aplysia californica
+- Aplysia punctata
+- Tritonia tetraquetra
+- Acanthosepion pharaonis
+- Loligo vulgaris
+- Doryteuthis pealeii
+- Octopus bimaculoides
+- Enteroctopus dofleini
+- Argonauta argo
+- Euprymna scolopes
+- Spirula spirula
+- Vampyroteuthis infernalis
+- Dosidicus gigas
+- Todarodes pacificus
+- Illex illecebrosus
+- Mytilus galloprovincialis
+- Perna viridis
+- Crassostrea virginica
+- Ostrea edulis
+- Pinctada margaritifera
+- Pinctada fucata
+- Pecten maximus
+- Argopecten irradians
+- Mya arenaria
+- Ruditapes philippinarum
+- Mercenaria mercenaria
+- Anodonta cygnea
+- Unio pictorum
+- Lamellidens marginalis
+- Lamellidens corrianus
+- Teredo navalis
+- Dreissena polymorpha
+- Ensis magnus
+- Antalis vulgaris
+- Limulus polyphemus
+- Tachypleus gigas
+- Carcinoscorpius rotundicauda
+- Tachypleus tridentatus
+- Pandinus imperator
+- Androctonus australis
+- Leiurus quinquestriatus
+- Buthus occitanus
+- Hottentotta tamulus
+- Centruroides sculpturatus
+- Latrodectus hesperus
+- Phoneutria nigriventer
+- Atrax robustus
+- Araneus diadematus
+- Argiope bruennichi
+- Aphonopelma hentzi
+- Brachypelma smithi
+- Pholcus phalangioides
+- Salticus scenicus
+- Tegenaria domestica
+- Ixodes ricinus
+- Dermacentor variabilis
+- Rhipicephalus sanguineus
+- Amblyomma americanum
+- Varroa destructor
+- Dermatophagoides pteronyssinus
+- Demodex folliculorum
+- Daphnia pulex
+- Daphnia magna
+- Artemia salina
+- Cyclops strenuus
+- Semibalanus balanoides
+- Lepas anatifera
+- Sacculina carcini
+- Cancer pagurus
+- Carcinus maenas
+- Portunus pelagicus
+- Minuca pugnax
+- Eriocheir sinensis
+- Maja squinado
+- Pagurus bernhardus
+- Birgus latro
+- Homarus gammarus
+- Nephrops norvegicus
+- Astacus astacus
+- Procambarus clarkii
+- Cherax quadricarinatus
+- Panulirus argus
+- Palinurus elephas
+- Penaeus vannamei
+- Macrobrachium malcolmsonii
+- Crangon crangon
+- Palaemon serratus
+- Euphausia superba
+- Squilla mantis
+- Gammarus pulex
+- Armadillidium vulgare
+- Porcellio scaber
+- Oniscus asellus
+- Talitrus saltator
+- Tigriopus californicus
+- Lernaea cyprinacea
+- Argulus foliaceus
+- Bathynomus giganteus
+- Limnoria lignorum
+- Mysis relicta
+- Scolopendra gigantea
+- Scolopendra subspinipes
+- Lithobius forficatus
+- Scutigera coleoptrata
+- Julus terrestris
+- Archispirostreptus gigas
+- Narceus americanus
+- Glomeris marginata
+- Xylocopa violacea
+- Vespa crabro
+- Polistes dominula
+- Atta cephalotes
+- Formica rufa
+- Camponotus pennsylvanicus
+- Eciton burchellii
+- Lasius niger
+- Linepithema humile
+- Nasonia vitripennis
+- Trichogramma evanescens
+- Antheraea mylitta
+- Papilio machaon
+- Pieris rapae
+- Vanessa atalanta
+- Morpho menelaus
+- Ornithoptera alexandrae
+- Plutella xylostella
+- Galleria mellonella
+- Ephestia kuehniella
+- Tribolium castaneum
+- Tribolium confusum
+- Harmonia axyridis
+- Leptinotarsa decemlineata
+- Anthonomus grandis
+- Sitophilus oryzae
+- Sitophilus granarius
+- Callosobruchus chinensis
+- Dytiscus marginalis
+- Lucanus cervus
+- Dynastes hercules
+- Lampyris noctiluca
+- Melolontha melolontha
+- Popillia japonica
+- Oryctes rhinoceros
+- Anoplophora glabripennis
+- Agrilus planipennis
+- Dendroctonus ponderosae
+- Culex pipiens
+- Phlebotomus argentipes
+- Tabanus bovinus
+- Drosophila simulans
+- Rhodnius prolixus
+- Nezara viridula
+- Myzus persicae
+- Acyrthosiphon pisum
+- Aphis gossypii
+- Pediculus humanus
+- Xenopsylla cheopis
+- Pulex irritans
+- Ctenocephalides felis
+- Blatta orientalis
+- Hierodula membranacea
+- Acheta domesticus
+- Gryllotalpa africana
+- Pulchriphyllium giganteum
+- Carausius morosus
+- Reticulitermes flavipes
+- Odontotermes obesus
+- Macrotermes bellicosus
+- Zootermopsis angusticollis
+- Forficula auricularia
+- Libellula depressa
+- Anax imperator
+- Pantala flavescens
+- Calopteryx splendens
+- Ischnura elegans
+- Ephemera danica
+- Folsomia candida
+- Sminthurus viridis
+- Chrysoperla carnea
+- Myrmeleon formicarius
+- Gerris lacustris
+- Notonecta glauca
+- Belostoma flumineum
+- Lethocerus indicus
+- Nepa cinerea
+- Cicada orni
+- Magicicada septendecim
+- Pisaster ochraceus
+- Acanthaster planci
+- Linckia laevigata
+- Patiria miniata
+- Oreaster reticulatus
+- Paracentrotus lividus
+- Arbacia punctulata
+- Echinus esculentus
+- Lytechinus variegatus
+- Diadema setosum
+- Echinocardium cordatum
+- Sphaerechinus granularis
+- Dendraster excentricus
+- Holothuria atra
+- Apostichopus japonicus
+- Cucumaria frondosa
+- Stichopus chloronotus
+- Ophiothrix fragilis
+- Amphiura filiformis
+- Antedon bifida
+- Antedon mediterranea
+- Ciona intestinalis
+- Ciona robusta
+- Botryllus schlosseri
+- Halocynthia roretzi
+- Petromyzon marinus
+- Lampetra fluviatilis
+- Eptatretus stoutii
+- Myxine glutinosa
+- Carcharhinus longimanus
+- Scoliodon laticaudus
+- Squalus acanthias
+- Prionace glauca
+- Isurus oxyrinchus
+- Cetorhinus maximus
+- Chiloscyllium griseum
+- Pristis pristis
+- Torpedo marmorata
+- Dasyatis pastinaca
+- Aetobatus narinari
+- Mobula mobular
+- Chimaera monstrosa
+- Hydrolagus colliei
+- Latimeria chalumnae
+- Neoceratodus forsteri
+- Protopterus annectens
+- Lepidosiren paradoxa
+- Rhinella marina
+- Xenopus laevis
+- Xenopus tropicalis
+- Lithobates catesbeianus
+- Pelophylax lessonae
+- Hyla arborea
+- Rhacophorus malabaricus
+- Dendrobates auratus
+- Ambystoma mexicanum
+- Ambystoma tigrinum
+- Salamandra salamandra
+- Triturus cristatus
+- Lissotriton vulgaris
+- Cryptobranchus alleganiensis
+- Andrias japonicus
+- Necturus maculosus
+- Proteus anguinus
+- Ichthyophis glutinosus
+- Typhlonectes natans
+- Bombina bombina
+- Alytes obstetricans
+- Pipa pipa
+- Eleutherodactylus coqui
+- Rhea americana
+- Casuarius casuarius
+- Apteryx australis
+- Aptenodytes patagonicus
+- Pygoscelis adeliae
+- Eudyptes chrysolophus
+- Phalacrocorax carbo
+- Anhinga melanogaster
+- Fregata magnificens
+- Sula leucogaster
+- Anser indicus
+- Anas platyrhynchos
+- Dendrocygna javanica
+- Sarkidiornis melanotos
+- Cairina moschata
+- Pavo muticus
+- Coturnix coturnix
+- Coturnix japonica
+- Perdix perdix
+- Francolinus francolinus
+- Lophura nycthemera
+- Phasianus colchicus
+- Numida meleagris
+- Columba palumbus
+- Streptopelia decaocto
+- Treron phoenicopterus
+- Ara macao
+- Ara ararauna
+- Cacatua galerita
+- Melopsittacus undulatus
+- Nymphicus hollandicus
+- Psittacus erithacus
+- Athene noctua
+- Strix aluco
+- Ketupa zeylonensis
+- Haliaeetus leucoryphus
+- Accipiter nisus
+- Gyps fulvus
+- Sarcogyps calvus
+- Vultur gryphus
+- Falco tinnunculus
+- Circus aeruginosus
+- Pandion haliaetus
+- Sagittarius serpentarius
+- Grus grus
+- Fulica atra
+- Gallinula chloropus
+- Vanellus indicus
+- Charadrius dubius
+- Himantopus himantopus
+- Numenius arquata
+- Tringa totanus
+- Larus argentatus
+- Sterna hirundo
+- Rynchops albicollis
+- Pelargopsis capensis
+- Ceryle rudis
+- Anthracoceros albirostris
+- Ramphastos toco
+- Picus viridis
+- Dendrocopos major
+- Apus apus
+- Pycnonotus jocosus
+- Copsychus malabaricus
+- Turdus philomelos
+- Luscinia megarhynchos
+- Erithacus rubecula
+- Passer montanus
+- Acridotheres ginginianus
+- Sturnus vulgaris
+- Corvus corax
+- Oriolus oriolus
+- Aegithina tiphia
+- Lanius schach
+- Dicaeum cruentatum
+- Cinnyris jugularis
+- Zosterops palpebrosus
+- Estrilda astrild
+- Taeniopygia guttata
+- Serinus canaria
+- Fringilla coelebs
+- Geospiza fortis
+- Paradisaea apoda
+- Menura novaehollandiae
+- Trochilus polytmus
+- Archilochus colubris
+- Podiceps cristatus
+- Tachybaptus ruficollis
+- Gavia immer
+- Alca torda
+- Tachyglossus aculeatus
+- Macropus giganteus
+- Didelphis virginiana
+- Monodelphis domestica
+- Paraechinus micropus
+- Talpa europaea
+- Suncus murinus
+- Sorex araneus
+- Rousettus leschenaultii
+- Pipistrellus pipistrellus
+- Myotis myotis
+- Desmodus rotundus
+- Lyroderma lyra
+- Rhinolophus ferrumequinum
+- Macaca fascicularis
+- Papio hamadryas
+- Cercopithecus mitis
+- Pan paniscus
+- Loris tardigradus
+- Carlito syrichta
+- Callithrix jacchus
+- Saimiri sciureus
+- Alouatta palliata
+- Ateles geoffroyi
+- Cebus capucinus
+- Bradypus tridactylus
+- Choloepus didactylus
+- Myrmecophaga tridactyla
+- Manis pentadactyla
+- Lepus europaeus
+- Ochotona princeps
+- Bandicota bengalensis
+- Bandicota indica
+- Mus booduga
+- Meriones unguiculatus
+- Castor canadensis
+- Hystrix cristata
+- Ratufa indica
+- Petaurista philippensis
+- Marmota monax
+- Sciurus vulgaris
+- Heterocephalus glaber
+- Chinchilla lanigera
+- Myocastor coypus
+- Vulpes bengalensis
+- Uncia uncia
+- Hyaena hyaena
+- Herpestes javanicus
+- Mustela putorius
+- Martes foina
+- Phoca vitulina
+- Halichoerus grypus
+- Mirounga leonina
+- Otaria byronia
+- Phocoena phocoena
+- Globicephala melas
+- Monodon monoceros
+- Delphinapterus leucas
+- Balaenoptera physalus
+- Eubalaena glacialis
+- Eschrichtius robustus
+- Orcaella brevirostris
+- Neophocaena phocaenoides
+- Loxodonta cyclotis
+- Equus asinus
+- Equus zebra
+- Diceros bicornis
+- Ceratotherium simum
+- Acrocodia indica
+- Camelus bactrianus
+- Bos frontalis
+- Hemitragus jemlahicus
+- Tragelaphus strepsiceros
+- Taurotragus oryx
+- Tetracerus quadricornis
+- Gazella bennettii
+- Oryx gazella
+- Kobus ellipsiprymnus
+- Pantholops hodgsonii
+- Saiga tatarica
+- Cervus elaphus
+- Rucervus duvaucelii
+- Rucervus eldii
+- Capreolus capreolus
+- Alces alces
+- Rangifer tarandus
+- Dama dama
+- Odocoileus virginianus
+- Tragulus kanchil
+- Moschiola indica
+- Orycteropus afer
+- Procavia capensis
+- Euherdmania claviformis
+- Ciona savignyi
+- Ciona edwardsi
+- Didemnum translucidum
+- Didemnum maculosum
+- Didemnum lahillei
+- Didemnum polare
+- Didemnum fragile
+- Didemnum coriaceum
+- Polysyncraton amethysteum
+- Didemnum romssae
+- Didemnum vanderhorsti
+- Didemnum membranaceum
+- Didemnum carnulentum
+- Didemnum granulatum
+- Didemnum albidum
+- Didemnum candidum
+- Didemnum perlucidum
+- Didemnum moseleyi
+- Didemnum commune
+- Didemnum pseudofulgens
+- Didemnum coccineum
+- Didemnum molle
+- Didemnum ligulum
+- Didemnum misakiense
+- Didemnum fulgens
+- Didemnum protectum
+- Didemnum drachi
+- Didemnum cuculliferum
+- Didemnum rubeum
+- Lissoclinum bistratum
+- Lissoclinum perforatum
+- Lissoclinum vareau
+- Lissoclinum fragile
+- Lissoclinum patella
+- Lissoclinum weigelei
+- Trididemnum cereum
+- Trididemnum tenerum
+- Trididemnum delesseriae
+- Trididemnum cerebriforme
+- Trididemnum solidum
+- Trididemnum paracyclops
+- Trididemnum savignii
+- Trididemnum orbiculatum
+- Polysyncraton aspiculatum
+- Polysyncraton lacazei
+- Polysyncraton bilobatum
+- Leptoclinides dubius
+- Leptoclinides echinatus
+- Leptoclinides madara
+- Leptoclinides faeroensis
+- Leptoclinides ocellatus
+- Leptoclinides reticulatus
+- Nephtheis fascicularis
+- Clavelina coerulea
+- Clavelina robusta
+- Clavelina cyclus
+- Clavelina dellavallei
+- Clavelina oblonga
+- Clavelina fecunda
+- Clavelina polycitorella
+- Clavelina auracea
+- Clavelina huntsmani
+- Clavelina sabbadini
+- Clavelina elegans
+- Clavelina obesa
+- Clavelina picta
+- Clavelina puertosecensis
+- Clavelina lepadiformis
+- Citorclinum laboutei
+- Polycitor crystallinus
+- Polycitor proliferus
+- Archidistoma aggregatum
+- Eudistoma psammion
+- Cystodytes violatinctus
+- Eudistoma magnum
+- Eudistoma costai
+- Eudistoma obscuratum
+- Eudistoma caeruleum
+- Eudistoma glaucum
+- Eudistoma album
+- Eudistoma vitreum
+- Eudistoma plumbeum
+- Eudistoma gilboviride
+- Eudistoma hepaticum
+- Eudistoma mucosum
+- Pseudodistoma fragile
+- Pseudodistoma obscurum
+- Pseudodistoma antinboja
+- Pseudodistoma cyrnusense
+- Pseudodistoma kanoko
+- Pseudodistoma crucigaster
+- Chelyosoma macleayanum
+- Chelyosoma inaequale
+- Dextrogaster suecica
+- Stomozoa roseola
+- Stomozoa australiensis
+- Ascidia ornata
+- Ascidia sydneiensis
+- Ascidia caudata
+- Ascidia tritonis
+- Ascidia incrassata
+- Ascidia obliqua
+- Ascidia ahodori
+- Phallusia nigra
+- Ascidia callosa
+- Ascidia glabra
+- Ascidia mentula
+- Ascidia prunum
+- Ascidia virginea
+- Ascidia gemmata
+- Ascidia archaia
+- Ascidia conchilega
+- Phallusia arabica
+- Phallusia philippinensis
+- Phallusia obesa
+- Phallusia fumigata
+- Phallusia mammillata
+- Atriolum robustum
+- Rhopalaea abdominalis
+- Rhopalaea birkelandi
+- Rhopalaea neapolitana
+- Tylobranchion nordgaardi
+- Syndiazona chinensis
+- Diazona violacea
+- Diazona tenera
+- Megalodicopia hians
+- Ecteinascidia diaphanis
+- Ecteinascidia imperfecta
+- Ecteinascidia turbinata
+- Ecteinascidia garstangi
+- Ecteinascidia herdmani
+- Ecteinascidia bandaensis
+- Polyclinella azemai
+- Aplidium yamazii
+- Placentela crystallina
+- Aplidium proliferum
+- Aplidium circulatum
+- Aplidium ocellatum
+- Aplidium sagamiense
+- Aplidium constellatum
+- Aplidium stellatum
+- Aplidium pliciferum
+- Aplidium californicum
+- Aplidium undulatum
+- Aplidium glabrum
+- Aplidium nordmanni
+- Aplidium albicans
+- Aplidium conicum
+- Aplidium pallidum
+- Aplidium turbinatum
+- Aplidium spitzbergense
+- Aplidium punctum
+- Aplidium nadaense
+- Aplidium mutabile
+- Aplidium pseudolobatum
+- Aplidium asperum
+- Aplidium multiplicatum
+- Aplidium solidum
+- Aplidium elegans
+- Aplidium lobatum
+- Ritterella rubra
+- Aplidiopsis pannosum
+- Morchellium argus
+- Sidneioides ivicense
+- Sidneioides snamoti
+- Pycnoclavella aurilucens
+- Pycnoclavella diminuta
+- Pycnoclavella neapolitana
+- Pycnoclavella stanleyi
+- Pycnoclavella detorta
+- Pycnoclavella narcissus
+- Distaplia cylindrica
+- Distaplia livida
+- Distaplia bermudensis
+- Distaplia clavata
+- Distaplia systematica
+- Distaplia magnilarva
+- Distaplia corolla
+- Distaplia dubia
+- Distaplia rosea
+- Sigillina cyanea
+- Sigillina signifera
+- Sycozoa mirabilis
+- Sycozoa pulchra
+- Sycozoa kanzasi
+- Microgastra granosa
+- Bostrichobranchus pilularis
+- Molgula griffithsii
+- Molgula bleizi
+- Molgula manhattensis
+- Molgula xenophora
+- Molgula hozawai
+- Molgula roulei
+- Molgula ficus
+- Molgula oculata
+- Molgula socialis
+- Molgula provisionalis
+- Molgula complanata
+- Molgula arenata
+- Molgula occulta
+- Molgula appendiculata
+- Molgula citrina
+- Molgula tubifera
+- Molgula occidentalis
+- Molgula hirta
+- Molgula simplex
+- Molgula kiaeri
+- Molgula tectiformis
+- Molgula helleri
+- Molgula retortiformis
+- Culeolus herdmani
+- Hartmeyeria orientalis
+- Bolteniopsis prenanti
+- Pyura curvigona
+- Pyura mirabilis
+- Pyura spinifera
+- Pyura lepidoderma
+- Pyura microcosmus
+- Pyura stolonifera
+- Pyura tessellata
+- Pyura vittata
+- Pyura squamulosa
+- Pyura elongata
+- Pyura haustor
+- Pyura dura
+- Pyura praeputialis
+- Pyura pachydermatina
+- Pyura gibbosa
+- Pyura sacciformis
+- Pyura chilensis
+- Halocynthia aurantium
+- Halocynthia spinosa
+- Halocynthia pyriformis
+- Halocynthia igaboja
+- Halocynthia dumosa
+- Halocynthia papillosa
+- Halocynthia hilgendorfi
+- Halocynthia cactus
+- Metandrocarpa taylori
+- Metandrocarpa dura
+- Eusynstyela hartmeyeri
+- Styela canopus
+- Styela clava
+- Styela gelatinosa
+- Styela calva
+- Styela plicata
+- Styela rustica
+- Styela montereyensis
+- Styela angularis
+- Styela coriacea
+- Gynandrocarpa placenta
+- Polyandrocarpa anguinea
+- Polyandrocarpa zorritensis
+- Polyandrocarpa misakiensis
+- Botrylloides niger
+- Botrylloides magnicoecus
+- Botrylloides simodensis
+- Pelonaia corrugata
+- Asterocarpa humilis
+- Symplegma japonica
+- Symplegma zebra
+- Symplegma brakenhielmi
+- Symplegma reptans
+- Symplegma rubra
+- Symplegma viride
+- Kukenthalia borealis
+- Cnemidocarpa mortenseni
+- Cnemidocarpa devia
+- Cnemidocarpa finmarkiensis
+- Cnemidocarpa mollispina
+- Cnemidocarpa clara
+- Cnemidocarpa pedata
+- Cnemidocarpa rhizopus
+- Cnemidocarpa verrucosa
+- Cnemidocarpa irene
+- Dendrodoa grossularia
+- Dendrodoa carnea
+- Stolonica socialis
+- Pauropus huxleyi
+- Allopauropus danicus
+- Decapauropus gracilis
+- Decapauropus helveticus
+- Decapauropus vulgaris
+- Decapauropus cuenoti
+- Decapauropus verticillatus
+- Scleropauropus lyrifer
+- Stylopauropus pedunculatus
+- Stylopauropus simplus
+- Stylopauropus brito
+- Trachypauropus cordatus
+- Amphipauropus rhenanus
+- Eurygyrus ochraceus
+- Lophoturus okinawai
+- Phryssonotus capensis
+- Phryssonotus novaehollandiae
+- Monographis kraepelini
+- Eudigraphis taiwaniensis
+- Okeanobates serratus
+- Yosidaiulus tuberculatus
+- Enantiulus nanus
+- Japanioiulus lobatus
+- Ommatoiulus rutilans
+- Ommatoiulus sabulosus
+- Pachypodoiulus eurypus
+- Kryphioiulus occultus
+- Anaulaciulus golovatchi
+- Anaulaciulus parvulus
+- Anaulaciulus koreacolus
+- Ophyiulus pilosus
+- Megaphyllum sjaelandicum
+- Megaphyllum projectum
+- Unciger foetidus
+- Metaiulus pratensis
+- Allajulus nitidus
+- Xestoiulus laeticollis
+- Anaulaciulus koreanus
+- Rossiulus kessleri
+- Tachypodoiulus niger
+- Pachyiulus flavipes
+- Pachyiulus cattarensis
+- Pachyiulus hungaricus
+- Pachyiulus valonensis
+- Pachyiulus asiaeminoris
+- Pachyiulus marmoratus
+- Pachyiulus varius
+- Pachyiulus apfelbecki
+- Pachyiulus oenologus
+- Cylindroiulus arborum
+- Cylindroiulus britannicus
+- Cylindroiulus latestriatus
+- Cylindroiulus caeruleocinctus
+- Cylindroiulus truncorum
+- Cylindroiulus parisiorum
+- Cylindroiulus vulnerarius
+- Cylindroiulus punctatus
+- Cylindroiulus luridus
+- Cylindroiulus londinensis
+- Cylindroiulus boleti
+- Cylindroiulus apenninorum
+- Cylindroiulus broti
+- Leptoiulus montivagus
+- Leptoiulus kervillei
+- Leptoiulus cibdellus
+- Leptoiulus proximus
+- Leptoiulus noricus
+- Leptoiulus belgicus
+- Karteroiulus niger
+- Ptyoiulus impressus
+- Uroblaniulus canadensis
+- Dasynemasoma ichihashii
+- Antrokoreana gracilipes
+- Thalassisobates littoralis
+- Blaniulus guttulatus
+- Boreoiulus tenuis
+- Choneiulus palmatus
+- Nopoiulus kochii
+- Proteroiulus fuscus
+- Archiboreoiulus pallidus
+- Virgoiulus minutus
+- Californiulus yosemitensis
+- Ussuriiulus pilifer
+- Uenoiulus notabilis
+- Kopidoiulus caecus
+- Ikahoiulus leucosoma
+- Skleroprotopus coreanus
+- Skleroprotopus ramuliferus
+- Amphitomeus attemsi
+- Macrosternodesmus palicola
+- Ophiodesmus albonanus
+- Prosopodesmus jacobsoni
+- Niponia nodulosa
+- Kiusiunum nodulosum
+- Aporodesminus wallacei
+- Poratia digitata
+- Ampelodesmus granulosus
+- Pseudocatapyrgodesmus glaucus
+- Chondrodesmus sabachanus
+- Brochopeltis mjoebergi
+- Haplogonosoma implicatum
+- Aponedyopus montanus
+- Tetrarthrosoma syriacum
+- Asiomorpha coarctata
+- Orthomorpha coarctata
+- Cylindrodesmus hirsutus
+- Nedyopus koreanus
+- Nedyopus boninensis
+- Cawjeekelia koreana
+- Cawjeekelia gloriosa
+- Cawjeekelia pyongana
+- Helicorthomorpha holstii
+- Akamptogonus novarae
+- Oxidus gracilis
+- Oxidus obtusus
+- Oxidus avia
+- Sichotanus eurygaster
+- Riukiupeltis jamashinai
+- Chondromorpha xanthotricha
+- Amplinus bitumidus
+- Aceratophallus maya
+- Nannaria equalis
+- Nannaria missouriensis
+- Nannaria scutellaria
+- Nannaria tennesseensis
+- Nannaria wilsoni
+- Nannaria minor
+- Nannaria austricola
+- Nannaria conservata
+- Nannaria ericacea
+- Nannaria laminata
+- Nannaria morrisoni
+- Nannaria ohionis
+- Nannaria terricola
+- Nannaria castanea
+- Nannaria davidcauseyi
+- Nannaria domestica
+- Nannaria fowleri
+- Nannaria oblonga
+- Nannaria rutherfordensis
+- Nannaria simplex
+- Semionellus placidus
+- Parafontaria doenitzi
+- Parafontaria crenata
+- Parafontaria falcifera
+- Parafontaria terminalis
+- Parafontaria laminata
+- Parafontaria tonominea
+- Parafontaria longa
+- Parafontaria erythrosoma
+- Parafontaria shiraiwaensis
+- Riukiaria pugionifera
+- Riukiaria falcifera
+- Sigmoria nantahalae
+- Brachoria mendota
+- Brachoria dentata
+- Brachoria laminata
+- Brachoria cedra
+- Pleuroloma flavipes
+- Rhysodesmus elestribus
+- Rhysodesmus constrictus
+- Parafontaria spathulata
+- Parafontaria takakuwai
+- Rudiloria mohicana
+- Speodesmus echinourus
+- Schizoturanius dimitriewi
+- Propolydesmus germanicus
+- Scytonotus granulatus
+- Pseudopolydesmus collinus
+- Pseudopolydesmus serratus
+- Pseudopolydesmus canadensis
+- Prionomatis karyudense
+- Polydesmus coriaceus
+- Polydesmus angustus
+- Polydesmus montanus
+- Propolydesmus testaceus
+- Polydesmus complanatus
+- Chondromorpha kelaarti
+- Nyssodesmus python
+- Polydesmus inconstans
+- Polydesmus collaris
+- Brachydesmus superus
+- Gosodesmus claremontus
+- Andrognathus corticarius
+- Yamasinaium noduligerum
+- Sphaerotherium giganteum
+- Cynotelopus notabilis
+- Zephronia profuga
+- Zephronia siamensis
+- Niponiosoma troglodytes
+- Nanogona polydesmoides
+- Craspedosoma taurinorum
+- Listrocheiritium septentrionale
+- Ochogona caroli
+- Macrochaeteuma sauteri
+- Pseudotremia cavernarum
+- Pseudotremia nefanda
+- Pseudotremia princeps
+- Pseudotremia fulgida
+- Pseudotremia indianae
+- Pseudotremia lusciosa
+- Pseudotremia conservata
+- Tingupa pallida
+- Orientyla dahurica
+- Diplomaragna gracilipes
+- Diplomaragna kedrovaya
+- Pterygostegia kuroiwadensis
+- Pterygostegia grandilobata
+- Pterygostegia anops
+- Tokyosoma takakuwai
+- Tokyosoma ronkayi
+- Haploporatia eremita
+- Mastigophorophyllon saxonicum
+- Hungarosoma bokori
+- Brachychaeteuma bagnalli
+- Brachychaeteuma bradeae
+- Japanoparvus okai
+- Haasea germanica
+- Hylebainosoma tatranum
+- Japanosoma scabrum
+- Conotyla bollmani
+- Conotyla celeno
+- Conotyla melinda
+- Melogona broelemanni
+- Orthochordeumella pallida
+- Cambala minor
+- Cambala annulata
+- Harpagophora monodus
+- Ktenostreptus centrurus
+- Thyropygus allevatus
+- Spinotarsus xanthonotus
+- Spinotarsus colosseus
+- Telodeinopus aoutii
+- Camaricoproctus planidens
+- Camaricoproctus disparatidens
+- Camaricoproctus transvaalicus
+- Camaricoproctus pauciannulatus
+- Camaricoproctus tumididens
+- Camaricoproctus torquidens
+- Orthoporoides corrugatus
+- Orthoporoides laccatus
+- Orthoporoides zulu
+- Orthoporus ornatus
+- Orthoporoides tabulinus
+- Orthoporus texicolens
+- Spirostreptus heros
+- Thyropygus pachyurus
+- Doratogonus flavifilis
+- Orthoporoides pyrhocephalus
+- Dolichoglyphius asper
+- Glyphiulus granulatus
+- Glyphiulus septentrionalis
+- Kiusiozonium japonicum
+- Petaserpes cryptocephalus
+- Polyzonium germanicum
+- Angarozonium munsunum
+- Orsiboe ichigomensis
+- Paraspirobolus lucifugus
+- Aphistogoniulus corallipes
+- Aphistogoniulus erythrocephalus
+- Aphistogoniulus sakalava
+- Aphistogoniulus hova
+- Aphistogoniulus cowani
+- Spiromimus voeltzkowi
+- Spiromimus univirgatus
+- Xenobolus carnifex
+- Litostrophus segregatus
+- Leptogoniulus sorornus
+- Trigoniulus corallinus
+- Anadenobolus monilicornis
+- Rhinocricus parcus
+- Chicobolus spinigerus
+- Narceus gordanus
+- Tylobolus uncigerus
+- Pseudospirobolellus avernus
+- Comanchelus chihuanus
+- Hyleoglomeris japonica
+- Hyleoglomeris vittata
+- Hyleoglomeris nigra
+- Geoglomeris subterranea
+- Glomeroides primus
+- Rhopalomeris carnifex
+- Glomeris tetrasticha
+- Glomeris helvetica
+- Glomeris romana
+- Glomeris hexasticha
+- Glomeris intermedia
+- Glomeris balcanica
+- Glomeris connexa
+- Glomeris ornata
+- Glomeris guttata
+- Glomeris aurita
+- Glomeris transalpina
+- Glomeris ligurica
+- Glomeris undulata
+- Glomeris annulata
+- Discoconchoecia tamensis
+- Discoconchoecia elegans
+- Euconchoecia elongata
+- Euconchoecia pacifica
+- Euconchoecia maimai
+- Euconchoecia aculeata
+- Pseudoconchoecia concentrica
+- Paramollicia dichotoma
+- Proceroecia procera
+- Conchoecilla daphnoides
+- Paraconchoecia spinifera
+- Paraconchoecia decipiens
+- Porroecia spinirostris
+- Porroecia porrecta
+- Halocypris inflata
+- Mikroconchoecia curta
+- Conchoecia magna
+- Conchoecetta acuminata
+- Neonesidea expansa
+- Triebelina sertata
+- Bradleystrandesia reticulata
+- Potamocypris pallida
+- Cyprinotus cingalensis
+- Chlamydotheca unispinosa
+- Heterocypris incongruens
+- Heterocypris salina
+- Cypris bispinosa
+- Cypris pubera
+- Dolerocypris sinensis
+- Dolerocypris fasciata
+- Cypria ophtalmica
+- Eucypris pigra
+- Eucypris virens
+- Notodromas monacha
+- Cyprois marginata
+- Paracandona euplectella
+- Xestoleberis aurantia
+- Aspidoconcha limnoriaea
+- Cyprideis torosa
+- Paracytheridea tschoppi
+- Limnocythere inopinata
+- Semicytherura johnsonoides
+- Cytherura gibba
+- Redekea californica
+- Loxoconcha elliptica
+- Loxoconcha rhomboidea
+- Cytheromorpha fuscata
+- Megacythere repexa
+- Spinileberis quadriaculeata
+- Cythere lutea
+- Callistocythere cranekeyensis
+- Ankylocythere sinuosa
+- Vargula tsujii
+- Parembia valida
+- Diradius uxpanapaensis
+- Diradius emarginatus
+- Diradius diversilobus
+- Diradius jalapae
+- Diradius pacificus
+- Diradius pallidus
+- Diradius chiapae
+- Oligembia capensis
+- Neorhagadochir moreliensis
+- Pachylembia taxcoensis
+- Pachylembia chapalae
+- Pachylembia unicincta
+- Conicercembia tepicensis
+- Haploembia solieri
+- Aposthonia ceylonica
+- Mesembia chamulae
+- Mesembia catemacoa
+- Bulbocerca sini
+- Bulbocerca fulva
+- Chelicerca spinosa
+- Chelicerca jaliscoa
+- Chelicerca chamelaensis
+- Chelicerca maxima
+- Ectopsocopsis cryptomeriae
+- Ectopsocus californicus
+- Ectopsocus petersi
+- Ectopsocus salpinx
+- Ectopsocus maindroni
+- Ectopsocus briggsi
+- Ectopsocus richardsi
+- Ectopsocus strauchi
+- Ectopsocus vachoni
+- Sphaeropsocopsis argentina
+- Cerastipsocus venosus
+- Amphigerontia bifasciata
+- Amphigerontia contaminata
+- Metylophorus novaescotiae
+- Trichadenotecnum circularoides
+- Loensia fasciata
+- Philotarsus picicornis
+- Pachytroctes aegyptius
+- Nanopsocus oceanicus
+- Liposcelis fusciceps
+- Liposcelis mendax
+- Liposcelis rufa
+- Liposcelis brunnea
+- Liposcelis deltachi
+- Liposcelis bostrychophila
+- Liposcelis decolor
+- Liposcelis paeta
+- Liposcelis pearmani
+- Liposcelis bicolor
+- Liposcelis corrodens
+- Liposcelis entomophila
+- Embidopsocus femoralis
+- Embidopsocus thorntoni
+- Hemipsocus chloroticus
+- Rhyopsocus disparilis
+- Psoquilla marginepunctata
+- Peripsocus alboguttatus
+- Peripsocus subfasciatus
+- Peripsocus phaeopterus
+- Peripsocus milleri
+- Lachesilla fuscipalpis
+- Lachesilla tectorum
+- Lachesilla alpejia
+- Lachesilla greeni
+- Lachesilla pedicularia
+- Lachesilla denticulata
+- Lachesilla nubilis
+- Lachesilla cintalapa
+- Elipsocus abdominalis
+- Elipsocus hyalinus
+- Elipsocus pumilis
+- Elipsocus moebiusi
+- Cuneopalpus cyanops
+- Propsocus pulchripennis
+- Trogium pulsatorium
+- Cerobasis guestfalica
+- Cerobasis annulata
+- Lepinotus patruelis
+- Lepinotus reticulatus
+- Lepinotus inquilinus
+- Polypsocus corruptus
+- Graphopsocus cruciatus
+- Stenocaecilius casarum
+- Maoripsocus africanus
+- Valenzuela flavidus
+- Valenzuela atricornis
+- Valenzuela distinctus
+- Valenzuela burmeisteri
+- Valenzuela gonostigma
+- Psocathropos lachlani
+- Psyllipsocus ramburii
+- Pseudorypteryx mexicana
+- Dorypteryx domestica
+- Dorypteryx pallida
+- Stimulopalpus japonicus
+- Pseudocaecilius citricola
+- Myopsocus eatoni
+- Echmepteryx madagascariensis
+- Echmepteryx hageni
+- Pteroxanium kelloggi
+- Bittacus stigmaterus
+- Bittacus punctiger
+- Bittacus strigosus
+- Hylobittacus apicalis
+- Apterobittacus apterus
+- Orobittacus obscurus
+- Boreus californicus
+- Boreus insulanus
+- Boreus brumalis
+- Boreus nivoriundus
+- Rallicola extinctus
+- Rallicola pilgrimi
+- Rallicola takahe
+- Anatoecus icterodes
+- Anatoecus dentatus
+- Anaticola anseris
+- Goniocotes gallinae
+- Goniocotes chrysocephalus
+- Lipeurus caponis
+- Lipeurus maculosus
+- Lagopoecus docophoroides
+- Columbicola columbae
+- Cuclotogaster heterographus
+- Lunaceps incoenis
+- Campanulotes bidentatus
+- Harrisoniella hopkinsi
+- Oxylipeurus polytrapezius
+- Strigiphilus aitkeni
+- Chelopistes meleagridis
+- Enderleinellus propinquus
+- Enderleinellus urosciuri
+- Enderleinellus nitzschi
+- Enderleinellus tamiasis
+- Enderleinellus brasiliensis
+- Enderleinellus ferrisi
+- Pterophthirus wernecki
+- Pterophthirus splendida
+- Pterophthirus audax
+- Pterophthirus imitans
+- Schizophthirus sicistae
+- Schizophthirus gliris
+- Schizophthirus pleurophaeus
+- Schizophthirus dryomydis
+- Hoplopleura akanezumi
+- Hoplopleura imparata
+- Hoplopleura fonsecai
+- Hoplopleura nesoryzomydis
+- Hoplopleura aitkeni
+- Hoplopleura affinis
+- Hoplopleura pacifica
+- Hoplopleura travassosi
+- Hoplopleura acanthopus
+- Hoplopleura oenomydis
+- Hoplopleura multilobata
+- Hoplopleura quadridentata
+- Hoplopleura captiosa
+- Hoplopleura longula
+- Hoplopleura angulata
+- Hoplopleura sciuricola
+- Hoplopleura cricetuli
+- Hoplopleura edentula
+- Hoplopleura cooki
+- Hoplopleura brasiliensis
+- Ancistroplax taiwanensis
+- Haematomyzus hopkinsi
+- Haematomyzus elephantis
+- Haematomyzus porci
+- Pthirus gorillae
+- Pedicinus albidus
+- Pedicinus eurygaster
+- Haematopinus apri
+- Haematopinus suis
+- Haematopinus asini
+- Haematopinus eurysternus
+- Haematopinus quadripertusus
+- Haematopinus oliveri
+- Haematopinus tuberculatus
+- Echinophthirius horridus
+- Ctenophthirus cercomydis
+- Polyplax alaskensis
+- Polyplax spinulosa
+- Polyplax borealis
+- Polyplax hannswrangeli
+- Polyplax spinigera
+- Polyplax asiatica
+- Polyplax reclinata
+- Polyplax serrata
+- Polyplax bureschi
+- Polyplax gracilis
+- Haemodipsus setoni
+- Haemodipsus lyriocephalus
+- Haemodipsus ventricosus
+- Haemodipsus leporis
+- Neohaematopinus elbeli
+- Neohaematopinus petauristae
+- Neohaematopinus callosciuri
+- Neohaematopinus sciuri
+- Neohaematopinus sciuropteri
+- Linognathoides laeviusculus
+- Felicola subrostratus
+- Werneckiella ocellata
+- Werneckiella equi
+- Trichodectes canis
+- Bovicola ovis
+- Bovicola caprae
+- Bovicola longicornis
+- Bovicola bovis
+- Bovicola limbatus
+- Gliricola porcelli
+- Gyropus ovalis
+- Colpocephalum turbinatum
+- Menopon gallinae
+- Trinoton querquedulae
+- Ciconiphilus pectiniventris
+- Ciconiphilus decimfasciatus
+- Holomenopon leucoxanthum
+- Menacanthus stramineus
+- Menacanthus eurysternus
+- Linognathus setosus
+- Linognathus cervicaprae
+- Linognathus pedalis
+- Linognathus vituli
+- Linognathus taeniotrichus
+- Linognathus stenopsis
+- Linognathus ovillus
+- Linognathus pithodes
+- Linognathus africanus
+- Linognathus petasmatus
+- Solenopotes burmeisteri
+- Solenopotes capillatus
+- Solenopotes muntiacus
+- Solenopotes capreoli
+- Laemobothrion tinnunculi
+- Sandalus niger
+- Sandalus petrophya
+- Limnichus sericeus
+- Limnichus lewisi
+- Cephalobyrrhus latus
+- Laevidentalium coruscum
+- Fissidentalium vicdani
+- Fissidentalium profundorum
+- Fissidentalium yokoyamai
+- Fissidentalium candidum
+- Fissidentalium horikoshii
+- Fissidentalium kawamurai
+- Fissidentalium megathyris
+- Paradentalium americanum
+- Compressidentalium hungerfordi
+- Dentalium octangulatum
+- Dentalium buccinulum
+- Dentalium laqueatum
+- Dentalium vallicolens
+- Dentalium robustum
+- Dentalium neohexagonum
+- Dentalium aprinum
+- Dentalium regulare
+- Dentalium agassizi
+- Dentalium elephantinum
+- Graptacme takakoae
+- Graptacme calamus
+- Graptacme inversa
+- Graptacme perlonga
+- Graptacme semistriata
+- Graptacme africana
+- Pictodentalium vernedei
+- Pictodentalium formosum
+- Striodentalium rhabdotum
+- Antalis occidentalis
+- Antalis longitrorsa
+- Antalis cerata
+- Antalis dentalis
+- Antalis pilsbryi
+- Antalis weinkauffi
+- Antalis berryi
+- Antalis pretiosa
+- Antalis senegalensis
+- Antalis taphria
+- Antalis entalis
+- Antalis inaequicostata
+- Antalis tibana
+- Rhabdus rectius
+- Episiphon candelatum
+- Episiphon sowerbyi
+- Episiphon didymum
+- Episiphon sominium
+- Episiphon subtorquatum
+- Calliodentalium callipeplum
+- Calliodentalium crocinum
+- Omniglypta cerina
+- Fustiaria stenoschiza
+- Fustiaria nipponica
+- Megaentalina mediocarinata
+- Megaentalina cornucopiae
+- Dischides belcheri
+- Sagamicadulus elegantissimus
+- Gadila clavata
+- Gadila mayori
+- Gadila anguidens
+- Gadila opportuna
+- Gadila virginalis
+- Gadila aberrans
+- Gadila sagamiensis
+- Gadila agassizii
+- Gadila tolmiei
+- Gadila desaintlaurentae
+- Siphonodentalium isaotakii
+- Siphonodentalium magnum
+- Siphonodentalium lobatum
+- Siphonodentalium okudai
+- Siphonodentalium japonicum
+- Cadulus parvus
+- Cadulus transitorius
+- Cadulus californicus
+- Polyschides rushii
+- Polyschides quadrifissatus
+- Polyschides spectabilis
+- Polyschides fausta
+- Polyschides grandis
+- Polyschides sakuraii
+- Polyschides carolinensis
+- Polyschides tetrodon
+- Polyschides miamiensis
+- Pulsellum hige
+- Pulsellum occidentale
+- Pulsellum salishorum
+- Rhomboxiphus tricarinatus
+- Entalinopsis habutae
+- Entalinopsis intercostata
+- Bathoxiphus soyomaruae
+- Entalina platamodes
+- Entalina mirifica
+- Pteria colymbus
+- Pteria hirundo
+- Pteria sterna
+- Pinctada imbricata
+- Malleus candeanus
+- Atrina seminuda
+- Atrina serrata
+- Atrina oldroydii
+- Atrina fragilis
+- Atrina texta
+- Atrina rigida
+- Pinna muricata
+- Pinna carnea
+- Pinna rudis
+- Streptopinna saccata
+- Isognomon radiatus
+- Isognomon bicolor
+- Isognomon recognitus
+- Isognomon alatus
+- Isognomon janus
+- Ledella fiascona
+- Ledella sublevis
+- Nuculana minuta
+- Nuculana radiata
+- Nuculana callimene
+- Nuculana hamata
+- Nuculana navisa
+- Nuculana pernula
+- Nuculana acuta
+- Nuculana tenuisulcata
+- Nuculana concentrica
+- Nuculana leonina
+- Neilonela quadrangularis
+- Neilonela acinula
+- Malletia faba
+- Yoldia sapotilla
+- Yoldia myalis
+- Yoldia limatula
+- Yoldia cooperii
+- Megayoldia thraciaeformis
+- Megayoldia montereyensis
+- Megayoldia martyria
+- Yoldiella inconspicua
+- Yoldiella nana
+- Yoldiella dissimilis
+- Yoldiella intermedia
+- Yoldiella lucida
+- Yoldiella lenticula
+- Yoldiella frigida
+- Yoldiella philippiana
+- Yoldiella orcia
+- Nucula proxima
+- Nucula carlottensis
+- Nucula aegeensis
+- Nucula atacellana
+- Nucula nitidosa
+- Nucula exigua
+- Nucula calcicola
+- Nucula nucleus
+- Nucula sulcata
+- Nucula hanleyi
+- Ennucula tenuis
+- Ennucula linki
+- Pronucula tenuis
+- Acila castrensis
+- Lioberus castanea
+- Vilasina vernicosa
+- Vilasina seminuda
+- Modiolus rectus
+- Modiolus americanus
+- Modiolus barbatus
+- Modiolus carpenteri
+- Modiolus modiolus
+- Modiolus kurilensis
+- Modiolus capax
+- Modiolus eiseni
+- Modiolus sacculifer
+- Septifer bilocularis
+- Septifer rudis
+- Mytilus californianus
+- Mytilus trossulus
+- Amygdalum pallidulum
+- Amygdalum politum
+- Amygdalum sagittatum
+- Crenella decussata
+- Solamen columbianum
+- Solamen megas
+- Solamen leanum
+- Lithophaga rogersi
+- Lithophaga nigra
+- Lithophaga antillarum
+- Brachidontes exustus
+- Brachidontes domingensis
+- Brachidontes modiolus
+- Brachidontes adamsianus
+- Ischadium recurvum
+- Gregariella coarctata
+- Gregariella semigranata
+- Gregariella chenui
+- Gregariella petagnae
+- Gregariella coralliophaga
+- Modiolula phaseolina
+- Geukensia granosissima
+- Geukensia demissa
+- Spathochlamys benedicti
+- Spathochlamys vestalis
+- Flosmaris grandis
+- Flosmaris mutsuensis
+- Isophellia stela
+- Telmatactis panamensis
+- Telmatactis natalensis
+- Telmatactis ternatana
+- Telmatactis decora
+- Telmatactis cricoides
+- Aiptasiomorpha texaensis
+- Iosactis vagabunda
+- Actinoscyphia saginata
+- Synactinernus flavus
+- Actinernus nobilis
+- Halcampella maxima
+- Halcampoides abyssorum
+- Sagartiomorphe carlgreni
+- Preactis millardae
+- Scolanthus armatus
+- Metedwardsia akkeshi
+- Halcampa duodecimcirrata
+- Scolanthus callimorphus
+- Paraedwardsia arenaria
+- Octineon suecicum
+- Boloceroides mcmurrichi
+- Bunodeopsis strumosa
+- Bunodeopsis medusoides
+- Bunodeopsis antilliensis
+- Bunodeopsis pelagica
+- Actinecta olivacea
+- Limnactinia laevis
+- Paranthus rapiformis
+- Parasicyonis groenlandica
+- Sicyonis tuberculata
+- Marianactis bythios
+- Stomphia didemon
+- Stomphia coccinea
+- Actinostola groenlandica
+- Actinostola callosa
+- Actinostola chilensis
+- Actinostola carlgreni
+- Anthosactis janmayeni
+- Antholoba achates
+- Harenactis attenuata
+- Anemonactis mazeli
+- Anemonactis clavus
+- Haloclava producta
+- Peachia hastata
+- Peachia neozealandica
+- Peachia quinquecapitata
+- Metapeachia tropica
+- Urticinopsis antarctica
+- Isotealia antarctica
+- Bunodosoma caissarum
+- Bunodosoma granuliferum
+- Bunodosoma diadema
+- Isactinia citrina
+- Actinia bermudensis
+- Actinia australiensis
+- Actinia fragacea
+- Actinia prasina
+- Korsaranthus natalensis
+- Isoaulactinia stelloides
+- Condylactis aspera
+- Parantheopsis cruentata
+- Neoparacondylactis haraldoi
+- Anemonia natalensis
+- Anemonia sulcata
+- Anemonia sargassensis
+- Oulactis muscosa
+- Pseudactinia varia
+- Anthostella stephensoni
+- Actinostella flosculifera
+- Oulactis concinnata
+- Condylactis aurantiaca
+- Epiactis japonica
+- Epiactis prolifera
+- Phialoba steinbecki
+- Spheractis cheungae
+- Phymactis papillosa
+- Phymactis sanctaehelenae
+- Urticina felina
+- Urticina crassicornis
+- Urticina columbiana
+- Urticina coriacea
+- Cribrinopsis similis
+- Cribrinopsis fernaldi
+- Cribrinopsis crassa
+- Cribrinopsis williamsi
+- Mesactinia ganensis
+- Anthopleura dixoniana
+- Anthopleura sola
+- Anthopleura elegantissima
+- Anthopleura anneae
+- Bunodactis reynaudi
+- Anthopleura dowii
+- Anthopleura nigrescens
+- Anthopleura michaelseni
+- Anthopleura artemisia
+- Anthopleura xanthogrammica
+- Anthopleura thallia
+- Anthopleura kurogane
+- Anthopleura japonica
+- Anthopleura asiatica
+- Anthopleura krebsi
+- Anthopleura handi
+- Anthopleura hermaphroditica
+- Anthopleura stellula
+- Paranemonia cinerea
+- Cladactella manni
+- Epiactis australiensis
+- Epiactis lisbethae
+- Epiactis fernaldi
+- Epiactis ritteri
+- Parabunodactis imperfecta
+- Phlyctenanthus australis
+- Paracondylactis hertwigi
+- Glyphoperidium bursa
+- Stichodactyla mertensii
+- Stichodactyla helianthus
+- Homostichanthus duerdeni
+- Oasisia fujikurai
+- Oasisia alvinae
+- Paraescarpia echinospica
+- Escarpia spicata
+- Lamellibrachia juni
+- Lamellibrachia barhami
+- Arcovestia ivanovi
+- Osedax mucofloris
+- Barbronia weberi
+- Xironogiton victoriensis
+- Caridinophila unidens
+- Acanthobdella peledina
+- Amynthas gracilis
+- Amynthas corticis
+- Octochaetus multiporus
+- Rhododrilus besti
+- Rhododrilus edulis
+- Microscolex phosphoreus
+- Microscolex dubius
+- Acanthodrilus kermadecensis
+- Aporrectodea longa
+- Aporrectodea rosea
+- Eiseniella tetraedra
+- Octolasion tyrtaeum
+- Octolasion cyaneum
+- Branchellion torpedinis
+- Branchellion borealis
+- Notostomum cyclostomum
+- Myzobdella lugubris
+- Pontobdella muricata
+- Platybdella olriki
+- Platybdella anarrhichae
+- Oxytonostoma typica
+- Oceanobdella sexoculata
+- Stibarobdella macrothela
+- Beringobdella rectangulata
+- Calliobdella nodulifera
+- Theromyzon tessulatum
+- Theromyzon maculosum
+- Alboglossiphonia heteroclita
+- Placobdella multilineata
+- Placobdella ornata
+- Placobdella parasitica
+- Helobdella stagnalis
+- Helobdella californica
+- Glossiphonia verrucata
+- Ozobranchus margoi
+- Ozobranchus branchiatus
+- Ozobranchus jantseanus
+- Styloscolex opisthothecus
+- Rhynchelmis brooksi
+- Rhynchelmis rostrata
+- Rhynchelmis elrodi
+- Rhynchelmis alaskana
+- Kincaidiana hexatheca
+- Trichodrilus culveri
+- Trichodrilus allobrogum
+- Spelaedrilus multiporus
+- Eclipidrilus daneus
+- Eclipidrilus palustris
+- Eclipidrilus lacustris
+- Eclipidrilus fontanus
+- Eclipidrilus frigidus
+- Eclipidrilus asymmetricus
+- Stylodrilus beattiei
+- Stylodrilus sovaliki
+- Stylodrilus heringianus
+- Lumbriculus inconstans
+- Lumbriculus genitosetosus
+- Lumbriculus variegatus
+- Vejdovskyella intermedia
+- Vejdovskyella comata
+- Ophidonais serpentina
+- Stylaria fossularis
+- Stylaria lacustris
+- Branchiodrilus semperi
+- Piguetiella michiganensis
+- Piguetiella blanci
+- Haemonais waldvogeli
+- Arcteonais lomondi
+- Nais bretscheri
+- Nais variabilis
+- Nais pseudobtusa
+- Nais elinguis
+- Nais communis
+- Nais alpina
+- Nais simplex
+- Nais pardalis
+- Nais behningi
+- Paranais grandis
+- Paranais birsteini
+- Paranais frici
+- Paranais litoralis
+- Bratislavia bilongata
+- Dero botrytis
+- Dero abranchiata
+- Dero digitata
+- Dero obtusa
+- Dero nivea
+- Dero pectinata
+- Benthopecten semisquamatus
+- Benthopecten pectinifer
+- Benthopecten spinosus
+- Benthopecten acanthonotus
+- Benthopecten simplex
+- Nearchaster aciculosus
+- Nearchaster yodomiensis
+- Pontaster tenuispinus
+- Cheiraster blakei
+- Cheiraster oxyacanthus
+- Cheiraster dawsoni
+- Cheiraster tuberculatus
+- Cheiraster californicus
+- Cheiraster echinulatus
+- Cheiraster planus
+- Pectinaster agassizi
+- Eremicaster pacificus
+- Eremicaster crassus
+- Hyphalaster inermis
+- Sidonaster vaneyi
+- Styracaster elongatus
+- Thoracaster cylindratus
+- Persephonaster patagiatus
+- Persephonaster misakiensis
+- Persephonaster leptactis
+- Persephonaster echinulatus
+- Ctenophoraster diploctenius
+- Leptychaster pacificus
+- Leptychaster arcticus
+- Leptychaster propinquus
+- Leptychaster inermis
+- Leptychaster anomalus
+- Leptychaster stellatus
+- Patagiaster sphaerioplax
+- Plutonaster efflorescens
+- Plutonaster agassizi
+- Tethyaster grandis
+- Tethyaster vestitus
+- Tethyaster canaliculatus
+- Dipsacaster eximius
+- Dipsacaster laetmophilus
+- Dipsacaster borealis
+- Dipsacaster pretiosus
+- Dipsacaster grandissimus
+- Dipsacaster sagaminus
+- Dipsacaster antillensis
+- Trophodiscus almus
+- Trophodiscus uber
+- Dytaster gilberti
+- Dytaster insignis
+- Proserpinaster euryactis
+- Blakiaster conicus
+- Thrissacanthias penicillatus
+- Psilaster cassiope
+- Psilaster pectinatus
+- Psilaster andromeda
+- Psilaster armatus
+- Goniopecten demonstrans
+- Prionaster elegans
+- Ctenodiscus crispatus
+- Luidia magellanica
+- Luidia bellonae
+- Luidia australiae
+- Luidia maculata
+- Luidia hardwicki
+- Luidia herdmani
+- Luidia heterozona
+- Luidia savignyi
+- Luidia alternata
+- Luidia latiradiata
+- Luidia magnifica
+- Luidia quinaria
+- Luidia clathrata
+- Luidia tessellata
+- Luidia columbia
+- Luidia foliolata
+- Luidia armata
+- Luidia yesoensis
+- Luidia barbadensis
+- Alcicornis carangis
+- Prosorhynchus facilis
+- Proctoeces maculatus
+- Strigea falconis
+- Cotylurus flabelliformis
+- Posthodiplostomum cuticola
+- Aporocotyle theragrae
+- Diplozoon paradoxum
+- Platynosomum fastosum
+- Accacoelium contortum
+- Tetrochetus coryphaenae
+- Accacladocoelium nigroflavum
+- Accacladocoelium petasiporum
+- Rhynchopharynx paradoxa
+- Bathycotyle branchialis
+- Brachyphallus crenatus
+- Dinurus barbatus
+- Lecithochirium magnaporum
+- Cotylaspis sinensis
+- Entobdella hippoglossi
+- Neobenedenia girellae
+- Neobenedenia melleni
+- Dactylogyrus vastator
+- Terschellingia longicaudata
+- Chromadorina bioculata
+- Aelurostrongylus abstrusus
+- Dictyocaulus viviparus
+- Dictyocaulus filaria
+- Dictyocaulus arnfieldi
+- Stephanurus dentatus
+- Metastrongylus apri
+- Ancylostoma tubaeforme
+- Nematodirus spathiger
+- Nematodirus filicollis
+- Nematodirus abnormalis
+- Nematodirus battus
+- Nematodirus helvetianus
+- Muellerius capillaris
+- Oesophagostomum venulosum
+- Oesophagostomum dentatum
+- Trichostrongylus colubriformis
+- Trichostrongylus vitrinus
+- Trichostrongylus longispicularis
+- Trichostrongylus axei
+- Ostertagia leptospicularis
+- Ostertagia ostertagi
+- Ostertagia circumcincta
+- Turbatrix aceti
+- Pelodera strongyloides
+- Steinernema feltiae
+- Acrobeloides nanus
+- Acrobeloides tricornis
+- Eucephalobus oxyuroides
+- Strongyloides papillosus
+- Strongyloides westeri
+- Tylenchorhynchus dubius
+- Subanguina radicicola
+- Meloidogyne hapla
+- Meloidogyne naasi
+- Nacobbus aberrans
+- Mesocriconema rusticum
+- Mesocriconema xenoplax
+- Helicotylenchus multicinctus
+- Radopholus similis
+- Rotylenchus uniformis
+- Pratylenchus thornei
+- Pratylenchus pratensis
+- Scutellonema bradys
+- Psilenchus hilarulus
+- Farrea occa
+- Calyptorete ijimai
+- Heterochone calyx
+- Heterochone tenera
+- Aphrocallistes vastus
+- Aphrocallistes beatrix
+- Acanthascus dawsoni
+- Acanthascus dowlingi
+- Acanthascus solidus
+- Oopsacas minuta
+- Leucopsacus scoliodocus
+- Holascus undulatus
+- Regadrella okinoseana
+- Acoelocalyx brucei
+- Ascandra falcata
+- Ascandra contorta
+- Leucetta solida
+- Leucetta floridana
+- Leucetta chagosensis
+- Leucetta primigenia
+- Leucetta microraphis
+- Leucetta antarctica
+- Soleneiscus irregularis
+- Petrobiona massiliana
+- Sycandra utriculus
+- Vosmaeropsis japonica
+- Grantessa mitsukurii
+- Grantessa shimeji
+- Leucosolenia complicata
+- Leucosolenia variabilis
+- Leucosolenia fragilis
+- Leucosolenia eleanor
+- Leucosolenia nautilia
+- Sycon lambei
+- Sycon compactum
+- Sycon calcaravis
+- Sycon scaldiense
+- Sycon elegans
+- Sycon mundulum
+- Sycon raphanus
+- Sycon misakiensis
+- Sycon protectum
+- Sycon lingua
+- Sycetta sagitta
+- Paraleucilla magna
+- Leucilla nuttingi
+- Spongia sterea
+- Spongia frutescens
+- Spongia barbara
+- Spongia graminea
+- Spongia agaricina
+- Spongia ceylonensis
+- Spongia anclotea
+- Spongia lamella
+- Spongia obliqua
+- Spongia tampa
+- Spongia hispida
+- Spongia zimocca
+- Spongia virgultosa
+- Hippospongia lachne
+- Hexarthra mira
+- Filinia hofmanni
+- Filinia longiseta
+- Filinia opoliensis
+- Filinia cornuta
+- Filinia passa
+- Filinia terminalis
+- Conochilus unicornis
+- Conochilus hippocrepis
+- Conochilus natans
+- Conochilus dossuarius
+- Pompholyx complanata
+- Collotheca coronetta
+- Collotheca pelagica
+- Collotheca ornata
+- Adineta gracilis
+- Adineta steineri
+- Adineta vaga
+- Adineta barbata
+- Adineta cuneata
 
 ## Skipped (fix the name or add by hand)
 - Bubalus arnee: already in the database as "Bubalus bubalis"
@@ -195,39 +2233,5875 @@ Added this run: 37
 - Badis badis: GBIF has no class for this name
 - Anguilla bengalensis: GBIF has no class for this name
 - Nandus nandus: GBIF has no class for this name
+- Crassostrea gigas: already in the database as "Magallana gigas"
+- Hyalonema sieboldi: GBIF found no exact match (closest: Hyalonema sieboldii Gray, 1835). Check the spelling.
+- Dugesia tigrina: GBIF has no class for this name
+- Dugesia gonocephala: GBIF has no class for this name
+- Schmidtea mediterranea: GBIF has no class for this name
+- Bipalium kewense: GBIF has no class for this name
+- Trichuris trichiura: GBIF has no class for this name
+- Trichinella spiralis: GBIF has no class for this name
+- Arenicola marina: GBIF has no order for this name
+- Chaetopterus variopedatus: GBIF has no order for this name
+- Capitella teleta: GBIF has no order for this name
+- Patella vulgata: GBIF has no order for this name
+- Lymnaea stagnalis: GBIF has no order for this name
+- Biomphalaria glabrata: GBIF has no order for this name
+- Bulinus truncatus: GBIF has no order for this name
+- Nephila clavipes: already in the database as "Trichonephila clavipes"
+- Philosamia ricini: GBIF found no exact match (closest: Philosamia Grote, 1874). Check the spelling.
+- Lepisma saccharina: GBIF found no exact match (closest: Lepisma saccharinum Linnaeus, 1758). Check the spelling.
+- Asterias forbesii: GBIF found no exact match (closest: Asterias forbesi (Desor, 1848)). Check the spelling.
+- Ophiura ophiura: GBIF has no order for this name
+- Saccoglossus kowalevskii: GBIF has no order for this name
+- Balanoglossus clavigerus: GBIF has no order for this name
+- Branchiostoma lanceolatum: GBIF has no order for this name
+- Branchiostoma floridae: GBIF has no order for this name
+- Oikopleura dioica: GBIF has no class for this name
+- Stegostoma tigrinum: GBIF found no exact match (closest: Stegostoma tigrinus (Forster, 1781)). Check the spelling.
+- Polypterus senegalus: GBIF has no class for this name
+- Acipenser sturio: GBIF has no class for this name
+- Huso huso: GBIF has no class for this name
+- Polyodon spathula: GBIF has no class for this name
+- Lepisosteus osseus: GBIF has no class for this name
+- Amia calva: GBIF has no class for this name
+- Muraena helena: GBIF has no class for this name
+- Clupea harengus: GBIF has no class for this name
+- Sardina pilchardus: GBIF has no class for this name
+- Engraulis encrasicolus: GBIF has no class for this name
+- Salmo trutta: GBIF has no class for this name
+- Oncorhynchus tshawytscha: GBIF has no class for this name
+- Oncorhynchus nerka: GBIF has no class for this name
+- Esox lucius: GBIF has no class for this name
+- Catla catla: GBIF has no class for this name
+- Barbus barbus: GBIF has no class for this name
+- Puntius sophore: GBIF has no class for this name
+- Silurus glanis: GBIF has no class for this name
+- Ictalurus punctatus: GBIF has no class for this name
+- Astyanax mexicanus: GBIF has no class for this name
+- Gymnotus carapo: GBIF has no class for this name
+- Oreochromis mossambicus: GBIF has no class for this name
+- Xiphophorus maculatus: GBIF has no class for this name
+- Gambusia affinis: GBIF has no class for this name
+- Oryzias latipes: GBIF has no class for this name
+- Fundulus heteroclitus: GBIF has no class for this name
+- Gasterosteus aculeatus: GBIF has no class for this name
+- Hippocampus kuda: GBIF has no class for this name
+- Hippocampus hippocampus: GBIF has no class for this name
+- Syngnathus acus: GBIF has no class for this name
+- Mugil cephalus: GBIF has no class for this name
+- Perca fluviatilis: GBIF has no class for this name
+- Sander lucioperca: GBIF has no class for this name
+- Thunnus thynnus: GBIF has no class for this name
+- Scomber scombrus: GBIF has no class for this name
+- Xiphias gladius: GBIF has no class for this name
+- Istiophorus platypterus: GBIF has no class for this name
+- Gadus morhua: GBIF has no class for this name
+- Melanogrammus aeglefinus: GBIF has no class for this name
+- Hippoglossus hippoglossus: GBIF has no class for this name
+- Pleuronectes platessa: GBIF has no class for this name
+- Solea solea: GBIF has no class for this name
+- Paralichthys olivaceus: GBIF has no class for this name
+- Lophius piscatorius: GBIF has no class for this name
+- Mola mola: GBIF has no class for this name
+- Tetraodon nigroviridis: GBIF has no class for this name
+- Takifugu rubripes: GBIF has no class for this name
+- Diodon hystrix: GBIF has no class for this name
+- Amphiprion ocellaris: GBIF has no class for this name
+- Amphiprion percula: GBIF has no class for this name
+- Pomacanthus imperator: GBIF has no class for this name
+- Chaetodon auriga: GBIF has no class for this name
+- Remora remora: GBIF has no class for this name
+- Echeneis naucrates: GBIF has no class for this name
+- Periophthalmus barbarus: GBIF has no class for this name
+- Osteoglossum bicirrhosum: GBIF has no class for this name
+- Arapaima gigas: GBIF has no class for this name
+- Megalops cyprinoides: GBIF has no class for this name
+- Crocodylus niloticus: GBIF has no order for this name
+- Alligator sinensis: GBIF has no order for this name
+- Caiman crocodilus: GBIF has no order for this name
+- Melanosuchus niger: GBIF has no order for this name
+- Caretta caretta: GBIF has no order for this name
+- Lepidochelys olivacea: GBIF has no order for this name
+- Testudo graeca: GBIF has no order for this name
+- Aldabrachelys gigantea: GBIF has no order for this name
+- Gopherus agassizii: GBIF has no order for this name
+- Trachemys scripta: GBIF has no order for this name
+- Chrysemys picta: GBIF has no order for this name
+- Chelydra serpentina: GBIF has no order for this name
+- Sphenodon punctatus: GBIF has no order for this name
+- Varanus niloticus: GBIF has no order for this name
+- Anolis carolinensis: GBIF has no order for this name
+- Chamaeleo chamaeleon: GBIF has no order for this name
+- Furcifer pardalis: GBIF has no order for this name
+- Draco volans: GBIF has no order for this name
+- Pogona vitticeps: GBIF has no order for this name
+- Eublepharis macularius: GBIF has no order for this name
+- Phelsuma madagascariensis: GBIF has no order for this name
+- Lacerta agilis: GBIF has no order for this name
+- Podarcis muralis: GBIF has no order for this name
+- Anguis fragilis: GBIF has no order for this name
+- Malayopython reticulatus: GBIF has no order for this name
+- Eryx johnii: GBIF has no order for this name
+- Hypnale hypnale: GBIF has no order for this name
+- Trimeresurus albolabris: GBIF has no order for this name
+- Crotalus atrox: GBIF has no order for this name
+- Crotalus adamanteus: GBIF has no order for this name
+- Bothrops asper: GBIF has no order for this name
+- Bothrops atrox: GBIF has no order for this name
+- Lachesis muta: GBIF has no order for this name
+- Agkistrodon contortrix: GBIF has no order for this name
+- Vipera berus: GBIF has no order for this name
+- Dendroaspis angusticeps: GBIF has no order for this name
+- Dispholidus typus: GBIF has no order for this name
+- Pantherophis guttatus: GBIF has no order for this name
+- Lampropeltis getula: GBIF has no order for this name
+- Thamnophis sirtalis: GBIF has no order for this name
+- Natrix natrix: GBIF has no order for this name
+- Dendrelaphis tristis: GBIF has no order for this name
+- Amphiesma stolatum: GBIF has no order for this name
+- Xenochrophis piscator: GBIF has no order for this name
+- Acrochordus granulatus: GBIF has no order for this name
+- Hydrophis schistosus: GBIF has no order for this name
+- Hydrophis platurus: GBIF has no order for this name
+- Laticauda colubrina: GBIF has no order for this name
+- Micrurus fulvius: GBIF has no order for this name
+- Pseudonaja textilis: GBIF has no order for this name
+- Acanthophis antarcticus: GBIF has no order for this name
+- Streptopelia chinensis: already in the database as "Spilopelia chinensis"
+- Strigops habroptilus: GBIF found no exact match (closest: Strigops habroptila G.R.Gray, 1845). Check the spelling.
+- Funambulus pennanti: GBIF found no exact match (closest: Funambulus Lesson, 1835). Check the spelling.
+- Herpestes edwardsii: GBIF found no exact match (closest: Herpestes edwardsi (É.Geoffroy Saint-Hilaire, 1818)). Check the spelling.
+- Bos indicus: already in the database as "Bos taurus"
+- Cervus unicolor: already in the database as "Rusa unicolor"
+- Polycarpa violacea: GBIF found no exact match (closest: no suggestion). Check the spelling.
+- Tectillaria fertilis: GBIF has no class for this name
+- Fritillaria pellucida: GBIF has no class for this name
+- Fritillaria formica: GBIF has no class for this name
+- Fritillaria haplostoma: GBIF has no class for this name
+- Fritillaria venusta: GBIF has no class for this name
+- Fritillaria borealis: GBIF has no class for this name
+- Fritillaria tenella: GBIF found no exact match (closest: no suggestion). Check the spelling.
+- Pelagopleura verticalis: GBIF has no class for this name
+- Oikopleura fusiformis: GBIF has no class for this name
+- Oikopleura labradoriensis: GBIF has no class for this name
+- Oikopleura cophocerca: GBIF has no class for this name
+- Oikopleura longicauda: GBIF has no class for this name
+- Oikopleura rufescens: GBIF has no class for this name
+- Oikopleura albicans: GBIF has no class for this name
+- Kowalevskia tenuis: GBIF has no class for this name
+- Aulostomus maculatus: GBIF has no class for this name
+- Aulostomus strigosus: GBIF has no class for this name
+- Aulostomus chinensis: GBIF has no class for this name
+- Bhanotia pauciradiata: GBIF has no class for this name
+- Bhanotia nuda: GBIF has no class for this name
+- Bhanotia fasciolata: GBIF has no class for this name
+- Histiogamphelus briggsii: GBIF has no class for this name
+- Histiogamphelus cristatus: GBIF has no class for this name
+- Kyonemichthys rumengani: GBIF has no class for this name
+- Notiocampus ruber: GBIF has no class for this name
+- Nannocampus pictus: GBIF has no class for this name
+- Nannocampus weberi: GBIF has no class for this name
+- Nannocampus lindemanensis: GBIF has no class for this name
+- Nannocampus elegans: GBIF has no class for this name
+- Nannocampus subosseus: GBIF has no class for this name
+- Solegnathus hardwickii: GBIF has no class for this name
+- Solegnathus dunckeri: GBIF has no class for this name
+- Solegnathus lettiensis: GBIF has no class for this name
+- Solegnathus robustus: GBIF has no class for this name
+- Solegnathus spinosissimus: GBIF has no class for this name
+- Apterygocampus epinnulatus: GBIF has no class for this name
+- Penetopteryx taeniocephalus: GBIF has no class for this name
+- Syngnathus pelagicus: GBIF has no class for this name
+- Penetopteryx nanus: GBIF has no class for this name
+- Doryichthys deokhatoides: GBIF has no class for this name
+- Doryichthys boaja: GBIF has no class for this name
+- Doryichthys martensii: GBIF has no class for this name
+- Doryichthys heterosoma: GBIF has no class for this name
+- Doryichthys contiguus: GBIF has no class for this name
+- Choeroichthys cinctus: GBIF has no class for this name
+- Choeroichthys sculptus: GBIF has no class for this name
+- Choeroichthys latispinosus: GBIF has no class for this name
+- Choeroichthys brachysoma: GBIF has no class for this name
+- Choeroichthys smithi: GBIF has no class for this name
+- Choeroichthys suillus: GBIF has no class for this name
+- Filicampus tigris: GBIF has no class for this name
+- Dunckerocampus baldwini: GBIF has no class for this name
+- Dunckerocampus multiannulatus: GBIF has no class for this name
+- Doryrhamphus bicarinatus: GBIF has no class for this name
+- Doryrhamphus aurolineatus: GBIF has no class for this name
+- Doryrhamphus janssi: GBIF has no class for this name
+- Dunckerocampus dactyliophorus: GBIF has no class for this name
+- Dunckerocampus chapmani: GBIF has no class for this name
+- Dunckerocampus pessuliferus: GBIF has no class for this name
+- Doryrhamphus japonicus: GBIF has no class for this name
+- Urocampus nanus: GBIF has no class for this name
+- Urocampus carinirostris: GBIF has no class for this name
+- Bulbonaricus davaoensis: GBIF has no class for this name
+- Bulbonaricus brucei: GBIF has no class for this name
+- Bulbonaricus brauni: GBIF has no class for this name
+- Heraldia nocturna: GBIF has no class for this name
+- Campichthys tryoni: GBIF has no class for this name
+- Campichthys nanus: GBIF has no class for this name
+- Campichthys galei: GBIF has no class for this name
+- Campichthys tricarinatus: GBIF has no class for this name
+- Pugnaso curtirostris: GBIF has no class for this name
+- Halicampus boothae: GBIF has no class for this name
+- Halicampus edmondsoni: GBIF has no class for this name
+- Halicampus marquesensis: GBIF has no class for this name
+- Halicampus spinirostris: GBIF has no class for this name
+- Halicampus mataafae: GBIF has no class for this name
+- Halicampus grayi: GBIF has no class for this name
+- Halicampus brocki: GBIF has no class for this name
+- Halicampus punctatus: GBIF has no class for this name
+- Halicampus nitidus: GBIF has no class for this name
+- Halicampus macrorhynchus: GBIF has no class for this name
+- Halicampus zavorensis: GBIF has no class for this name
+- Halicampus dunckeri: GBIF has no class for this name
+- Festucalex kulbickii: GBIF has no class for this name
+- Festucalex gibbsi: GBIF has no class for this name
+- Festucalex erythraeus: GBIF has no class for this name
+- Festucalex prolixus: GBIF has no class for this name
+- Festucalex wassi: GBIF has no class for this name
+- Festucalex scalaris: GBIF has no class for this name
+- Festucalex cinctus: GBIF has no class for this name
+- Bryx dunckeri: GBIF has no class for this name
+- Bryx randalli: GBIF has no class for this name
+- Bryx analicarens: GBIF has no class for this name
+- Bryx veleronis: GBIF has no class for this name
+- Hypselognathus rostratus: GBIF has no class for this name
+- Hypselognathus horridus: GBIF has no class for this name
+- Syngnathus variegatus: GBIF has no class for this name
+- Syngnathus affinis: GBIF has no class for this name
+- Syngnathus euchrous: GBIF has no class for this name
+- Syngnathus phlegon: GBIF has no class for this name
+- Syngnathus typhle: GBIF has no class for this name
+- Syngnathus schlegeli: GBIF has no class for this name
+- Syngnathus carinatus: GBIF has no class for this name
+- Syngnathus insulae: GBIF has no class for this name
+- Syngnathus caribbaeus: GBIF has no class for this name
+- Syngnathus californiensis: GBIF has no class for this name
+- Syngnathus folletti: GBIF has no class for this name
+- Syngnathus leptorhynchus: GBIF has no class for this name
+- Syngnathus macrobrachium: GBIF has no class for this name
+- Syngnathus macrophthalmus: GBIF has no class for this name
+- Syngnathus springeri: GBIF has no class for this name
+- Syngnathus taenionotus: GBIF has no class for this name
+- Syngnathus auliscus: GBIF has no class for this name
+- Syngnathus exilis: GBIF has no class for this name
+- Syngnathus tenuirostris: GBIF has no class for this name
+- Syngnathus watermeyeri: GBIF has no class for this name
+- Syngnathus fuscus: GBIF has no class for this name
+- Syngnathus dawsoni: GBIF has no class for this name
+- Syngnathus louisianae: GBIF has no class for this name
+- Syngnathus safina: GBIF has no class for this name
+- Syngnathus rostellatus: GBIF has no class for this name
+- Syngnathus floridae: GBIF has no class for this name
+- Syngnathus schmidti: GBIF has no class for this name
+- Syngnathus scovelli: GBIF has no class for this name
+- Syngnathus makaxi: GBIF has no class for this name
+- Acentronura gracilissima: GBIF has no class for this name
+- Amphelikturus dendriticus: GBIF has no class for this name
+- Acentronura tentaculata: GBIF has no class for this name
+- Acentronura breviperula: GBIF has no class for this name
+- Stipecampus cristatus: GBIF has no class for this name
+- Phycodurus eques: GBIF has no class for this name
+- Cosmocampus hildebrandi: GBIF has no class for this name
+- Cosmocampus retropinnis: GBIF has no class for this name
+- Cosmocampus banneri: GBIF has no class for this name
+- Cosmocampus brachycephalus: GBIF has no class for this name
+- Cosmocampus investigatoris: GBIF has no class for this name
+- Cosmocampus balli: GBIF has no class for this name
+- Cosmocampus maxweberi: GBIF has no class for this name
+- Cosmocampus elucens: GBIF has no class for this name
+- Cosmocampus howensis: GBIF has no class for this name
+- Cosmocampus darrosanus: GBIF has no class for this name
+- Cosmocampus profundus: GBIF has no class for this name
+- Cosmocampus albirostris: GBIF has no class for this name
+- Kaupus costatus: GBIF has no class for this name
+- Trachyrhamphus longirostris: GBIF has no class for this name
+- Trachyrhamphus serratus: GBIF has no class for this name
+- Trachyrhamphus bicoarctatus: GBIF has no class for this name
+- Hippichthys penicillus: GBIF has no class for this name
+- Hippichthys spicifer: GBIF has no class for this name
+- Hippichthys heptagonus: GBIF has no class for this name
+- Hippichthys cyanospilos: GBIF has no class for this name
+- Hippichthys parvicarinatus: GBIF has no class for this name
+- Dunckerocampus boylei: GBIF has no class for this name
+- Dunckerocampus naia: GBIF has no class for this name
+- Entelurus aequoreus: GBIF has no class for this name
+- Kimblaeus bassensis: GBIF has no class for this name
+- Corythoichthys amplexus: GBIF has no class for this name
+- Corythoichthys insularis: GBIF has no class for this name
+- Corythoichthys haematopterus: GBIF has no class for this name
+- Corythoichthys intestinalis: GBIF has no class for this name
+- Corythoichthys schultzi: GBIF has no class for this name
+- Corythoichthys nigripectus: GBIF has no class for this name
+- Corythoichthys paxtoni: GBIF has no class for this name
+- Corythoichthys flavofasciatus: GBIF has no class for this name
+- Corythoichthys conspicillatus: GBIF has no class for this name
+- Corythoichthys benedetto: GBIF has no class for this name
+- Corythoichthys polynotatus: GBIF has no class for this name
+- Corythoichthys ocellatus: GBIF has no class for this name
+- Vanacampus poecilolaemus: GBIF has no class for this name
+- Vanacampus phillipi: GBIF has no class for this name
+- Vanacampus vercoi: GBIF has no class for this name
+- Vanacampus margaritifer: GBIF has no class for this name
+- Micrognathus andersonii: GBIF has no class for this name
+- Micrognathus brevirostris: GBIF has no class for this name
+- Micrognathus erugatus: GBIF has no class for this name
+- Micrognathus brevicorpus: GBIF has no class for this name
+- Micrognathus micronotopterus: GBIF has no class for this name
+- Micrognathus crinitus: GBIF has no class for this name
+- Micrognathus natans: GBIF has no class for this name
+- Mitotichthys meraculus: GBIF has no class for this name
+- Mitotichthys mollisoni: GBIF has no class for this name
+- Mitotichthys tuckeri: GBIF has no class for this name
+- Mitotichthys semistriatus: GBIF has no class for this name
+- Enneacampus kaupi: GBIF has no class for this name
+- Enneacampus ansorgii: GBIF has no class for this name
+- Leptoichthys fistularius: GBIF has no class for this name
+- Anarchopterus tectus: GBIF has no class for this name
+- Anarchopterus criniger: GBIF has no class for this name
+- Minyichthys sentus: GBIF has no class for this name
+- Minyichthys inusitatus: GBIF has no class for this name
+- Minyichthys brachyrhinus: GBIF has no class for this name
+- Minyichthys myersi: GBIF has no class for this name
+- Syngnathoides biaculeatus: GBIF has no class for this name
+- Idiotropiscis larsonae: GBIF has no class for this name
+- Idiotropiscis lumnitzeri: GBIF has no class for this name
+- Lissocampus filum: GBIF has no class for this name
+- Lissocampus caudalis: GBIF has no class for this name
+- Lissocampus runa: GBIF has no class for this name
+- Lissocampus fatiloquus: GBIF has no class for this name
+- Lissocampus bannwarthi: GBIF has no class for this name
+- Nerophis lumbriciformis: GBIF has no class for this name
+- Nerophis maculatus: GBIF has no class for this name
+- Nerophis ophidion: GBIF has no class for this name
+- Siokunichthys nigrolineatus: GBIF has no class for this name
+- Siokunichthys herrei: GBIF has no class for this name
+- Siokunichthys bentuviai: GBIF has no class for this name
+- Siokunichthys southwelli: GBIF has no class for this name
+- Siokunichthys striatus: GBIF has no class for this name
+- Siokunichthys breviceps: GBIF has no class for this name
+- Pseudophallus mindii: GBIF has no class for this name
+- Pseudophallus starksii: GBIF has no class for this name
+- Pseudophallus elcapitanensis: GBIF has no class for this name
+- Ichthyocampus carce: GBIF has no class for this name
+- Ichthyocampus bikiniensis: GBIF has no class for this name
+- Phoxocampus belcheri: GBIF has no class for this name
+- Phoxocampus diacanthus: GBIF has no class for this name
+- Phoxocampus tetrophthalmus: GBIF has no class for this name
+- Maroubra yasudai: GBIF has no class for this name
+- Maroubra perserrata: GBIF has no class for this name
+- Haliichthys taeniophorus: GBIF has no class for this name
+- Macroramphosus scolopax: GBIF has no class for this name
+- Macroramphosus gracilis: GBIF has no class for this name
+- Centriscus scutatus: GBIF has no class for this name
+- Notopogon macrosolen: GBIF has no class for this name
+- Notopogon fernandezianus: GBIF has no class for this name
+- Notopogon xenosoma: GBIF has no class for this name
+- Notopogon lilliei: GBIF has no class for this name
+- Notopogon armatus: GBIF has no class for this name
+- Centriscops humerosus: GBIF has no class for this name
+- Aeoliscus strigatus: GBIF has no class for this name
+- Aeoliscus punctulatus: GBIF has no class for this name
+- Gnathanacanthus goetzeei: GBIF has no class for this name
+- Dactyloptena tiltoni: GBIF has no class for this name
+- Dactyloptena gilberti: GBIF has no class for this name
+- Dactyloptena papilio: GBIF has no class for this name
+- Dactyloptena peterseni: GBIF has no class for this name
+- Dactyloptena orientalis: GBIF has no class for this name
+- Dactylopterus volitans: GBIF has no class for this name
+- Inimicus joubini: GBIF has no class for this name
+- Inimicus gruzovi: GBIF has no class for this name
+- Inimicus smirnovi: GBIF has no class for this name
+- Inimicus japonicus: GBIF has no class for this name
+- Inimicus didactylus: GBIF has no class for this name
+- Inimicus brachyrhynchus: GBIF has no class for this name
+- Inimicus sinensis: GBIF has no class for this name
+- Inimicus caledonicus: GBIF has no class for this name
+- Inimicus filamentosus: GBIF has no class for this name
+- Leptosynanceia asteroblepa: GBIF has no class for this name
+- Minous andriashevi: GBIF has no class for this name
+- Minous pictus: GBIF has no class for this name
+- Minous pusillus: GBIF has no class for this name
+- Minous monodactylus: GBIF has no class for this name
+- Minous longimanus: GBIF has no class for this name
+- Minous versicolor: GBIF has no class for this name
+- Minous coccineus: GBIF has no class for this name
+- Minous trachycephalus: GBIF has no class for this name
+- Minous usachevi: GBIF has no class for this name
+- Minous inermis: GBIF has no class for this name
+- Minous dempsterae: GBIF has no class for this name
+- Minous quincarinatus: GBIF has no class for this name
+- Sebastes inermis: GBIF has no class for this name
+- Erosa erosa: GBIF has no class for this name
+- Dampierosa daruma: GBIF has no class for this name
+- Pseudosynanceia melanostigma: GBIF has no class for this name
+- Choridactylus multibarbus: GBIF has no class for this name
+- Choridactylus natalensis: GBIF has no class for this name
+- Choridactylus striatus: GBIF has no class for this name
+- Oligocottus rubellio: GBIF has no class for this name
+- Oligocottus snyderi: GBIF has no class for this name
+- Oligocottus rimensis: GBIF has no class for this name
+- Oligocottus maculosus: GBIF has no class for this name
+- Radulinus boleoides: GBIF has no class for this name
+- Radulinus vinculus: GBIF has no class for this name
+- Radulinus asprellus: GBIF has no class for this name
+- Asemichthys taylori: GBIF has no class for this name
+- Taurocottus bergii: GBIF has no class for this name
+- Chitonotus pugetensis: GBIF has no class for this name
+- Myoxocephalus ochotensis: GBIF has no class for this name
+- Myoxocephalus niger: GBIF has no class for this name
+- Myoxocephalus scorpioides: GBIF has no class for this name
+- Myoxocephalus scorpius: GBIF has no class for this name
+- Myoxocephalus brandtii: GBIF has no class for this name
+- Myoxocephalus sinensis: GBIF has no class for this name
+- Myoxocephalus aenaeus: GBIF has no class for this name
+- Myoxocephalus octodecemspinosus: GBIF has no class for this name
+- Myoxocephalus tuberculatus: GBIF has no class for this name
+- Myoxocephalus stelleri: GBIF has no class for this name
+- Myoxocephalus matsubarai: GBIF has no class for this name
+- Myoxocephalus thompsonii: GBIF has no class for this name
+- Myoxocephalus jaok: GBIF has no class for this name
+- Myoxocephalus polyacanthocephalus: GBIF has no class for this name
+- Micrenophrys lilljeborgii: GBIF has no class for this name
+- Artedielloides auriculatus: GBIF has no class for this name
+- Orthonopias triacis: GBIF has no class for this name
+- Stelgistrum stejnegeri: GBIF has no class for this name
+- Stelgistrum concinnum: GBIF has no class for this name
+- Stelgistrum beringianum: GBIF has no class for this name
+- Rastrinus scutiger: GBIF has no class for this name
+- Clinocottus recalvus: GBIF has no class for this name
+- Clinocottus analis: GBIF has no class for this name
+- Clinocottus globiceps: GBIF has no class for this name
+- Clinocottus acuticeps: GBIF has no class for this name
+- Clinocottus embryum: GBIF has no class for this name
+- Jordania zonope: GBIF has no class for this name
+- Sigmistes smithi: GBIF has no class for this name
+- Sigmistes caulias: GBIF has no class for this name
+- Pseudoblennius marmoratus: GBIF has no class for this name
+- Pseudoblennius zonostigma: GBIF has no class for this name
+- Pseudoblennius argenteus: GBIF has no class for this name
+- Pseudoblennius totomius: GBIF has no class for this name
+- Pseudoblennius cottoides: GBIF has no class for this name
+- Pseudoblennius percoides: GBIF has no class for this name
+- Thyriscus anoplus: GBIF has no class for this name
+- Leiocottus hirundo: GBIF has no class for this name
+- Ocynectes modestus: GBIF has no class for this name
+- Ocynectes maschalis: GBIF has no class for this name
+- Artediellina antilope: GBIF has no class for this name
+- Trichocottus brashnikovi: GBIF has no class for this name
+- Archistes biseriatus: GBIF has no class for this name
+- Archistes plumarius: GBIF has no class for this name
+- Leptocottus armatus: GBIF has no class for this name
+- Paricelinus hopliticus: GBIF has no class for this name
+- Ruscarius meanyi: GBIF has no class for this name
+- Ruscarius creaseri: GBIF has no class for this name
+- Ricuzenius pinetorum: GBIF has no class for this name
+- Ricuzenius nudithorax: GBIF has no class for this name
+- Stlengis misakia: GBIF has no class for this name
+- Stlengis distoechus: GBIF has no class for this name
+- Stlengis osensis: GBIF has no class for this name
+- Hemilepidotus zapus: GBIF has no class for this name
+- Hemilepidotus jordani: GBIF has no class for this name
+- Hemilepidotus papilio: GBIF has no class for this name
+- Hemilepidotus gilberti: GBIF has no class for this name
+- Hemilepidotus hemilepidotus: GBIF has no class for this name
+- Hemilepidotus spinosus: GBIF has no class for this name
+- Andriashevicottus megacephalus: GBIF has no class for this name
+- Vellitor minutus: GBIF has no class for this name
+- Vellitor centropomus: GBIF has no class for this name
+- Artedius corallinus: GBIF has no class for this name
+- Artedius harringtoni: GBIF has no class for this name
+- Artedius lateralis: GBIF has no class for this name
+- Artedius notospilotus: GBIF has no class for this name
+- Artedius fenestralis: GBIF has no class for this name
+- Alcichthys elongatus: GBIF has no class for this name
+- Antipodocottus galatheae: GBIF has no class for this name
+- Antipodocottus mesembrinus: GBIF has no class for this name
+- Antipodocottus megalops: GBIF has no class for this name
+- Antipodocottus elegans: GBIF has no class for this name
+- Trachidermus fasciatus: GBIF has no class for this name
+- Bolinia euryptera: GBIF has no class for this name
+- Furcina osimae: GBIF has no class for this name
+- Furcina ishikawae: GBIF has no class for this name
+- Microcottus sellaris: GBIF has no class for this name
+- Microcottus matuaensis: GBIF has no class for this name
+- Gymnocanthus intermedius: GBIF has no class for this name
+- Gymnocanthus tricuspis: GBIF has no class for this name
+- Gymnocanthus pistilliger: GBIF has no class for this name
+- Gymnocanthus galeatus: GBIF has no class for this name
+- Gymnocanthus detrisus: GBIF has no class for this name
+- Gymnocanthus herzensteini: GBIF has no class for this name
+- Gymnocanthus vandesandei: GBIF has no class for this name
+- Ascelichthys rhodorus: GBIF has no class for this name
+- Triglops metopias: GBIF has no class for this name
+- Triglops macellus: GBIF has no class for this name
+- Triglops nybelini: GBIF has no class for this name
+- Triglops jordani: GBIF has no class for this name
+- Triglops xenostethus: GBIF has no class for this name
+- Triglops pingelii: GBIF has no class for this name
+- Triglops forficatus: GBIF has no class for this name
+- Triglops scepticus: GBIF has no class for this name
+- Triglops murrayi: GBIF has no class for this name
+- Triglops dorothy: GBIF has no class for this name
+- Bero elegans: GBIF has no class for this name
+- Cottus princeps: GBIF has no class for this name
+- Cottus dzungaricus: GBIF has no class for this name
+- Cottus reinii: GBIF has no class for this name
+- Cottus hypselurus: GBIF has no class for this name
+- Cottus carolinae: GBIF has no class for this name
+- Cottus metae: GBIF has no class for this name
+- Cottus rhotheus: GBIF has no class for this name
+- Cottus aleuticus: GBIF has no class for this name
+- Cottus pitensis: GBIF has no class for this name
+- Cottus hangiongensis: GBIF has no class for this name
+- Cottus caeruleomentum: GBIF has no class for this name
+- Cottus paulus: GBIF has no class for this name
+- Cottus perifretum: GBIF has no class for this name
+- Cottus girardi: GBIF has no class for this name
+- Cottus scaturigo: GBIF has no class for this name
+- Cottus koreanus: GBIF has no class for this name
+- Cottus perplexus: GBIF has no class for this name
+- Cottus koshewnikowi: GBIF has no class for this name
+- Cottus gulosus: GBIF has no class for this name
+- Cottus aturi: GBIF has no class for this name
+- Cottus kanawhae: GBIF has no class for this name
+- Cottus haemusi: GBIF has no class for this name
+- Cottus microstomus: GBIF has no class for this name
+- Cottus rondeleti: GBIF has no class for this name
+- Cottus extensus: GBIF has no class for this name
+- Cottus pollux: GBIF has no class for this name
+- Cottus leiopomus: GBIF has no class for this name
+- Cottus beldingii: GBIF has no class for this name
+- Cottus sabaudicus: GBIF has no class for this name
+- Cottus spinulosus: GBIF has no class for this name
+- Cottus greenei: GBIF has no class for this name
+- Cottus tallapoosae: GBIF has no class for this name
+- Cottus echinatus: GBIF has no class for this name
+- Cottus bairdii: GBIF has no class for this name
+- Cottus bendirei: GBIF has no class for this name
+- Cottus hubbsi: GBIF has no class for this name
+- Cottus marginatus: GBIF has no class for this name
+- Cottus sibiricus: GBIF has no class for this name
+- Cottus tenuis: GBIF has no class for this name
+- Cottus asperrimus: GBIF has no class for this name
+- Cottus petiti: GBIF has no class for this name
+- Cottus confusus: GBIF has no class for this name
+- Cottus kazika: GBIF has no class for this name
+- Cottus czerskii: GBIF has no class for this name
+- Cottus poecilopus: GBIF has no class for this name
+- Cottus klamathensis: GBIF has no class for this name
+- Cottus transsilvaniae: GBIF has no class for this name
+- Scutigerella immaculata: GBIF has no order for this name
+- Scutigerella palmonii: GBIF has no order for this name
+- Scutigerella causeyae: GBIF has no order for this name
+- Hanseniella caldaria: GBIF has no order for this name
+- Hanseniella unguiculata: GBIF has no order for this name
+- Symphylella vulgaris: GBIF has no order for this name
+- Symphylella elongata: GBIF has no order for this name
+- Symphylella isabellae: GBIF has no order for this name
+- Scolopendrellopsis subnuda: GBIF has no order for this name
+- Luidia penangensis: GBIF found no exact match (closest: Luidia Forbes, 1839). Check the spelling.
+- Procerodes littoralis: GBIF has no class for this name
+- Arthurdendyus triangulatus: GBIF has no class for this name
+- Kontikia ventrolineata: GBIF has no class for this name
+- Caenoplana sulphurea: GBIF has no class for this name
+- Caenoplana coerulea: GBIF has no class for this name
+- Fletchamia quinquelineata: GBIF has no class for this name
+- Australoplana sanguinea: GBIF has no class for this name
+- Dugesia lugubris: GBIF has no class for this name
+- Polycelis nigra: GBIF has no class for this name
+- Phagocata albissima: GBIF has no class for this name
+- Phagocata vitta: GBIF has no class for this name
+- Sphalloplana pricei: GBIF has no class for this name
+- Sphalloplana kansensis: GBIF has no class for this name
+- Sphalloplana weingartneri: GBIF has no class for this name
+- Sphalloplana hubrichti: GBIF has no class for this name
+- Sphalloplana virginiana: GBIF has no class for this name
+- Rhynchodemus sylvaticus: GBIF has no class for this name
+- Bdellocephala punctata: GBIF has no class for this name
+- Dendrocoelum lacteum: GBIF has no class for this name
+- Geocentrophora sphyrocephala: GBIF has no class for this name
+- Prorhynchus stagnalis: GBIF has no class for this name
+- Cestoplana rubrocincta: GBIF has no order for this name
+- Eurylepta cornuta: GBIF has no order for this name
+- Eurylepta californica: GBIF has no order for this name
+- Paraplanocera oligoglena: GBIF has no order for this name
+- Planocera pellucida: GBIF has no order for this name
+- Prosthiostomum siphunculus: GBIF has no order for this name
+- Cryptocelis compacta: GBIF has no order for this name
+- Leptoplana tremellaris: GBIF has no order for this name
+- Thysanozoon brocchii: GBIF has no order for this name
+- Taenioplana teredini: GBIF has no order for this name
+- Pericelis hymanae: GBIF has no order for this name
+- Pericelis byerleyana: GBIF has no order for this name
+- Cryptocelides loveni: GBIF has no order for this name
+- Kaburakia excelsa: GBIF has no order for this name
+- Stylochus californicus: GBIF has no order for this name
+- Bothrioplana semperi: GBIF has no class for this name
+- Mermis nigrescens: GBIF has no class for this name
+- Tobrilus gracilis: GBIF has no class for this name
+- Tobrilus wesenbergi: GBIF has no class for this name
+- Mononchus truncatus: GBIF has no class for this name
+- Mylonchulus incurvus: GBIF has no class for this name
+- Mylonchulus brevicaudatus: GBIF has no class for this name
+- Discolaimus major: GBIF has no class for this name
+- Dorylaimus stagnalis: GBIF has no class for this name
+- Dorylaimus helveticus: GBIF has no class for this name
+- Xiphinema radicicola: GBIF has no class for this name
+- Xiphinema americanum: GBIF has no class for this name
+- Oxydirus oxycephaloides: GBIF has no class for this name
+- Trichosomoides crassicauda: GBIF has no class for this name
+- Trichuris discolor: GBIF has no class for this name
 
 ## Notes
-- Curcuma zedoaria: no Bengali name
-- Citrus limon: no Bengali name
-- Citrus limon: no Japanese name
-- Cynopterus sphinx: no Bengali name
-- Cynopterus sphinx: no Japanese name
-- Rattus norvegicus: no Bengali name
-- Cygnus olor: no Bengali name
-- Bufo bufo: no Bengali name
-- Polypedates leucomystax: no Bengali name
-- Euphlyctis cyanophlyctis: no common name found, scientific name used
-- Euphlyctis cyanophlyctis: no Japanese name
-- Lumbricus terrestris: no Bengali name
-- Lumbricus terrestris: no Japanese name
-- Eisenia fetida: no common name found, scientific name used
-- Eisenia fetida: no Bengali name
-- Hirudo medicinalis: no Bengali name
-- Mytilus edulis: no Bengali name
-- Magallana gigas: "Crassostrea gigas" is a synonym, saved as accepted name "Magallana gigas"
-- Magallana gigas: no Bengali name
-- Magallana gigas: no Japanese name
-- Macrobrachium rosenbergii: no Bengali name
-- Callinectes sapidus: no Bengali name
-- Lentinula edodes: no Bengali name
-- Ganoderma lucidum: no Bengali name
-- Aspergillus flavus: no common name found, scientific name used
-- Aspergillus flavus: no Bengali name
-- Fusarium oxysporum: no common name found, scientific name used
-- Fusarium oxysporum: no Bengali name
-- Phytophthora infestans: no common name found, scientific name used
-- Phytophthora infestans: no Bengali name
-- Dictyostelium discoideum: no common name found, scientific name used
-- Dictyostelium discoideum: no Bengali name
+- Spongia officinalis: no common name found, scientific name used
+- Spongia officinalis: no Bengali name
+- Euplectella aspergillum: no Bengali name
+- Leucosolenia botryoides: no Bengali name
+- Leucosolenia botryoides: no Japanese name
+- Sycon ciliatum: no common name found, scientific name used
+- Sycon ciliatum: no Bengali name
+- Sycon ciliatum: no Japanese name
+- Ephydatia fluviatilis: no common name found, scientific name used
+- Ephydatia fluviatilis: no Bengali name
+- Ephydatia fluviatilis: no Japanese name
+- Cliona celata: no common name found, scientific name used
+- Cliona celata: no Bengali name
+- Cliona celata: no Japanese name
+- Axinella polypoides: no common name found, scientific name used
+- Axinella polypoides: no Bengali name
+- Axinella polypoides: no Japanese name
+- Aplysina aerophoba: no common name found, scientific name used
+- Aplysina aerophoba: no Bengali name
+- Aplysina aerophoba: no Japanese name
+- Haliclona oculata: no common name found, scientific name used
+- Haliclona oculata: no Bengali name
+- Haliclona oculata: no Japanese name
+- Xestospongia muta: no Bengali name
+- Chondrilla nucula: no common name found, scientific name used
+- Chondrilla nucula: no Bengali name
+- Chondrilla nucula: no Japanese name
+- Tethya aurantium: no common name found, scientific name used
+- Tethya aurantium: no Bengali name
+- Tethya aurantium: no Japanese name
+- Geodia cydonium: no common name found, scientific name used
+- Geodia cydonium: no Bengali name
+- Geodia cydonium: no Japanese name
+- Hydra viridissima: no common name found, scientific name used
+- Hydra viridissima: no Bengali name
+- Hydra viridissima: no Japanese name
+- Obelia geniculata: no common name found, scientific name used
+- Obelia geniculata: no Bengali name
+- Obelia geniculata: no Japanese name
+- Chrysaora quinquecirrha: no common name found, scientific name used
+- Chrysaora quinquecirrha: no Bengali name
+- Pelagia noctiluca: no Bengali name
+- Rhizostoma pulmo: no common name found, scientific name used
+- Rhizostoma pulmo: no Bengali name
+- Turritopsis dohrnii: no common name found, scientific name used
+- Velella velella: no Bengali name
+- Porpita porpita: no common name found, scientific name used
+- Anemonia viridis: no Bengali name
+- Anemonia viridis: no Japanese name
+- Metridium senile: no common name found, scientific name used
+- Metridium senile: no Bengali name
+- Actinia equina: no Bengali name
+- Stichodactyla gigantea: no common name found, scientific name used
+- Stichodactyla gigantea: no Bengali name
+- Stichodactyla gigantea: no Japanese name
+- Condylactis gigantea: no common name found, scientific name used
+- Condylactis gigantea: no Bengali name
+- Condylactis gigantea: no Japanese name
+- Corallium rubrum: no Bengali name
+- Tubipora musica: no Bengali name
+- Gorgonia ventalina: no common name found, scientific name used
+- Gorgonia ventalina: no Bengali name
+- Gorgonia ventalina: no Japanese name
+- Acropora palmata: no Bengali name
+- Montastraea cavernosa: no Bengali name
+- Montastraea cavernosa: no Japanese name
+- Pocillopora damicornis: no Bengali name
+- Porites porites: no Bengali name
+- Porites porites: no Japanese name
+- Nematostella vectensis: no Bengali name
+- Nematostella vectensis: no Japanese name
+- Cassiopea andromeda: no common name found, scientific name used
+- Cassiopea andromeda: no Bengali name
+- Aequorea victoria: no Bengali name
+- Tripedalia cystophora: no common name found, scientific name used
+- Tripedalia cystophora: no Bengali name
+- Tripedalia cystophora: no Japanese name
+- Pennatula phosphorea: no common name found, scientific name used
+- Pennatula phosphorea: no Bengali name
+- Pennatula phosphorea: no Japanese name
+- Alcyonium digitatum: no Bengali name
+- Alcyonium digitatum: no Japanese name
+- Fasciola gigantica: no common name found, scientific name used
+- Fasciola gigantica: no Bengali name
+- Schistosoma mansoni: no common name found, scientific name used
+- Schistosoma mansoni: no Bengali name
+- Schistosoma haematobium: no common name found, scientific name used
+- Schistosoma haematobium: no Bengali name
+- Schistosoma japonicum: no common name found, scientific name used
+- Schistosoma japonicum: no Bengali name
+- Clonorchis sinensis: no Bengali name
+- Opisthorchis viverrini: no common name found, scientific name used
+- Opisthorchis viverrini: no Bengali name
+- Paragonimus westermani: no common name found, scientific name used
+- Paragonimus westermani: no Bengali name
+- Taenia saginata: no common name found, scientific name used
+- Taenia saginata: no Bengali name
+- Echinococcus granulosus: no common name found, scientific name used
+- Echinococcus granulosus: no Bengali name
+- Echinococcus multilocularis: no common name found, scientific name used
+- Echinococcus multilocularis: no Bengali name
+- Rodentolepis nana: "Hymenolepis nana" is a synonym, saved as accepted name "Rodentolepis nana"
+- Rodentolepis nana: no common name found, scientific name used
+- Rodentolepis nana: no Bengali name
+- Rodentolepis nana: no Japanese name
+- Diphyllobothrium latum: no Bengali name
+- Dipylidium caninum: no Bengali name
+- Moniezia expansa: no common name found, scientific name used
+- Moniezia expansa: no Bengali name
+- Gyrodactylus salaris: no common name found, scientific name used
+- Gyrodactylus salaris: no Bengali name
+- Gyrodactylus salaris: no Japanese name
+- Polystoma integerrimum: no common name found, scientific name used
+- Polystoma integerrimum: no Bengali name
+- Polystoma integerrimum: no Japanese name
+- Dicrocoelium dendriticum: no Bengali name
+- Ascaris suum: no common name found, scientific name used
+- Ascaris suum: no Bengali name
+- Enterobius vermicularis: no Bengali name
+- Necator americanus: no common name found, scientific name used
+- Necator americanus: no Bengali name
+- Brugia malayi: no common name found, scientific name used
+- Brugia malayi: no Bengali name
+- Onchocerca volvulus: no common name found, scientific name used
+- Onchocerca volvulus: no Bengali name
+- Loa loa: no common name found, scientific name used
+- Loa loa: no Bengali name
+- Dracunculus medinensis: no Bengali name
+- Strongyloides stercoralis: no common name found, scientific name used
+- Strongyloides stercoralis: no Bengali name
+- Caenorhabditis elegans: no common name found, scientific name used
+- Caenorhabditis elegans: no Bengali name
+- Toxocara canis: no common name found, scientific name used
+- Toxocara canis: no Bengali name
+- Toxocara cati: no Bengali name
+- Meloidogyne incognita: no common name found, scientific name used
+- Meloidogyne incognita: no Bengali name
+- Meloidogyne incognita: no Japanese name
+- Heterodera glycines: no Bengali name
+- Ditylenchus dipsaci: no Bengali name
+- Ditylenchus dipsaci: no Japanese name
+- Anisakis simplex: no common name found, scientific name used
+- Anisakis simplex: no Bengali name
+- Haemonchus contortus: no common name found, scientific name used
+- Haemonchus contortus: no Bengali name
+- Dirofilaria immitis: no Bengali name
+- Pristionchus pacificus: no common name found, scientific name used
+- Pristionchus pacificus: no Bengali name
+- Pristionchus pacificus: no Japanese name
+- Steinernema carpocapsae: no common name found, scientific name used
+- Steinernema carpocapsae: no Bengali name
+- Steinernema carpocapsae: no Japanese name
+- Lumbricus rubellus: no common name found, scientific name used
+- Lumbricus rubellus: no Bengali name
+- Lumbricus rubellus: no Japanese name
+- Eisenia andrei: no common name found, scientific name used
+- Eisenia andrei: no Bengali name
+- Eisenia andrei: no Japanese name
+- Perionyx excavatus: no common name found, scientific name used
+- Perionyx excavatus: no Bengali name
+- Perionyx excavatus: no Japanese name
+- Eudrilus eugeniae: no Bengali name
+- Eudrilus eugeniae: no Japanese name
+- Aporrectodea caliginosa: no Bengali name
+- Aporrectodea caliginosa: no Japanese name
+- Hirudo verbana: no common name found, scientific name used
+- Hirudo verbana: no Bengali name
+- Hirudo verbana: no Japanese name
+- Haemadipsa zeylanica: no common name found, scientific name used
+- Haemadipsa zeylanica: no Bengali name
+- Haemadipsa zeylanica: no Japanese name
+- Hirudinaria manillensis: no common name found, scientific name used
+- Hirudinaria manillensis: no Bengali name
+- Hirudinaria manillensis: no Japanese name
+- Macrobdella decora: no common name found, scientific name used
+- Macrobdella decora: no Bengali name
+- Macrobdella decora: no Japanese name
+- Glossiphonia complanata: no common name found, scientific name used
+- Glossiphonia complanata: no Bengali name
+- Glossiphonia complanata: no Japanese name
+- Hediste diversicolor: "Nereis diversicolor" is a synonym, saved as accepted name "Hediste diversicolor"
+- Hediste diversicolor: no common name found, scientific name used
+- Hediste diversicolor: no Bengali name
+- Alitta virens: no common name found, scientific name used
+- Alitta virens: no Bengali name
+- Alitta virens: no Japanese name
+- Platynereis dumerilii: no common name found, scientific name used
+- Platynereis dumerilii: no Bengali name
+- Platynereis dumerilii: no Japanese name
+- Aphrodita aculeata: no Bengali name
+- Aphrodita aculeata: no Japanese name
+- Eunice aphroditois: no common name found, scientific name used
+- Eunice aphroditois: no Bengali name
+- Sabella pavonina: no Bengali name
+- Sabella pavonina: no Japanese name
+- Spirobranchus giganteus: no Bengali name
+- Riftia pachyptila: no Bengali name
+- Tubifex tubifex: no common name found, scientific name used
+- Tubifex tubifex: no Bengali name
+- Acanthopleura granulata: no Bengali name
+- Acanthopleura granulata: no Japanese name
+- Neopilina galatheae: no common name found, scientific name used
+- Neopilina galatheae: no Bengali name
+- Neopilina galatheae: no Japanese name
+- Haliotis rufescens: no Bengali name
+- Haliotis rufescens: no Japanese name
+- Haliotis midae: no Bengali name
+- Haliotis midae: no Japanese name
+- Helix pomatia: no common name found, scientific name used
+- Helix pomatia: no Bengali name
+- Cornu aspersum: no common name found, scientific name used
+- Cornu aspersum: no Bengali name
+- Lissachatina fulica: "Achatina fulica" is a synonym, saved as accepted name "Lissachatina fulica"
+- Lissachatina fulica: no common name found, scientific name used
+- Lissachatina fulica: no Bengali name
+- Lissachatina fulica: no Japanese name
+- Cepaea nemoralis: no Bengali name
+- Limax maximus: no Bengali name
+- Arion rufus: no Bengali name
+- Arion rufus: no Japanese name
+- Deroceras reticulatum: no Bengali name
+- Pomacea canaliculata: no Bengali name
+- Littorina littorea: no Bengali name
+- Buccinum undatum: no Bengali name
+- Buccinum undatum: no Japanese name
+- Conus geographus: no common name found, scientific name used
+- Conus geographus: no Bengali name
+- Conus textile: no Bengali name
+- Conus magus: no common name found, scientific name used
+- Conus magus: no Bengali name
+- Conus magus: no Japanese name
+- Bolinus brandaris: no common name found, scientific name used
+- Bolinus brandaris: no Bengali name
+- Aliger gigas: "Lobatus gigas" is a synonym, saved as accepted name "Aliger gigas"
+- Aliger gigas: no Bengali name
+- Aliger gigas: no Japanese name
+- Charonia tritonis: no Bengali name
+- Turbo marmoratus: no common name found, scientific name used
+- Turbo marmoratus: no Bengali name
+- Rochia nilotica: "Trochus niloticus" is a synonym, saved as accepted name "Rochia nilotica"
+- Rochia nilotica: no common name found, scientific name used
+- Rochia nilotica: no Bengali name
+- Tegula funebralis: no Bengali name
+- Tegula funebralis: no Japanese name
+- Crepidula fornicata: no Bengali name
+- Aplysia californica: no Bengali name
+- Aplysia punctata: no common name found, scientific name used
+- Aplysia punctata: no Bengali name
+- Aplysia punctata: no Japanese name
+- Tritonia tetraquetra: "Tritonia diomedea" is a synonym, saved as accepted name "Tritonia tetraquetra"
+- Tritonia tetraquetra: no Bengali name
+- Tritonia tetraquetra: no Japanese name
+- Acanthosepion pharaonis: "Sepia pharaonis" is a synonym, saved as accepted name "Acanthosepion pharaonis"
+- Acanthosepion pharaonis: no Bengali name
+- Acanthosepion pharaonis: no Japanese name
+- Loligo vulgaris: no Bengali name
+- Doryteuthis pealeii: no Bengali name
+- Doryteuthis pealeii: no Japanese name
+- Octopus bimaculoides: no Bengali name
+- Octopus bimaculoides: no Japanese name
+- Enteroctopus dofleini: no Bengali name
+- Argonauta argo: no common name found, scientific name used
+- Argonauta argo: no Bengali name
+- Euprymna scolopes: no common name found, scientific name used
+- Euprymna scolopes: no Bengali name
+- Spirula spirula: no Bengali name
+- Vampyroteuthis infernalis: no Bengali name
+- Dosidicus gigas: no Bengali name
+- Todarodes pacificus: no Bengali name
+- Illex illecebrosus: no common name found, scientific name used
+- Illex illecebrosus: no Bengali name
+- Illex illecebrosus: no Japanese name
+- Mytilus galloprovincialis: no Bengali name
+- Perna viridis: no common name found, scientific name used
+- Perna viridis: no Bengali name
+- Crassostrea virginica: no Bengali name
+- Ostrea edulis: no Bengali name
+- Pinctada margaritifera: no common name found, scientific name used
+- Pinctada margaritifera: no Bengali name
+- Pinctada fucata: no common name found, scientific name used
+- Pinctada fucata: no Bengali name
+- Pecten maximus: no common name found, scientific name used
+- Pecten maximus: no Bengali name
+- Argopecten irradians: no common name found, scientific name used
+- Argopecten irradians: no Bengali name
+- Mya arenaria: no Bengali name
+- Mya arenaria: no Japanese name
+- Ruditapes philippinarum: no common name found, scientific name used
+- Ruditapes philippinarum: no Bengali name
+- Mercenaria mercenaria: no Bengali name
+- Anodonta cygnea: no Bengali name
+- Anodonta cygnea: no Japanese name
+- Unio pictorum: no Bengali name
+- Unio pictorum: no Japanese name
+- Lamellidens marginalis: no common name found, scientific name used
+- Lamellidens marginalis: no Bengali name
+- Lamellidens marginalis: no Japanese name
+- Lamellidens corrianus: no common name found, scientific name used
+- Lamellidens corrianus: no Bengali name
+- Lamellidens corrianus: no Japanese name
+- Teredo navalis: no Bengali name
+- Dreissena polymorpha: no Bengali name
+- Ensis magnus: no Bengali name
+- Ensis magnus: no Japanese name
+- Antalis vulgaris: "Dentalium vulgare" is a synonym, saved as accepted name "Antalis vulgaris"
+- Antalis vulgaris: no common name found, scientific name used
+- Antalis vulgaris: no Bengali name
+- Antalis vulgaris: no Japanese name
+- Limulus polyphemus: no Bengali name
+- Tachypleus gigas: no Bengali name
+- Carcinoscorpius rotundicauda: no Bengali name
+- Tachypleus tridentatus: no Bengali name
+- Pandinus imperator: no Bengali name
+- Androctonus australis: no Bengali name
+- Androctonus australis: no Japanese name
+- Leiurus quinquestriatus: no Bengali name
+- Buthus occitanus: no Bengali name
+- Buthus occitanus: no Japanese name
+- Hottentotta tamulus: no common name found, scientific name used
+- Hottentotta tamulus: no Bengali name
+- Hottentotta tamulus: no Japanese name
+- Centruroides sculpturatus: no Bengali name
+- Centruroides sculpturatus: no Japanese name
+- Latrodectus hesperus: no Bengali name
+- Latrodectus hesperus: no Japanese name
+- Phoneutria nigriventer: no common name found, scientific name used
+- Phoneutria nigriventer: no Bengali name
+- Atrax robustus: no Bengali name
+- Araneus diadematus: no Bengali name
+- Argiope bruennichi: no common name found, scientific name used
+- Argiope bruennichi: no Bengali name
+- Aphonopelma hentzi: no Bengali name
+- Aphonopelma hentzi: no Japanese name
+- Brachypelma smithi: no Bengali name
+- Pholcus phalangioides: no Bengali name
+- Pholcus phalangioides: no Japanese name
+- Salticus scenicus: no Bengali name
+- Tegenaria domestica: no Bengali name
+- Tegenaria domestica: no Japanese name
+- Ixodes ricinus: no common name found, scientific name used
+- Ixodes ricinus: no Bengali name
+- Ixodes ricinus: no Japanese name
+- Dermacentor variabilis: no Bengali name
+- Dermacentor variabilis: no Japanese name
+- Rhipicephalus sanguineus: no common name found, scientific name used
+- Rhipicephalus sanguineus: no Bengali name
+- Amblyomma americanum: no Bengali name
+- Amblyomma americanum: no Japanese name
+- Varroa destructor: no common name found, scientific name used
+- Varroa destructor: no Bengali name
+- Dermatophagoides pteronyssinus: no common name found, scientific name used
+- Dermatophagoides pteronyssinus: no Bengali name
+- Demodex folliculorum: no common name found, scientific name used
+- Demodex folliculorum: no Bengali name
+- Daphnia pulex: no Bengali name
+- Daphnia magna: no common name found, scientific name used
+- Daphnia magna: no Bengali name
+- Artemia salina: no common name found, scientific name used
+- Artemia salina: no Bengali name
+- Cyclops strenuus: no common name found, scientific name used
+- Cyclops strenuus: no Bengali name
+- Cyclops strenuus: no Japanese name
+- Semibalanus balanoides: no Bengali name
+- Semibalanus balanoides: no Japanese name
+- Lepas anatifera: no Bengali name
+- Sacculina carcini: no common name found, scientific name used
+- Sacculina carcini: no Bengali name
+- Sacculina carcini: no Japanese name
+- Cancer pagurus: no Bengali name
+- Carcinus maenas: no Bengali name
+- Portunus pelagicus: no Bengali name
+- Minuca pugnax: "Uca pugnax" is a synonym, saved as accepted name "Minuca pugnax"
+- Minuca pugnax: no Bengali name
+- Minuca pugnax: no Japanese name
+- Eriocheir sinensis: no Bengali name
+- Maja squinado: no common name found, scientific name used
+- Maja squinado: no Bengali name
+- Maja squinado: no Japanese name
+- Pagurus bernhardus: no Bengali name
+- Pagurus bernhardus: no Japanese name
+- Birgus latro: no Bengali name
+- Homarus gammarus: no Bengali name
+- Nephrops norvegicus: no Bengali name
+- Astacus astacus: no Bengali name
+- Procambarus clarkii: no Bengali name
+- Cherax quadricarinatus: no Bengali name
+- Cherax quadricarinatus: no Japanese name
+- Panulirus argus: no Bengali name
+- Palinurus elephas: no Bengali name
+- Penaeus vannamei: "Litopenaeus vannamei" is a synonym, saved as accepted name "Penaeus vannamei"
+- Penaeus vannamei: no Bengali name
+- Penaeus vannamei: no Japanese name
+- Macrobrachium malcolmsonii: no common name found, scientific name used
+- Macrobrachium malcolmsonii: no Bengali name
+- Macrobrachium malcolmsonii: no Japanese name
+- Crangon crangon: no Bengali name
+- Palaemon serratus: no Bengali name
+- Palaemon serratus: no Japanese name
+- Squilla mantis: no common name found, scientific name used
+- Squilla mantis: no Bengali name
+- Squilla mantis: no Japanese name
+- Gammarus pulex: no Bengali name
+- Gammarus pulex: no Japanese name
+- Armadillidium vulgare: no Bengali name
+- Porcellio scaber: no Bengali name
+- Oniscus asellus: no Bengali name
+- Oniscus asellus: no Japanese name
+- Talitrus saltator: no Bengali name
+- Talitrus saltator: no Japanese name
+- Tigriopus californicus: no common name found, scientific name used
+- Tigriopus californicus: no Bengali name
+- Tigriopus californicus: no Japanese name
+- Lernaea cyprinacea: no common name found, scientific name used
+- Lernaea cyprinacea: no Bengali name
+- Argulus foliaceus: no common name found, scientific name used
+- Argulus foliaceus: no Bengali name
+- Argulus foliaceus: no Japanese name
+- Bathynomus giganteus: no common name found, scientific name used
+- Bathynomus giganteus: no Bengali name
+- Limnoria lignorum: no Bengali name
+- Limnoria lignorum: no Japanese name
+- Mysis relicta: no common name found, scientific name used
+- Mysis relicta: no Bengali name
+- Mysis relicta: no Japanese name
+- Scolopendra gigantea: no Bengali name
+- Scolopendra subspinipes: no common name found, scientific name used
+- Scolopendra subspinipes: no Bengali name
+- Lithobius forficatus: no Bengali name
+- Lithobius forficatus: no Japanese name
+- Scutigera coleoptrata: no Bengali name
+- Scutigera coleoptrata: no Japanese name
+- Julus terrestris: no common name found, scientific name used
+- Julus terrestris: no Bengali name
+- Julus terrestris: no Japanese name
+- Archispirostreptus gigas: no common name found, scientific name used
+- Archispirostreptus gigas: no Bengali name
+- Narceus americanus: no common name found, scientific name used
+- Narceus americanus: no Bengali name
+- Narceus americanus: no Japanese name
+- Glomeris marginata: no Bengali name
+- Glomeris marginata: no Japanese name
+- Xylocopa violacea: no Japanese name
+- Vespa crabro: no Bengali name
+- Polistes dominula: no Bengali name
+- Atta cephalotes: no Bengali name
+- Formica rufa: no Bengali name
+- Camponotus pennsylvanicus: no Bengali name
+- Camponotus pennsylvanicus: no Japanese name
+- Eciton burchellii: no Bengali name
+- Lasius niger: no Bengali name
+- Linepithema humile: no Bengali name
+- Nasonia vitripennis: no common name found, scientific name used
+- Nasonia vitripennis: no Bengali name
+- Trichogramma evanescens: no common name found, scientific name used
+- Trichogramma evanescens: no Bengali name
+- Trichogramma evanescens: no Japanese name
+- Antheraea mylitta: no Bengali name
+- Antheraea mylitta: no Japanese name
+- Papilio machaon: no Bengali name
+- Pieris rapae: no Bengali name
+- Vanessa atalanta: no Bengali name
+- Morpho menelaus: no common name found, scientific name used
+- Morpho menelaus: no Bengali name
+- Ornithoptera alexandrae: no Bengali name
+- Plutella xylostella: no Bengali name
+- Galleria mellonella: no Bengali name
+- Ephestia kuehniella: no Bengali name
+- Ephestia kuehniella: no Japanese name
+- Tribolium castaneum: no Bengali name
+- Tribolium confusum: no Bengali name
+- Tribolium confusum: no Japanese name
+- Harmonia axyridis: no common name found, scientific name used
+- Harmonia axyridis: no Bengali name
+- Leptinotarsa decemlineata: no Bengali name
+- Anthonomus grandis: no Bengali name
+- Sitophilus oryzae: no Bengali name
+- Sitophilus oryzae: no Japanese name
+- Sitophilus granarius: no Bengali name
+- Sitophilus granarius: no Japanese name
+- Callosobruchus chinensis: no Bengali name
+- Callosobruchus chinensis: no Japanese name
+- Dytiscus marginalis: no Bengali name
+- Lucanus cervus: no Bengali name
+- Lampyris noctiluca: no Bengali name
+- Lampyris noctiluca: no Japanese name
+- Melolontha melolontha: no Bengali name
+- Popillia japonica: no Bengali name
+- Oryctes rhinoceros: no Bengali name
+- Anoplophora glabripennis: no Bengali name
+- Agrilus planipennis: no Bengali name
+- Dendroctonus ponderosae: no Bengali name
+- Phlebotomus argentipes: no common name found, scientific name used
+- Phlebotomus argentipes: no Bengali name
+- Phlebotomus argentipes: no Japanese name
+- Tabanus bovinus: no common name found, scientific name used
+- Tabanus bovinus: no Bengali name
+- Tabanus bovinus: no Japanese name
+- Drosophila simulans: no common name found, scientific name used
+- Drosophila simulans: no Bengali name
+- Drosophila simulans: no Japanese name
+- Rhodnius prolixus: no common name found, scientific name used
+- Rhodnius prolixus: no Bengali name
+- Rhodnius prolixus: no Japanese name
+- Nezara viridula: no Bengali name
+- Myzus persicae: no common name found, scientific name used
+- Acyrthosiphon pisum: no Bengali name
+- Pediculus humanus: no common name found, scientific name used
+- Pediculus humanus: no Bengali name
+- Xenopsylla cheopis: no Bengali name
+- Pulex irritans: no Bengali name
+- Ctenocephalides felis: no Bengali name
+- Blatta orientalis: no Bengali name
+- Blatta orientalis: no Japanese name
+- Hierodula membranacea: no common name found, scientific name used
+- Hierodula membranacea: no Bengali name
+- Hierodula membranacea: no Japanese name
+- Acheta domesticus: no Bengali name
+- Gryllotalpa africana: no common name found, scientific name used
+- Gryllotalpa africana: no Bengali name
+- Gryllotalpa africana: no Japanese name
+- Pulchriphyllium giganteum: "Phyllium giganteum" is a synonym, saved as accepted name "Pulchriphyllium giganteum"
+- Pulchriphyllium giganteum: no common name found, scientific name used
+- Pulchriphyllium giganteum: no Bengali name
+- Carausius morosus: no Bengali name
+- Carausius morosus: no Japanese name
+- Reticulitermes flavipes: no Bengali name
+- Reticulitermes flavipes: no Japanese name
+- Odontotermes obesus: no common name found, scientific name used
+- Odontotermes obesus: no Bengali name
+- Odontotermes obesus: no Japanese name
+- Macrotermes bellicosus: no common name found, scientific name used
+- Macrotermes bellicosus: no Bengali name
+- Macrotermes bellicosus: no Japanese name
+- Zootermopsis angusticollis: no Bengali name
+- Zootermopsis angusticollis: no Japanese name
+- Forficula auricularia: no Bengali name
+- Libellula depressa: no Bengali name
+- Libellula depressa: no Japanese name
+- Anax imperator: no Bengali name
+- Calopteryx splendens: no Bengali name
+- Calopteryx splendens: no Japanese name
+- Ischnura elegans: no Bengali name
+- Ischnura elegans: no Japanese name
+- Ephemera danica: no common name found, scientific name used
+- Ephemera danica: no Bengali name
+- Ephemera danica: no Japanese name
+- Folsomia candida: no common name found, scientific name used
+- Folsomia candida: no Bengali name
+- Folsomia candida: no Japanese name
+- Sminthurus viridis: no common name found, scientific name used
+- Sminthurus viridis: no Bengali name
+- Sminthurus viridis: no Japanese name
+- Chrysoperla carnea: no common name found, scientific name used
+- Chrysoperla carnea: no Bengali name
+- Chrysoperla carnea: no Japanese name
+- Myrmeleon formicarius: no Bengali name
+- Gerris lacustris: no Bengali name
+- Gerris lacustris: no Japanese name
+- Notonecta glauca: no Bengali name
+- Notonecta glauca: no Japanese name
+- Belostoma flumineum: no common name found, scientific name used
+- Belostoma flumineum: no Bengali name
+- Belostoma flumineum: no Japanese name
+- Lethocerus indicus: no common name found, scientific name used
+- Lethocerus indicus: no Bengali name
+- Nepa cinerea: no Bengali name
+- Nepa cinerea: no Japanese name
+- Cicada orni: no common name found, scientific name used
+- Cicada orni: no Bengali name
+- Cicada orni: no Japanese name
+- Magicicada septendecim: no Bengali name
+- Magicicada septendecim: no Japanese name
+- Pisaster ochraceus: no common name found, scientific name used
+- Pisaster ochraceus: no Bengali name
+- Acanthaster planci: no Bengali name
+- Linckia laevigata: no common name found, scientific name used
+- Linckia laevigata: no Bengali name
+- Patiria miniata: no Bengali name
+- Patiria miniata: no Japanese name
+- Oreaster reticulatus: no Bengali name
+- Oreaster reticulatus: no Japanese name
+- Paracentrotus lividus: no common name found, scientific name used
+- Paracentrotus lividus: no Bengali name
+- Paracentrotus lividus: no Japanese name
+- Arbacia punctulata: no Bengali name
+- Arbacia punctulata: no Japanese name
+- Echinus esculentus: no Bengali name
+- Echinus esculentus: no Japanese name
+- Lytechinus variegatus: no Bengali name
+- Lytechinus variegatus: no Japanese name
+- Diadema setosum: no Bengali name
+- Echinocardium cordatum: no Bengali name
+- Echinocardium cordatum: no Japanese name
+- Sphaerechinus granularis: no Bengali name
+- Sphaerechinus granularis: no Japanese name
+- Dendraster excentricus: no common name found, scientific name used
+- Dendraster excentricus: no Bengali name
+- Dendraster excentricus: no Japanese name
+- Holothuria atra: no Bengali name
+- Apostichopus japonicus: no Bengali name
+- Cucumaria frondosa: no Bengali name
+- Stichopus chloronotus: no Bengali name
+- Ophiothrix fragilis: no Bengali name
+- Ophiothrix fragilis: no Japanese name
+- Amphiura filiformis: no common name found, scientific name used
+- Amphiura filiformis: no Bengali name
+- Amphiura filiformis: no Japanese name
+- Antedon bifida: no common name found, scientific name used
+- Antedon bifida: no Bengali name
+- Antedon bifida: no Japanese name
+- Antedon mediterranea: no Bengali name
+- Antedon mediterranea: no Japanese name
+- Ciona intestinalis: no common name found, scientific name used
+- Ciona intestinalis: no Bengali name
+- Ciona robusta: no common name found, scientific name used
+- Ciona robusta: no Bengali name
+- Ciona robusta: no Japanese name
+- Botryllus schlosseri: no Bengali name
+- Botryllus schlosseri: no Japanese name
+- Halocynthia roretzi: no Bengali name
+- Petromyzon marinus: no Bengali name
+- Lampetra fluviatilis: no Bengali name
+- Eptatretus stoutii: no Bengali name
+- Eptatretus stoutii: no Japanese name
+- Myxine glutinosa: no Bengali name
+- Myxine glutinosa: no Japanese name
+- Carcharhinus longimanus: no Bengali name
+- Squalus acanthias: no Bengali name
+- Cetorhinus maximus: no Bengali name
+- Chiloscyllium griseum: no Japanese name
+- Pristis pristis: no Bengali name
+- Torpedo marmorata: no Bengali name
+- Dasyatis pastinaca: no Bengali name
+- Aetobatus narinari: no Japanese name
+- Mobula mobular: no Bengali name
+- Chimaera monstrosa: no Bengali name
+- Hydrolagus colliei: no Bengali name
+- Neoceratodus forsteri: no Bengali name
+- Protopterus annectens: no Bengali name
+- Protopterus annectens: no Japanese name
+- Lepidosiren paradoxa: no Bengali name
+- Xenopus laevis: no Bengali name
+- Xenopus tropicalis: no Bengali name
+- Lithobates catesbeianus: no Bengali name
+- Lithobates catesbeianus: no Japanese name
+- Pelophylax lessonae: "Pelophylax esculentus" is a synonym, saved as accepted name "Pelophylax lessonae"
+- Pelophylax lessonae: no Bengali name
+- Pelophylax lessonae: no Japanese name
+- Hyla arborea: no Bengali name
+- Rhacophorus malabaricus: no Bengali name
+- Rhacophorus malabaricus: no Japanese name
+- Dendrobates auratus: no Bengali name
+- Ambystoma tigrinum: no Bengali name
+- Salamandra salamandra: no Bengali name
+- Triturus cristatus: no Bengali name
+- Lissotriton vulgaris: no Bengali name
+- Cryptobranchus alleganiensis: no Bengali name
+- Andrias japonicus: no Bengali name
+- Necturus maculosus: no Bengali name
+- Necturus maculosus: no Japanese name
+- Ichthyophis glutinosus: no Bengali name
+- Ichthyophis glutinosus: no Japanese name
+- Typhlonectes natans: no Bengali name
+- Typhlonectes natans: no Japanese name
+- Bombina bombina: no Bengali name
+- Alytes obstetricans: no Bengali name
+- Pipa pipa: no Bengali name
+- Eleutherodactylus coqui: no Bengali name
+- Rhea americana: no Bengali name
+- Casuarius casuarius: no Bengali name
+- Apteryx australis: no Bengali name
+- Fregata magnificens: no Bengali name
+- Sula leucogaster: no Bengali name
+- Cairina moschata: no Bengali name
+- Perdix perdix: no Bengali name
+- Lophura nycthemera: no Bengali name
+- Phasianus colchicus: no Bengali name
+- Columba palumbus: no Bengali name
+- Streptopelia decaocto: no Bengali name
+- Ara macao: no Bengali name
+- Cacatua galerita: no Bengali name
+- Psittacus erithacus: no Bengali name
+- Strix aluco: no Bengali name
+- Accipiter nisus: no Bengali name
+- Gyps fulvus: no Bengali name
+- Charadrius dubius: no Bengali name
+- Himantopus himantopus: no Bengali name
+- Numenius arquata: no Bengali name
+- Larus argentatus: no Bengali name
+- Ramphastos toco: no Bengali name
+- Picus viridis: no Bengali name
+- Dendrocopos major: no Bengali name
+- Apus apus: no Bengali name
+- Copsychus malabaricus: no Japanese name
+- Luscinia megarhynchos: no Bengali name
+- Erithacus rubecula: no Bengali name
+- Cinnyris jugularis: no Bengali name
+- Estrilda astrild: no Bengali name
+- Taeniopygia guttata: no Bengali name
+- Serinus canaria: no Bengali name
+- Fringilla coelebs: no Bengali name
+- Geospiza fortis: no Bengali name
+- Paradisaea apoda: no Bengali name
+- Menura novaehollandiae: no Bengali name
+- Trochilus polytmus: no Bengali name
+- Archilochus colubris: no Bengali name
+- Alca torda: no Bengali name
+- Tachyglossus aculeatus: no Bengali name
+- Didelphis virginiana: no Bengali name
+- Monodelphis domestica: no Bengali name
+- Monodelphis domestica: no Japanese name
+- Paraechinus micropus: no Bengali name
+- Talpa europaea: no Bengali name
+- Sorex araneus: no Bengali name
+- Sorex araneus: no Japanese name
+- Rousettus leschenaultii: no Bengali name
+- Rousettus leschenaultii: no Japanese name
+- Pipistrellus pipistrellus: no Bengali name
+- Pipistrellus pipistrellus: no Japanese name
+- Myotis myotis: no Bengali name
+- Desmodus rotundus: no Bengali name
+- Lyroderma lyra: "Megaderma lyra" is a synonym, saved as accepted name "Lyroderma lyra"
+- Lyroderma lyra: no Bengali name
+- Lyroderma lyra: no Japanese name
+- Rhinolophus ferrumequinum: no Bengali name
+- Papio hamadryas: no Bengali name
+- Cercopithecus mitis: no Bengali name
+- Pan paniscus: no Bengali name
+- Loris tardigradus: no Bengali name
+- Carlito syrichta: "Tarsius syrichta" is a synonym, saved as accepted name "Carlito syrichta"
+- Carlito syrichta: no Bengali name
+- Callithrix jacchus: no Bengali name
+- Saimiri sciureus: no Bengali name
+- Alouatta palliata: no Bengali name
+- Ateles geoffroyi: no Bengali name
+- Cebus capucinus: no Bengali name
+- Bradypus tridactylus: no Bengali name
+- Choloepus didactylus: no Bengali name
+- Lepus europaeus: no Bengali name
+- Ochotona princeps: no Bengali name
+- Ochotona princeps: no Japanese name
+- Bandicota bengalensis: no Japanese name
+- Bandicota indica: no Japanese name
+- Mus booduga: no Japanese name
+- Meriones unguiculatus: no Bengali name
+- Castor canadensis: no Bengali name
+- Hystrix cristata: no Bengali name
+- Ratufa indica: no Bengali name
+- Petaurista philippensis: no Bengali name
+- Petaurista philippensis: no Japanese name
+- Marmota monax: no Bengali name
+- Sciurus vulgaris: no Bengali name
+- Chinchilla lanigera: no Bengali name
+- Myocastor coypus: no Bengali name
+- Uncia uncia: no Bengali name
+- Uncia uncia: no Japanese name
+- Mustela putorius: no Bengali name
+- Martes foina: no Bengali name
+- Phoca vitulina: no Bengali name
+- Halichoerus grypus: no Bengali name
+- Mirounga leonina: no Bengali name
+- Otaria byronia: "Otaria flavescens" is a synonym, saved as accepted name "Otaria byronia"
+- Otaria byronia: no Bengali name
+- Otaria byronia: no Japanese name
+- Phocoena phocoena: no Bengali name
+- Monodon monoceros: no Bengali name
+- Balaenoptera physalus: no Bengali name
+- Eubalaena glacialis: no Bengali name
+- Eschrichtius robustus: no Bengali name
+- Neophocaena phocaenoides: no Bengali name
+- Loxodonta cyclotis: no Bengali name
+- Equus asinus: no Bengali name
+- Equus zebra: no Bengali name
+- Acrocodia indica: "Tapirus indicus" is a synonym, saved as accepted name "Acrocodia indica"
+- Acrocodia indica: no Bengali name
+- Acrocodia indica: no Japanese name
+- Bos frontalis: no Japanese name
+- Tragelaphus strepsiceros: no Bengali name
+- Taurotragus oryx: no Bengali name
+- Tetracerus quadricornis: no Bengali name
+- Gazella bennettii: no Bengali name
+- Gazella bennettii: no Japanese name
+- Oryx gazella: no Bengali name
+- Kobus ellipsiprymnus: no Bengali name
+- Pantholops hodgsonii: no Bengali name
+- Cervus elaphus: no Bengali name
+- Rucervus eldii: no Bengali name
+- Capreolus capreolus: no Bengali name
+- Alces alces: no Bengali name
+- Dama dama: no Bengali name
+- Odocoileus virginianus: no Bengali name
+- Moschiola indica: no Bengali name
+- Moschiola indica: no Japanese name
+- Procavia capensis: no Bengali name
+- Euherdmania claviformis: no common name found, scientific name used
+- Euherdmania claviformis: no Bengali name
+- Euherdmania claviformis: no Japanese name
+- Ciona savignyi: no common name found, scientific name used
+- Ciona savignyi: no Bengali name
+- Ciona edwardsi: no common name found, scientific name used
+- Ciona edwardsi: no Bengali name
+- Ciona edwardsi: no Japanese name
+- Didemnum translucidum: no common name found, scientific name used
+- Didemnum translucidum: no Bengali name
+- Didemnum translucidum: no Japanese name
+- Didemnum maculosum: no common name found, scientific name used
+- Didemnum maculosum: no Bengali name
+- Didemnum maculosum: no Japanese name
+- Didemnum lahillei: no common name found, scientific name used
+- Didemnum lahillei: no Bengali name
+- Didemnum lahillei: no Japanese name
+- Didemnum polare: no common name found, scientific name used
+- Didemnum polare: no Bengali name
+- Didemnum polare: no Japanese name
+- Didemnum fragile: no common name found, scientific name used
+- Didemnum fragile: no Bengali name
+- Didemnum fragile: no Japanese name
+- Didemnum coriaceum: no common name found, scientific name used
+- Didemnum coriaceum: no Bengali name
+- Didemnum coriaceum: no Japanese name
+- Polysyncraton amethysteum: no common name found, scientific name used
+- Polysyncraton amethysteum: no Bengali name
+- Polysyncraton amethysteum: no Japanese name
+- Didemnum romssae: no common name found, scientific name used
+- Didemnum romssae: no Bengali name
+- Didemnum romssae: no Japanese name
+- Didemnum vanderhorsti: no common name found, scientific name used
+- Didemnum vanderhorsti: no Bengali name
+- Didemnum vanderhorsti: no Japanese name
+- Didemnum membranaceum: no common name found, scientific name used
+- Didemnum membranaceum: no Bengali name
+- Didemnum membranaceum: no Japanese name
+- Didemnum carnulentum: no common name found, scientific name used
+- Didemnum carnulentum: no Bengali name
+- Didemnum carnulentum: no Japanese name
+- Didemnum granulatum: no common name found, scientific name used
+- Didemnum granulatum: no Bengali name
+- Didemnum granulatum: no Japanese name
+- Didemnum albidum: no common name found, scientific name used
+- Didemnum albidum: no Bengali name
+- Didemnum albidum: no Japanese name
+- Didemnum candidum: no common name found, scientific name used
+- Didemnum candidum: no Bengali name
+- Didemnum candidum: no Japanese name
+- Didemnum perlucidum: no common name found, scientific name used
+- Didemnum perlucidum: no Bengali name
+- Didemnum perlucidum: no Japanese name
+- Didemnum moseleyi: no common name found, scientific name used
+- Didemnum moseleyi: no Bengali name
+- Didemnum moseleyi: no Japanese name
+- Didemnum commune: no common name found, scientific name used
+- Didemnum commune: no Bengali name
+- Didemnum commune: no Japanese name
+- Didemnum pseudofulgens: no common name found, scientific name used
+- Didemnum pseudofulgens: no Bengali name
+- Didemnum pseudofulgens: no Japanese name
+- Didemnum coccineum: no common name found, scientific name used
+- Didemnum coccineum: no Bengali name
+- Didemnum coccineum: no Japanese name
+- Didemnum molle: no common name found, scientific name used
+- Didemnum molle: no Bengali name
+- Didemnum molle: no Japanese name
+- Didemnum ligulum: no common name found, scientific name used
+- Didemnum ligulum: no Bengali name
+- Didemnum ligulum: no Japanese name
+- Didemnum misakiense: no common name found, scientific name used
+- Didemnum misakiense: no Bengali name
+- Didemnum misakiense: no Japanese name
+- Didemnum fulgens: no common name found, scientific name used
+- Didemnum fulgens: no Bengali name
+- Didemnum fulgens: no Japanese name
+- Didemnum protectum: no common name found, scientific name used
+- Didemnum protectum: no Bengali name
+- Didemnum protectum: no Japanese name
+- Didemnum drachi: no common name found, scientific name used
+- Didemnum drachi: no Bengali name
+- Didemnum drachi: no Japanese name
+- Didemnum cuculliferum: no common name found, scientific name used
+- Didemnum cuculliferum: no Bengali name
+- Didemnum cuculliferum: no Japanese name
+- Didemnum rubeum: no common name found, scientific name used
+- Didemnum rubeum: no Bengali name
+- Didemnum rubeum: no Japanese name
+- Lissoclinum bistratum: no common name found, scientific name used
+- Lissoclinum bistratum: no Bengali name
+- Lissoclinum bistratum: no Japanese name
+- Lissoclinum perforatum: no common name found, scientific name used
+- Lissoclinum perforatum: no Bengali name
+- Lissoclinum perforatum: no Japanese name
+- Lissoclinum vareau: no common name found, scientific name used
+- Lissoclinum vareau: no Bengali name
+- Lissoclinum vareau: no Japanese name
+- Lissoclinum fragile: no common name found, scientific name used
+- Lissoclinum fragile: no Bengali name
+- Lissoclinum fragile: no Japanese name
+- Lissoclinum patella: no common name found, scientific name used
+- Lissoclinum patella: no Bengali name
+- Lissoclinum patella: no Japanese name
+- Lissoclinum weigelei: no common name found, scientific name used
+- Lissoclinum weigelei: no Bengali name
+- Lissoclinum weigelei: no Japanese name
+- Trididemnum cereum: no common name found, scientific name used
+- Trididemnum cereum: no Bengali name
+- Trididemnum cereum: no Japanese name
+- Trididemnum tenerum: no common name found, scientific name used
+- Trididemnum tenerum: no Bengali name
+- Trididemnum tenerum: no Japanese name
+- Trididemnum delesseriae: no common name found, scientific name used
+- Trididemnum delesseriae: no Bengali name
+- Trididemnum delesseriae: no Japanese name
+- Trididemnum cerebriforme: no Bengali name
+- Trididemnum cerebriforme: no Japanese name
+- Trididemnum solidum: no common name found, scientific name used
+- Trididemnum solidum: no Bengali name
+- Trididemnum solidum: no Japanese name
+- Trididemnum paracyclops: no common name found, scientific name used
+- Trididemnum paracyclops: no Bengali name
+- Trididemnum paracyclops: no Japanese name
+- Trididemnum savignii: no common name found, scientific name used
+- Trididemnum savignii: no Bengali name
+- Trididemnum savignii: no Japanese name
+- Trididemnum orbiculatum: no common name found, scientific name used
+- Trididemnum orbiculatum: no Bengali name
+- Trididemnum orbiculatum: no Japanese name
+- Polysyncraton aspiculatum: no common name found, scientific name used
+- Polysyncraton aspiculatum: no Bengali name
+- Polysyncraton aspiculatum: no Japanese name
+- Polysyncraton lacazei: no common name found, scientific name used
+- Polysyncraton lacazei: no Bengali name
+- Polysyncraton lacazei: no Japanese name
+- Polysyncraton bilobatum: no common name found, scientific name used
+- Polysyncraton bilobatum: no Bengali name
+- Polysyncraton bilobatum: no Japanese name
+- Leptoclinides dubius: no common name found, scientific name used
+- Leptoclinides dubius: no Bengali name
+- Leptoclinides dubius: no Japanese name
+- Leptoclinides echinatus: no common name found, scientific name used
+- Leptoclinides echinatus: no Bengali name
+- Leptoclinides echinatus: no Japanese name
+- Leptoclinides madara: no common name found, scientific name used
+- Leptoclinides madara: no Bengali name
+- Leptoclinides madara: no Japanese name
+- Leptoclinides faeroensis: no common name found, scientific name used
+- Leptoclinides faeroensis: no Bengali name
+- Leptoclinides faeroensis: no Japanese name
+- Leptoclinides ocellatus: no common name found, scientific name used
+- Leptoclinides ocellatus: no Bengali name
+- Leptoclinides ocellatus: no Japanese name
+- Leptoclinides reticulatus: no common name found, scientific name used
+- Leptoclinides reticulatus: no Bengali name
+- Leptoclinides reticulatus: no Japanese name
+- Nephtheis fascicularis: no Bengali name
+- Nephtheis fascicularis: no Japanese name
+- Clavelina coerulea: no common name found, scientific name used
+- Clavelina coerulea: no Bengali name
+- Clavelina coerulea: no Japanese name
+- Clavelina robusta: no common name found, scientific name used
+- Clavelina robusta: no Bengali name
+- Clavelina robusta: no Japanese name
+- Clavelina cyclus: no common name found, scientific name used
+- Clavelina cyclus: no Bengali name
+- Clavelina dellavallei: no common name found, scientific name used
+- Clavelina dellavallei: no Bengali name
+- Clavelina dellavallei: no Japanese name
+- Clavelina oblonga: no common name found, scientific name used
+- Clavelina oblonga: no Bengali name
+- Clavelina oblonga: no Japanese name
+- Clavelina fecunda: no common name found, scientific name used
+- Clavelina fecunda: no Bengali name
+- Clavelina fecunda: no Japanese name
+- Clavelina polycitorella: no common name found, scientific name used
+- Clavelina polycitorella: no Bengali name
+- Clavelina polycitorella: no Japanese name
+- Clavelina auracea: no common name found, scientific name used
+- Clavelina auracea: no Bengali name
+- Clavelina auracea: no Japanese name
+- Clavelina huntsmani: no common name found, scientific name used
+- Clavelina huntsmani: no Bengali name
+- Clavelina huntsmani: no Japanese name
+- Clavelina sabbadini: no common name found, scientific name used
+- Clavelina sabbadini: no Bengali name
+- Clavelina sabbadini: no Japanese name
+- Clavelina elegans: no common name found, scientific name used
+- Clavelina elegans: no Bengali name
+- Clavelina elegans: no Japanese name
+- Clavelina obesa: no common name found, scientific name used
+- Clavelina obesa: no Bengali name
+- Clavelina obesa: no Japanese name
+- Clavelina picta: no common name found, scientific name used
+- Clavelina picta: no Bengali name
+- Clavelina picta: no Japanese name
+- Clavelina puertosecensis: no common name found, scientific name used
+- Clavelina puertosecensis: no Bengali name
+- Clavelina puertosecensis: no Japanese name
+- Clavelina lepadiformis: no Bengali name
+- Clavelina lepadiformis: no Japanese name
+- Citorclinum laboutei: no common name found, scientific name used
+- Citorclinum laboutei: no Bengali name
+- Citorclinum laboutei: no Japanese name
+- Polycitor crystallinus: no common name found, scientific name used
+- Polycitor crystallinus: no Bengali name
+- Polycitor crystallinus: no Japanese name
+- Polycitor proliferus: no common name found, scientific name used
+- Polycitor proliferus: no Bengali name
+- Archidistoma aggregatum: no common name found, scientific name used
+- Archidistoma aggregatum: no Bengali name
+- Archidistoma aggregatum: no Japanese name
+- Eudistoma psammion: no common name found, scientific name used
+- Eudistoma psammion: no Bengali name
+- Eudistoma psammion: no Japanese name
+- Cystodytes violatinctus: no common name found, scientific name used
+- Cystodytes violatinctus: no Bengali name
+- Cystodytes violatinctus: no Japanese name
+- Eudistoma magnum: no common name found, scientific name used
+- Eudistoma magnum: no Bengali name
+- Eudistoma magnum: no Japanese name
+- Eudistoma costai: no common name found, scientific name used
+- Eudistoma costai: no Bengali name
+- Eudistoma costai: no Japanese name
+- Eudistoma obscuratum: no common name found, scientific name used
+- Eudistoma obscuratum: no Bengali name
+- Eudistoma obscuratum: no Japanese name
+- Eudistoma caeruleum: no common name found, scientific name used
+- Eudistoma caeruleum: no Bengali name
+- Eudistoma caeruleum: no Japanese name
+- Eudistoma glaucum: no common name found, scientific name used
+- Eudistoma glaucum: no Bengali name
+- Eudistoma glaucum: no Japanese name
+- Eudistoma album: no common name found, scientific name used
+- Eudistoma album: no Bengali name
+- Eudistoma album: no Japanese name
+- Eudistoma vitreum: no common name found, scientific name used
+- Eudistoma vitreum: no Bengali name
+- Eudistoma vitreum: no Japanese name
+- Eudistoma plumbeum: no common name found, scientific name used
+- Eudistoma plumbeum: no Bengali name
+- Eudistoma plumbeum: no Japanese name
+- Eudistoma gilboviride: no common name found, scientific name used
+- Eudistoma gilboviride: no Bengali name
+- Eudistoma gilboviride: no Japanese name
+- Eudistoma hepaticum: no common name found, scientific name used
+- Eudistoma hepaticum: no Bengali name
+- Eudistoma hepaticum: no Japanese name
+- Eudistoma mucosum: no common name found, scientific name used
+- Eudistoma mucosum: no Bengali name
+- Eudistoma mucosum: no Japanese name
+- Pseudodistoma fragile: no common name found, scientific name used
+- Pseudodistoma fragile: no Bengali name
+- Pseudodistoma fragile: no Japanese name
+- Pseudodistoma obscurum: no common name found, scientific name used
+- Pseudodistoma obscurum: no Bengali name
+- Pseudodistoma obscurum: no Japanese name
+- Pseudodistoma antinboja: no common name found, scientific name used
+- Pseudodistoma antinboja: no Bengali name
+- Pseudodistoma antinboja: no Japanese name
+- Pseudodistoma cyrnusense: no common name found, scientific name used
+- Pseudodistoma cyrnusense: no Bengali name
+- Pseudodistoma cyrnusense: no Japanese name
+- Pseudodistoma kanoko: no common name found, scientific name used
+- Pseudodistoma kanoko: no Bengali name
+- Pseudodistoma kanoko: no Japanese name
+- Pseudodistoma crucigaster: no common name found, scientific name used
+- Pseudodistoma crucigaster: no Bengali name
+- Pseudodistoma crucigaster: no Japanese name
+- Chelyosoma macleayanum: no common name found, scientific name used
+- Chelyosoma macleayanum: no Bengali name
+- Chelyosoma macleayanum: no Japanese name
+- Chelyosoma inaequale: no common name found, scientific name used
+- Chelyosoma inaequale: no Bengali name
+- Chelyosoma inaequale: no Japanese name
+- Dextrogaster suecica: no common name found, scientific name used
+- Dextrogaster suecica: no Bengali name
+- Dextrogaster suecica: no Japanese name
+- Stomozoa roseola: no common name found, scientific name used
+- Stomozoa roseola: no Bengali name
+- Stomozoa roseola: no Japanese name
+- Stomozoa australiensis: no common name found, scientific name used
+- Stomozoa australiensis: no Bengali name
+- Stomozoa australiensis: no Japanese name
+- Ascidia ornata: no common name found, scientific name used
+- Ascidia ornata: no Bengali name
+- Ascidia ornata: no Japanese name
+- Ascidia sydneiensis: no common name found, scientific name used
+- Ascidia sydneiensis: no Bengali name
+- Ascidia sydneiensis: no Japanese name
+- Ascidia caudata: no common name found, scientific name used
+- Ascidia caudata: no Bengali name
+- Ascidia caudata: no Japanese name
+- Ascidia tritonis: no common name found, scientific name used
+- Ascidia tritonis: no Bengali name
+- Ascidia tritonis: no Japanese name
+- Ascidia incrassata: no common name found, scientific name used
+- Ascidia incrassata: no Bengali name
+- Ascidia incrassata: no Japanese name
+- Ascidia obliqua: no common name found, scientific name used
+- Ascidia obliqua: no Bengali name
+- Ascidia obliqua: no Japanese name
+- Ascidia ahodori: no common name found, scientific name used
+- Ascidia ahodori: no Bengali name
+- Ascidia ahodori: no Japanese name
+- Phallusia nigra: no common name found, scientific name used
+- Phallusia nigra: no Bengali name
+- Phallusia nigra: no Japanese name
+- Ascidia callosa: no common name found, scientific name used
+- Ascidia callosa: no Bengali name
+- Ascidia callosa: no Japanese name
+- Ascidia glabra: no common name found, scientific name used
+- Ascidia glabra: no Bengali name
+- Ascidia glabra: no Japanese name
+- Ascidia mentula: no common name found, scientific name used
+- Ascidia mentula: no Bengali name
+- Ascidia mentula: no Japanese name
+- Ascidia prunum: no common name found, scientific name used
+- Ascidia prunum: no Bengali name
+- Ascidia prunum: no Japanese name
+- Ascidia virginea: no common name found, scientific name used
+- Ascidia virginea: no Bengali name
+- Ascidia virginea: no Japanese name
+- Ascidia gemmata: no common name found, scientific name used
+- Ascidia gemmata: no Bengali name
+- Ascidia gemmata: no Japanese name
+- Ascidia archaia: no common name found, scientific name used
+- Ascidia archaia: no Bengali name
+- Ascidia archaia: no Japanese name
+- Ascidia conchilega: no common name found, scientific name used
+- Ascidia conchilega: no Bengali name
+- Ascidia conchilega: no Japanese name
+- Phallusia arabica: no common name found, scientific name used
+- Phallusia arabica: no Bengali name
+- Phallusia arabica: no Japanese name
+- Phallusia philippinensis: no common name found, scientific name used
+- Phallusia philippinensis: no Bengali name
+- Phallusia philippinensis: no Japanese name
+- Phallusia obesa: no common name found, scientific name used
+- Phallusia obesa: no Bengali name
+- Phallusia obesa: no Japanese name
+- Phallusia fumigata: no common name found, scientific name used
+- Phallusia fumigata: no Bengali name
+- Phallusia fumigata: no Japanese name
+- Phallusia mammillata: no common name found, scientific name used
+- Phallusia mammillata: no Bengali name
+- Phallusia mammillata: no Japanese name
+- Atriolum robustum: no common name found, scientific name used
+- Atriolum robustum: no Bengali name
+- Atriolum robustum: no Japanese name
+- Rhopalaea abdominalis: no common name found, scientific name used
+- Rhopalaea abdominalis: no Bengali name
+- Rhopalaea abdominalis: no Japanese name
+- Rhopalaea birkelandi: no common name found, scientific name used
+- Rhopalaea birkelandi: no Bengali name
+- Rhopalaea birkelandi: no Japanese name
+- Rhopalaea neapolitana: no common name found, scientific name used
+- Rhopalaea neapolitana: no Bengali name
+- Rhopalaea neapolitana: no Japanese name
+- Tylobranchion nordgaardi: no common name found, scientific name used
+- Tylobranchion nordgaardi: no Bengali name
+- Tylobranchion nordgaardi: no Japanese name
+- Syndiazona chinensis: no common name found, scientific name used
+- Syndiazona chinensis: no Bengali name
+- Syndiazona chinensis: no Japanese name
+- Diazona violacea: no common name found, scientific name used
+- Diazona violacea: no Bengali name
+- Diazona violacea: no Japanese name
+- Diazona tenera: no common name found, scientific name used
+- Diazona tenera: no Bengali name
+- Diazona tenera: no Japanese name
+- Megalodicopia hians: no Bengali name
+- Ecteinascidia diaphanis: no common name found, scientific name used
+- Ecteinascidia diaphanis: no Bengali name
+- Ecteinascidia diaphanis: no Japanese name
+- Ecteinascidia imperfecta: no common name found, scientific name used
+- Ecteinascidia imperfecta: no Bengali name
+- Ecteinascidia imperfecta: no Japanese name
+- Ecteinascidia turbinata: no common name found, scientific name used
+- Ecteinascidia turbinata: no Bengali name
+- Ecteinascidia turbinata: no Japanese name
+- Ecteinascidia garstangi: no common name found, scientific name used
+- Ecteinascidia garstangi: no Bengali name
+- Ecteinascidia garstangi: no Japanese name
+- Ecteinascidia herdmani: no common name found, scientific name used
+- Ecteinascidia herdmani: no Bengali name
+- Ecteinascidia herdmani: no Japanese name
+- Ecteinascidia bandaensis: no common name found, scientific name used
+- Ecteinascidia bandaensis: no Bengali name
+- Ecteinascidia bandaensis: no Japanese name
+- Polyclinella azemai: no Bengali name
+- Polyclinella azemai: no Japanese name
+- Aplidium yamazii: no common name found, scientific name used
+- Aplidium yamazii: no Bengali name
+- Aplidium yamazii: no Japanese name
+- Placentela crystallina: no common name found, scientific name used
+- Placentela crystallina: no Bengali name
+- Placentela crystallina: no Japanese name
+- Aplidium proliferum: no common name found, scientific name used
+- Aplidium proliferum: no Bengali name
+- Aplidium proliferum: no Japanese name
+- Aplidium circulatum: no Bengali name
+- Aplidium circulatum: no Japanese name
+- Aplidium ocellatum: no common name found, scientific name used
+- Aplidium ocellatum: no Bengali name
+- Aplidium ocellatum: no Japanese name
+- Aplidium sagamiense: no common name found, scientific name used
+- Aplidium sagamiense: no Bengali name
+- Aplidium sagamiense: no Japanese name
+- Aplidium constellatum: no common name found, scientific name used
+- Aplidium constellatum: no Bengali name
+- Aplidium constellatum: no Japanese name
+- Aplidium stellatum: no common name found, scientific name used
+- Aplidium stellatum: no Bengali name
+- Aplidium stellatum: no Japanese name
+- Aplidium pliciferum: no common name found, scientific name used
+- Aplidium pliciferum: no Bengali name
+- Aplidium pliciferum: no Japanese name
+- Aplidium californicum: no common name found, scientific name used
+- Aplidium californicum: no Bengali name
+- Aplidium californicum: no Japanese name
+- Aplidium undulatum: no common name found, scientific name used
+- Aplidium undulatum: no Bengali name
+- Aplidium undulatum: no Japanese name
+- Aplidium glabrum: no common name found, scientific name used
+- Aplidium glabrum: no Bengali name
+- Aplidium glabrum: no Japanese name
+- Aplidium nordmanni: no common name found, scientific name used
+- Aplidium nordmanni: no Bengali name
+- Aplidium nordmanni: no Japanese name
+- Aplidium albicans: no common name found, scientific name used
+- Aplidium albicans: no Bengali name
+- Aplidium albicans: no Japanese name
+- Aplidium conicum: no common name found, scientific name used
+- Aplidium conicum: no Bengali name
+- Aplidium conicum: no Japanese name
+- Aplidium pallidum: no common name found, scientific name used
+- Aplidium pallidum: no Bengali name
+- Aplidium pallidum: no Japanese name
+- Aplidium turbinatum: no common name found, scientific name used
+- Aplidium turbinatum: no Bengali name
+- Aplidium turbinatum: no Japanese name
+- Aplidium spitzbergense: no common name found, scientific name used
+- Aplidium spitzbergense: no Bengali name
+- Aplidium spitzbergense: no Japanese name
+- Aplidium punctum: no common name found, scientific name used
+- Aplidium punctum: no Bengali name
+- Aplidium punctum: no Japanese name
+- Aplidium nadaense: no common name found, scientific name used
+- Aplidium nadaense: no Bengali name
+- Aplidium nadaense: no Japanese name
+- Aplidium mutabile: no common name found, scientific name used
+- Aplidium mutabile: no Bengali name
+- Aplidium mutabile: no Japanese name
+- Aplidium pseudolobatum: no common name found, scientific name used
+- Aplidium pseudolobatum: no Bengali name
+- Aplidium pseudolobatum: no Japanese name
+- Aplidium asperum: no common name found, scientific name used
+- Aplidium asperum: no Bengali name
+- Aplidium asperum: no Japanese name
+- Aplidium multiplicatum: no common name found, scientific name used
+- Aplidium multiplicatum: no Bengali name
+- Aplidium multiplicatum: no Japanese name
+- Aplidium solidum: no common name found, scientific name used
+- Aplidium solidum: no Bengali name
+- Aplidium solidum: no Japanese name
+- Aplidium elegans: no common name found, scientific name used
+- Aplidium elegans: no Bengali name
+- Aplidium elegans: no Japanese name
+- Aplidium lobatum: no common name found, scientific name used
+- Aplidium lobatum: no Bengali name
+- Aplidium lobatum: no Japanese name
+- Ritterella rubra: no common name found, scientific name used
+- Ritterella rubra: no Bengali name
+- Ritterella rubra: no Japanese name
+- Aplidiopsis pannosum: no common name found, scientific name used
+- Aplidiopsis pannosum: no Bengali name
+- Aplidiopsis pannosum: no Japanese name
+- Morchellium argus: no common name found, scientific name used
+- Morchellium argus: no Bengali name
+- Morchellium argus: no Japanese name
+- Sidneioides ivicense: no common name found, scientific name used
+- Sidneioides ivicense: no Bengali name
+- Sidneioides ivicense: no Japanese name
+- Sidneioides snamoti: no common name found, scientific name used
+- Sidneioides snamoti: no Bengali name
+- Sidneioides snamoti: no Japanese name
+- Pycnoclavella aurilucens: no common name found, scientific name used
+- Pycnoclavella aurilucens: no Bengali name
+- Pycnoclavella aurilucens: no Japanese name
+- Pycnoclavella diminuta: no common name found, scientific name used
+- Pycnoclavella diminuta: no Bengali name
+- Pycnoclavella neapolitana: no common name found, scientific name used
+- Pycnoclavella neapolitana: no Bengali name
+- Pycnoclavella neapolitana: no Japanese name
+- Pycnoclavella stanleyi: no common name found, scientific name used
+- Pycnoclavella stanleyi: no Bengali name
+- Pycnoclavella stanleyi: no Japanese name
+- Pycnoclavella detorta: no common name found, scientific name used
+- Pycnoclavella detorta: no Bengali name
+- Pycnoclavella detorta: no Japanese name
+- Pycnoclavella narcissus: no common name found, scientific name used
+- Pycnoclavella narcissus: no Bengali name
+- Pycnoclavella narcissus: no Japanese name
+- Distaplia cylindrica: no common name found, scientific name used
+- Distaplia cylindrica: no Bengali name
+- Distaplia cylindrica: no Japanese name
+- Distaplia livida: no common name found, scientific name used
+- Distaplia livida: no Bengali name
+- Distaplia livida: no Japanese name
+- Distaplia bermudensis: no common name found, scientific name used
+- Distaplia bermudensis: no Bengali name
+- Distaplia bermudensis: no Japanese name
+- Distaplia clavata: no common name found, scientific name used
+- Distaplia clavata: no Bengali name
+- Distaplia clavata: no Japanese name
+- Distaplia systematica: no common name found, scientific name used
+- Distaplia systematica: no Bengali name
+- Distaplia systematica: no Japanese name
+- Distaplia magnilarva: no common name found, scientific name used
+- Distaplia magnilarva: no Bengali name
+- Distaplia magnilarva: no Japanese name
+- Distaplia corolla: no common name found, scientific name used
+- Distaplia corolla: no Bengali name
+- Distaplia corolla: no Japanese name
+- Distaplia dubia: no common name found, scientific name used
+- Distaplia dubia: no Bengali name
+- Distaplia dubia: no Japanese name
+- Distaplia rosea: no common name found, scientific name used
+- Distaplia rosea: no Bengali name
+- Distaplia rosea: no Japanese name
+- Sigillina cyanea: no common name found, scientific name used
+- Sigillina cyanea: no Bengali name
+- Sigillina cyanea: no Japanese name
+- Sigillina signifera: no common name found, scientific name used
+- Sigillina signifera: no Bengali name
+- Sigillina signifera: no Japanese name
+- Sycozoa mirabilis: no common name found, scientific name used
+- Sycozoa mirabilis: no Bengali name
+- Sycozoa mirabilis: no Japanese name
+- Sycozoa pulchra: no common name found, scientific name used
+- Sycozoa pulchra: no Bengali name
+- Sycozoa pulchra: no Japanese name
+- Sycozoa kanzasi: no common name found, scientific name used
+- Sycozoa kanzasi: no Bengali name
+- Sycozoa kanzasi: no Japanese name
+- Microgastra granosa: no common name found, scientific name used
+- Microgastra granosa: no Bengali name
+- Microgastra granosa: no Japanese name
+- Bostrichobranchus pilularis: no common name found, scientific name used
+- Bostrichobranchus pilularis: no Bengali name
+- Bostrichobranchus pilularis: no Japanese name
+- Molgula griffithsii: no common name found, scientific name used
+- Molgula griffithsii: no Bengali name
+- Molgula griffithsii: no Japanese name
+- Molgula bleizi: no common name found, scientific name used
+- Molgula bleizi: no Bengali name
+- Molgula bleizi: no Japanese name
+- Molgula manhattensis: no common name found, scientific name used
+- Molgula manhattensis: no Bengali name
+- Molgula xenophora: no common name found, scientific name used
+- Molgula xenophora: no Bengali name
+- Molgula xenophora: no Japanese name
+- Molgula hozawai: no common name found, scientific name used
+- Molgula hozawai: no Bengali name
+- Molgula hozawai: no Japanese name
+- Molgula roulei: no common name found, scientific name used
+- Molgula roulei: no Bengali name
+- Molgula roulei: no Japanese name
+- Molgula ficus: no common name found, scientific name used
+- Molgula ficus: no Bengali name
+- Molgula ficus: no Japanese name
+- Molgula oculata: no common name found, scientific name used
+- Molgula oculata: no Bengali name
+- Molgula oculata: no Japanese name
+- Molgula socialis: no common name found, scientific name used
+- Molgula socialis: no Bengali name
+- Molgula socialis: no Japanese name
+- Molgula provisionalis: no common name found, scientific name used
+- Molgula provisionalis: no Bengali name
+- Molgula provisionalis: no Japanese name
+- Molgula complanata: no common name found, scientific name used
+- Molgula complanata: no Bengali name
+- Molgula complanata: no Japanese name
+- Molgula arenata: no common name found, scientific name used
+- Molgula arenata: no Bengali name
+- Molgula arenata: no Japanese name
+- Molgula occulta: no common name found, scientific name used
+- Molgula occulta: no Bengali name
+- Molgula occulta: no Japanese name
+- Molgula appendiculata: no common name found, scientific name used
+- Molgula appendiculata: no Bengali name
+- Molgula appendiculata: no Japanese name
+- Molgula citrina: no common name found, scientific name used
+- Molgula citrina: no Bengali name
+- Molgula citrina: no Japanese name
+- Molgula tubifera: no common name found, scientific name used
+- Molgula tubifera: no Bengali name
+- Molgula tubifera: no Japanese name
+- Molgula occidentalis: no common name found, scientific name used
+- Molgula occidentalis: no Bengali name
+- Molgula occidentalis: no Japanese name
+- Molgula hirta: no common name found, scientific name used
+- Molgula hirta: no Bengali name
+- Molgula hirta: no Japanese name
+- Molgula simplex: no common name found, scientific name used
+- Molgula simplex: no Bengali name
+- Molgula simplex: no Japanese name
+- Molgula kiaeri: no common name found, scientific name used
+- Molgula kiaeri: no Bengali name
+- Molgula kiaeri: no Japanese name
+- Molgula tectiformis: no common name found, scientific name used
+- Molgula tectiformis: no Bengali name
+- Molgula tectiformis: no Japanese name
+- Molgula helleri: no common name found, scientific name used
+- Molgula helleri: no Bengali name
+- Molgula helleri: no Japanese name
+- Molgula retortiformis: no common name found, scientific name used
+- Molgula retortiformis: no Bengali name
+- Molgula retortiformis: no Japanese name
+- Culeolus herdmani: no common name found, scientific name used
+- Culeolus herdmani: no Bengali name
+- Culeolus herdmani: no Japanese name
+- Hartmeyeria orientalis: no common name found, scientific name used
+- Hartmeyeria orientalis: no Bengali name
+- Hartmeyeria orientalis: no Japanese name
+- Bolteniopsis prenanti: no common name found, scientific name used
+- Bolteniopsis prenanti: no Bengali name
+- Bolteniopsis prenanti: no Japanese name
+- Pyura curvigona: no common name found, scientific name used
+- Pyura curvigona: no Bengali name
+- Pyura curvigona: no Japanese name
+- Pyura mirabilis: no common name found, scientific name used
+- Pyura mirabilis: no Bengali name
+- Pyura mirabilis: no Japanese name
+- Pyura spinifera: no common name found, scientific name used
+- Pyura spinifera: no Bengali name
+- Pyura spinifera: no Japanese name
+- Pyura lepidoderma: no common name found, scientific name used
+- Pyura lepidoderma: no Bengali name
+- Pyura lepidoderma: no Japanese name
+- Pyura microcosmus: no common name found, scientific name used
+- Pyura microcosmus: no Bengali name
+- Pyura microcosmus: no Japanese name
+- Pyura stolonifera: no common name found, scientific name used
+- Pyura stolonifera: no Bengali name
+- Pyura stolonifera: no Japanese name
+- Pyura tessellata: no common name found, scientific name used
+- Pyura tessellata: no Bengali name
+- Pyura tessellata: no Japanese name
+- Pyura vittata: no common name found, scientific name used
+- Pyura vittata: no Bengali name
+- Pyura vittata: no Japanese name
+- Pyura squamulosa: no common name found, scientific name used
+- Pyura squamulosa: no Bengali name
+- Pyura squamulosa: no Japanese name
+- Pyura elongata: no common name found, scientific name used
+- Pyura elongata: no Bengali name
+- Pyura elongata: no Japanese name
+- Pyura haustor: no common name found, scientific name used
+- Pyura haustor: no Bengali name
+- Pyura haustor: no Japanese name
+- Pyura dura: no common name found, scientific name used
+- Pyura dura: no Bengali name
+- Pyura dura: no Japanese name
+- Pyura praeputialis: no common name found, scientific name used
+- Pyura praeputialis: no Bengali name
+- Pyura praeputialis: no Japanese name
+- Pyura pachydermatina: no Bengali name
+- Pyura pachydermatina: no Japanese name
+- Pyura gibbosa: no common name found, scientific name used
+- Pyura gibbosa: no Bengali name
+- Pyura gibbosa: no Japanese name
+- Pyura sacciformis: no common name found, scientific name used
+- Pyura sacciformis: no Bengali name
+- Pyura sacciformis: no Japanese name
+- Pyura chilensis: no common name found, scientific name used
+- Pyura chilensis: no Bengali name
+- Halocynthia aurantium: no Bengali name
+- Halocynthia spinosa: no common name found, scientific name used
+- Halocynthia spinosa: no Bengali name
+- Halocynthia spinosa: no Japanese name
+- Halocynthia pyriformis: no common name found, scientific name used
+- Halocynthia pyriformis: no Bengali name
+- Halocynthia pyriformis: no Japanese name
+- Halocynthia igaboja: no common name found, scientific name used
+- Halocynthia igaboja: no Bengali name
+- Halocynthia igaboja: no Japanese name
+- Halocynthia dumosa: no common name found, scientific name used
+- Halocynthia dumosa: no Bengali name
+- Halocynthia dumosa: no Japanese name
+- Halocynthia papillosa: no common name found, scientific name used
+- Halocynthia papillosa: no Bengali name
+- Halocynthia papillosa: no Japanese name
+- Halocynthia hilgendorfi: no common name found, scientific name used
+- Halocynthia hilgendorfi: no Bengali name
+- Halocynthia hilgendorfi: no Japanese name
+- Halocynthia cactus: no common name found, scientific name used
+- Halocynthia cactus: no Bengali name
+- Halocynthia cactus: no Japanese name
+- Metandrocarpa taylori: no common name found, scientific name used
+- Metandrocarpa taylori: no Bengali name
+- Metandrocarpa taylori: no Japanese name
+- Metandrocarpa dura: no common name found, scientific name used
+- Metandrocarpa dura: no Bengali name
+- Metandrocarpa dura: no Japanese name
+- Eusynstyela hartmeyeri: no common name found, scientific name used
+- Eusynstyela hartmeyeri: no Bengali name
+- Eusynstyela hartmeyeri: no Japanese name
+- Styela canopus: no common name found, scientific name used
+- Styela canopus: no Bengali name
+- Styela canopus: no Japanese name
+- Styela clava: no common name found, scientific name used
+- Styela clava: no Bengali name
+- Styela clava: no Japanese name
+- Styela gelatinosa: no common name found, scientific name used
+- Styela gelatinosa: no Bengali name
+- Styela gelatinosa: no Japanese name
+- Styela calva: no common name found, scientific name used
+- Styela calva: no Bengali name
+- Styela calva: no Japanese name
+- Styela plicata: no common name found, scientific name used
+- Styela plicata: no Bengali name
+- Styela plicata: no Japanese name
+- Styela rustica: no common name found, scientific name used
+- Styela rustica: no Bengali name
+- Styela rustica: no Japanese name
+- Styela montereyensis: no common name found, scientific name used
+- Styela montereyensis: no Bengali name
+- Styela montereyensis: no Japanese name
+- Styela angularis: no common name found, scientific name used
+- Styela angularis: no Bengali name
+- Styela angularis: no Japanese name
+- Styela coriacea: no common name found, scientific name used
+- Styela coriacea: no Bengali name
+- Styela coriacea: no Japanese name
+- Gynandrocarpa placenta: no Bengali name
+- Gynandrocarpa placenta: no Japanese name
+- Polyandrocarpa anguinea: no common name found, scientific name used
+- Polyandrocarpa anguinea: no Bengali name
+- Polyandrocarpa anguinea: no Japanese name
+- Polyandrocarpa zorritensis: no common name found, scientific name used
+- Polyandrocarpa zorritensis: no Bengali name
+- Polyandrocarpa zorritensis: no Japanese name
+- Polyandrocarpa misakiensis: no common name found, scientific name used
+- Polyandrocarpa misakiensis: no Bengali name
+- Polyandrocarpa misakiensis: no Japanese name
+- Botrylloides niger: no common name found, scientific name used
+- Botrylloides niger: no Bengali name
+- Botrylloides niger: no Japanese name
+- Botrylloides magnicoecus: no common name found, scientific name used
+- Botrylloides magnicoecus: no Bengali name
+- Botrylloides magnicoecus: no Japanese name
+- Botrylloides simodensis: no common name found, scientific name used
+- Botrylloides simodensis: no Bengali name
+- Botrylloides simodensis: no Japanese name
+- Pelonaia corrugata: no common name found, scientific name used
+- Pelonaia corrugata: no Bengali name
+- Pelonaia corrugata: no Japanese name
+- Asterocarpa humilis: no common name found, scientific name used
+- Asterocarpa humilis: no Bengali name
+- Asterocarpa humilis: no Japanese name
+- Symplegma japonica: no common name found, scientific name used
+- Symplegma japonica: no Bengali name
+- Symplegma japonica: no Japanese name
+- Symplegma zebra: no common name found, scientific name used
+- Symplegma zebra: no Bengali name
+- Symplegma zebra: no Japanese name
+- Symplegma brakenhielmi: no common name found, scientific name used
+- Symplegma brakenhielmi: no Bengali name
+- Symplegma brakenhielmi: no Japanese name
+- Symplegma reptans: no common name found, scientific name used
+- Symplegma reptans: no Bengali name
+- Symplegma reptans: no Japanese name
+- Symplegma rubra: no common name found, scientific name used
+- Symplegma rubra: no Bengali name
+- Symplegma rubra: no Japanese name
+- Symplegma viride: no common name found, scientific name used
+- Symplegma viride: no Bengali name
+- Symplegma viride: no Japanese name
+- Kukenthalia borealis: no Bengali name
+- Kukenthalia borealis: no Japanese name
+- Cnemidocarpa mortenseni: no common name found, scientific name used
+- Cnemidocarpa mortenseni: no Bengali name
+- Cnemidocarpa mortenseni: no Japanese name
+- Cnemidocarpa devia: no common name found, scientific name used
+- Cnemidocarpa devia: no Bengali name
+- Cnemidocarpa devia: no Japanese name
+- Cnemidocarpa finmarkiensis: no common name found, scientific name used
+- Cnemidocarpa finmarkiensis: no Bengali name
+- Cnemidocarpa finmarkiensis: no Japanese name
+- Cnemidocarpa mollispina: no common name found, scientific name used
+- Cnemidocarpa mollispina: no Bengali name
+- Cnemidocarpa mollispina: no Japanese name
+- Cnemidocarpa clara: no common name found, scientific name used
+- Cnemidocarpa clara: no Bengali name
+- Cnemidocarpa clara: no Japanese name
+- Cnemidocarpa pedata: no common name found, scientific name used
+- Cnemidocarpa pedata: no Bengali name
+- Cnemidocarpa pedata: no Japanese name
+- Cnemidocarpa rhizopus: no common name found, scientific name used
+- Cnemidocarpa rhizopus: no Bengali name
+- Cnemidocarpa rhizopus: no Japanese name
+- Cnemidocarpa verrucosa: no common name found, scientific name used
+- Cnemidocarpa verrucosa: no Bengali name
+- Cnemidocarpa verrucosa: no Japanese name
+- Cnemidocarpa irene: no common name found, scientific name used
+- Cnemidocarpa irene: no Bengali name
+- Cnemidocarpa irene: no Japanese name
+- Dendrodoa grossularia: no common name found, scientific name used
+- Dendrodoa grossularia: no Bengali name
+- Dendrodoa grossularia: no Japanese name
+- Dendrodoa carnea: no common name found, scientific name used
+- Dendrodoa carnea: no Bengali name
+- Dendrodoa carnea: no Japanese name
+- Stolonica socialis: no common name found, scientific name used
+- Stolonica socialis: no Bengali name
+- Stolonica socialis: no Japanese name
+- Pauropus huxleyi: no common name found, scientific name used
+- Pauropus huxleyi: no Bengali name
+- Pauropus huxleyi: no Japanese name
+- Allopauropus danicus: no common name found, scientific name used
+- Allopauropus danicus: no Bengali name
+- Allopauropus danicus: no Japanese name
+- Decapauropus gracilis: no common name found, scientific name used
+- Decapauropus gracilis: no Bengali name
+- Decapauropus gracilis: no Japanese name
+- Decapauropus helveticus: no common name found, scientific name used
+- Decapauropus helveticus: no Bengali name
+- Decapauropus helveticus: no Japanese name
+- Decapauropus vulgaris: no common name found, scientific name used
+- Decapauropus vulgaris: no Bengali name
+- Decapauropus vulgaris: no Japanese name
+- Decapauropus cuenoti: no common name found, scientific name used
+- Decapauropus cuenoti: no Bengali name
+- Decapauropus cuenoti: no Japanese name
+- Decapauropus verticillatus: no common name found, scientific name used
+- Decapauropus verticillatus: no Bengali name
+- Decapauropus verticillatus: no Japanese name
+- Scleropauropus lyrifer: no common name found, scientific name used
+- Scleropauropus lyrifer: no Bengali name
+- Scleropauropus lyrifer: no Japanese name
+- Stylopauropus pedunculatus: no common name found, scientific name used
+- Stylopauropus pedunculatus: no Bengali name
+- Stylopauropus pedunculatus: no Japanese name
+- Stylopauropus simplus: no common name found, scientific name used
+- Stylopauropus simplus: no Bengali name
+- Stylopauropus simplus: no Japanese name
+- Stylopauropus brito: no common name found, scientific name used
+- Stylopauropus brito: no Bengali name
+- Stylopauropus brito: no Japanese name
+- Trachypauropus cordatus: no common name found, scientific name used
+- Trachypauropus cordatus: no Bengali name
+- Trachypauropus cordatus: no Japanese name
+- Amphipauropus rhenanus: no common name found, scientific name used
+- Amphipauropus rhenanus: no Bengali name
+- Amphipauropus rhenanus: no Japanese name
+- Eurygyrus ochraceus: no common name found, scientific name used
+- Eurygyrus ochraceus: no Bengali name
+- Eurygyrus ochraceus: no Japanese name
+- Lophoturus okinawai: no common name found, scientific name used
+- Lophoturus okinawai: no Bengali name
+- Lophoturus okinawai: no Japanese name
+- Phryssonotus capensis: no common name found, scientific name used
+- Phryssonotus capensis: no Bengali name
+- Phryssonotus capensis: no Japanese name
+- Phryssonotus novaehollandiae: no common name found, scientific name used
+- Phryssonotus novaehollandiae: no Bengali name
+- Phryssonotus novaehollandiae: no Japanese name
+- Monographis kraepelini: no common name found, scientific name used
+- Monographis kraepelini: no Bengali name
+- Monographis kraepelini: no Japanese name
+- Eudigraphis taiwaniensis: no common name found, scientific name used
+- Eudigraphis taiwaniensis: no Bengali name
+- Eudigraphis taiwaniensis: no Japanese name
+- Okeanobates serratus: no common name found, scientific name used
+- Okeanobates serratus: no Bengali name
+- Okeanobates serratus: no Japanese name
+- Yosidaiulus tuberculatus: no common name found, scientific name used
+- Yosidaiulus tuberculatus: no Bengali name
+- Yosidaiulus tuberculatus: no Japanese name
+- Enantiulus nanus: no common name found, scientific name used
+- Enantiulus nanus: no Bengali name
+- Enantiulus nanus: no Japanese name
+- Japanioiulus lobatus: no common name found, scientific name used
+- Japanioiulus lobatus: no Bengali name
+- Japanioiulus lobatus: no Japanese name
+- Ommatoiulus rutilans: no common name found, scientific name used
+- Ommatoiulus rutilans: no Bengali name
+- Ommatoiulus rutilans: no Japanese name
+- Ommatoiulus sabulosus: no common name found, scientific name used
+- Ommatoiulus sabulosus: no Bengali name
+- Ommatoiulus sabulosus: no Japanese name
+- Pachypodoiulus eurypus: no common name found, scientific name used
+- Pachypodoiulus eurypus: no Bengali name
+- Pachypodoiulus eurypus: no Japanese name
+- Kryphioiulus occultus: no common name found, scientific name used
+- Kryphioiulus occultus: no Bengali name
+- Kryphioiulus occultus: no Japanese name
+- Anaulaciulus golovatchi: no common name found, scientific name used
+- Anaulaciulus golovatchi: no Bengali name
+- Anaulaciulus golovatchi: no Japanese name
+- Anaulaciulus parvulus: no common name found, scientific name used
+- Anaulaciulus parvulus: no Bengali name
+- Anaulaciulus parvulus: no Japanese name
+- Anaulaciulus koreacolus: no common name found, scientific name used
+- Anaulaciulus koreacolus: no Bengali name
+- Anaulaciulus koreacolus: no Japanese name
+- Ophyiulus pilosus: no common name found, scientific name used
+- Ophyiulus pilosus: no Bengali name
+- Ophyiulus pilosus: no Japanese name
+- Megaphyllum sjaelandicum: no common name found, scientific name used
+- Megaphyllum sjaelandicum: no Bengali name
+- Megaphyllum sjaelandicum: no Japanese name
+- Megaphyllum projectum: no common name found, scientific name used
+- Megaphyllum projectum: no Bengali name
+- Megaphyllum projectum: no Japanese name
+- Unciger foetidus: no common name found, scientific name used
+- Unciger foetidus: no Bengali name
+- Unciger foetidus: no Japanese name
+- Metaiulus pratensis: no common name found, scientific name used
+- Metaiulus pratensis: no Bengali name
+- Metaiulus pratensis: no Japanese name
+- Allajulus nitidus: no common name found, scientific name used
+- Allajulus nitidus: no Bengali name
+- Allajulus nitidus: no Japanese name
+- Xestoiulus laeticollis: no common name found, scientific name used
+- Xestoiulus laeticollis: no Bengali name
+- Xestoiulus laeticollis: no Japanese name
+- Anaulaciulus koreanus: no common name found, scientific name used
+- Anaulaciulus koreanus: no Bengali name
+- Anaulaciulus koreanus: no Japanese name
+- Rossiulus kessleri: no common name found, scientific name used
+- Rossiulus kessleri: no Bengali name
+- Rossiulus kessleri: no Japanese name
+- Tachypodoiulus niger: no common name found, scientific name used
+- Tachypodoiulus niger: no Bengali name
+- Tachypodoiulus niger: no Japanese name
+- Pachyiulus flavipes: no common name found, scientific name used
+- Pachyiulus flavipes: no Bengali name
+- Pachyiulus flavipes: no Japanese name
+- Pachyiulus cattarensis: no common name found, scientific name used
+- Pachyiulus cattarensis: no Bengali name
+- Pachyiulus cattarensis: no Japanese name
+- Pachyiulus hungaricus: no common name found, scientific name used
+- Pachyiulus hungaricus: no Bengali name
+- Pachyiulus hungaricus: no Japanese name
+- Pachyiulus valonensis: no common name found, scientific name used
+- Pachyiulus valonensis: no Bengali name
+- Pachyiulus valonensis: no Japanese name
+- Pachyiulus asiaeminoris: no common name found, scientific name used
+- Pachyiulus asiaeminoris: no Bengali name
+- Pachyiulus asiaeminoris: no Japanese name
+- Pachyiulus marmoratus: no common name found, scientific name used
+- Pachyiulus marmoratus: no Bengali name
+- Pachyiulus marmoratus: no Japanese name
+- Pachyiulus varius: no common name found, scientific name used
+- Pachyiulus varius: no Bengali name
+- Pachyiulus varius: no Japanese name
+- Pachyiulus apfelbecki: no common name found, scientific name used
+- Pachyiulus apfelbecki: no Bengali name
+- Pachyiulus apfelbecki: no Japanese name
+- Pachyiulus oenologus: no common name found, scientific name used
+- Pachyiulus oenologus: no Bengali name
+- Pachyiulus oenologus: no Japanese name
+- Cylindroiulus arborum: no common name found, scientific name used
+- Cylindroiulus arborum: no Bengali name
+- Cylindroiulus arborum: no Japanese name
+- Cylindroiulus britannicus: no common name found, scientific name used
+- Cylindroiulus britannicus: no Bengali name
+- Cylindroiulus britannicus: no Japanese name
+- Cylindroiulus latestriatus: no common name found, scientific name used
+- Cylindroiulus latestriatus: no Bengali name
+- Cylindroiulus latestriatus: no Japanese name
+- Cylindroiulus caeruleocinctus: no Bengali name
+- Cylindroiulus caeruleocinctus: no Japanese name
+- Cylindroiulus truncorum: no common name found, scientific name used
+- Cylindroiulus truncorum: no Bengali name
+- Cylindroiulus truncorum: no Japanese name
+- Cylindroiulus parisiorum: no common name found, scientific name used
+- Cylindroiulus parisiorum: no Bengali name
+- Cylindroiulus parisiorum: no Japanese name
+- Cylindroiulus vulnerarius: no common name found, scientific name used
+- Cylindroiulus vulnerarius: no Bengali name
+- Cylindroiulus vulnerarius: no Japanese name
+- Cylindroiulus punctatus: no Bengali name
+- Cylindroiulus punctatus: no Japanese name
+- Cylindroiulus luridus: no common name found, scientific name used
+- Cylindroiulus luridus: no Bengali name
+- Cylindroiulus luridus: no Japanese name
+- Cylindroiulus londinensis: no common name found, scientific name used
+- Cylindroiulus londinensis: no Bengali name
+- Cylindroiulus londinensis: no Japanese name
+- Cylindroiulus boleti: no common name found, scientific name used
+- Cylindroiulus boleti: no Bengali name
+- Cylindroiulus boleti: no Japanese name
+- Cylindroiulus apenninorum: no common name found, scientific name used
+- Cylindroiulus apenninorum: no Bengali name
+- Cylindroiulus apenninorum: no Japanese name
+- Cylindroiulus broti: no common name found, scientific name used
+- Cylindroiulus broti: no Bengali name
+- Cylindroiulus broti: no Japanese name
+- Leptoiulus montivagus: no common name found, scientific name used
+- Leptoiulus montivagus: no Bengali name
+- Leptoiulus montivagus: no Japanese name
+- Leptoiulus kervillei: no common name found, scientific name used
+- Leptoiulus kervillei: no Bengali name
+- Leptoiulus kervillei: no Japanese name
+- Leptoiulus cibdellus: no common name found, scientific name used
+- Leptoiulus cibdellus: no Bengali name
+- Leptoiulus cibdellus: no Japanese name
+- Leptoiulus proximus: no common name found, scientific name used
+- Leptoiulus proximus: no Bengali name
+- Leptoiulus proximus: no Japanese name
+- Leptoiulus noricus: no common name found, scientific name used
+- Leptoiulus noricus: no Bengali name
+- Leptoiulus noricus: no Japanese name
+- Leptoiulus belgicus: no common name found, scientific name used
+- Leptoiulus belgicus: no Bengali name
+- Leptoiulus belgicus: no Japanese name
+- Karteroiulus niger: no common name found, scientific name used
+- Karteroiulus niger: no Bengali name
+- Karteroiulus niger: no Japanese name
+- Ptyoiulus impressus: no common name found, scientific name used
+- Ptyoiulus impressus: no Bengali name
+- Ptyoiulus impressus: no Japanese name
+- Uroblaniulus canadensis: no common name found, scientific name used
+- Uroblaniulus canadensis: no Bengali name
+- Uroblaniulus canadensis: no Japanese name
+- Dasynemasoma ichihashii: no common name found, scientific name used
+- Dasynemasoma ichihashii: no Bengali name
+- Dasynemasoma ichihashii: no Japanese name
+- Antrokoreana gracilipes: no common name found, scientific name used
+- Antrokoreana gracilipes: no Bengali name
+- Antrokoreana gracilipes: no Japanese name
+- Thalassisobates littoralis: no Bengali name
+- Thalassisobates littoralis: no Japanese name
+- Blaniulus guttulatus: no Bengali name
+- Blaniulus guttulatus: no Japanese name
+- Boreoiulus tenuis: no common name found, scientific name used
+- Boreoiulus tenuis: no Bengali name
+- Boreoiulus tenuis: no Japanese name
+- Choneiulus palmatus: no common name found, scientific name used
+- Choneiulus palmatus: no Bengali name
+- Choneiulus palmatus: no Japanese name
+- Nopoiulus kochii: no common name found, scientific name used
+- Nopoiulus kochii: no Bengali name
+- Nopoiulus kochii: no Japanese name
+- Proteroiulus fuscus: no common name found, scientific name used
+- Proteroiulus fuscus: no Bengali name
+- Proteroiulus fuscus: no Japanese name
+- Archiboreoiulus pallidus: no common name found, scientific name used
+- Archiboreoiulus pallidus: no Bengali name
+- Archiboreoiulus pallidus: no Japanese name
+- Virgoiulus minutus: no common name found, scientific name used
+- Virgoiulus minutus: no Bengali name
+- Virgoiulus minutus: no Japanese name
+- Californiulus yosemitensis: no common name found, scientific name used
+- Californiulus yosemitensis: no Bengali name
+- Californiulus yosemitensis: no Japanese name
+- Ussuriiulus pilifer: no common name found, scientific name used
+- Ussuriiulus pilifer: no Bengali name
+- Ussuriiulus pilifer: no Japanese name
+- Uenoiulus notabilis: no common name found, scientific name used
+- Uenoiulus notabilis: no Bengali name
+- Uenoiulus notabilis: no Japanese name
+- Kopidoiulus caecus: no common name found, scientific name used
+- Kopidoiulus caecus: no Bengali name
+- Kopidoiulus caecus: no Japanese name
+- Ikahoiulus leucosoma: no common name found, scientific name used
+- Ikahoiulus leucosoma: no Bengali name
+- Ikahoiulus leucosoma: no Japanese name
+- Skleroprotopus coreanus: no common name found, scientific name used
+- Skleroprotopus coreanus: no Bengali name
+- Skleroprotopus coreanus: no Japanese name
+- Skleroprotopus ramuliferus: no common name found, scientific name used
+- Skleroprotopus ramuliferus: no Bengali name
+- Skleroprotopus ramuliferus: no Japanese name
+- Amphitomeus attemsi: no common name found, scientific name used
+- Amphitomeus attemsi: no Bengali name
+- Amphitomeus attemsi: no Japanese name
+- Macrosternodesmus palicola: no Bengali name
+- Macrosternodesmus palicola: no Japanese name
+- Ophiodesmus albonanus: no common name found, scientific name used
+- Ophiodesmus albonanus: no Bengali name
+- Ophiodesmus albonanus: no Japanese name
+- Prosopodesmus jacobsoni: no common name found, scientific name used
+- Prosopodesmus jacobsoni: no Bengali name
+- Prosopodesmus jacobsoni: no Japanese name
+- Niponia nodulosa: no common name found, scientific name used
+- Niponia nodulosa: no Bengali name
+- Kiusiunum nodulosum: no common name found, scientific name used
+- Kiusiunum nodulosum: no Bengali name
+- Kiusiunum nodulosum: no Japanese name
+- Aporodesminus wallacei: no common name found, scientific name used
+- Aporodesminus wallacei: no Bengali name
+- Aporodesminus wallacei: no Japanese name
+- Poratia digitata: no common name found, scientific name used
+- Poratia digitata: no Bengali name
+- Poratia digitata: no Japanese name
+- Ampelodesmus granulosus: no common name found, scientific name used
+- Ampelodesmus granulosus: no Bengali name
+- Ampelodesmus granulosus: no Japanese name
+- Pseudocatapyrgodesmus glaucus: no common name found, scientific name used
+- Pseudocatapyrgodesmus glaucus: no Bengali name
+- Pseudocatapyrgodesmus glaucus: no Japanese name
+- Chondrodesmus sabachanus: no common name found, scientific name used
+- Chondrodesmus sabachanus: no Bengali name
+- Chondrodesmus sabachanus: no Japanese name
+- Brochopeltis mjoebergi: no common name found, scientific name used
+- Brochopeltis mjoebergi: no Bengali name
+- Brochopeltis mjoebergi: no Japanese name
+- Haplogonosoma implicatum: no common name found, scientific name used
+- Haplogonosoma implicatum: no Bengali name
+- Haplogonosoma implicatum: no Japanese name
+- Aponedyopus montanus: no common name found, scientific name used
+- Aponedyopus montanus: no Bengali name
+- Aponedyopus montanus: no Japanese name
+- Tetrarthrosoma syriacum: no common name found, scientific name used
+- Tetrarthrosoma syriacum: no Bengali name
+- Tetrarthrosoma syriacum: no Japanese name
+- Asiomorpha coarctata: no Bengali name
+- Asiomorpha coarctata: no Japanese name
+- Orthomorpha coarctata: no common name found, scientific name used
+- Orthomorpha coarctata: no Bengali name
+- Orthomorpha coarctata: no Japanese name
+- Cylindrodesmus hirsutus: no common name found, scientific name used
+- Cylindrodesmus hirsutus: no Bengali name
+- Cylindrodesmus hirsutus: no Japanese name
+- Nedyopus koreanus: no common name found, scientific name used
+- Nedyopus koreanus: no Bengali name
+- Nedyopus koreanus: no Japanese name
+- Nedyopus boninensis: no common name found, scientific name used
+- Nedyopus boninensis: no Bengali name
+- Nedyopus boninensis: no Japanese name
+- Cawjeekelia koreana: no common name found, scientific name used
+- Cawjeekelia koreana: no Bengali name
+- Cawjeekelia koreana: no Japanese name
+- Cawjeekelia gloriosa: no common name found, scientific name used
+- Cawjeekelia gloriosa: no Bengali name
+- Cawjeekelia gloriosa: no Japanese name
+- Cawjeekelia pyongana: no common name found, scientific name used
+- Cawjeekelia pyongana: no Bengali name
+- Cawjeekelia pyongana: no Japanese name
+- Helicorthomorpha holstii: no common name found, scientific name used
+- Helicorthomorpha holstii: no Bengali name
+- Helicorthomorpha holstii: no Japanese name
+- Akamptogonus novarae: no common name found, scientific name used
+- Akamptogonus novarae: no Bengali name
+- Akamptogonus novarae: no Japanese name
+- Oxidus gracilis: no Bengali name
+- Oxidus gracilis: no Japanese name
+- Oxidus obtusus: no common name found, scientific name used
+- Oxidus obtusus: no Bengali name
+- Oxidus obtusus: no Japanese name
+- Oxidus avia: no common name found, scientific name used
+- Oxidus avia: no Bengali name
+- Oxidus avia: no Japanese name
+- Sichotanus eurygaster: no common name found, scientific name used
+- Sichotanus eurygaster: no Bengali name
+- Sichotanus eurygaster: no Japanese name
+- Riukiupeltis jamashinai: no common name found, scientific name used
+- Riukiupeltis jamashinai: no Bengali name
+- Riukiupeltis jamashinai: no Japanese name
+- Chondromorpha xanthotricha: no common name found, scientific name used
+- Chondromorpha xanthotricha: no Bengali name
+- Chondromorpha xanthotricha: no Japanese name
+- Amplinus bitumidus: no common name found, scientific name used
+- Amplinus bitumidus: no Bengali name
+- Amplinus bitumidus: no Japanese name
+- Aceratophallus maya: no common name found, scientific name used
+- Aceratophallus maya: no Bengali name
+- Aceratophallus maya: no Japanese name
+- Nannaria equalis: no common name found, scientific name used
+- Nannaria equalis: no Bengali name
+- Nannaria equalis: no Japanese name
+- Nannaria missouriensis: no common name found, scientific name used
+- Nannaria missouriensis: no Bengali name
+- Nannaria missouriensis: no Japanese name
+- Nannaria scutellaria: no common name found, scientific name used
+- Nannaria scutellaria: no Bengali name
+- Nannaria scutellaria: no Japanese name
+- Nannaria tennesseensis: no common name found, scientific name used
+- Nannaria tennesseensis: no Bengali name
+- Nannaria tennesseensis: no Japanese name
+- Nannaria wilsoni: no common name found, scientific name used
+- Nannaria wilsoni: no Bengali name
+- Nannaria wilsoni: no Japanese name
+- Nannaria minor: no common name found, scientific name used
+- Nannaria minor: no Bengali name
+- Nannaria minor: no Japanese name
+- Nannaria austricola: no common name found, scientific name used
+- Nannaria austricola: no Bengali name
+- Nannaria austricola: no Japanese name
+- Nannaria conservata: no common name found, scientific name used
+- Nannaria conservata: no Bengali name
+- Nannaria conservata: no Japanese name
+- Nannaria ericacea: no common name found, scientific name used
+- Nannaria ericacea: no Bengali name
+- Nannaria ericacea: no Japanese name
+- Nannaria laminata: no common name found, scientific name used
+- Nannaria laminata: no Bengali name
+- Nannaria laminata: no Japanese name
+- Nannaria morrisoni: no common name found, scientific name used
+- Nannaria morrisoni: no Bengali name
+- Nannaria morrisoni: no Japanese name
+- Nannaria ohionis: no common name found, scientific name used
+- Nannaria ohionis: no Bengali name
+- Nannaria ohionis: no Japanese name
+- Nannaria terricola: no common name found, scientific name used
+- Nannaria terricola: no Bengali name
+- Nannaria terricola: no Japanese name
+- Nannaria castanea: no common name found, scientific name used
+- Nannaria castanea: no Bengali name
+- Nannaria castanea: no Japanese name
+- Nannaria davidcauseyi: no common name found, scientific name used
+- Nannaria davidcauseyi: no Bengali name
+- Nannaria davidcauseyi: no Japanese name
+- Nannaria domestica: no common name found, scientific name used
+- Nannaria domestica: no Bengali name
+- Nannaria domestica: no Japanese name
+- Nannaria fowleri: no common name found, scientific name used
+- Nannaria fowleri: no Bengali name
+- Nannaria fowleri: no Japanese name
+- Nannaria oblonga: no common name found, scientific name used
+- Nannaria oblonga: no Bengali name
+- Nannaria oblonga: no Japanese name
+- Nannaria rutherfordensis: no common name found, scientific name used
+- Nannaria rutherfordensis: no Bengali name
+- Nannaria rutherfordensis: no Japanese name
+- Nannaria simplex: no common name found, scientific name used
+- Nannaria simplex: no Bengali name
+- Nannaria simplex: no Japanese name
+- Semionellus placidus: no common name found, scientific name used
+- Semionellus placidus: no Bengali name
+- Semionellus placidus: no Japanese name
+- Parafontaria doenitzi: no common name found, scientific name used
+- Parafontaria doenitzi: no Bengali name
+- Parafontaria doenitzi: no Japanese name
+- Parafontaria crenata: no common name found, scientific name used
+- Parafontaria crenata: no Bengali name
+- Parafontaria crenata: no Japanese name
+- Parafontaria falcifera: no common name found, scientific name used
+- Parafontaria falcifera: no Bengali name
+- Parafontaria falcifera: no Japanese name
+- Parafontaria terminalis: no common name found, scientific name used
+- Parafontaria terminalis: no Bengali name
+- Parafontaria terminalis: no Japanese name
+- Parafontaria laminata: no common name found, scientific name used
+- Parafontaria laminata: no Bengali name
+- Parafontaria tonominea: no common name found, scientific name used
+- Parafontaria tonominea: no Bengali name
+- Parafontaria tonominea: no Japanese name
+- Parafontaria longa: no common name found, scientific name used
+- Parafontaria longa: no Bengali name
+- Parafontaria longa: no Japanese name
+- Parafontaria erythrosoma: no common name found, scientific name used
+- Parafontaria erythrosoma: no Bengali name
+- Parafontaria erythrosoma: no Japanese name
+- Parafontaria shiraiwaensis: no common name found, scientific name used
+- Parafontaria shiraiwaensis: no Bengali name
+- Parafontaria shiraiwaensis: no Japanese name
+- Riukiaria pugionifera: no common name found, scientific name used
+- Riukiaria pugionifera: no Bengali name
+- Riukiaria pugionifera: no Japanese name
+- Riukiaria falcifera: no common name found, scientific name used
+- Riukiaria falcifera: no Bengali name
+- Riukiaria falcifera: no Japanese name
+- Sigmoria nantahalae: no common name found, scientific name used
+- Sigmoria nantahalae: no Bengali name
+- Sigmoria nantahalae: no Japanese name
+- Brachoria mendota: no common name found, scientific name used
+- Brachoria mendota: no Bengali name
+- Brachoria mendota: no Japanese name
+- Brachoria dentata: no common name found, scientific name used
+- Brachoria dentata: no Bengali name
+- Brachoria dentata: no Japanese name
+- Brachoria laminata: no common name found, scientific name used
+- Brachoria laminata: no Bengali name
+- Brachoria laminata: no Japanese name
+- Brachoria cedra: no common name found, scientific name used
+- Brachoria cedra: no Bengali name
+- Brachoria cedra: no Japanese name
+- Pleuroloma flavipes: no common name found, scientific name used
+- Pleuroloma flavipes: no Bengali name
+- Pleuroloma flavipes: no Japanese name
+- Rhysodesmus elestribus: no common name found, scientific name used
+- Rhysodesmus elestribus: no Bengali name
+- Rhysodesmus elestribus: no Japanese name
+- Rhysodesmus constrictus: no common name found, scientific name used
+- Rhysodesmus constrictus: no Bengali name
+- Rhysodesmus constrictus: no Japanese name
+- Parafontaria spathulata: no common name found, scientific name used
+- Parafontaria spathulata: no Bengali name
+- Parafontaria spathulata: no Japanese name
+- Parafontaria takakuwai: no common name found, scientific name used
+- Parafontaria takakuwai: no Bengali name
+- Parafontaria takakuwai: no Japanese name
+- Rudiloria mohicana: no common name found, scientific name used
+- Rudiloria mohicana: no Bengali name
+- Rudiloria mohicana: no Japanese name
+- Speodesmus echinourus: no common name found, scientific name used
+- Speodesmus echinourus: no Bengali name
+- Speodesmus echinourus: no Japanese name
+- Schizoturanius dimitriewi: no common name found, scientific name used
+- Schizoturanius dimitriewi: no Bengali name
+- Schizoturanius dimitriewi: no Japanese name
+- Propolydesmus germanicus: no common name found, scientific name used
+- Propolydesmus germanicus: no Bengali name
+- Propolydesmus germanicus: no Japanese name
+- Scytonotus granulatus: no Bengali name
+- Scytonotus granulatus: no Japanese name
+- Pseudopolydesmus collinus: no common name found, scientific name used
+- Pseudopolydesmus collinus: no Bengali name
+- Pseudopolydesmus collinus: no Japanese name
+- Pseudopolydesmus serratus: no common name found, scientific name used
+- Pseudopolydesmus serratus: no Bengali name
+- Pseudopolydesmus serratus: no Japanese name
+- Pseudopolydesmus canadensis: no common name found, scientific name used
+- Pseudopolydesmus canadensis: no Bengali name
+- Pseudopolydesmus canadensis: no Japanese name
+- Prionomatis karyudense: no common name found, scientific name used
+- Prionomatis karyudense: no Bengali name
+- Prionomatis karyudense: no Japanese name
+- Polydesmus coriaceus: no common name found, scientific name used
+- Polydesmus coriaceus: no Bengali name
+- Polydesmus coriaceus: no Japanese name
+- Polydesmus angustus: no Bengali name
+- Polydesmus angustus: no Japanese name
+- Polydesmus montanus: no common name found, scientific name used
+- Polydesmus montanus: no Bengali name
+- Polydesmus montanus: no Japanese name
+- Propolydesmus testaceus: no common name found, scientific name used
+- Propolydesmus testaceus: no Bengali name
+- Propolydesmus testaceus: no Japanese name
+- Polydesmus complanatus: no common name found, scientific name used
+- Polydesmus complanatus: no Bengali name
+- Polydesmus complanatus: no Japanese name
+- Chondromorpha kelaarti: no common name found, scientific name used
+- Chondromorpha kelaarti: no Bengali name
+- Chondromorpha kelaarti: no Japanese name
+- Nyssodesmus python: no common name found, scientific name used
+- Nyssodesmus python: no Bengali name
+- Nyssodesmus python: no Japanese name
+- Polydesmus inconstans: no common name found, scientific name used
+- Polydesmus inconstans: no Bengali name
+- Polydesmus inconstans: no Japanese name
+- Polydesmus collaris: no common name found, scientific name used
+- Polydesmus collaris: no Bengali name
+- Polydesmus collaris: no Japanese name
+- Brachydesmus superus: no common name found, scientific name used
+- Brachydesmus superus: no Bengali name
+- Brachydesmus superus: no Japanese name
+- Gosodesmus claremontus: no Bengali name
+- Gosodesmus claremontus: no Japanese name
+- Andrognathus corticarius: no common name found, scientific name used
+- Andrognathus corticarius: no Bengali name
+- Andrognathus corticarius: no Japanese name
+- Yamasinaium noduligerum: no common name found, scientific name used
+- Yamasinaium noduligerum: no Bengali name
+- Yamasinaium noduligerum: no Japanese name
+- Sphaerotherium giganteum: no common name found, scientific name used
+- Sphaerotherium giganteum: no Bengali name
+- Sphaerotherium giganteum: no Japanese name
+- Cynotelopus notabilis: no Bengali name
+- Cynotelopus notabilis: no Japanese name
+- Zephronia profuga: no common name found, scientific name used
+- Zephronia profuga: no Bengali name
+- Zephronia profuga: no Japanese name
+- Zephronia siamensis: no common name found, scientific name used
+- Zephronia siamensis: no Bengali name
+- Zephronia siamensis: no Japanese name
+- Niponiosoma troglodytes: no common name found, scientific name used
+- Niponiosoma troglodytes: no Bengali name
+- Niponiosoma troglodytes: no Japanese name
+- Nanogona polydesmoides: no common name found, scientific name used
+- Nanogona polydesmoides: no Bengali name
+- Nanogona polydesmoides: no Japanese name
+- Craspedosoma taurinorum: no common name found, scientific name used
+- Craspedosoma taurinorum: no Bengali name
+- Craspedosoma taurinorum: no Japanese name
+- Listrocheiritium septentrionale: no common name found, scientific name used
+- Listrocheiritium septentrionale: no Bengali name
+- Listrocheiritium septentrionale: no Japanese name
+- Ochogona caroli: no common name found, scientific name used
+- Ochogona caroli: no Bengali name
+- Ochogona caroli: no Japanese name
+- Macrochaeteuma sauteri: no common name found, scientific name used
+- Macrochaeteuma sauteri: no Bengali name
+- Macrochaeteuma sauteri: no Japanese name
+- Pseudotremia cavernarum: no common name found, scientific name used
+- Pseudotremia cavernarum: no Bengali name
+- Pseudotremia cavernarum: no Japanese name
+- Pseudotremia nefanda: no common name found, scientific name used
+- Pseudotremia nefanda: no Bengali name
+- Pseudotremia nefanda: no Japanese name
+- Pseudotremia princeps: no common name found, scientific name used
+- Pseudotremia princeps: no Bengali name
+- Pseudotremia princeps: no Japanese name
+- Pseudotremia fulgida: no common name found, scientific name used
+- Pseudotremia fulgida: no Bengali name
+- Pseudotremia fulgida: no Japanese name
+- Pseudotremia indianae: no common name found, scientific name used
+- Pseudotremia indianae: no Bengali name
+- Pseudotremia indianae: no Japanese name
+- Pseudotremia lusciosa: no common name found, scientific name used
+- Pseudotremia lusciosa: no Bengali name
+- Pseudotremia lusciosa: no Japanese name
+- Pseudotremia conservata: no common name found, scientific name used
+- Pseudotremia conservata: no Bengali name
+- Pseudotremia conservata: no Japanese name
+- Tingupa pallida: no common name found, scientific name used
+- Tingupa pallida: no Bengali name
+- Tingupa pallida: no Japanese name
+- Orientyla dahurica: no common name found, scientific name used
+- Orientyla dahurica: no Bengali name
+- Orientyla dahurica: no Japanese name
+- Diplomaragna gracilipes: no common name found, scientific name used
+- Diplomaragna gracilipes: no Bengali name
+- Diplomaragna gracilipes: no Japanese name
+- Diplomaragna kedrovaya: no common name found, scientific name used
+- Diplomaragna kedrovaya: no Bengali name
+- Diplomaragna kedrovaya: no Japanese name
+- Pterygostegia kuroiwadensis: no common name found, scientific name used
+- Pterygostegia kuroiwadensis: no Bengali name
+- Pterygostegia kuroiwadensis: no Japanese name
+- Pterygostegia grandilobata: no common name found, scientific name used
+- Pterygostegia grandilobata: no Bengali name
+- Pterygostegia grandilobata: no Japanese name
+- Pterygostegia anops: no common name found, scientific name used
+- Pterygostegia anops: no Bengali name
+- Pterygostegia anops: no Japanese name
+- Tokyosoma takakuwai: no common name found, scientific name used
+- Tokyosoma takakuwai: no Bengali name
+- Tokyosoma takakuwai: no Japanese name
+- Tokyosoma ronkayi: no common name found, scientific name used
+- Tokyosoma ronkayi: no Bengali name
+- Tokyosoma ronkayi: no Japanese name
+- Haploporatia eremita: no common name found, scientific name used
+- Haploporatia eremita: no Bengali name
+- Haploporatia eremita: no Japanese name
+- Mastigophorophyllon saxonicum: no common name found, scientific name used
+- Mastigophorophyllon saxonicum: no Bengali name
+- Mastigophorophyllon saxonicum: no Japanese name
+- Hungarosoma bokori: no common name found, scientific name used
+- Hungarosoma bokori: no Bengali name
+- Hungarosoma bokori: no Japanese name
+- Brachychaeteuma bagnalli: no common name found, scientific name used
+- Brachychaeteuma bagnalli: no Bengali name
+- Brachychaeteuma bagnalli: no Japanese name
+- Brachychaeteuma bradeae: no common name found, scientific name used
+- Brachychaeteuma bradeae: no Bengali name
+- Brachychaeteuma bradeae: no Japanese name
+- Japanoparvus okai: no common name found, scientific name used
+- Japanoparvus okai: no Bengali name
+- Japanoparvus okai: no Japanese name
+- Haasea germanica: no common name found, scientific name used
+- Haasea germanica: no Bengali name
+- Haasea germanica: no Japanese name
+- Hylebainosoma tatranum: no common name found, scientific name used
+- Hylebainosoma tatranum: no Bengali name
+- Hylebainosoma tatranum: no Japanese name
+- Japanosoma scabrum: no common name found, scientific name used
+- Japanosoma scabrum: no Bengali name
+- Japanosoma scabrum: no Japanese name
+- Conotyla bollmani: no common name found, scientific name used
+- Conotyla bollmani: no Bengali name
+- Conotyla bollmani: no Japanese name
+- Conotyla celeno: no common name found, scientific name used
+- Conotyla celeno: no Bengali name
+- Conotyla celeno: no Japanese name
+- Conotyla melinda: no common name found, scientific name used
+- Conotyla melinda: no Bengali name
+- Conotyla melinda: no Japanese name
+- Melogona broelemanni: no common name found, scientific name used
+- Melogona broelemanni: no Bengali name
+- Melogona broelemanni: no Japanese name
+- Orthochordeumella pallida: no common name found, scientific name used
+- Orthochordeumella pallida: no Bengali name
+- Orthochordeumella pallida: no Japanese name
+- Cambala minor: no common name found, scientific name used
+- Cambala minor: no Bengali name
+- Cambala minor: no Japanese name
+- Cambala annulata: no common name found, scientific name used
+- Cambala annulata: no Bengali name
+- Cambala annulata: no Japanese name
+- Harpagophora monodus: no common name found, scientific name used
+- Harpagophora monodus: no Bengali name
+- Harpagophora monodus: no Japanese name
+- Ktenostreptus centrurus: no common name found, scientific name used
+- Ktenostreptus centrurus: no Bengali name
+- Ktenostreptus centrurus: no Japanese name
+- Thyropygus allevatus: no common name found, scientific name used
+- Thyropygus allevatus: no Bengali name
+- Thyropygus allevatus: no Japanese name
+- Spinotarsus xanthonotus: no common name found, scientific name used
+- Spinotarsus xanthonotus: no Bengali name
+- Spinotarsus xanthonotus: no Japanese name
+- Spinotarsus colosseus: no common name found, scientific name used
+- Spinotarsus colosseus: no Bengali name
+- Spinotarsus colosseus: no Japanese name
+- Telodeinopus aoutii: no common name found, scientific name used
+- Telodeinopus aoutii: no Bengali name
+- Telodeinopus aoutii: no Japanese name
+- Camaricoproctus planidens: no common name found, scientific name used
+- Camaricoproctus planidens: no Bengali name
+- Camaricoproctus planidens: no Japanese name
+- Camaricoproctus disparatidens: no common name found, scientific name used
+- Camaricoproctus disparatidens: no Bengali name
+- Camaricoproctus disparatidens: no Japanese name
+- Camaricoproctus transvaalicus: no common name found, scientific name used
+- Camaricoproctus transvaalicus: no Bengali name
+- Camaricoproctus transvaalicus: no Japanese name
+- Camaricoproctus pauciannulatus: no common name found, scientific name used
+- Camaricoproctus pauciannulatus: no Bengali name
+- Camaricoproctus pauciannulatus: no Japanese name
+- Camaricoproctus tumididens: no common name found, scientific name used
+- Camaricoproctus tumididens: no Bengali name
+- Camaricoproctus tumididens: no Japanese name
+- Camaricoproctus torquidens: no common name found, scientific name used
+- Camaricoproctus torquidens: no Bengali name
+- Camaricoproctus torquidens: no Japanese name
+- Orthoporoides corrugatus: no common name found, scientific name used
+- Orthoporoides corrugatus: no Bengali name
+- Orthoporoides corrugatus: no Japanese name
+- Orthoporoides laccatus: no common name found, scientific name used
+- Orthoporoides laccatus: no Bengali name
+- Orthoporoides laccatus: no Japanese name
+- Orthoporoides zulu: no common name found, scientific name used
+- Orthoporoides zulu: no Bengali name
+- Orthoporoides zulu: no Japanese name
+- Orthoporus ornatus: no common name found, scientific name used
+- Orthoporus ornatus: no Bengali name
+- Orthoporus ornatus: no Japanese name
+- Orthoporoides tabulinus: no common name found, scientific name used
+- Orthoporoides tabulinus: no Bengali name
+- Orthoporoides tabulinus: no Japanese name
+- Orthoporus texicolens: no common name found, scientific name used
+- Orthoporus texicolens: no Bengali name
+- Orthoporus texicolens: no Japanese name
+- Spirostreptus heros: no common name found, scientific name used
+- Spirostreptus heros: no Bengali name
+- Spirostreptus heros: no Japanese name
+- Thyropygus pachyurus: no common name found, scientific name used
+- Thyropygus pachyurus: no Bengali name
+- Thyropygus pachyurus: no Japanese name
+- Doratogonus flavifilis: no Bengali name
+- Doratogonus flavifilis: no Japanese name
+- Orthoporoides pyrhocephalus: no common name found, scientific name used
+- Orthoporoides pyrhocephalus: no Bengali name
+- Orthoporoides pyrhocephalus: no Japanese name
+- Dolichoglyphius asper: no common name found, scientific name used
+- Dolichoglyphius asper: no Bengali name
+- Dolichoglyphius asper: no Japanese name
+- Glyphiulus granulatus: no common name found, scientific name used
+- Glyphiulus granulatus: no Bengali name
+- Glyphiulus granulatus: no Japanese name
+- Glyphiulus septentrionalis: no common name found, scientific name used
+- Glyphiulus septentrionalis: no Bengali name
+- Glyphiulus septentrionalis: no Japanese name
+- Kiusiozonium japonicum: no common name found, scientific name used
+- Kiusiozonium japonicum: no Bengali name
+- Kiusiozonium japonicum: no Japanese name
+- Petaserpes cryptocephalus: no common name found, scientific name used
+- Petaserpes cryptocephalus: no Bengali name
+- Petaserpes cryptocephalus: no Japanese name
+- Polyzonium germanicum: no common name found, scientific name used
+- Polyzonium germanicum: no Bengali name
+- Polyzonium germanicum: no Japanese name
+- Angarozonium munsunum: no common name found, scientific name used
+- Angarozonium munsunum: no Bengali name
+- Angarozonium munsunum: no Japanese name
+- Orsiboe ichigomensis: no common name found, scientific name used
+- Orsiboe ichigomensis: no Bengali name
+- Orsiboe ichigomensis: no Japanese name
+- Paraspirobolus lucifugus: no common name found, scientific name used
+- Paraspirobolus lucifugus: no Bengali name
+- Paraspirobolus lucifugus: no Japanese name
+- Aphistogoniulus corallipes: no common name found, scientific name used
+- Aphistogoniulus corallipes: no Bengali name
+- Aphistogoniulus corallipes: no Japanese name
+- Aphistogoniulus erythrocephalus: no common name found, scientific name used
+- Aphistogoniulus erythrocephalus: no Bengali name
+- Aphistogoniulus erythrocephalus: no Japanese name
+- Aphistogoniulus sakalava: no common name found, scientific name used
+- Aphistogoniulus sakalava: no Bengali name
+- Aphistogoniulus sakalava: no Japanese name
+- Aphistogoniulus hova: no common name found, scientific name used
+- Aphistogoniulus hova: no Bengali name
+- Aphistogoniulus hova: no Japanese name
+- Aphistogoniulus cowani: no common name found, scientific name used
+- Aphistogoniulus cowani: no Bengali name
+- Aphistogoniulus cowani: no Japanese name
+- Spiromimus voeltzkowi: no common name found, scientific name used
+- Spiromimus voeltzkowi: no Bengali name
+- Spiromimus voeltzkowi: no Japanese name
+- Spiromimus univirgatus: no common name found, scientific name used
+- Spiromimus univirgatus: no Bengali name
+- Spiromimus univirgatus: no Japanese name
+- Xenobolus carnifex: no common name found, scientific name used
+- Xenobolus carnifex: no Bengali name
+- Xenobolus carnifex: no Japanese name
+- Litostrophus segregatus: no common name found, scientific name used
+- Litostrophus segregatus: no Bengali name
+- Litostrophus segregatus: no Japanese name
+- Leptogoniulus sorornus: no common name found, scientific name used
+- Leptogoniulus sorornus: no Bengali name
+- Leptogoniulus sorornus: no Japanese name
+- Trigoniulus corallinus: no common name found, scientific name used
+- Trigoniulus corallinus: no Bengali name
+- Trigoniulus corallinus: no Japanese name
+- Anadenobolus monilicornis: no Bengali name
+- Anadenobolus monilicornis: no Japanese name
+- Rhinocricus parcus: no common name found, scientific name used
+- Rhinocricus parcus: no Bengali name
+- Rhinocricus parcus: no Japanese name
+- Chicobolus spinigerus: no Bengali name
+- Chicobolus spinigerus: no Japanese name
+- Narceus gordanus: no common name found, scientific name used
+- Narceus gordanus: no Bengali name
+- Narceus gordanus: no Japanese name
+- Tylobolus uncigerus: no common name found, scientific name used
+- Tylobolus uncigerus: no Bengali name
+- Tylobolus uncigerus: no Japanese name
+- Pseudospirobolellus avernus: no common name found, scientific name used
+- Pseudospirobolellus avernus: no Bengali name
+- Pseudospirobolellus avernus: no Japanese name
+- Comanchelus chihuanus: no common name found, scientific name used
+- Comanchelus chihuanus: no Bengali name
+- Comanchelus chihuanus: no Japanese name
+- Hyleoglomeris japonica: no common name found, scientific name used
+- Hyleoglomeris japonica: no Bengali name
+- Hyleoglomeris japonica: no Japanese name
+- Hyleoglomeris vittata: no common name found, scientific name used
+- Hyleoglomeris vittata: no Bengali name
+- Hyleoglomeris vittata: no Japanese name
+- Hyleoglomeris nigra: no common name found, scientific name used
+- Hyleoglomeris nigra: no Bengali name
+- Hyleoglomeris nigra: no Japanese name
+- Geoglomeris subterranea: no common name found, scientific name used
+- Geoglomeris subterranea: no Bengali name
+- Geoglomeris subterranea: no Japanese name
+- Glomeroides primus: no common name found, scientific name used
+- Glomeroides primus: no Bengali name
+- Glomeroides primus: no Japanese name
+- Rhopalomeris carnifex: no common name found, scientific name used
+- Rhopalomeris carnifex: no Bengali name
+- Rhopalomeris carnifex: no Japanese name
+- Glomeris tetrasticha: no common name found, scientific name used
+- Glomeris tetrasticha: no Bengali name
+- Glomeris tetrasticha: no Japanese name
+- Glomeris helvetica: no common name found, scientific name used
+- Glomeris helvetica: no Bengali name
+- Glomeris helvetica: no Japanese name
+- Glomeris romana: no common name found, scientific name used
+- Glomeris romana: no Bengali name
+- Glomeris romana: no Japanese name
+- Glomeris hexasticha: no common name found, scientific name used
+- Glomeris hexasticha: no Bengali name
+- Glomeris hexasticha: no Japanese name
+- Glomeris intermedia: no common name found, scientific name used
+- Glomeris intermedia: no Bengali name
+- Glomeris intermedia: no Japanese name
+- Glomeris balcanica: no common name found, scientific name used
+- Glomeris balcanica: no Bengali name
+- Glomeris balcanica: no Japanese name
+- Glomeris connexa: no common name found, scientific name used
+- Glomeris connexa: no Bengali name
+- Glomeris connexa: no Japanese name
+- Glomeris ornata: no common name found, scientific name used
+- Glomeris ornata: no Bengali name
+- Glomeris ornata: no Japanese name
+- Glomeris guttata: no common name found, scientific name used
+- Glomeris guttata: no Bengali name
+- Glomeris guttata: no Japanese name
+- Glomeris aurita: no common name found, scientific name used
+- Glomeris aurita: no Bengali name
+- Glomeris aurita: no Japanese name
+- Glomeris transalpina: no common name found, scientific name used
+- Glomeris transalpina: no Bengali name
+- Glomeris transalpina: no Japanese name
+- Glomeris ligurica: no common name found, scientific name used
+- Glomeris ligurica: no Bengali name
+- Glomeris ligurica: no Japanese name
+- Glomeris undulata: no common name found, scientific name used
+- Glomeris undulata: no Bengali name
+- Glomeris undulata: no Japanese name
+- Glomeris annulata: no common name found, scientific name used
+- Glomeris annulata: no Bengali name
+- Glomeris annulata: no Japanese name
+- Discoconchoecia tamensis: no common name found, scientific name used
+- Discoconchoecia tamensis: no Bengali name
+- Discoconchoecia tamensis: no Japanese name
+- Discoconchoecia elegans: no common name found, scientific name used
+- Discoconchoecia elegans: no Bengali name
+- Discoconchoecia elegans: no Japanese name
+- Euconchoecia elongata: no common name found, scientific name used
+- Euconchoecia elongata: no Bengali name
+- Euconchoecia elongata: no Japanese name
+- Euconchoecia pacifica: no common name found, scientific name used
+- Euconchoecia pacifica: no Bengali name
+- Euconchoecia pacifica: no Japanese name
+- Euconchoecia maimai: no common name found, scientific name used
+- Euconchoecia maimai: no Bengali name
+- Euconchoecia maimai: no Japanese name
+- Euconchoecia aculeata: no common name found, scientific name used
+- Euconchoecia aculeata: no Bengali name
+- Euconchoecia aculeata: no Japanese name
+- Pseudoconchoecia concentrica: no common name found, scientific name used
+- Pseudoconchoecia concentrica: no Bengali name
+- Pseudoconchoecia concentrica: no Japanese name
+- Paramollicia dichotoma: no common name found, scientific name used
+- Paramollicia dichotoma: no Bengali name
+- Paramollicia dichotoma: no Japanese name
+- Proceroecia procera: no common name found, scientific name used
+- Proceroecia procera: no Bengali name
+- Proceroecia procera: no Japanese name
+- Conchoecilla daphnoides: no common name found, scientific name used
+- Conchoecilla daphnoides: no Bengali name
+- Conchoecilla daphnoides: no Japanese name
+- Paraconchoecia spinifera: no common name found, scientific name used
+- Paraconchoecia spinifera: no Bengali name
+- Paraconchoecia spinifera: no Japanese name
+- Paraconchoecia decipiens: no common name found, scientific name used
+- Paraconchoecia decipiens: no Bengali name
+- Paraconchoecia decipiens: no Japanese name
+- Porroecia spinirostris: no common name found, scientific name used
+- Porroecia spinirostris: no Bengali name
+- Porroecia spinirostris: no Japanese name
+- Porroecia porrecta: no common name found, scientific name used
+- Porroecia porrecta: no Bengali name
+- Porroecia porrecta: no Japanese name
+- Halocypris inflata: no common name found, scientific name used
+- Halocypris inflata: no Bengali name
+- Halocypris inflata: no Japanese name
+- Mikroconchoecia curta: no common name found, scientific name used
+- Mikroconchoecia curta: no Bengali name
+- Mikroconchoecia curta: no Japanese name
+- Conchoecia magna: no common name found, scientific name used
+- Conchoecia magna: no Bengali name
+- Conchoecia magna: no Japanese name
+- Conchoecetta acuminata: no common name found, scientific name used
+- Conchoecetta acuminata: no Bengali name
+- Conchoecetta acuminata: no Japanese name
+- Neonesidea expansa: no common name found, scientific name used
+- Neonesidea expansa: no Bengali name
+- Neonesidea expansa: no Japanese name
+- Triebelina sertata: no common name found, scientific name used
+- Triebelina sertata: no Bengali name
+- Triebelina sertata: no Japanese name
+- Bradleystrandesia reticulata: no common name found, scientific name used
+- Bradleystrandesia reticulata: no Bengali name
+- Bradleystrandesia reticulata: no Japanese name
+- Potamocypris pallida: no common name found, scientific name used
+- Potamocypris pallida: no Bengali name
+- Potamocypris pallida: no Japanese name
+- Cyprinotus cingalensis: no common name found, scientific name used
+- Cyprinotus cingalensis: no Bengali name
+- Cyprinotus cingalensis: no Japanese name
+- Chlamydotheca unispinosa: no common name found, scientific name used
+- Chlamydotheca unispinosa: no Bengali name
+- Chlamydotheca unispinosa: no Japanese name
+- Heterocypris incongruens: no common name found, scientific name used
+- Heterocypris incongruens: no Bengali name
+- Heterocypris incongruens: no Japanese name
+- Heterocypris salina: no common name found, scientific name used
+- Heterocypris salina: no Bengali name
+- Heterocypris salina: no Japanese name
+- Cypris bispinosa: no common name found, scientific name used
+- Cypris bispinosa: no Bengali name
+- Cypris bispinosa: no Japanese name
+- Cypris pubera: no common name found, scientific name used
+- Cypris pubera: no Bengali name
+- Cypris pubera: no Japanese name
+- Dolerocypris sinensis: no common name found, scientific name used
+- Dolerocypris sinensis: no Bengali name
+- Dolerocypris sinensis: no Japanese name
+- Dolerocypris fasciata: no common name found, scientific name used
+- Dolerocypris fasciata: no Bengali name
+- Dolerocypris fasciata: no Japanese name
+- Cypria ophtalmica: no common name found, scientific name used
+- Cypria ophtalmica: no Bengali name
+- Cypria ophtalmica: no Japanese name
+- Eucypris pigra: no common name found, scientific name used
+- Eucypris pigra: no Bengali name
+- Eucypris pigra: no Japanese name
+- Eucypris virens: no common name found, scientific name used
+- Eucypris virens: no Bengali name
+- Eucypris virens: no Japanese name
+- Notodromas monacha: no common name found, scientific name used
+- Notodromas monacha: no Bengali name
+- Notodromas monacha: no Japanese name
+- Cyprois marginata: no common name found, scientific name used
+- Cyprois marginata: no Bengali name
+- Cyprois marginata: no Japanese name
+- Paracandona euplectella: no common name found, scientific name used
+- Paracandona euplectella: no Bengali name
+- Paracandona euplectella: no Japanese name
+- Xestoleberis aurantia: no common name found, scientific name used
+- Xestoleberis aurantia: no Bengali name
+- Xestoleberis aurantia: no Japanese name
+- Aspidoconcha limnoriaea: no common name found, scientific name used
+- Aspidoconcha limnoriaea: no Bengali name
+- Aspidoconcha limnoriaea: no Japanese name
+- Cyprideis torosa: no common name found, scientific name used
+- Cyprideis torosa: no Bengali name
+- Cyprideis torosa: no Japanese name
+- Paracytheridea tschoppi: no common name found, scientific name used
+- Paracytheridea tschoppi: no Bengali name
+- Paracytheridea tschoppi: no Japanese name
+- Limnocythere inopinata: no common name found, scientific name used
+- Limnocythere inopinata: no Bengali name
+- Limnocythere inopinata: no Japanese name
+- Semicytherura johnsonoides: no common name found, scientific name used
+- Semicytherura johnsonoides: no Bengali name
+- Semicytherura johnsonoides: no Japanese name
+- Cytherura gibba: no common name found, scientific name used
+- Cytherura gibba: no Bengali name
+- Cytherura gibba: no Japanese name
+- Redekea californica: no common name found, scientific name used
+- Redekea californica: no Bengali name
+- Redekea californica: no Japanese name
+- Loxoconcha elliptica: no common name found, scientific name used
+- Loxoconcha elliptica: no Bengali name
+- Loxoconcha elliptica: no Japanese name
+- Loxoconcha rhomboidea: no common name found, scientific name used
+- Loxoconcha rhomboidea: no Bengali name
+- Loxoconcha rhomboidea: no Japanese name
+- Cytheromorpha fuscata: no common name found, scientific name used
+- Cytheromorpha fuscata: no Bengali name
+- Cytheromorpha fuscata: no Japanese name
+- Megacythere repexa: no common name found, scientific name used
+- Megacythere repexa: no Bengali name
+- Megacythere repexa: no Japanese name
+- Spinileberis quadriaculeata: no common name found, scientific name used
+- Spinileberis quadriaculeata: no Bengali name
+- Spinileberis quadriaculeata: no Japanese name
+- Cythere lutea: no common name found, scientific name used
+- Cythere lutea: no Bengali name
+- Cythere lutea: no Japanese name
+- Callistocythere cranekeyensis: no common name found, scientific name used
+- Callistocythere cranekeyensis: no Bengali name
+- Callistocythere cranekeyensis: no Japanese name
+- Ankylocythere sinuosa: no common name found, scientific name used
+- Ankylocythere sinuosa: no Bengali name
+- Ankylocythere sinuosa: no Japanese name
+- Vargula tsujii: no common name found, scientific name used
+- Vargula tsujii: no Bengali name
+- Vargula tsujii: no Japanese name
+- Parembia valida: no common name found, scientific name used
+- Parembia valida: no Bengali name
+- Parembia valida: no Japanese name
+- Diradius uxpanapaensis: no common name found, scientific name used
+- Diradius uxpanapaensis: no Bengali name
+- Diradius uxpanapaensis: no Japanese name
+- Diradius emarginatus: no common name found, scientific name used
+- Diradius emarginatus: no Bengali name
+- Diradius emarginatus: no Japanese name
+- Diradius diversilobus: no common name found, scientific name used
+- Diradius diversilobus: no Bengali name
+- Diradius diversilobus: no Japanese name
+- Diradius jalapae: no common name found, scientific name used
+- Diradius jalapae: no Bengali name
+- Diradius jalapae: no Japanese name
+- Diradius pacificus: no common name found, scientific name used
+- Diradius pacificus: no Bengali name
+- Diradius pacificus: no Japanese name
+- Diradius pallidus: no common name found, scientific name used
+- Diradius pallidus: no Bengali name
+- Diradius pallidus: no Japanese name
+- Diradius chiapae: no common name found, scientific name used
+- Diradius chiapae: no Bengali name
+- Diradius chiapae: no Japanese name
+- Oligembia capensis: no common name found, scientific name used
+- Oligembia capensis: no Bengali name
+- Oligembia capensis: no Japanese name
+- Neorhagadochir moreliensis: no Bengali name
+- Neorhagadochir moreliensis: no Japanese name
+- Pachylembia taxcoensis: no common name found, scientific name used
+- Pachylembia taxcoensis: no Bengali name
+- Pachylembia taxcoensis: no Japanese name
+- Pachylembia chapalae: no common name found, scientific name used
+- Pachylembia chapalae: no Bengali name
+- Pachylembia chapalae: no Japanese name
+- Pachylembia unicincta: no common name found, scientific name used
+- Pachylembia unicincta: no Bengali name
+- Pachylembia unicincta: no Japanese name
+- Conicercembia tepicensis: no common name found, scientific name used
+- Conicercembia tepicensis: no Bengali name
+- Conicercembia tepicensis: no Japanese name
+- Haploembia solieri: no common name found, scientific name used
+- Haploembia solieri: no Bengali name
+- Haploembia solieri: no Japanese name
+- Aposthonia ceylonica: no common name found, scientific name used
+- Aposthonia ceylonica: no Bengali name
+- Aposthonia ceylonica: no Japanese name
+- Mesembia chamulae: no common name found, scientific name used
+- Mesembia chamulae: no Bengali name
+- Mesembia chamulae: no Japanese name
+- Mesembia catemacoa: no common name found, scientific name used
+- Mesembia catemacoa: no Bengali name
+- Mesembia catemacoa: no Japanese name
+- Bulbocerca sini: no common name found, scientific name used
+- Bulbocerca sini: no Bengali name
+- Bulbocerca sini: no Japanese name
+- Bulbocerca fulva: no common name found, scientific name used
+- Bulbocerca fulva: no Bengali name
+- Bulbocerca fulva: no Japanese name
+- Chelicerca spinosa: no common name found, scientific name used
+- Chelicerca spinosa: no Bengali name
+- Chelicerca spinosa: no Japanese name
+- Chelicerca jaliscoa: no common name found, scientific name used
+- Chelicerca jaliscoa: no Bengali name
+- Chelicerca jaliscoa: no Japanese name
+- Chelicerca chamelaensis: no common name found, scientific name used
+- Chelicerca chamelaensis: no Bengali name
+- Chelicerca chamelaensis: no Japanese name
+- Chelicerca maxima: no common name found, scientific name used
+- Chelicerca maxima: no Bengali name
+- Chelicerca maxima: no Japanese name
+- Ectopsocopsis cryptomeriae: no common name found, scientific name used
+- Ectopsocopsis cryptomeriae: no Bengali name
+- Ectopsocopsis cryptomeriae: no Japanese name
+- Ectopsocus californicus: no common name found, scientific name used
+- Ectopsocus californicus: no Bengali name
+- Ectopsocus californicus: no Japanese name
+- Ectopsocus petersi: no common name found, scientific name used
+- Ectopsocus petersi: no Bengali name
+- Ectopsocus petersi: no Japanese name
+- Ectopsocus salpinx: no common name found, scientific name used
+- Ectopsocus salpinx: no Bengali name
+- Ectopsocus salpinx: no Japanese name
+- Ectopsocus maindroni: no common name found, scientific name used
+- Ectopsocus maindroni: no Bengali name
+- Ectopsocus maindroni: no Japanese name
+- Ectopsocus briggsi: no common name found, scientific name used
+- Ectopsocus briggsi: no Bengali name
+- Ectopsocus briggsi: no Japanese name
+- Ectopsocus richardsi: no common name found, scientific name used
+- Ectopsocus richardsi: no Bengali name
+- Ectopsocus richardsi: no Japanese name
+- Ectopsocus strauchi: no common name found, scientific name used
+- Ectopsocus strauchi: no Bengali name
+- Ectopsocus strauchi: no Japanese name
+- Ectopsocus vachoni: no common name found, scientific name used
+- Ectopsocus vachoni: no Bengali name
+- Ectopsocus vachoni: no Japanese name
+- Sphaeropsocopsis argentina: no common name found, scientific name used
+- Sphaeropsocopsis argentina: no Bengali name
+- Sphaeropsocopsis argentina: no Japanese name
+- Cerastipsocus venosus: no common name found, scientific name used
+- Cerastipsocus venosus: no Bengali name
+- Cerastipsocus venosus: no Japanese name
+- Amphigerontia bifasciata: no common name found, scientific name used
+- Amphigerontia bifasciata: no Bengali name
+- Amphigerontia bifasciata: no Japanese name
+- Amphigerontia contaminata: no common name found, scientific name used
+- Amphigerontia contaminata: no Bengali name
+- Amphigerontia contaminata: no Japanese name
+- Metylophorus novaescotiae: no common name found, scientific name used
+- Metylophorus novaescotiae: no Bengali name
+- Metylophorus novaescotiae: no Japanese name
+- Trichadenotecnum circularoides: no common name found, scientific name used
+- Trichadenotecnum circularoides: no Bengali name
+- Trichadenotecnum circularoides: no Japanese name
+- Loensia fasciata: no common name found, scientific name used
+- Loensia fasciata: no Bengali name
+- Loensia fasciata: no Japanese name
+- Philotarsus picicornis: no common name found, scientific name used
+- Philotarsus picicornis: no Bengali name
+- Philotarsus picicornis: no Japanese name
+- Pachytroctes aegyptius: no common name found, scientific name used
+- Pachytroctes aegyptius: no Bengali name
+- Pachytroctes aegyptius: no Japanese name
+- Nanopsocus oceanicus: no common name found, scientific name used
+- Nanopsocus oceanicus: no Bengali name
+- Nanopsocus oceanicus: no Japanese name
+- Liposcelis fusciceps: no common name found, scientific name used
+- Liposcelis fusciceps: no Bengali name
+- Liposcelis fusciceps: no Japanese name
+- Liposcelis mendax: no common name found, scientific name used
+- Liposcelis mendax: no Bengali name
+- Liposcelis mendax: no Japanese name
+- Liposcelis rufa: no common name found, scientific name used
+- Liposcelis rufa: no Bengali name
+- Liposcelis rufa: no Japanese name
+- Liposcelis brunnea: no common name found, scientific name used
+- Liposcelis brunnea: no Bengali name
+- Liposcelis brunnea: no Japanese name
+- Liposcelis deltachi: no common name found, scientific name used
+- Liposcelis deltachi: no Bengali name
+- Liposcelis deltachi: no Japanese name
+- Liposcelis bostrychophila: no common name found, scientific name used
+- Liposcelis bostrychophila: no Bengali name
+- Liposcelis bostrychophila: no Japanese name
+- Liposcelis decolor: no common name found, scientific name used
+- Liposcelis decolor: no Bengali name
+- Liposcelis decolor: no Japanese name
+- Liposcelis paeta: no common name found, scientific name used
+- Liposcelis paeta: no Bengali name
+- Liposcelis paeta: no Japanese name
+- Liposcelis pearmani: no common name found, scientific name used
+- Liposcelis pearmani: no Bengali name
+- Liposcelis pearmani: no Japanese name
+- Liposcelis bicolor: no common name found, scientific name used
+- Liposcelis bicolor: no Bengali name
+- Liposcelis bicolor: no Japanese name
+- Liposcelis corrodens: no common name found, scientific name used
+- Liposcelis corrodens: no Bengali name
+- Liposcelis corrodens: no Japanese name
+- Liposcelis entomophila: no common name found, scientific name used
+- Liposcelis entomophila: no Bengali name
+- Liposcelis entomophila: no Japanese name
+- Embidopsocus femoralis: no common name found, scientific name used
+- Embidopsocus femoralis: no Bengali name
+- Embidopsocus femoralis: no Japanese name
+- Embidopsocus thorntoni: no common name found, scientific name used
+- Embidopsocus thorntoni: no Bengali name
+- Embidopsocus thorntoni: no Japanese name
+- Hemipsocus chloroticus: no common name found, scientific name used
+- Hemipsocus chloroticus: no Bengali name
+- Hemipsocus chloroticus: no Japanese name
+- Rhyopsocus disparilis: no common name found, scientific name used
+- Rhyopsocus disparilis: no Bengali name
+- Rhyopsocus disparilis: no Japanese name
+- Psoquilla marginepunctata: no common name found, scientific name used
+- Psoquilla marginepunctata: no Bengali name
+- Psoquilla marginepunctata: no Japanese name
+- Peripsocus alboguttatus: no common name found, scientific name used
+- Peripsocus alboguttatus: no Bengali name
+- Peripsocus alboguttatus: no Japanese name
+- Peripsocus subfasciatus: no common name found, scientific name used
+- Peripsocus subfasciatus: no Bengali name
+- Peripsocus subfasciatus: no Japanese name
+- Peripsocus phaeopterus: no common name found, scientific name used
+- Peripsocus phaeopterus: no Bengali name
+- Peripsocus phaeopterus: no Japanese name
+- Peripsocus milleri: no common name found, scientific name used
+- Peripsocus milleri: no Bengali name
+- Peripsocus milleri: no Japanese name
+- Lachesilla fuscipalpis: no common name found, scientific name used
+- Lachesilla fuscipalpis: no Bengali name
+- Lachesilla fuscipalpis: no Japanese name
+- Lachesilla tectorum: no common name found, scientific name used
+- Lachesilla tectorum: no Bengali name
+- Lachesilla tectorum: no Japanese name
+- Lachesilla alpejia: no common name found, scientific name used
+- Lachesilla alpejia: no Bengali name
+- Lachesilla alpejia: no Japanese name
+- Lachesilla greeni: no common name found, scientific name used
+- Lachesilla greeni: no Bengali name
+- Lachesilla greeni: no Japanese name
+- Lachesilla pedicularia: no common name found, scientific name used
+- Lachesilla pedicularia: no Bengali name
+- Lachesilla pedicularia: no Japanese name
+- Lachesilla denticulata: no common name found, scientific name used
+- Lachesilla denticulata: no Bengali name
+- Lachesilla denticulata: no Japanese name
+- Lachesilla nubilis: no common name found, scientific name used
+- Lachesilla nubilis: no Bengali name
+- Lachesilla nubilis: no Japanese name
+- Lachesilla cintalapa: no common name found, scientific name used
+- Lachesilla cintalapa: no Bengali name
+- Lachesilla cintalapa: no Japanese name
+- Elipsocus abdominalis: no common name found, scientific name used
+- Elipsocus abdominalis: no Bengali name
+- Elipsocus abdominalis: no Japanese name
+- Elipsocus hyalinus: no common name found, scientific name used
+- Elipsocus hyalinus: no Bengali name
+- Elipsocus hyalinus: no Japanese name
+- Elipsocus pumilis: no common name found, scientific name used
+- Elipsocus pumilis: no Bengali name
+- Elipsocus pumilis: no Japanese name
+- Elipsocus moebiusi: no common name found, scientific name used
+- Elipsocus moebiusi: no Bengali name
+- Elipsocus moebiusi: no Japanese name
+- Cuneopalpus cyanops: no Bengali name
+- Cuneopalpus cyanops: no Japanese name
+- Propsocus pulchripennis: no common name found, scientific name used
+- Propsocus pulchripennis: no Bengali name
+- Propsocus pulchripennis: no Japanese name
+- Trogium pulsatorium: no common name found, scientific name used
+- Trogium pulsatorium: no Bengali name
+- Trogium pulsatorium: no Japanese name
+- Cerobasis guestfalica: no common name found, scientific name used
+- Cerobasis guestfalica: no Bengali name
+- Cerobasis guestfalica: no Japanese name
+- Cerobasis annulata: no common name found, scientific name used
+- Cerobasis annulata: no Bengali name
+- Cerobasis annulata: no Japanese name
+- Lepinotus patruelis: no common name found, scientific name used
+- Lepinotus patruelis: no Bengali name
+- Lepinotus patruelis: no Japanese name
+- Lepinotus reticulatus: no Bengali name
+- Lepinotus reticulatus: no Japanese name
+- Lepinotus inquilinus: no common name found, scientific name used
+- Lepinotus inquilinus: no Bengali name
+- Lepinotus inquilinus: no Japanese name
+- Polypsocus corruptus: no common name found, scientific name used
+- Polypsocus corruptus: no Bengali name
+- Polypsocus corruptus: no Japanese name
+- Graphopsocus cruciatus: no common name found, scientific name used
+- Graphopsocus cruciatus: no Bengali name
+- Graphopsocus cruciatus: no Japanese name
+- Stenocaecilius casarum: no common name found, scientific name used
+- Stenocaecilius casarum: no Bengali name
+- Stenocaecilius casarum: no Japanese name
+- Maoripsocus africanus: no common name found, scientific name used
+- Maoripsocus africanus: no Bengali name
+- Maoripsocus africanus: no Japanese name
+- Valenzuela flavidus: no common name found, scientific name used
+- Valenzuela flavidus: no Bengali name
+- Valenzuela flavidus: no Japanese name
+- Valenzuela atricornis: no common name found, scientific name used
+- Valenzuela atricornis: no Bengali name
+- Valenzuela atricornis: no Japanese name
+- Valenzuela distinctus: no common name found, scientific name used
+- Valenzuela distinctus: no Bengali name
+- Valenzuela distinctus: no Japanese name
+- Valenzuela burmeisteri: no common name found, scientific name used
+- Valenzuela burmeisteri: no Bengali name
+- Valenzuela burmeisteri: no Japanese name
+- Valenzuela gonostigma: no common name found, scientific name used
+- Valenzuela gonostigma: no Bengali name
+- Valenzuela gonostigma: no Japanese name
+- Psocathropos lachlani: no common name found, scientific name used
+- Psocathropos lachlani: no Bengali name
+- Psocathropos lachlani: no Japanese name
+- Psyllipsocus ramburii: no common name found, scientific name used
+- Psyllipsocus ramburii: no Bengali name
+- Psyllipsocus ramburii: no Japanese name
+- Pseudorypteryx mexicana: no common name found, scientific name used
+- Pseudorypteryx mexicana: no Bengali name
+- Pseudorypteryx mexicana: no Japanese name
+- Dorypteryx domestica: no common name found, scientific name used
+- Dorypteryx domestica: no Bengali name
+- Dorypteryx domestica: no Japanese name
+- Dorypteryx pallida: no common name found, scientific name used
+- Dorypteryx pallida: no Bengali name
+- Dorypteryx pallida: no Japanese name
+- Stimulopalpus japonicus: no common name found, scientific name used
+- Stimulopalpus japonicus: no Bengali name
+- Stimulopalpus japonicus: no Japanese name
+- Pseudocaecilius citricola: no common name found, scientific name used
+- Pseudocaecilius citricola: no Bengali name
+- Pseudocaecilius citricola: no Japanese name
+- Myopsocus eatoni: no common name found, scientific name used
+- Myopsocus eatoni: no Bengali name
+- Myopsocus eatoni: no Japanese name
+- Echmepteryx madagascariensis: no common name found, scientific name used
+- Echmepteryx madagascariensis: no Bengali name
+- Echmepteryx madagascariensis: no Japanese name
+- Echmepteryx hageni: no common name found, scientific name used
+- Echmepteryx hageni: no Bengali name
+- Echmepteryx hageni: no Japanese name
+- Pteroxanium kelloggi: no common name found, scientific name used
+- Pteroxanium kelloggi: no Bengali name
+- Pteroxanium kelloggi: no Japanese name
+- Bittacus stigmaterus: no common name found, scientific name used
+- Bittacus stigmaterus: no Bengali name
+- Bittacus stigmaterus: no Japanese name
+- Bittacus punctiger: no common name found, scientific name used
+- Bittacus punctiger: no Bengali name
+- Bittacus punctiger: no Japanese name
+- Bittacus strigosus: no common name found, scientific name used
+- Bittacus strigosus: no Bengali name
+- Bittacus strigosus: no Japanese name
+- Hylobittacus apicalis: no common name found, scientific name used
+- Hylobittacus apicalis: no Bengali name
+- Hylobittacus apicalis: no Japanese name
+- Apterobittacus apterus: no Bengali name
+- Apterobittacus apterus: no Japanese name
+- Orobittacus obscurus: no common name found, scientific name used
+- Orobittacus obscurus: no Bengali name
+- Orobittacus obscurus: no Japanese name
+- Boreus californicus: no common name found, scientific name used
+- Boreus californicus: no Bengali name
+- Boreus californicus: no Japanese name
+- Boreus insulanus: no common name found, scientific name used
+- Boreus insulanus: no Bengali name
+- Boreus insulanus: no Japanese name
+- Boreus brumalis: no Bengali name
+- Boreus brumalis: no Japanese name
+- Boreus nivoriundus: no Bengali name
+- Boreus nivoriundus: no Japanese name
+- Rallicola extinctus: no common name found, scientific name used
+- Rallicola extinctus: no Bengali name
+- Rallicola extinctus: no Japanese name
+- Rallicola pilgrimi: no common name found, scientific name used
+- Rallicola pilgrimi: no Bengali name
+- Rallicola pilgrimi: no Japanese name
+- Rallicola takahe: no common name found, scientific name used
+- Rallicola takahe: no Bengali name
+- Rallicola takahe: no Japanese name
+- Anatoecus icterodes: no common name found, scientific name used
+- Anatoecus icterodes: no Bengali name
+- Anatoecus icterodes: no Japanese name
+- Anatoecus dentatus: no common name found, scientific name used
+- Anatoecus dentatus: no Bengali name
+- Anatoecus dentatus: no Japanese name
+- Anaticola anseris: no common name found, scientific name used
+- Anaticola anseris: no Bengali name
+- Anaticola anseris: no Japanese name
+- Goniocotes gallinae: no common name found, scientific name used
+- Goniocotes gallinae: no Bengali name
+- Goniocotes gallinae: no Japanese name
+- Goniocotes chrysocephalus: no common name found, scientific name used
+- Goniocotes chrysocephalus: no Bengali name
+- Goniocotes chrysocephalus: no Japanese name
+- Lipeurus caponis: no common name found, scientific name used
+- Lipeurus caponis: no Bengali name
+- Lipeurus caponis: no Japanese name
+- Lipeurus maculosus: no common name found, scientific name used
+- Lipeurus maculosus: no Bengali name
+- Lipeurus maculosus: no Japanese name
+- Lagopoecus docophoroides: no common name found, scientific name used
+- Lagopoecus docophoroides: no Bengali name
+- Lagopoecus docophoroides: no Japanese name
+- Columbicola columbae: no common name found, scientific name used
+- Columbicola columbae: no Bengali name
+- Columbicola columbae: no Japanese name
+- Cuclotogaster heterographus: no common name found, scientific name used
+- Cuclotogaster heterographus: no Bengali name
+- Cuclotogaster heterographus: no Japanese name
+- Lunaceps incoenis: no common name found, scientific name used
+- Lunaceps incoenis: no Bengali name
+- Lunaceps incoenis: no Japanese name
+- Campanulotes bidentatus: no common name found, scientific name used
+- Campanulotes bidentatus: no Bengali name
+- Campanulotes bidentatus: no Japanese name
+- Harrisoniella hopkinsi: no Bengali name
+- Harrisoniella hopkinsi: no Japanese name
+- Oxylipeurus polytrapezius: no common name found, scientific name used
+- Oxylipeurus polytrapezius: no Bengali name
+- Oxylipeurus polytrapezius: no Japanese name
+- Strigiphilus aitkeni: no common name found, scientific name used
+- Strigiphilus aitkeni: no Bengali name
+- Strigiphilus aitkeni: no Japanese name
+- Chelopistes meleagridis: no Bengali name
+- Chelopistes meleagridis: no Japanese name
+- Enderleinellus propinquus: no common name found, scientific name used
+- Enderleinellus propinquus: no Bengali name
+- Enderleinellus propinquus: no Japanese name
+- Enderleinellus urosciuri: no common name found, scientific name used
+- Enderleinellus urosciuri: no Bengali name
+- Enderleinellus urosciuri: no Japanese name
+- Enderleinellus nitzschi: no common name found, scientific name used
+- Enderleinellus nitzschi: no Bengali name
+- Enderleinellus nitzschi: no Japanese name
+- Enderleinellus tamiasis: no common name found, scientific name used
+- Enderleinellus tamiasis: no Bengali name
+- Enderleinellus tamiasis: no Japanese name
+- Enderleinellus brasiliensis: no common name found, scientific name used
+- Enderleinellus brasiliensis: no Bengali name
+- Enderleinellus brasiliensis: no Japanese name
+- Enderleinellus ferrisi: no common name found, scientific name used
+- Enderleinellus ferrisi: no Bengali name
+- Enderleinellus ferrisi: no Japanese name
+- Pterophthirus wernecki: no common name found, scientific name used
+- Pterophthirus wernecki: no Bengali name
+- Pterophthirus wernecki: no Japanese name
+- Pterophthirus splendida: no common name found, scientific name used
+- Pterophthirus splendida: no Bengali name
+- Pterophthirus splendida: no Japanese name
+- Pterophthirus audax: no common name found, scientific name used
+- Pterophthirus audax: no Bengali name
+- Pterophthirus audax: no Japanese name
+- Pterophthirus imitans: no common name found, scientific name used
+- Pterophthirus imitans: no Bengali name
+- Pterophthirus imitans: no Japanese name
+- Schizophthirus sicistae: no common name found, scientific name used
+- Schizophthirus sicistae: no Bengali name
+- Schizophthirus sicistae: no Japanese name
+- Schizophthirus gliris: no common name found, scientific name used
+- Schizophthirus gliris: no Bengali name
+- Schizophthirus gliris: no Japanese name
+- Schizophthirus pleurophaeus: no common name found, scientific name used
+- Schizophthirus pleurophaeus: no Bengali name
+- Schizophthirus pleurophaeus: no Japanese name
+- Schizophthirus dryomydis: no common name found, scientific name used
+- Schizophthirus dryomydis: no Bengali name
+- Schizophthirus dryomydis: no Japanese name
+- Hoplopleura akanezumi: no common name found, scientific name used
+- Hoplopleura akanezumi: no Bengali name
+- Hoplopleura akanezumi: no Japanese name
+- Hoplopleura imparata: no common name found, scientific name used
+- Hoplopleura imparata: no Bengali name
+- Hoplopleura imparata: no Japanese name
+- Hoplopleura fonsecai: no common name found, scientific name used
+- Hoplopleura fonsecai: no Bengali name
+- Hoplopleura fonsecai: no Japanese name
+- Hoplopleura nesoryzomydis: no common name found, scientific name used
+- Hoplopleura nesoryzomydis: no Bengali name
+- Hoplopleura nesoryzomydis: no Japanese name
+- Hoplopleura aitkeni: no common name found, scientific name used
+- Hoplopleura aitkeni: no Bengali name
+- Hoplopleura aitkeni: no Japanese name
+- Hoplopleura affinis: no common name found, scientific name used
+- Hoplopleura affinis: no Bengali name
+- Hoplopleura affinis: no Japanese name
+- Hoplopleura pacifica: no common name found, scientific name used
+- Hoplopleura pacifica: no Bengali name
+- Hoplopleura pacifica: no Japanese name
+- Hoplopleura travassosi: no common name found, scientific name used
+- Hoplopleura travassosi: no Bengali name
+- Hoplopleura travassosi: no Japanese name
+- Hoplopleura acanthopus: no common name found, scientific name used
+- Hoplopleura acanthopus: no Bengali name
+- Hoplopleura acanthopus: no Japanese name
+- Hoplopleura oenomydis: no common name found, scientific name used
+- Hoplopleura oenomydis: no Bengali name
+- Hoplopleura oenomydis: no Japanese name
+- Hoplopleura multilobata: no common name found, scientific name used
+- Hoplopleura multilobata: no Bengali name
+- Hoplopleura multilobata: no Japanese name
+- Hoplopleura quadridentata: no common name found, scientific name used
+- Hoplopleura quadridentata: no Bengali name
+- Hoplopleura quadridentata: no Japanese name
+- Hoplopleura captiosa: no common name found, scientific name used
+- Hoplopleura captiosa: no Bengali name
+- Hoplopleura captiosa: no Japanese name
+- Hoplopleura longula: no common name found, scientific name used
+- Hoplopleura longula: no Bengali name
+- Hoplopleura longula: no Japanese name
+- Hoplopleura angulata: no common name found, scientific name used
+- Hoplopleura angulata: no Bengali name
+- Hoplopleura angulata: no Japanese name
+- Hoplopleura sciuricola: no common name found, scientific name used
+- Hoplopleura sciuricola: no Bengali name
+- Hoplopleura sciuricola: no Japanese name
+- Hoplopleura cricetuli: no common name found, scientific name used
+- Hoplopleura cricetuli: no Bengali name
+- Hoplopleura cricetuli: no Japanese name
+- Hoplopleura edentula: no common name found, scientific name used
+- Hoplopleura edentula: no Bengali name
+- Hoplopleura edentula: no Japanese name
+- Hoplopleura cooki: no common name found, scientific name used
+- Hoplopleura cooki: no Bengali name
+- Hoplopleura cooki: no Japanese name
+- Hoplopleura brasiliensis: no common name found, scientific name used
+- Hoplopleura brasiliensis: no Bengali name
+- Hoplopleura brasiliensis: no Japanese name
+- Ancistroplax taiwanensis: no common name found, scientific name used
+- Ancistroplax taiwanensis: no Bengali name
+- Ancistroplax taiwanensis: no Japanese name
+- Haematomyzus hopkinsi: no common name found, scientific name used
+- Haematomyzus hopkinsi: no Bengali name
+- Haematomyzus hopkinsi: no Japanese name
+- Haematomyzus elephantis: no common name found, scientific name used
+- Haematomyzus elephantis: no Bengali name
+- Haematomyzus elephantis: no Japanese name
+- Haematomyzus porci: no common name found, scientific name used
+- Haematomyzus porci: no Bengali name
+- Haematomyzus porci: no Japanese name
+- Pthirus gorillae: no common name found, scientific name used
+- Pthirus gorillae: no Bengali name
+- Pthirus gorillae: no Japanese name
+- Pedicinus albidus: no common name found, scientific name used
+- Pedicinus albidus: no Bengali name
+- Pedicinus albidus: no Japanese name
+- Pedicinus eurygaster: no common name found, scientific name used
+- Pedicinus eurygaster: no Bengali name
+- Pedicinus eurygaster: no Japanese name
+- Haematopinus apri: no common name found, scientific name used
+- Haematopinus apri: no Bengali name
+- Haematopinus apri: no Japanese name
+- Haematopinus suis: no common name found, scientific name used
+- Haematopinus suis: no Bengali name
+- Haematopinus suis: no Japanese name
+- Haematopinus asini: no common name found, scientific name used
+- Haematopinus asini: no Bengali name
+- Haematopinus asini: no Japanese name
+- Haematopinus eurysternus: no common name found, scientific name used
+- Haematopinus eurysternus: no Bengali name
+- Haematopinus eurysternus: no Japanese name
+- Haematopinus quadripertusus: no common name found, scientific name used
+- Haematopinus quadripertusus: no Bengali name
+- Haematopinus quadripertusus: no Japanese name
+- Haematopinus oliveri: no Bengali name
+- Haematopinus oliveri: no Japanese name
+- Haematopinus tuberculatus: no common name found, scientific name used
+- Haematopinus tuberculatus: no Bengali name
+- Haematopinus tuberculatus: no Japanese name
+- Echinophthirius horridus: no common name found, scientific name used
+- Echinophthirius horridus: no Bengali name
+- Echinophthirius horridus: no Japanese name
+- Ctenophthirus cercomydis: no common name found, scientific name used
+- Ctenophthirus cercomydis: no Bengali name
+- Ctenophthirus cercomydis: no Japanese name
+- Polyplax alaskensis: no common name found, scientific name used
+- Polyplax alaskensis: no Bengali name
+- Polyplax alaskensis: no Japanese name
+- Polyplax spinulosa: no common name found, scientific name used
+- Polyplax spinulosa: no Bengali name
+- Polyplax spinulosa: no Japanese name
+- Polyplax borealis: no common name found, scientific name used
+- Polyplax borealis: no Bengali name
+- Polyplax borealis: no Japanese name
+- Polyplax hannswrangeli: no common name found, scientific name used
+- Polyplax hannswrangeli: no Bengali name
+- Polyplax hannswrangeli: no Japanese name
+- Polyplax spinigera: no common name found, scientific name used
+- Polyplax spinigera: no Bengali name
+- Polyplax spinigera: no Japanese name
+- Polyplax asiatica: no common name found, scientific name used
+- Polyplax asiatica: no Bengali name
+- Polyplax asiatica: no Japanese name
+- Polyplax reclinata: no common name found, scientific name used
+- Polyplax reclinata: no Bengali name
+- Polyplax reclinata: no Japanese name
+- Polyplax serrata: no common name found, scientific name used
+- Polyplax serrata: no Bengali name
+- Polyplax serrata: no Japanese name
+- Polyplax bureschi: no common name found, scientific name used
+- Polyplax bureschi: no Bengali name
+- Polyplax bureschi: no Japanese name
+- Polyplax gracilis: no common name found, scientific name used
+- Polyplax gracilis: no Bengali name
+- Polyplax gracilis: no Japanese name
+- Haemodipsus setoni: no common name found, scientific name used
+- Haemodipsus setoni: no Bengali name
+- Haemodipsus setoni: no Japanese name
+- Haemodipsus lyriocephalus: no common name found, scientific name used
+- Haemodipsus lyriocephalus: no Bengali name
+- Haemodipsus lyriocephalus: no Japanese name
+- Haemodipsus ventricosus: no common name found, scientific name used
+- Haemodipsus ventricosus: no Bengali name
+- Haemodipsus ventricosus: no Japanese name
+- Haemodipsus leporis: no common name found, scientific name used
+- Haemodipsus leporis: no Bengali name
+- Haemodipsus leporis: no Japanese name
+- Neohaematopinus elbeli: no common name found, scientific name used
+- Neohaematopinus elbeli: no Bengali name
+- Neohaematopinus elbeli: no Japanese name
+- Neohaematopinus petauristae: no common name found, scientific name used
+- Neohaematopinus petauristae: no Bengali name
+- Neohaematopinus petauristae: no Japanese name
+- Neohaematopinus callosciuri: no common name found, scientific name used
+- Neohaematopinus callosciuri: no Bengali name
+- Neohaematopinus callosciuri: no Japanese name
+- Neohaematopinus sciuri: no common name found, scientific name used
+- Neohaematopinus sciuri: no Bengali name
+- Neohaematopinus sciuri: no Japanese name
+- Neohaematopinus sciuropteri: no common name found, scientific name used
+- Neohaematopinus sciuropteri: no Bengali name
+- Neohaematopinus sciuropteri: no Japanese name
+- Linognathoides laeviusculus: no common name found, scientific name used
+- Linognathoides laeviusculus: no Bengali name
+- Linognathoides laeviusculus: no Japanese name
+- Felicola subrostratus: no Bengali name
+- Felicola subrostratus: no Japanese name
+- Werneckiella ocellata: no common name found, scientific name used
+- Werneckiella ocellata: no Bengali name
+- Werneckiella ocellata: no Japanese name
+- Werneckiella equi: no common name found, scientific name used
+- Werneckiella equi: no Bengali name
+- Werneckiella equi: no Japanese name
+- Trichodectes canis: no Bengali name
+- Trichodectes canis: no Japanese name
+- Bovicola ovis: no common name found, scientific name used
+- Bovicola ovis: no Bengali name
+- Bovicola ovis: no Japanese name
+- Bovicola caprae: no common name found, scientific name used
+- Bovicola caprae: no Bengali name
+- Bovicola caprae: no Japanese name
+- Bovicola longicornis: no common name found, scientific name used
+- Bovicola longicornis: no Bengali name
+- Bovicola longicornis: no Japanese name
+- Bovicola bovis: no common name found, scientific name used
+- Bovicola bovis: no Bengali name
+- Bovicola bovis: no Japanese name
+- Bovicola limbatus: no common name found, scientific name used
+- Bovicola limbatus: no Bengali name
+- Bovicola limbatus: no Japanese name
+- Gliricola porcelli: no common name found, scientific name used
+- Gliricola porcelli: no Bengali name
+- Gliricola porcelli: no Japanese name
+- Gyropus ovalis: no common name found, scientific name used
+- Gyropus ovalis: no Bengali name
+- Gyropus ovalis: no Japanese name
+- Colpocephalum turbinatum: no common name found, scientific name used
+- Colpocephalum turbinatum: no Bengali name
+- Colpocephalum turbinatum: no Japanese name
+- Menopon gallinae: no common name found, scientific name used
+- Menopon gallinae: no Bengali name
+- Menopon gallinae: no Japanese name
+- Trinoton querquedulae: no common name found, scientific name used
+- Trinoton querquedulae: no Bengali name
+- Trinoton querquedulae: no Japanese name
+- Ciconiphilus pectiniventris: no common name found, scientific name used
+- Ciconiphilus pectiniventris: no Bengali name
+- Ciconiphilus pectiniventris: no Japanese name
+- Ciconiphilus decimfasciatus: no common name found, scientific name used
+- Ciconiphilus decimfasciatus: no Bengali name
+- Ciconiphilus decimfasciatus: no Japanese name
+- Holomenopon leucoxanthum: no common name found, scientific name used
+- Holomenopon leucoxanthum: no Bengali name
+- Holomenopon leucoxanthum: no Japanese name
+- Menacanthus stramineus: no Bengali name
+- Menacanthus stramineus: no Japanese name
+- Menacanthus eurysternus: no common name found, scientific name used
+- Menacanthus eurysternus: no Bengali name
+- Menacanthus eurysternus: no Japanese name
+- Linognathus setosus: no common name found, scientific name used
+- Linognathus setosus: no Bengali name
+- Linognathus setosus: no Japanese name
+- Linognathus cervicaprae: no common name found, scientific name used
+- Linognathus cervicaprae: no Bengali name
+- Linognathus cervicaprae: no Japanese name
+- Linognathus pedalis: no common name found, scientific name used
+- Linognathus pedalis: no Bengali name
+- Linognathus pedalis: no Japanese name
+- Linognathus vituli: no common name found, scientific name used
+- Linognathus vituli: no Bengali name
+- Linognathus vituli: no Japanese name
+- Linognathus taeniotrichus: no common name found, scientific name used
+- Linognathus taeniotrichus: no Bengali name
+- Linognathus taeniotrichus: no Japanese name
+- Linognathus stenopsis: no common name found, scientific name used
+- Linognathus stenopsis: no Bengali name
+- Linognathus stenopsis: no Japanese name
+- Linognathus ovillus: no common name found, scientific name used
+- Linognathus ovillus: no Bengali name
+- Linognathus ovillus: no Japanese name
+- Linognathus pithodes: no common name found, scientific name used
+- Linognathus pithodes: no Bengali name
+- Linognathus pithodes: no Japanese name
+- Linognathus africanus: no common name found, scientific name used
+- Linognathus africanus: no Bengali name
+- Linognathus africanus: no Japanese name
+- Linognathus petasmatus: no common name found, scientific name used
+- Linognathus petasmatus: no Bengali name
+- Linognathus petasmatus: no Japanese name
+- Solenopotes burmeisteri: no common name found, scientific name used
+- Solenopotes burmeisteri: no Bengali name
+- Solenopotes burmeisteri: no Japanese name
+- Solenopotes capillatus: no common name found, scientific name used
+- Solenopotes capillatus: no Bengali name
+- Solenopotes capillatus: no Japanese name
+- Solenopotes muntiacus: no common name found, scientific name used
+- Solenopotes muntiacus: no Bengali name
+- Solenopotes muntiacus: no Japanese name
+- Solenopotes capreoli: no common name found, scientific name used
+- Solenopotes capreoli: no Bengali name
+- Solenopotes capreoli: no Japanese name
+- Laemobothrion tinnunculi: no common name found, scientific name used
+- Laemobothrion tinnunculi: no Bengali name
+- Laemobothrion tinnunculi: no Japanese name
+- Sandalus niger: no Bengali name
+- Sandalus niger: no Japanese name
+- Sandalus petrophya: no common name found, scientific name used
+- Sandalus petrophya: no Bengali name
+- Sandalus petrophya: no Japanese name
+- Limnichus sericeus: no common name found, scientific name used
+- Limnichus sericeus: no Bengali name
+- Limnichus sericeus: no Japanese name
+- Limnichus lewisi: no common name found, scientific name used
+- Limnichus lewisi: no Bengali name
+- Limnichus lewisi: no Japanese name
+- Cephalobyrrhus latus: no common name found, scientific name used
+- Cephalobyrrhus latus: no Bengali name
+- Cephalobyrrhus latus: no Japanese name
+- Laevidentalium coruscum: no common name found, scientific name used
+- Laevidentalium coruscum: no Bengali name
+- Laevidentalium coruscum: no Japanese name
+- Fissidentalium vicdani: no common name found, scientific name used
+- Fissidentalium vicdani: no Bengali name
+- Fissidentalium vicdani: no Japanese name
+- Fissidentalium profundorum: no common name found, scientific name used
+- Fissidentalium profundorum: no Bengali name
+- Fissidentalium profundorum: no Japanese name
+- Fissidentalium yokoyamai: no common name found, scientific name used
+- Fissidentalium yokoyamai: no Bengali name
+- Fissidentalium yokoyamai: no Japanese name
+- Fissidentalium candidum: no common name found, scientific name used
+- Fissidentalium candidum: no Bengali name
+- Fissidentalium candidum: no Japanese name
+- Fissidentalium horikoshii: no common name found, scientific name used
+- Fissidentalium horikoshii: no Bengali name
+- Fissidentalium horikoshii: no Japanese name
+- Fissidentalium kawamurai: no common name found, scientific name used
+- Fissidentalium kawamurai: no Bengali name
+- Fissidentalium kawamurai: no Japanese name
+- Fissidentalium megathyris: no common name found, scientific name used
+- Fissidentalium megathyris: no Bengali name
+- Fissidentalium megathyris: no Japanese name
+- Paradentalium americanum: no common name found, scientific name used
+- Paradentalium americanum: no Bengali name
+- Paradentalium americanum: no Japanese name
+- Compressidentalium hungerfordi: no common name found, scientific name used
+- Compressidentalium hungerfordi: no Bengali name
+- Compressidentalium hungerfordi: no Japanese name
+- Dentalium octangulatum: no common name found, scientific name used
+- Dentalium octangulatum: no Bengali name
+- Dentalium octangulatum: no Japanese name
+- Dentalium buccinulum: no common name found, scientific name used
+- Dentalium buccinulum: no Bengali name
+- Dentalium buccinulum: no Japanese name
+- Dentalium laqueatum: no common name found, scientific name used
+- Dentalium laqueatum: no Bengali name
+- Dentalium laqueatum: no Japanese name
+- Dentalium vallicolens: no common name found, scientific name used
+- Dentalium vallicolens: no Bengali name
+- Dentalium vallicolens: no Japanese name
+- Dentalium robustum: no common name found, scientific name used
+- Dentalium robustum: no Bengali name
+- Dentalium robustum: no Japanese name
+- Dentalium neohexagonum: no common name found, scientific name used
+- Dentalium neohexagonum: no Bengali name
+- Dentalium neohexagonum: no Japanese name
+- Dentalium aprinum: no common name found, scientific name used
+- Dentalium aprinum: no Bengali name
+- Dentalium aprinum: no Japanese name
+- Dentalium regulare: no common name found, scientific name used
+- Dentalium regulare: no Bengali name
+- Dentalium regulare: no Japanese name
+- Dentalium agassizi: no common name found, scientific name used
+- Dentalium agassizi: no Bengali name
+- Dentalium agassizi: no Japanese name
+- Dentalium elephantinum: no common name found, scientific name used
+- Dentalium elephantinum: no Bengali name
+- Dentalium elephantinum: no Japanese name
+- Graptacme takakoae: no common name found, scientific name used
+- Graptacme takakoae: no Bengali name
+- Graptacme takakoae: no Japanese name
+- Graptacme calamus: no common name found, scientific name used
+- Graptacme calamus: no Bengali name
+- Graptacme calamus: no Japanese name
+- Graptacme inversa: no common name found, scientific name used
+- Graptacme inversa: no Bengali name
+- Graptacme inversa: no Japanese name
+- Graptacme perlonga: no common name found, scientific name used
+- Graptacme perlonga: no Bengali name
+- Graptacme perlonga: no Japanese name
+- Graptacme semistriata: no common name found, scientific name used
+- Graptacme semistriata: no Bengali name
+- Graptacme semistriata: no Japanese name
+- Graptacme africana: no common name found, scientific name used
+- Graptacme africana: no Bengali name
+- Graptacme africana: no Japanese name
+- Pictodentalium vernedei: no common name found, scientific name used
+- Pictodentalium vernedei: no Bengali name
+- Pictodentalium vernedei: no Japanese name
+- Pictodentalium formosum: no common name found, scientific name used
+- Pictodentalium formosum: no Bengali name
+- Pictodentalium formosum: no Japanese name
+- Striodentalium rhabdotum: no common name found, scientific name used
+- Striodentalium rhabdotum: no Bengali name
+- Striodentalium rhabdotum: no Japanese name
+- Antalis occidentalis: no common name found, scientific name used
+- Antalis occidentalis: no Bengali name
+- Antalis occidentalis: no Japanese name
+- Antalis longitrorsa: no common name found, scientific name used
+- Antalis longitrorsa: no Bengali name
+- Antalis longitrorsa: no Japanese name
+- Antalis cerata: no common name found, scientific name used
+- Antalis cerata: no Bengali name
+- Antalis cerata: no Japanese name
+- Antalis dentalis: no common name found, scientific name used
+- Antalis dentalis: no Bengali name
+- Antalis dentalis: no Japanese name
+- Antalis pilsbryi: no common name found, scientific name used
+- Antalis pilsbryi: no Bengali name
+- Antalis pilsbryi: no Japanese name
+- Antalis weinkauffi: no common name found, scientific name used
+- Antalis weinkauffi: no Bengali name
+- Antalis weinkauffi: no Japanese name
+- Antalis berryi: no common name found, scientific name used
+- Antalis berryi: no Bengali name
+- Antalis berryi: no Japanese name
+- Antalis pretiosa: no common name found, scientific name used
+- Antalis pretiosa: no Bengali name
+- Antalis pretiosa: no Japanese name
+- Antalis senegalensis: no common name found, scientific name used
+- Antalis senegalensis: no Bengali name
+- Antalis senegalensis: no Japanese name
+- Antalis taphria: no common name found, scientific name used
+- Antalis taphria: no Bengali name
+- Antalis taphria: no Japanese name
+- Antalis entalis: no common name found, scientific name used
+- Antalis entalis: no Bengali name
+- Antalis entalis: no Japanese name
+- Antalis inaequicostata: no common name found, scientific name used
+- Antalis inaequicostata: no Bengali name
+- Antalis inaequicostata: no Japanese name
+- Antalis tibana: no common name found, scientific name used
+- Antalis tibana: no Bengali name
+- Antalis tibana: no Japanese name
+- Rhabdus rectius: no common name found, scientific name used
+- Rhabdus rectius: no Bengali name
+- Rhabdus rectius: no Japanese name
+- Episiphon candelatum: no common name found, scientific name used
+- Episiphon candelatum: no Bengali name
+- Episiphon candelatum: no Japanese name
+- Episiphon sowerbyi: no common name found, scientific name used
+- Episiphon sowerbyi: no Bengali name
+- Episiphon sowerbyi: no Japanese name
+- Episiphon didymum: no common name found, scientific name used
+- Episiphon didymum: no Bengali name
+- Episiphon didymum: no Japanese name
+- Episiphon sominium: no common name found, scientific name used
+- Episiphon sominium: no Bengali name
+- Episiphon sominium: no Japanese name
+- Episiphon subtorquatum: no common name found, scientific name used
+- Episiphon subtorquatum: no Bengali name
+- Episiphon subtorquatum: no Japanese name
+- Calliodentalium callipeplum: no common name found, scientific name used
+- Calliodentalium callipeplum: no Bengali name
+- Calliodentalium callipeplum: no Japanese name
+- Calliodentalium crocinum: no common name found, scientific name used
+- Calliodentalium crocinum: no Bengali name
+- Calliodentalium crocinum: no Japanese name
+- Omniglypta cerina: no Bengali name
+- Omniglypta cerina: no Japanese name
+- Fustiaria stenoschiza: no common name found, scientific name used
+- Fustiaria stenoschiza: no Bengali name
+- Fustiaria stenoschiza: no Japanese name
+- Fustiaria nipponica: no common name found, scientific name used
+- Fustiaria nipponica: no Bengali name
+- Fustiaria nipponica: no Japanese name
+- Megaentalina mediocarinata: no common name found, scientific name used
+- Megaentalina mediocarinata: no Bengali name
+- Megaentalina mediocarinata: no Japanese name
+- Megaentalina cornucopiae: no common name found, scientific name used
+- Megaentalina cornucopiae: no Bengali name
+- Megaentalina cornucopiae: no Japanese name
+- Dischides belcheri: no common name found, scientific name used
+- Dischides belcheri: no Bengali name
+- Dischides belcheri: no Japanese name
+- Sagamicadulus elegantissimus: no common name found, scientific name used
+- Sagamicadulus elegantissimus: no Bengali name
+- Sagamicadulus elegantissimus: no Japanese name
+- Gadila clavata: no common name found, scientific name used
+- Gadila clavata: no Bengali name
+- Gadila clavata: no Japanese name
+- Gadila mayori: no common name found, scientific name used
+- Gadila mayori: no Bengali name
+- Gadila mayori: no Japanese name
+- Gadila anguidens: no common name found, scientific name used
+- Gadila anguidens: no Bengali name
+- Gadila anguidens: no Japanese name
+- Gadila opportuna: no common name found, scientific name used
+- Gadila opportuna: no Bengali name
+- Gadila opportuna: no Japanese name
+- Gadila virginalis: no common name found, scientific name used
+- Gadila virginalis: no Bengali name
+- Gadila virginalis: no Japanese name
+- Gadila aberrans: no common name found, scientific name used
+- Gadila aberrans: no Bengali name
+- Gadila aberrans: no Japanese name
+- Gadila sagamiensis: no common name found, scientific name used
+- Gadila sagamiensis: no Bengali name
+- Gadila sagamiensis: no Japanese name
+- Gadila agassizii: no common name found, scientific name used
+- Gadila agassizii: no Bengali name
+- Gadila agassizii: no Japanese name
+- Gadila tolmiei: no common name found, scientific name used
+- Gadila tolmiei: no Bengali name
+- Gadila tolmiei: no Japanese name
+- Gadila desaintlaurentae: no common name found, scientific name used
+- Gadila desaintlaurentae: no Bengali name
+- Gadila desaintlaurentae: no Japanese name
+- Siphonodentalium isaotakii: no common name found, scientific name used
+- Siphonodentalium isaotakii: no Bengali name
+- Siphonodentalium isaotakii: no Japanese name
+- Siphonodentalium magnum: no common name found, scientific name used
+- Siphonodentalium magnum: no Bengali name
+- Siphonodentalium magnum: no Japanese name
+- Siphonodentalium lobatum: no common name found, scientific name used
+- Siphonodentalium lobatum: no Bengali name
+- Siphonodentalium lobatum: no Japanese name
+- Siphonodentalium okudai: no common name found, scientific name used
+- Siphonodentalium okudai: no Bengali name
+- Siphonodentalium okudai: no Japanese name
+- Siphonodentalium japonicum: no common name found, scientific name used
+- Siphonodentalium japonicum: no Bengali name
+- Siphonodentalium japonicum: no Japanese name
+- Cadulus parvus: no common name found, scientific name used
+- Cadulus parvus: no Bengali name
+- Cadulus parvus: no Japanese name
+- Cadulus transitorius: no common name found, scientific name used
+- Cadulus transitorius: no Bengali name
+- Cadulus transitorius: no Japanese name
+- Cadulus californicus: no common name found, scientific name used
+- Cadulus californicus: no Bengali name
+- Cadulus californicus: no Japanese name
+- Polyschides rushii: no common name found, scientific name used
+- Polyschides rushii: no Bengali name
+- Polyschides rushii: no Japanese name
+- Polyschides quadrifissatus: no common name found, scientific name used
+- Polyschides quadrifissatus: no Bengali name
+- Polyschides quadrifissatus: no Japanese name
+- Polyschides spectabilis: no common name found, scientific name used
+- Polyschides spectabilis: no Bengali name
+- Polyschides spectabilis: no Japanese name
+- Polyschides fausta: no common name found, scientific name used
+- Polyschides fausta: no Bengali name
+- Polyschides fausta: no Japanese name
+- Polyschides grandis: no common name found, scientific name used
+- Polyschides grandis: no Bengali name
+- Polyschides grandis: no Japanese name
+- Polyschides sakuraii: no common name found, scientific name used
+- Polyschides sakuraii: no Bengali name
+- Polyschides sakuraii: no Japanese name
+- Polyschides carolinensis: no common name found, scientific name used
+- Polyschides carolinensis: no Bengali name
+- Polyschides carolinensis: no Japanese name
+- Polyschides tetrodon: no common name found, scientific name used
+- Polyschides tetrodon: no Bengali name
+- Polyschides tetrodon: no Japanese name
+- Polyschides miamiensis: no common name found, scientific name used
+- Polyschides miamiensis: no Bengali name
+- Polyschides miamiensis: no Japanese name
+- Pulsellum hige: no common name found, scientific name used
+- Pulsellum hige: no Bengali name
+- Pulsellum hige: no Japanese name
+- Pulsellum occidentale: no common name found, scientific name used
+- Pulsellum occidentale: no Bengali name
+- Pulsellum occidentale: no Japanese name
+- Pulsellum salishorum: no common name found, scientific name used
+- Pulsellum salishorum: no Bengali name
+- Pulsellum salishorum: no Japanese name
+- Rhomboxiphus tricarinatus: no common name found, scientific name used
+- Rhomboxiphus tricarinatus: no Bengali name
+- Rhomboxiphus tricarinatus: no Japanese name
+- Entalinopsis habutae: no common name found, scientific name used
+- Entalinopsis habutae: no Bengali name
+- Entalinopsis habutae: no Japanese name
+- Entalinopsis intercostata: no common name found, scientific name used
+- Entalinopsis intercostata: no Bengali name
+- Entalinopsis intercostata: no Japanese name
+- Bathoxiphus soyomaruae: no common name found, scientific name used
+- Bathoxiphus soyomaruae: no Bengali name
+- Bathoxiphus soyomaruae: no Japanese name
+- Entalina platamodes: no common name found, scientific name used
+- Entalina platamodes: no Bengali name
+- Entalina platamodes: no Japanese name
+- Entalina mirifica: no common name found, scientific name used
+- Entalina mirifica: no Bengali name
+- Entalina mirifica: no Japanese name
+- Pteria colymbus: no common name found, scientific name used
+- Pteria colymbus: no Bengali name
+- Pteria colymbus: no Japanese name
+- Pteria hirundo: no common name found, scientific name used
+- Pteria hirundo: no Bengali name
+- Pteria hirundo: no Japanese name
+- Pteria sterna: no common name found, scientific name used
+- Pteria sterna: no Bengali name
+- Pteria sterna: no Japanese name
+- Pinctada imbricata: no common name found, scientific name used
+- Pinctada imbricata: no Bengali name
+- Pinctada imbricata: no Japanese name
+- Malleus candeanus: no common name found, scientific name used
+- Malleus candeanus: no Bengali name
+- Malleus candeanus: no Japanese name
+- Atrina seminuda: no common name found, scientific name used
+- Atrina seminuda: no Bengali name
+- Atrina seminuda: no Japanese name
+- Atrina serrata: no common name found, scientific name used
+- Atrina serrata: no Bengali name
+- Atrina serrata: no Japanese name
+- Atrina oldroydii: no common name found, scientific name used
+- Atrina oldroydii: no Bengali name
+- Atrina oldroydii: no Japanese name
+- Atrina fragilis: no Bengali name
+- Atrina fragilis: no Japanese name
+- Atrina texta: no common name found, scientific name used
+- Atrina texta: no Bengali name
+- Atrina texta: no Japanese name
+- Atrina rigida: no common name found, scientific name used
+- Atrina rigida: no Bengali name
+- Atrina rigida: no Japanese name
+- Pinna muricata: no common name found, scientific name used
+- Pinna muricata: no Bengali name
+- Pinna muricata: no Japanese name
+- Pinna carnea: no common name found, scientific name used
+- Pinna carnea: no Bengali name
+- Pinna carnea: no Japanese name
+- Pinna rudis: no Bengali name
+- Pinna rudis: no Japanese name
+- Streptopinna saccata: no Bengali name
+- Streptopinna saccata: no Japanese name
+- Isognomon radiatus: no common name found, scientific name used
+- Isognomon radiatus: no Bengali name
+- Isognomon radiatus: no Japanese name
+- Isognomon bicolor: no common name found, scientific name used
+- Isognomon bicolor: no Bengali name
+- Isognomon bicolor: no Japanese name
+- Isognomon recognitus: no common name found, scientific name used
+- Isognomon recognitus: no Bengali name
+- Isognomon recognitus: no Japanese name
+- Isognomon alatus: no common name found, scientific name used
+- Isognomon alatus: no Bengali name
+- Isognomon alatus: no Japanese name
+- Isognomon janus: no common name found, scientific name used
+- Isognomon janus: no Bengali name
+- Isognomon janus: no Japanese name
+- Ledella fiascona: no common name found, scientific name used
+- Ledella fiascona: no Bengali name
+- Ledella fiascona: no Japanese name
+- Ledella sublevis: no common name found, scientific name used
+- Ledella sublevis: no Bengali name
+- Ledella sublevis: no Japanese name
+- Nuculana minuta: no common name found, scientific name used
+- Nuculana minuta: no Bengali name
+- Nuculana minuta: no Japanese name
+- Nuculana radiata: no common name found, scientific name used
+- Nuculana radiata: no Bengali name
+- Nuculana radiata: no Japanese name
+- Nuculana callimene: no common name found, scientific name used
+- Nuculana callimene: no Bengali name
+- Nuculana callimene: no Japanese name
+- Nuculana hamata: no common name found, scientific name used
+- Nuculana hamata: no Bengali name
+- Nuculana hamata: no Japanese name
+- Nuculana navisa: no common name found, scientific name used
+- Nuculana navisa: no Bengali name
+- Nuculana navisa: no Japanese name
+- Nuculana pernula: no common name found, scientific name used
+- Nuculana pernula: no Bengali name
+- Nuculana pernula: no Japanese name
+- Nuculana acuta: no common name found, scientific name used
+- Nuculana acuta: no Bengali name
+- Nuculana acuta: no Japanese name
+- Nuculana tenuisulcata: no common name found, scientific name used
+- Nuculana tenuisulcata: no Bengali name
+- Nuculana tenuisulcata: no Japanese name
+- Nuculana concentrica: no common name found, scientific name used
+- Nuculana concentrica: no Bengali name
+- Nuculana concentrica: no Japanese name
+- Nuculana leonina: no common name found, scientific name used
+- Nuculana leonina: no Bengali name
+- Nuculana leonina: no Japanese name
+- Neilonela quadrangularis: no common name found, scientific name used
+- Neilonela quadrangularis: no Bengali name
+- Neilonela quadrangularis: no Japanese name
+- Neilonela acinula: no common name found, scientific name used
+- Neilonela acinula: no Bengali name
+- Neilonela acinula: no Japanese name
+- Malletia faba: no common name found, scientific name used
+- Malletia faba: no Bengali name
+- Malletia faba: no Japanese name
+- Yoldia sapotilla: no common name found, scientific name used
+- Yoldia sapotilla: no Bengali name
+- Yoldia sapotilla: no Japanese name
+- Yoldia myalis: no common name found, scientific name used
+- Yoldia myalis: no Bengali name
+- Yoldia myalis: no Japanese name
+- Yoldia limatula: no common name found, scientific name used
+- Yoldia limatula: no Bengali name
+- Yoldia limatula: no Japanese name
+- Yoldia cooperii: no common name found, scientific name used
+- Yoldia cooperii: no Bengali name
+- Yoldia cooperii: no Japanese name
+- Megayoldia thraciaeformis: no Bengali name
+- Megayoldia thraciaeformis: no Japanese name
+- Megayoldia montereyensis: no common name found, scientific name used
+- Megayoldia montereyensis: no Bengali name
+- Megayoldia montereyensis: no Japanese name
+- Megayoldia martyria: no common name found, scientific name used
+- Megayoldia martyria: no Bengali name
+- Megayoldia martyria: no Japanese name
+- Yoldiella inconspicua: no common name found, scientific name used
+- Yoldiella inconspicua: no Bengali name
+- Yoldiella inconspicua: no Japanese name
+- Yoldiella nana: no common name found, scientific name used
+- Yoldiella nana: no Bengali name
+- Yoldiella nana: no Japanese name
+- Yoldiella dissimilis: no common name found, scientific name used
+- Yoldiella dissimilis: no Bengali name
+- Yoldiella dissimilis: no Japanese name
+- Yoldiella intermedia: no common name found, scientific name used
+- Yoldiella intermedia: no Bengali name
+- Yoldiella intermedia: no Japanese name
+- Yoldiella lucida: no common name found, scientific name used
+- Yoldiella lucida: no Bengali name
+- Yoldiella lucida: no Japanese name
+- Yoldiella lenticula: no common name found, scientific name used
+- Yoldiella lenticula: no Bengali name
+- Yoldiella lenticula: no Japanese name
+- Yoldiella frigida: no Bengali name
+- Yoldiella frigida: no Japanese name
+- Yoldiella philippiana: no common name found, scientific name used
+- Yoldiella philippiana: no Bengali name
+- Yoldiella philippiana: no Japanese name
+- Yoldiella orcia: no common name found, scientific name used
+- Yoldiella orcia: no Bengali name
+- Yoldiella orcia: no Japanese name
+- Nucula proxima: no common name found, scientific name used
+- Nucula proxima: no Bengali name
+- Nucula proxima: no Japanese name
+- Nucula carlottensis: no common name found, scientific name used
+- Nucula carlottensis: no Bengali name
+- Nucula carlottensis: no Japanese name
+- Nucula aegeensis: no common name found, scientific name used
+- Nucula aegeensis: no Bengali name
+- Nucula aegeensis: no Japanese name
+- Nucula atacellana: no common name found, scientific name used
+- Nucula atacellana: no Bengali name
+- Nucula atacellana: no Japanese name
+- Nucula nitidosa: no common name found, scientific name used
+- Nucula nitidosa: no Bengali name
+- Nucula nitidosa: no Japanese name
+- Nucula exigua: no common name found, scientific name used
+- Nucula exigua: no Bengali name
+- Nucula exigua: no Japanese name
+- Nucula calcicola: no common name found, scientific name used
+- Nucula calcicola: no Bengali name
+- Nucula calcicola: no Japanese name
+- Nucula nucleus: no common name found, scientific name used
+- Nucula nucleus: no Bengali name
+- Nucula nucleus: no Japanese name
+- Nucula sulcata: no common name found, scientific name used
+- Nucula sulcata: no Bengali name
+- Nucula sulcata: no Japanese name
+- Nucula hanleyi: no common name found, scientific name used
+- Nucula hanleyi: no Bengali name
+- Nucula hanleyi: no Japanese name
+- Ennucula tenuis: no common name found, scientific name used
+- Ennucula tenuis: no Bengali name
+- Ennucula tenuis: no Japanese name
+- Ennucula linki: no common name found, scientific name used
+- Ennucula linki: no Bengali name
+- Ennucula linki: no Japanese name
+- Pronucula tenuis: no common name found, scientific name used
+- Pronucula tenuis: no Bengali name
+- Pronucula tenuis: no Japanese name
+- Acila castrensis: no common name found, scientific name used
+- Acila castrensis: no Bengali name
+- Acila castrensis: no Japanese name
+- Lioberus castanea: no common name found, scientific name used
+- Lioberus castanea: no Bengali name
+- Lioberus castanea: no Japanese name
+- Vilasina vernicosa: no common name found, scientific name used
+- Vilasina vernicosa: no Bengali name
+- Vilasina vernicosa: no Japanese name
+- Vilasina seminuda: no common name found, scientific name used
+- Vilasina seminuda: no Bengali name
+- Vilasina seminuda: no Japanese name
+- Modiolus rectus: no common name found, scientific name used
+- Modiolus rectus: no Bengali name
+- Modiolus rectus: no Japanese name
+- Modiolus americanus: no common name found, scientific name used
+- Modiolus americanus: no Bengali name
+- Modiolus americanus: no Japanese name
+- Modiolus barbatus: no common name found, scientific name used
+- Modiolus barbatus: no Bengali name
+- Modiolus barbatus: no Japanese name
+- Modiolus carpenteri: no common name found, scientific name used
+- Modiolus carpenteri: no Bengali name
+- Modiolus carpenteri: no Japanese name
+- Modiolus modiolus: no common name found, scientific name used
+- Modiolus modiolus: no Bengali name
+- Modiolus kurilensis: no common name found, scientific name used
+- Modiolus kurilensis: no Bengali name
+- Modiolus kurilensis: no Japanese name
+- Modiolus capax: no common name found, scientific name used
+- Modiolus capax: no Bengali name
+- Modiolus capax: no Japanese name
+- Modiolus eiseni: no common name found, scientific name used
+- Modiolus eiseni: no Bengali name
+- Modiolus eiseni: no Japanese name
+- Modiolus sacculifer: no common name found, scientific name used
+- Modiolus sacculifer: no Bengali name
+- Modiolus sacculifer: no Japanese name
+- Septifer bilocularis: no common name found, scientific name used
+- Septifer bilocularis: no Bengali name
+- Septifer bilocularis: no Japanese name
+- Septifer rudis: no common name found, scientific name used
+- Septifer rudis: no Bengali name
+- Septifer rudis: no Japanese name
+- Mytilus californianus: no Bengali name
+- Mytilus trossulus: no common name found, scientific name used
+- Mytilus trossulus: no Bengali name
+- Mytilus trossulus: no Japanese name
+- Amygdalum pallidulum: no common name found, scientific name used
+- Amygdalum pallidulum: no Bengali name
+- Amygdalum pallidulum: no Japanese name
+- Amygdalum politum: no common name found, scientific name used
+- Amygdalum politum: no Bengali name
+- Amygdalum politum: no Japanese name
+- Amygdalum sagittatum: no common name found, scientific name used
+- Amygdalum sagittatum: no Bengali name
+- Amygdalum sagittatum: no Japanese name
+- Crenella decussata: no common name found, scientific name used
+- Crenella decussata: no Bengali name
+- Crenella decussata: no Japanese name
+- Solamen columbianum: no common name found, scientific name used
+- Solamen columbianum: no Bengali name
+- Solamen columbianum: no Japanese name
+- Solamen megas: no common name found, scientific name used
+- Solamen megas: no Bengali name
+- Solamen megas: no Japanese name
+- Solamen leanum: no common name found, scientific name used
+- Solamen leanum: no Bengali name
+- Solamen leanum: no Japanese name
+- Lithophaga rogersi: no common name found, scientific name used
+- Lithophaga rogersi: no Bengali name
+- Lithophaga rogersi: no Japanese name
+- Lithophaga nigra: no common name found, scientific name used
+- Lithophaga nigra: no Bengali name
+- Lithophaga nigra: no Japanese name
+- Lithophaga antillarum: no common name found, scientific name used
+- Lithophaga antillarum: no Bengali name
+- Lithophaga antillarum: no Japanese name
+- Brachidontes exustus: no common name found, scientific name used
+- Brachidontes exustus: no Bengali name
+- Brachidontes exustus: no Japanese name
+- Brachidontes domingensis: no common name found, scientific name used
+- Brachidontes domingensis: no Bengali name
+- Brachidontes domingensis: no Japanese name
+- Brachidontes modiolus: no common name found, scientific name used
+- Brachidontes modiolus: no Bengali name
+- Brachidontes modiolus: no Japanese name
+- Brachidontes adamsianus: no common name found, scientific name used
+- Brachidontes adamsianus: no Bengali name
+- Brachidontes adamsianus: no Japanese name
+- Ischadium recurvum: no Bengali name
+- Ischadium recurvum: no Japanese name
+- Gregariella coarctata: no common name found, scientific name used
+- Gregariella coarctata: no Bengali name
+- Gregariella coarctata: no Japanese name
+- Gregariella semigranata: no common name found, scientific name used
+- Gregariella semigranata: no Bengali name
+- Gregariella semigranata: no Japanese name
+- Gregariella chenui: no common name found, scientific name used
+- Gregariella chenui: no Bengali name
+- Gregariella chenui: no Japanese name
+- Gregariella petagnae: no Bengali name
+- Gregariella petagnae: no Japanese name
+- Gregariella coralliophaga: no common name found, scientific name used
+- Gregariella coralliophaga: no Bengali name
+- Gregariella coralliophaga: no Japanese name
+- Modiolula phaseolina: no common name found, scientific name used
+- Modiolula phaseolina: no Bengali name
+- Modiolula phaseolina: no Japanese name
+- Geukensia granosissima: no common name found, scientific name used
+- Geukensia granosissima: no Bengali name
+- Geukensia granosissima: no Japanese name
+- Geukensia demissa: no common name found, scientific name used
+- Geukensia demissa: no Bengali name
+- Geukensia demissa: no Japanese name
+- Spathochlamys benedicti: no common name found, scientific name used
+- Spathochlamys benedicti: no Bengali name
+- Spathochlamys benedicti: no Japanese name
+- Spathochlamys vestalis: no common name found, scientific name used
+- Spathochlamys vestalis: no Bengali name
+- Spathochlamys vestalis: no Japanese name
+- Flosmaris grandis: no common name found, scientific name used
+- Flosmaris grandis: no Bengali name
+- Flosmaris grandis: no Japanese name
+- Flosmaris mutsuensis: no common name found, scientific name used
+- Flosmaris mutsuensis: no Bengali name
+- Flosmaris mutsuensis: no Japanese name
+- Isophellia stela: no common name found, scientific name used
+- Isophellia stela: no Bengali name
+- Isophellia stela: no Japanese name
+- Telmatactis panamensis: no common name found, scientific name used
+- Telmatactis panamensis: no Bengali name
+- Telmatactis panamensis: no Japanese name
+- Telmatactis natalensis: no common name found, scientific name used
+- Telmatactis natalensis: no Bengali name
+- Telmatactis natalensis: no Japanese name
+- Telmatactis ternatana: no common name found, scientific name used
+- Telmatactis ternatana: no Bengali name
+- Telmatactis ternatana: no Japanese name
+- Telmatactis decora: no common name found, scientific name used
+- Telmatactis decora: no Bengali name
+- Telmatactis decora: no Japanese name
+- Telmatactis cricoides: no common name found, scientific name used
+- Telmatactis cricoides: no Bengali name
+- Telmatactis cricoides: no Japanese name
+- Aiptasiomorpha texaensis: no common name found, scientific name used
+- Aiptasiomorpha texaensis: no Bengali name
+- Aiptasiomorpha texaensis: no Japanese name
+- Iosactis vagabunda: no Bengali name
+- Iosactis vagabunda: no Japanese name
+- Actinoscyphia saginata: no common name found, scientific name used
+- Actinoscyphia saginata: no Bengali name
+- Actinoscyphia saginata: no Japanese name
+- Synactinernus flavus: no common name found, scientific name used
+- Synactinernus flavus: no Bengali name
+- Synactinernus flavus: no Japanese name
+- Actinernus nobilis: no common name found, scientific name used
+- Actinernus nobilis: no Bengali name
+- Actinernus nobilis: no Japanese name
+- Halcampella maxima: no common name found, scientific name used
+- Halcampella maxima: no Bengali name
+- Halcampella maxima: no Japanese name
+- Halcampoides abyssorum: no common name found, scientific name used
+- Halcampoides abyssorum: no Bengali name
+- Halcampoides abyssorum: no Japanese name
+- Sagartiomorphe carlgreni: no common name found, scientific name used
+- Sagartiomorphe carlgreni: no Bengali name
+- Sagartiomorphe carlgreni: no Japanese name
+- Preactis millardae: no Bengali name
+- Preactis millardae: no Japanese name
+- Scolanthus armatus: no common name found, scientific name used
+- Scolanthus armatus: no Bengali name
+- Scolanthus armatus: no Japanese name
+- Metedwardsia akkeshi: no common name found, scientific name used
+- Metedwardsia akkeshi: no Bengali name
+- Metedwardsia akkeshi: no Japanese name
+- Halcampa duodecimcirrata: no common name found, scientific name used
+- Halcampa duodecimcirrata: no Bengali name
+- Halcampa duodecimcirrata: no Japanese name
+- Scolanthus callimorphus: no common name found, scientific name used
+- Scolanthus callimorphus: no Bengali name
+- Scolanthus callimorphus: no Japanese name
+- Paraedwardsia arenaria: no common name found, scientific name used
+- Paraedwardsia arenaria: no Bengali name
+- Paraedwardsia arenaria: no Japanese name
+- Octineon suecicum: no common name found, scientific name used
+- Octineon suecicum: no Bengali name
+- Octineon suecicum: no Japanese name
+- Boloceroides mcmurrichi: no Bengali name
+- Boloceroides mcmurrichi: no Japanese name
+- Bunodeopsis strumosa: no common name found, scientific name used
+- Bunodeopsis strumosa: no Bengali name
+- Bunodeopsis strumosa: no Japanese name
+- Bunodeopsis medusoides: no common name found, scientific name used
+- Bunodeopsis medusoides: no Bengali name
+- Bunodeopsis medusoides: no Japanese name
+- Bunodeopsis antilliensis: no common name found, scientific name used
+- Bunodeopsis antilliensis: no Bengali name
+- Bunodeopsis antilliensis: no Japanese name
+- Bunodeopsis pelagica: no common name found, scientific name used
+- Bunodeopsis pelagica: no Bengali name
+- Bunodeopsis pelagica: no Japanese name
+- Actinecta olivacea: no common name found, scientific name used
+- Actinecta olivacea: no Bengali name
+- Actinecta olivacea: no Japanese name
+- Limnactinia laevis: no common name found, scientific name used
+- Limnactinia laevis: no Bengali name
+- Limnactinia laevis: no Japanese name
+- Paranthus rapiformis: no common name found, scientific name used
+- Paranthus rapiformis: no Bengali name
+- Paranthus rapiformis: no Japanese name
+- Parasicyonis groenlandica: no common name found, scientific name used
+- Parasicyonis groenlandica: no Bengali name
+- Parasicyonis groenlandica: no Japanese name
+- Sicyonis tuberculata: no common name found, scientific name used
+- Sicyonis tuberculata: no Bengali name
+- Sicyonis tuberculata: no Japanese name
+- Marianactis bythios: no common name found, scientific name used
+- Marianactis bythios: no Bengali name
+- Marianactis bythios: no Japanese name
+- Stomphia didemon: no common name found, scientific name used
+- Stomphia didemon: no Bengali name
+- Stomphia didemon: no Japanese name
+- Stomphia coccinea: no Bengali name
+- Stomphia coccinea: no Japanese name
+- Actinostola groenlandica: no common name found, scientific name used
+- Actinostola groenlandica: no Bengali name
+- Actinostola groenlandica: no Japanese name
+- Actinostola callosa: no common name found, scientific name used
+- Actinostola callosa: no Bengali name
+- Actinostola callosa: no Japanese name
+- Actinostola chilensis: no common name found, scientific name used
+- Actinostola chilensis: no Bengali name
+- Actinostola chilensis: no Japanese name
+- Actinostola carlgreni: no common name found, scientific name used
+- Actinostola carlgreni: no Bengali name
+- Actinostola carlgreni: no Japanese name
+- Anthosactis janmayeni: no common name found, scientific name used
+- Anthosactis janmayeni: no Bengali name
+- Anthosactis janmayeni: no Japanese name
+- Antholoba achates: no common name found, scientific name used
+- Antholoba achates: no Bengali name
+- Antholoba achates: no Japanese name
+- Harenactis attenuata: no common name found, scientific name used
+- Harenactis attenuata: no Bengali name
+- Harenactis attenuata: no Japanese name
+- Anemonactis mazeli: no common name found, scientific name used
+- Anemonactis mazeli: no Bengali name
+- Anemonactis mazeli: no Japanese name
+- Anemonactis clavus: no common name found, scientific name used
+- Anemonactis clavus: no Bengali name
+- Anemonactis clavus: no Japanese name
+- Haloclava producta: no common name found, scientific name used
+- Haloclava producta: no Bengali name
+- Haloclava producta: no Japanese name
+- Peachia hastata: no common name found, scientific name used
+- Peachia hastata: no Bengali name
+- Peachia hastata: no Japanese name
+- Peachia neozealandica: no common name found, scientific name used
+- Peachia neozealandica: no Bengali name
+- Peachia neozealandica: no Japanese name
+- Peachia quinquecapitata: no common name found, scientific name used
+- Peachia quinquecapitata: no Bengali name
+- Peachia quinquecapitata: no Japanese name
+- Metapeachia tropica: no common name found, scientific name used
+- Metapeachia tropica: no Bengali name
+- Metapeachia tropica: no Japanese name
+- Urticinopsis antarctica: no common name found, scientific name used
+- Urticinopsis antarctica: no Bengali name
+- Urticinopsis antarctica: no Japanese name
+- Isotealia antarctica: no common name found, scientific name used
+- Isotealia antarctica: no Bengali name
+- Isotealia antarctica: no Japanese name
+- Bunodosoma caissarum: no common name found, scientific name used
+- Bunodosoma caissarum: no Bengali name
+- Bunodosoma caissarum: no Japanese name
+- Bunodosoma granuliferum: no common name found, scientific name used
+- Bunodosoma granuliferum: no Bengali name
+- Bunodosoma granuliferum: no Japanese name
+- Bunodosoma diadema: no common name found, scientific name used
+- Bunodosoma diadema: no Bengali name
+- Bunodosoma diadema: no Japanese name
+- Isactinia citrina: no common name found, scientific name used
+- Isactinia citrina: no Bengali name
+- Isactinia citrina: no Japanese name
+- Actinia bermudensis: no common name found, scientific name used
+- Actinia bermudensis: no Bengali name
+- Actinia bermudensis: no Japanese name
+- Actinia australiensis: no common name found, scientific name used
+- Actinia australiensis: no Bengali name
+- Actinia australiensis: no Japanese name
+- Actinia fragacea: no Bengali name
+- Actinia fragacea: no Japanese name
+- Actinia prasina: no common name found, scientific name used
+- Actinia prasina: no Bengali name
+- Actinia prasina: no Japanese name
+- Korsaranthus natalensis: no Bengali name
+- Korsaranthus natalensis: no Japanese name
+- Isoaulactinia stelloides: no common name found, scientific name used
+- Isoaulactinia stelloides: no Bengali name
+- Isoaulactinia stelloides: no Japanese name
+- Condylactis aspera: no common name found, scientific name used
+- Condylactis aspera: no Bengali name
+- Condylactis aspera: no Japanese name
+- Parantheopsis cruentata: no common name found, scientific name used
+- Parantheopsis cruentata: no Bengali name
+- Parantheopsis cruentata: no Japanese name
+- Neoparacondylactis haraldoi: no common name found, scientific name used
+- Neoparacondylactis haraldoi: no Bengali name
+- Neoparacondylactis haraldoi: no Japanese name
+- Anemonia natalensis: no common name found, scientific name used
+- Anemonia natalensis: no Bengali name
+- Anemonia natalensis: no Japanese name
+- Anemonia sulcata: no common name found, scientific name used
+- Anemonia sulcata: no Bengali name
+- Anemonia sulcata: no Japanese name
+- Anemonia sargassensis: no common name found, scientific name used
+- Anemonia sargassensis: no Bengali name
+- Anemonia sargassensis: no Japanese name
+- Oulactis muscosa: no Bengali name
+- Oulactis muscosa: no Japanese name
+- Pseudactinia varia: no common name found, scientific name used
+- Pseudactinia varia: no Bengali name
+- Pseudactinia varia: no Japanese name
+- Anthostella stephensoni: no Bengali name
+- Anthostella stephensoni: no Japanese name
+- Actinostella flosculifera: no common name found, scientific name used
+- Actinostella flosculifera: no Bengali name
+- Actinostella flosculifera: no Japanese name
+- Oulactis concinnata: no common name found, scientific name used
+- Oulactis concinnata: no Bengali name
+- Oulactis concinnata: no Japanese name
+- Condylactis aurantiaca: no Bengali name
+- Condylactis aurantiaca: no Japanese name
+- Epiactis japonica: no common name found, scientific name used
+- Epiactis japonica: no Bengali name
+- Epiactis japonica: no Japanese name
+- Epiactis prolifera: no common name found, scientific name used
+- Epiactis prolifera: no Bengali name
+- Epiactis prolifera: no Japanese name
+- Phialoba steinbecki: no common name found, scientific name used
+- Phialoba steinbecki: no Bengali name
+- Phialoba steinbecki: no Japanese name
+- Spheractis cheungae: no common name found, scientific name used
+- Spheractis cheungae: no Bengali name
+- Spheractis cheungae: no Japanese name
+- Phymactis papillosa: no common name found, scientific name used
+- Phymactis papillosa: no Bengali name
+- Phymactis papillosa: no Japanese name
+- Phymactis sanctaehelenae: no common name found, scientific name used
+- Phymactis sanctaehelenae: no Bengali name
+- Phymactis sanctaehelenae: no Japanese name
+- Urticina felina: no Bengali name
+- Urticina felina: no Japanese name
+- Urticina crassicornis: no common name found, scientific name used
+- Urticina crassicornis: no Bengali name
+- Urticina crassicornis: no Japanese name
+- Urticina columbiana: no common name found, scientific name used
+- Urticina columbiana: no Bengali name
+- Urticina columbiana: no Japanese name
+- Urticina coriacea: no common name found, scientific name used
+- Urticina coriacea: no Bengali name
+- Urticina coriacea: no Japanese name
+- Cribrinopsis similis: no common name found, scientific name used
+- Cribrinopsis similis: no Bengali name
+- Cribrinopsis similis: no Japanese name
+- Cribrinopsis fernaldi: no common name found, scientific name used
+- Cribrinopsis fernaldi: no Bengali name
+- Cribrinopsis fernaldi: no Japanese name
+- Cribrinopsis crassa: no Bengali name
+- Cribrinopsis crassa: no Japanese name
+- Cribrinopsis williamsi: no common name found, scientific name used
+- Cribrinopsis williamsi: no Bengali name
+- Cribrinopsis williamsi: no Japanese name
+- Mesactinia ganensis: no common name found, scientific name used
+- Mesactinia ganensis: no Bengali name
+- Mesactinia ganensis: no Japanese name
+- Anthopleura dixoniana: no common name found, scientific name used
+- Anthopleura dixoniana: no Bengali name
+- Anthopleura dixoniana: no Japanese name
+- Anthopleura sola: no Bengali name
+- Anthopleura sola: no Japanese name
+- Anthopleura elegantissima: no Bengali name
+- Anthopleura elegantissima: no Japanese name
+- Anthopleura anneae: no common name found, scientific name used
+- Anthopleura anneae: no Bengali name
+- Anthopleura anneae: no Japanese name
+- Bunodactis reynaudi: no Bengali name
+- Bunodactis reynaudi: no Japanese name
+- Anthopleura dowii: no common name found, scientific name used
+- Anthopleura dowii: no Bengali name
+- Anthopleura dowii: no Japanese name
+- Anthopleura nigrescens: no common name found, scientific name used
+- Anthopleura nigrescens: no Bengali name
+- Anthopleura nigrescens: no Japanese name
+- Anthopleura michaelseni: no Bengali name
+- Anthopleura michaelseni: no Japanese name
+- Anthopleura artemisia: no common name found, scientific name used
+- Anthopleura artemisia: no Bengali name
+- Anthopleura artemisia: no Japanese name
+- Anthopleura xanthogrammica: no common name found, scientific name used
+- Anthopleura xanthogrammica: no Bengali name
+- Anthopleura xanthogrammica: no Japanese name
+- Anthopleura thallia: no common name found, scientific name used
+- Anthopleura thallia: no Bengali name
+- Anthopleura thallia: no Japanese name
+- Anthopleura kurogane: no common name found, scientific name used
+- Anthopleura kurogane: no Bengali name
+- Anthopleura kurogane: no Japanese name
+- Anthopleura japonica: no common name found, scientific name used
+- Anthopleura japonica: no Bengali name
+- Anthopleura japonica: no Japanese name
+- Anthopleura asiatica: no common name found, scientific name used
+- Anthopleura asiatica: no Bengali name
+- Anthopleura asiatica: no Japanese name
+- Anthopleura krebsi: no common name found, scientific name used
+- Anthopleura krebsi: no Bengali name
+- Anthopleura krebsi: no Japanese name
+- Anthopleura handi: no common name found, scientific name used
+- Anthopleura handi: no Bengali name
+- Anthopleura handi: no Japanese name
+- Anthopleura hermaphroditica: no common name found, scientific name used
+- Anthopleura hermaphroditica: no Bengali name
+- Anthopleura hermaphroditica: no Japanese name
+- Anthopleura stellula: no common name found, scientific name used
+- Anthopleura stellula: no Bengali name
+- Anthopleura stellula: no Japanese name
+- Paranemonia cinerea: no Bengali name
+- Paranemonia cinerea: no Japanese name
+- Cladactella manni: no common name found, scientific name used
+- Cladactella manni: no Bengali name
+- Cladactella manni: no Japanese name
+- Epiactis australiensis: no common name found, scientific name used
+- Epiactis australiensis: no Bengali name
+- Epiactis australiensis: no Japanese name
+- Epiactis lisbethae: no common name found, scientific name used
+- Epiactis lisbethae: no Bengali name
+- Epiactis lisbethae: no Japanese name
+- Epiactis fernaldi: no common name found, scientific name used
+- Epiactis fernaldi: no Bengali name
+- Epiactis fernaldi: no Japanese name
+- Epiactis ritteri: no common name found, scientific name used
+- Epiactis ritteri: no Bengali name
+- Epiactis ritteri: no Japanese name
+- Parabunodactis imperfecta: no common name found, scientific name used
+- Parabunodactis imperfecta: no Bengali name
+- Parabunodactis imperfecta: no Japanese name
+- Phlyctenanthus australis: no common name found, scientific name used
+- Phlyctenanthus australis: no Bengali name
+- Phlyctenanthus australis: no Japanese name
+- Paracondylactis hertwigi: no common name found, scientific name used
+- Paracondylactis hertwigi: no Bengali name
+- Paracondylactis hertwigi: no Japanese name
+- Glyphoperidium bursa: no common name found, scientific name used
+- Glyphoperidium bursa: no Bengali name
+- Glyphoperidium bursa: no Japanese name
+- Stichodactyla mertensii: no common name found, scientific name used
+- Stichodactyla mertensii: no Bengali name
+- Stichodactyla mertensii: no Japanese name
+- Stichodactyla helianthus: no common name found, scientific name used
+- Stichodactyla helianthus: no Bengali name
+- Stichodactyla helianthus: no Japanese name
+- Homostichanthus duerdeni: no common name found, scientific name used
+- Homostichanthus duerdeni: no Bengali name
+- Homostichanthus duerdeni: no Japanese name
+- Oasisia fujikurai: no common name found, scientific name used
+- Oasisia fujikurai: no Bengali name
+- Oasisia fujikurai: no Japanese name
+- Oasisia alvinae: no common name found, scientific name used
+- Oasisia alvinae: no Bengali name
+- Oasisia alvinae: no Japanese name
+- Paraescarpia echinospica: no common name found, scientific name used
+- Paraescarpia echinospica: no Bengali name
+- Paraescarpia echinospica: no Japanese name
+- Escarpia spicata: no common name found, scientific name used
+- Escarpia spicata: no Bengali name
+- Escarpia spicata: no Japanese name
+- Lamellibrachia juni: no common name found, scientific name used
+- Lamellibrachia juni: no Bengali name
+- Lamellibrachia juni: no Japanese name
+- Lamellibrachia barhami: no common name found, scientific name used
+- Lamellibrachia barhami: no Bengali name
+- Lamellibrachia barhami: no Japanese name
+- Arcovestia ivanovi: no common name found, scientific name used
+- Arcovestia ivanovi: no Bengali name
+- Arcovestia ivanovi: no Japanese name
+- Osedax mucofloris: no common name found, scientific name used
+- Osedax mucofloris: no Bengali name
+- Osedax mucofloris: no Japanese name
+- Barbronia weberi: no common name found, scientific name used
+- Barbronia weberi: no Bengali name
+- Barbronia weberi: no Japanese name
+- Xironogiton victoriensis: no common name found, scientific name used
+- Xironogiton victoriensis: no Bengali name
+- Xironogiton victoriensis: no Japanese name
+- Caridinophila unidens: no common name found, scientific name used
+- Caridinophila unidens: no Bengali name
+- Caridinophila unidens: no Japanese name
+- Acanthobdella peledina: no Bengali name
+- Acanthobdella peledina: no Japanese name
+- Amynthas gracilis: no common name found, scientific name used
+- Amynthas gracilis: no Bengali name
+- Amynthas gracilis: no Japanese name
+- Amynthas corticis: no common name found, scientific name used
+- Amynthas corticis: no Bengali name
+- Amynthas corticis: no Japanese name
+- Octochaetus multiporus: no common name found, scientific name used
+- Octochaetus multiporus: no Bengali name
+- Octochaetus multiporus: no Japanese name
+- Rhododrilus besti: no common name found, scientific name used
+- Rhododrilus besti: no Bengali name
+- Rhododrilus besti: no Japanese name
+- Rhododrilus edulis: no common name found, scientific name used
+- Rhododrilus edulis: no Bengali name
+- Rhododrilus edulis: no Japanese name
+- Microscolex phosphoreus: no common name found, scientific name used
+- Microscolex phosphoreus: no Bengali name
+- Microscolex dubius: no common name found, scientific name used
+- Microscolex dubius: no Bengali name
+- Microscolex dubius: no Japanese name
+- Acanthodrilus kermadecensis: no common name found, scientific name used
+- Acanthodrilus kermadecensis: no Bengali name
+- Acanthodrilus kermadecensis: no Japanese name
+- Aporrectodea longa: no Bengali name
+- Aporrectodea longa: no Japanese name
+- Aporrectodea rosea: no Bengali name
+- Aporrectodea rosea: no Japanese name
+- Eiseniella tetraedra: no common name found, scientific name used
+- Eiseniella tetraedra: no Bengali name
+- Eiseniella tetraedra: no Japanese name
+- Octolasion tyrtaeum: no common name found, scientific name used
+- Octolasion tyrtaeum: no Bengali name
+- Octolasion tyrtaeum: no Japanese name
+- Octolasion cyaneum: no common name found, scientific name used
+- Octolasion cyaneum: no Bengali name
+- Octolasion cyaneum: no Japanese name
+- Branchellion torpedinis: no common name found, scientific name used
+- Branchellion torpedinis: no Bengali name
+- Branchellion torpedinis: no Japanese name
+- Branchellion borealis: no common name found, scientific name used
+- Branchellion borealis: no Bengali name
+- Branchellion borealis: no Japanese name
+- Notostomum cyclostomum: no common name found, scientific name used
+- Notostomum cyclostomum: no Bengali name
+- Myzobdella lugubris: no Bengali name
+- Myzobdella lugubris: no Japanese name
+- Pontobdella muricata: no common name found, scientific name used
+- Pontobdella muricata: no Bengali name
+- Pontobdella muricata: no Japanese name
+- Platybdella olriki: no common name found, scientific name used
+- Platybdella olriki: no Bengali name
+- Platybdella olriki: no Japanese name
+- Platybdella anarrhichae: no common name found, scientific name used
+- Platybdella anarrhichae: no Bengali name
+- Platybdella anarrhichae: no Japanese name
+- Oxytonostoma typica: no common name found, scientific name used
+- Oxytonostoma typica: no Bengali name
+- Oxytonostoma typica: no Japanese name
+- Oceanobdella sexoculata: no common name found, scientific name used
+- Oceanobdella sexoculata: no Bengali name
+- Oceanobdella sexoculata: no Japanese name
+- Stibarobdella macrothela: no common name found, scientific name used
+- Stibarobdella macrothela: no Bengali name
+- Stibarobdella macrothela: no Japanese name
+- Beringobdella rectangulata: no common name found, scientific name used
+- Beringobdella rectangulata: no Bengali name
+- Beringobdella rectangulata: no Japanese name
+- Calliobdella nodulifera: no common name found, scientific name used
+- Calliobdella nodulifera: no Bengali name
+- Calliobdella nodulifera: no Japanese name
+- Theromyzon tessulatum: no common name found, scientific name used
+- Theromyzon tessulatum: no Bengali name
+- Theromyzon tessulatum: no Japanese name
+- Theromyzon maculosum: no common name found, scientific name used
+- Theromyzon maculosum: no Bengali name
+- Theromyzon maculosum: no Japanese name
+- Alboglossiphonia heteroclita: no common name found, scientific name used
+- Alboglossiphonia heteroclita: no Bengali name
+- Alboglossiphonia heteroclita: no Japanese name
+- Placobdella multilineata: no common name found, scientific name used
+- Placobdella multilineata: no Bengali name
+- Placobdella multilineata: no Japanese name
+- Placobdella ornata: no common name found, scientific name used
+- Placobdella ornata: no Bengali name
+- Placobdella ornata: no Japanese name
+- Placobdella parasitica: no common name found, scientific name used
+- Placobdella parasitica: no Bengali name
+- Placobdella parasitica: no Japanese name
+- Helobdella stagnalis: no common name found, scientific name used
+- Helobdella stagnalis: no Bengali name
+- Helobdella stagnalis: no Japanese name
+- Helobdella californica: no common name found, scientific name used
+- Helobdella californica: no Bengali name
+- Helobdella californica: no Japanese name
+- Glossiphonia verrucata: no common name found, scientific name used
+- Glossiphonia verrucata: no Bengali name
+- Glossiphonia verrucata: no Japanese name
+- Ozobranchus margoi: no common name found, scientific name used
+- Ozobranchus margoi: no Bengali name
+- Ozobranchus margoi: no Japanese name
+- Ozobranchus branchiatus: no common name found, scientific name used
+- Ozobranchus branchiatus: no Bengali name
+- Ozobranchus branchiatus: no Japanese name
+- Ozobranchus jantseanus: no common name found, scientific name used
+- Ozobranchus jantseanus: no Bengali name
+- Styloscolex opisthothecus: no common name found, scientific name used
+- Styloscolex opisthothecus: no Bengali name
+- Styloscolex opisthothecus: no Japanese name
+- Rhynchelmis brooksi: no common name found, scientific name used
+- Rhynchelmis brooksi: no Bengali name
+- Rhynchelmis brooksi: no Japanese name
+- Rhynchelmis rostrata: no common name found, scientific name used
+- Rhynchelmis rostrata: no Bengali name
+- Rhynchelmis rostrata: no Japanese name
+- Rhynchelmis elrodi: no common name found, scientific name used
+- Rhynchelmis elrodi: no Bengali name
+- Rhynchelmis elrodi: no Japanese name
+- Rhynchelmis alaskana: no common name found, scientific name used
+- Rhynchelmis alaskana: no Bengali name
+- Rhynchelmis alaskana: no Japanese name
+- Kincaidiana hexatheca: no common name found, scientific name used
+- Kincaidiana hexatheca: no Bengali name
+- Kincaidiana hexatheca: no Japanese name
+- Trichodrilus culveri: no common name found, scientific name used
+- Trichodrilus culveri: no Bengali name
+- Trichodrilus culveri: no Japanese name
+- Trichodrilus allobrogum: no common name found, scientific name used
+- Trichodrilus allobrogum: no Bengali name
+- Trichodrilus allobrogum: no Japanese name
+- Spelaedrilus multiporus: no common name found, scientific name used
+- Spelaedrilus multiporus: no Bengali name
+- Spelaedrilus multiporus: no Japanese name
+- Eclipidrilus daneus: no common name found, scientific name used
+- Eclipidrilus daneus: no Bengali name
+- Eclipidrilus daneus: no Japanese name
+- Eclipidrilus palustris: no common name found, scientific name used
+- Eclipidrilus palustris: no Bengali name
+- Eclipidrilus palustris: no Japanese name
+- Eclipidrilus lacustris: no common name found, scientific name used
+- Eclipidrilus lacustris: no Bengali name
+- Eclipidrilus lacustris: no Japanese name
+- Eclipidrilus fontanus: no common name found, scientific name used
+- Eclipidrilus fontanus: no Bengali name
+- Eclipidrilus fontanus: no Japanese name
+- Eclipidrilus frigidus: no common name found, scientific name used
+- Eclipidrilus frigidus: no Bengali name
+- Eclipidrilus frigidus: no Japanese name
+- Eclipidrilus asymmetricus: no common name found, scientific name used
+- Eclipidrilus asymmetricus: no Bengali name
+- Eclipidrilus asymmetricus: no Japanese name
+- Stylodrilus beattiei: no common name found, scientific name used
+- Stylodrilus beattiei: no Bengali name
+- Stylodrilus beattiei: no Japanese name
+- Stylodrilus sovaliki: no common name found, scientific name used
+- Stylodrilus sovaliki: no Bengali name
+- Stylodrilus sovaliki: no Japanese name
+- Stylodrilus heringianus: no common name found, scientific name used
+- Stylodrilus heringianus: no Bengali name
+- Stylodrilus heringianus: no Japanese name
+- Lumbriculus inconstans: no common name found, scientific name used
+- Lumbriculus inconstans: no Bengali name
+- Lumbriculus inconstans: no Japanese name
+- Lumbriculus genitosetosus: no common name found, scientific name used
+- Lumbriculus genitosetosus: no Bengali name
+- Lumbriculus genitosetosus: no Japanese name
+- Lumbriculus variegatus: no common name found, scientific name used
+- Lumbriculus variegatus: no Bengali name
+- Lumbriculus variegatus: no Japanese name
+- Vejdovskyella intermedia: no common name found, scientific name used
+- Vejdovskyella intermedia: no Bengali name
+- Vejdovskyella intermedia: no Japanese name
+- Vejdovskyella comata: no common name found, scientific name used
+- Vejdovskyella comata: no Bengali name
+- Vejdovskyella comata: no Japanese name
+- Ophidonais serpentina: no common name found, scientific name used
+- Ophidonais serpentina: no Bengali name
+- Ophidonais serpentina: no Japanese name
+- Stylaria fossularis: no common name found, scientific name used
+- Stylaria fossularis: no Bengali name
+- Stylaria fossularis: no Japanese name
+- Stylaria lacustris: no common name found, scientific name used
+- Stylaria lacustris: no Bengali name
+- Stylaria lacustris: no Japanese name
+- Branchiodrilus semperi: no common name found, scientific name used
+- Branchiodrilus semperi: no Bengali name
+- Branchiodrilus semperi: no Japanese name
+- Piguetiella michiganensis: no common name found, scientific name used
+- Piguetiella michiganensis: no Bengali name
+- Piguetiella michiganensis: no Japanese name
+- Piguetiella blanci: no common name found, scientific name used
+- Piguetiella blanci: no Bengali name
+- Piguetiella blanci: no Japanese name
+- Haemonais waldvogeli: no common name found, scientific name used
+- Haemonais waldvogeli: no Bengali name
+- Haemonais waldvogeli: no Japanese name
+- Arcteonais lomondi: no common name found, scientific name used
+- Arcteonais lomondi: no Bengali name
+- Arcteonais lomondi: no Japanese name
+- Nais bretscheri: no common name found, scientific name used
+- Nais bretscheri: no Bengali name
+- Nais bretscheri: no Japanese name
+- Nais variabilis: no common name found, scientific name used
+- Nais variabilis: no Bengali name
+- Nais pseudobtusa: no common name found, scientific name used
+- Nais pseudobtusa: no Bengali name
+- Nais pseudobtusa: no Japanese name
+- Nais elinguis: no common name found, scientific name used
+- Nais elinguis: no Bengali name
+- Nais elinguis: no Japanese name
+- Nais communis: no common name found, scientific name used
+- Nais communis: no Bengali name
+- Nais communis: no Japanese name
+- Nais alpina: no common name found, scientific name used
+- Nais alpina: no Bengali name
+- Nais alpina: no Japanese name
+- Nais simplex: no common name found, scientific name used
+- Nais simplex: no Bengali name
+- Nais simplex: no Japanese name
+- Nais pardalis: no common name found, scientific name used
+- Nais pardalis: no Bengali name
+- Nais pardalis: no Japanese name
+- Nais behningi: no common name found, scientific name used
+- Nais behningi: no Bengali name
+- Nais behningi: no Japanese name
+- Paranais grandis: no common name found, scientific name used
+- Paranais grandis: no Bengali name
+- Paranais grandis: no Japanese name
+- Paranais birsteini: no common name found, scientific name used
+- Paranais birsteini: no Bengali name
+- Paranais birsteini: no Japanese name
+- Paranais frici: no common name found, scientific name used
+- Paranais frici: no Bengali name
+- Paranais frici: no Japanese name
+- Paranais litoralis: no common name found, scientific name used
+- Paranais litoralis: no Bengali name
+- Paranais litoralis: no Japanese name
+- Bratislavia bilongata: no common name found, scientific name used
+- Bratislavia bilongata: no Bengali name
+- Bratislavia bilongata: no Japanese name
+- Dero botrytis: no common name found, scientific name used
+- Dero botrytis: no Bengali name
+- Dero botrytis: no Japanese name
+- Dero abranchiata: no common name found, scientific name used
+- Dero abranchiata: no Bengali name
+- Dero abranchiata: no Japanese name
+- Dero digitata: no common name found, scientific name used
+- Dero digitata: no Bengali name
+- Dero digitata: no Japanese name
+- Dero obtusa: no common name found, scientific name used
+- Dero obtusa: no Bengali name
+- Dero obtusa: no Japanese name
+- Dero nivea: no common name found, scientific name used
+- Dero nivea: no Bengali name
+- Dero nivea: no Japanese name
+- Dero pectinata: no common name found, scientific name used
+- Dero pectinata: no Bengali name
+- Dero pectinata: no Japanese name
+- Benthopecten semisquamatus: no common name found, scientific name used
+- Benthopecten semisquamatus: no Bengali name
+- Benthopecten semisquamatus: no Japanese name
+- Benthopecten pectinifer: no common name found, scientific name used
+- Benthopecten pectinifer: no Bengali name
+- Benthopecten pectinifer: no Japanese name
+- Benthopecten spinosus: no common name found, scientific name used
+- Benthopecten spinosus: no Bengali name
+- Benthopecten spinosus: no Japanese name
+- Benthopecten acanthonotus: no common name found, scientific name used
+- Benthopecten acanthonotus: no Bengali name
+- Benthopecten acanthonotus: no Japanese name
+- Benthopecten simplex: no common name found, scientific name used
+- Benthopecten simplex: no Bengali name
+- Benthopecten simplex: no Japanese name
+- Nearchaster aciculosus: no Bengali name
+- Nearchaster aciculosus: no Japanese name
+- Nearchaster yodomiensis: no Bengali name
+- Nearchaster yodomiensis: no Japanese name
+- Pontaster tenuispinus: no common name found, scientific name used
+- Pontaster tenuispinus: no Bengali name
+- Pontaster tenuispinus: no Japanese name
+- Cheiraster blakei: no common name found, scientific name used
+- Cheiraster blakei: no Bengali name
+- Cheiraster blakei: no Japanese name
+- Cheiraster oxyacanthus: no Bengali name
+- Cheiraster oxyacanthus: no Japanese name
+- Cheiraster dawsoni: no common name found, scientific name used
+- Cheiraster dawsoni: no Bengali name
+- Cheiraster dawsoni: no Japanese name
+- Cheiraster tuberculatus: no common name found, scientific name used
+- Cheiraster tuberculatus: no Bengali name
+- Cheiraster tuberculatus: no Japanese name
+- Cheiraster californicus: no common name found, scientific name used
+- Cheiraster californicus: no Bengali name
+- Cheiraster californicus: no Japanese name
+- Cheiraster echinulatus: no Bengali name
+- Cheiraster echinulatus: no Japanese name
+- Cheiraster planus: no common name found, scientific name used
+- Cheiraster planus: no Bengali name
+- Cheiraster planus: no Japanese name
+- Pectinaster agassizi: no common name found, scientific name used
+- Pectinaster agassizi: no Bengali name
+- Pectinaster agassizi: no Japanese name
+- Eremicaster pacificus: no common name found, scientific name used
+- Eremicaster pacificus: no Bengali name
+- Eremicaster pacificus: no Japanese name
+- Eremicaster crassus: no common name found, scientific name used
+- Eremicaster crassus: no Bengali name
+- Eremicaster crassus: no Japanese name
+- Hyphalaster inermis: no common name found, scientific name used
+- Hyphalaster inermis: no Bengali name
+- Hyphalaster inermis: no Japanese name
+- Sidonaster vaneyi: no common name found, scientific name used
+- Sidonaster vaneyi: no Bengali name
+- Sidonaster vaneyi: no Japanese name
+- Styracaster elongatus: no common name found, scientific name used
+- Styracaster elongatus: no Bengali name
+- Styracaster elongatus: no Japanese name
+- Thoracaster cylindratus: no common name found, scientific name used
+- Thoracaster cylindratus: no Bengali name
+- Thoracaster cylindratus: no Japanese name
+- Persephonaster patagiatus: no common name found, scientific name used
+- Persephonaster patagiatus: no Bengali name
+- Persephonaster patagiatus: no Japanese name
+- Persephonaster misakiensis: no common name found, scientific name used
+- Persephonaster misakiensis: no Bengali name
+- Persephonaster misakiensis: no Japanese name
+- Persephonaster leptactis: no common name found, scientific name used
+- Persephonaster leptactis: no Bengali name
+- Persephonaster leptactis: no Japanese name
+- Persephonaster echinulatus: no common name found, scientific name used
+- Persephonaster echinulatus: no Bengali name
+- Persephonaster echinulatus: no Japanese name
+- Ctenophoraster diploctenius: no common name found, scientific name used
+- Ctenophoraster diploctenius: no Bengali name
+- Ctenophoraster diploctenius: no Japanese name
+- Leptychaster pacificus: no common name found, scientific name used
+- Leptychaster pacificus: no Bengali name
+- Leptychaster pacificus: no Japanese name
+- Leptychaster arcticus: no common name found, scientific name used
+- Leptychaster arcticus: no Bengali name
+- Leptychaster arcticus: no Japanese name
+- Leptychaster propinquus: no common name found, scientific name used
+- Leptychaster propinquus: no Bengali name
+- Leptychaster propinquus: no Japanese name
+- Leptychaster inermis: no common name found, scientific name used
+- Leptychaster inermis: no Bengali name
+- Leptychaster inermis: no Japanese name
+- Leptychaster anomalus: no common name found, scientific name used
+- Leptychaster anomalus: no Bengali name
+- Leptychaster anomalus: no Japanese name
+- Leptychaster stellatus: no common name found, scientific name used
+- Leptychaster stellatus: no Bengali name
+- Leptychaster stellatus: no Japanese name
+- Patagiaster sphaerioplax: no common name found, scientific name used
+- Patagiaster sphaerioplax: no Bengali name
+- Patagiaster sphaerioplax: no Japanese name
+- Plutonaster efflorescens: no common name found, scientific name used
+- Plutonaster efflorescens: no Bengali name
+- Plutonaster efflorescens: no Japanese name
+- Plutonaster agassizi: no common name found, scientific name used
+- Plutonaster agassizi: no Bengali name
+- Plutonaster agassizi: no Japanese name
+- Tethyaster grandis: no common name found, scientific name used
+- Tethyaster grandis: no Bengali name
+- Tethyaster grandis: no Japanese name
+- Tethyaster vestitus: no common name found, scientific name used
+- Tethyaster vestitus: no Bengali name
+- Tethyaster vestitus: no Japanese name
+- Tethyaster canaliculatus: no common name found, scientific name used
+- Tethyaster canaliculatus: no Bengali name
+- Tethyaster canaliculatus: no Japanese name
+- Dipsacaster eximius: no common name found, scientific name used
+- Dipsacaster eximius: no Bengali name
+- Dipsacaster eximius: no Japanese name
+- Dipsacaster laetmophilus: no common name found, scientific name used
+- Dipsacaster laetmophilus: no Bengali name
+- Dipsacaster laetmophilus: no Japanese name
+- Dipsacaster borealis: no common name found, scientific name used
+- Dipsacaster borealis: no Bengali name
+- Dipsacaster borealis: no Japanese name
+- Dipsacaster pretiosus: no common name found, scientific name used
+- Dipsacaster pretiosus: no Bengali name
+- Dipsacaster pretiosus: no Japanese name
+- Dipsacaster grandissimus: no common name found, scientific name used
+- Dipsacaster grandissimus: no Bengali name
+- Dipsacaster grandissimus: no Japanese name
+- Dipsacaster sagaminus: no common name found, scientific name used
+- Dipsacaster sagaminus: no Bengali name
+- Dipsacaster sagaminus: no Japanese name
+- Dipsacaster antillensis: no common name found, scientific name used
+- Dipsacaster antillensis: no Bengali name
+- Dipsacaster antillensis: no Japanese name
+- Trophodiscus almus: no common name found, scientific name used
+- Trophodiscus almus: no Bengali name
+- Trophodiscus almus: no Japanese name
+- Trophodiscus uber: no common name found, scientific name used
+- Trophodiscus uber: no Bengali name
+- Trophodiscus uber: no Japanese name
+- Dytaster gilberti: no common name found, scientific name used
+- Dytaster gilberti: no Bengali name
+- Dytaster gilberti: no Japanese name
+- Dytaster insignis: no common name found, scientific name used
+- Dytaster insignis: no Bengali name
+- Dytaster insignis: no Japanese name
+- Proserpinaster euryactis: no common name found, scientific name used
+- Proserpinaster euryactis: no Bengali name
+- Proserpinaster euryactis: no Japanese name
+- Blakiaster conicus: no common name found, scientific name used
+- Blakiaster conicus: no Bengali name
+- Blakiaster conicus: no Japanese name
+- Thrissacanthias penicillatus: no common name found, scientific name used
+- Thrissacanthias penicillatus: no Bengali name
+- Thrissacanthias penicillatus: no Japanese name
+- Psilaster cassiope: no common name found, scientific name used
+- Psilaster cassiope: no Bengali name
+- Psilaster cassiope: no Japanese name
+- Psilaster pectinatus: no common name found, scientific name used
+- Psilaster pectinatus: no Bengali name
+- Psilaster pectinatus: no Japanese name
+- Psilaster andromeda: no common name found, scientific name used
+- Psilaster andromeda: no Bengali name
+- Psilaster andromeda: no Japanese name
+- Psilaster armatus: no common name found, scientific name used
+- Psilaster armatus: no Bengali name
+- Psilaster armatus: no Japanese name
+- Goniopecten demonstrans: no common name found, scientific name used
+- Goniopecten demonstrans: no Bengali name
+- Goniopecten demonstrans: no Japanese name
+- Prionaster elegans: no common name found, scientific name used
+- Prionaster elegans: no Bengali name
+- Prionaster elegans: no Japanese name
+- Ctenodiscus crispatus: no common name found, scientific name used
+- Ctenodiscus crispatus: no Bengali name
+- Ctenodiscus crispatus: no Japanese name
+- Luidia magellanica: no common name found, scientific name used
+- Luidia magellanica: no Bengali name
+- Luidia magellanica: no Japanese name
+- Luidia bellonae: no common name found, scientific name used
+- Luidia bellonae: no Bengali name
+- Luidia bellonae: no Japanese name
+- Luidia australiae: no common name found, scientific name used
+- Luidia australiae: no Bengali name
+- Luidia australiae: no Japanese name
+- Luidia maculata: no common name found, scientific name used
+- Luidia maculata: no Bengali name
+- Luidia hardwicki: no common name found, scientific name used
+- Luidia hardwicki: no Bengali name
+- Luidia hardwicki: no Japanese name
+- Luidia herdmani: no common name found, scientific name used
+- Luidia herdmani: no Bengali name
+- Luidia herdmani: no Japanese name
+- Luidia heterozona: no common name found, scientific name used
+- Luidia heterozona: no Bengali name
+- Luidia heterozona: no Japanese name
+- Luidia savignyi: no common name found, scientific name used
+- Luidia savignyi: no Bengali name
+- Luidia savignyi: no Japanese name
+- Luidia alternata: no common name found, scientific name used
+- Luidia alternata: no Bengali name
+- Luidia alternata: no Japanese name
+- Luidia latiradiata: no common name found, scientific name used
+- Luidia latiradiata: no Bengali name
+- Luidia latiradiata: no Japanese name
+- Luidia magnifica: no common name found, scientific name used
+- Luidia magnifica: no Bengali name
+- Luidia magnifica: no Japanese name
+- Luidia quinaria: no common name found, scientific name used
+- Luidia quinaria: no Bengali name
+- Luidia clathrata: no common name found, scientific name used
+- Luidia clathrata: no Bengali name
+- Luidia clathrata: no Japanese name
+- Luidia tessellata: no common name found, scientific name used
+- Luidia tessellata: no Bengali name
+- Luidia tessellata: no Japanese name
+- Luidia columbia: no common name found, scientific name used
+- Luidia columbia: no Bengali name
+- Luidia columbia: no Japanese name
+- Luidia foliolata: no common name found, scientific name used
+- Luidia foliolata: no Bengali name
+- Luidia foliolata: no Japanese name
+- Luidia armata: no common name found, scientific name used
+- Luidia armata: no Bengali name
+- Luidia armata: no Japanese name
+- Luidia yesoensis: no common name found, scientific name used
+- Luidia yesoensis: no Bengali name
+- Luidia yesoensis: no Japanese name
+- Luidia barbadensis: no common name found, scientific name used
+- Luidia barbadensis: no Bengali name
+- Luidia barbadensis: no Japanese name
+- Alcicornis carangis: no common name found, scientific name used
+- Alcicornis carangis: no Bengali name
+- Alcicornis carangis: no Japanese name
+- Prosorhynchus facilis: no common name found, scientific name used
+- Prosorhynchus facilis: no Bengali name
+- Prosorhynchus facilis: no Japanese name
+- Proctoeces maculatus: no common name found, scientific name used
+- Proctoeces maculatus: no Bengali name
+- Proctoeces maculatus: no Japanese name
+- Strigea falconis: no common name found, scientific name used
+- Strigea falconis: no Bengali name
+- Strigea falconis: no Japanese name
+- Cotylurus flabelliformis: no common name found, scientific name used
+- Cotylurus flabelliformis: no Bengali name
+- Cotylurus flabelliformis: no Japanese name
+- Posthodiplostomum cuticola: no common name found, scientific name used
+- Posthodiplostomum cuticola: no Bengali name
+- Posthodiplostomum cuticola: no Japanese name
+- Aporocotyle theragrae: no common name found, scientific name used
+- Aporocotyle theragrae: no Bengali name
+- Aporocotyle theragrae: no Japanese name
+- Diplozoon paradoxum: no common name found, scientific name used
+- Diplozoon paradoxum: no Bengali name
+- Diplozoon paradoxum: no Japanese name
+- Platynosomum fastosum: no common name found, scientific name used
+- Platynosomum fastosum: no Bengali name
+- Platynosomum fastosum: no Japanese name
+- Accacoelium contortum: no common name found, scientific name used
+- Accacoelium contortum: no Bengali name
+- Accacoelium contortum: no Japanese name
+- Tetrochetus coryphaenae: no common name found, scientific name used
+- Tetrochetus coryphaenae: no Bengali name
+- Tetrochetus coryphaenae: no Japanese name
+- Accacladocoelium nigroflavum: no common name found, scientific name used
+- Accacladocoelium nigroflavum: no Bengali name
+- Accacladocoelium nigroflavum: no Japanese name
+- Accacladocoelium petasiporum: no common name found, scientific name used
+- Accacladocoelium petasiporum: no Bengali name
+- Accacladocoelium petasiporum: no Japanese name
+- Rhynchopharynx paradoxa: no common name found, scientific name used
+- Rhynchopharynx paradoxa: no Bengali name
+- Rhynchopharynx paradoxa: no Japanese name
+- Bathycotyle branchialis: no common name found, scientific name used
+- Bathycotyle branchialis: no Bengali name
+- Bathycotyle branchialis: no Japanese name
+- Brachyphallus crenatus: no common name found, scientific name used
+- Brachyphallus crenatus: no Bengali name
+- Brachyphallus crenatus: no Japanese name
+- Dinurus barbatus: no common name found, scientific name used
+- Dinurus barbatus: no Bengali name
+- Dinurus barbatus: no Japanese name
+- Lecithochirium magnaporum: no common name found, scientific name used
+- Lecithochirium magnaporum: no Bengali name
+- Lecithochirium magnaporum: no Japanese name
+- Cotylaspis sinensis: no common name found, scientific name used
+- Cotylaspis sinensis: no Bengali name
+- Cotylaspis sinensis: no Japanese name
+- Entobdella hippoglossi: no common name found, scientific name used
+- Entobdella hippoglossi: no Bengali name
+- Entobdella hippoglossi: no Japanese name
+- Neobenedenia girellae: no common name found, scientific name used
+- Neobenedenia girellae: no Bengali name
+- Neobenedenia melleni: no common name found, scientific name used
+- Neobenedenia melleni: no Bengali name
+- Neobenedenia melleni: no Japanese name
+- Dactylogyrus vastator: no common name found, scientific name used
+- Dactylogyrus vastator: no Bengali name
+- Dactylogyrus vastator: no Japanese name
+- Terschellingia longicaudata: no common name found, scientific name used
+- Terschellingia longicaudata: no Bengali name
+- Terschellingia longicaudata: no Japanese name
+- Chromadorina bioculata: no common name found, scientific name used
+- Chromadorina bioculata: no Bengali name
+- Chromadorina bioculata: no Japanese name
+- Aelurostrongylus abstrusus: no common name found, scientific name used
+- Aelurostrongylus abstrusus: no Bengali name
+- Aelurostrongylus abstrusus: no Japanese name
+- Dictyocaulus viviparus: no common name found, scientific name used
+- Dictyocaulus viviparus: no Bengali name
+- Dictyocaulus filaria: no Bengali name
+- Dictyocaulus filaria: no Japanese name
+- Dictyocaulus arnfieldi: no common name found, scientific name used
+- Dictyocaulus arnfieldi: no Bengali name
+- Dictyocaulus arnfieldi: no Japanese name
+- Stephanurus dentatus: no common name found, scientific name used
+- Stephanurus dentatus: no Bengali name
+- Stephanurus dentatus: no Japanese name
+- Metastrongylus apri: no common name found, scientific name used
+- Metastrongylus apri: no Bengali name
+- Metastrongylus apri: no Japanese name
+- Ancylostoma tubaeforme: no common name found, scientific name used
+- Ancylostoma tubaeforme: no Bengali name
+- Ancylostoma tubaeforme: no Japanese name
+- Nematodirus spathiger: no common name found, scientific name used
+- Nematodirus spathiger: no Bengali name
+- Nematodirus spathiger: no Japanese name
+- Nematodirus filicollis: no common name found, scientific name used
+- Nematodirus filicollis: no Bengali name
+- Nematodirus filicollis: no Japanese name
+- Nematodirus abnormalis: no common name found, scientific name used
+- Nematodirus abnormalis: no Bengali name
+- Nematodirus abnormalis: no Japanese name
+- Nematodirus battus: no common name found, scientific name used
+- Nematodirus battus: no Bengali name
+- Nematodirus battus: no Japanese name
+- Nematodirus helvetianus: no common name found, scientific name used
+- Nematodirus helvetianus: no Bengali name
+- Nematodirus helvetianus: no Japanese name
+- Muellerius capillaris: no common name found, scientific name used
+- Muellerius capillaris: no Bengali name
+- Muellerius capillaris: no Japanese name
+- Oesophagostomum venulosum: no common name found, scientific name used
+- Oesophagostomum venulosum: no Bengali name
+- Oesophagostomum venulosum: no Japanese name
+- Oesophagostomum dentatum: no common name found, scientific name used
+- Oesophagostomum dentatum: no Bengali name
+- Trichostrongylus colubriformis: no common name found, scientific name used
+- Trichostrongylus colubriformis: no Bengali name
+- Trichostrongylus colubriformis: no Japanese name
+- Trichostrongylus vitrinus: no common name found, scientific name used
+- Trichostrongylus vitrinus: no Bengali name
+- Trichostrongylus vitrinus: no Japanese name
+- Trichostrongylus longispicularis: no common name found, scientific name used
+- Trichostrongylus longispicularis: no Bengali name
+- Trichostrongylus longispicularis: no Japanese name
+- Trichostrongylus axei: no common name found, scientific name used
+- Trichostrongylus axei: no Bengali name
+- Trichostrongylus axei: no Japanese name
+- Ostertagia leptospicularis: no common name found, scientific name used
+- Ostertagia leptospicularis: no Bengali name
+- Ostertagia leptospicularis: no Japanese name
+- Ostertagia ostertagi: no common name found, scientific name used
+- Ostertagia ostertagi: no Bengali name
+- Ostertagia circumcincta: no Bengali name
+- Ostertagia circumcincta: no Japanese name
+- Turbatrix aceti: no common name found, scientific name used
+- Turbatrix aceti: no Bengali name
+- Turbatrix aceti: no Japanese name
+- Pelodera strongyloides: no common name found, scientific name used
+- Pelodera strongyloides: no Bengali name
+- Pelodera strongyloides: no Japanese name
+- Steinernema feltiae: no common name found, scientific name used
+- Steinernema feltiae: no Bengali name
+- Steinernema feltiae: no Japanese name
+- Acrobeloides nanus: no common name found, scientific name used
+- Acrobeloides nanus: no Bengali name
+- Acrobeloides nanus: no Japanese name
+- Acrobeloides tricornis: no common name found, scientific name used
+- Acrobeloides tricornis: no Bengali name
+- Acrobeloides tricornis: no Japanese name
+- Eucephalobus oxyuroides: no common name found, scientific name used
+- Eucephalobus oxyuroides: no Bengali name
+- Eucephalobus oxyuroides: no Japanese name
+- Strongyloides papillosus: no common name found, scientific name used
+- Strongyloides papillosus: no Bengali name
+- Strongyloides westeri: no common name found, scientific name used
+- Strongyloides westeri: no Bengali name
+- Strongyloides westeri: no Japanese name
+- Tylenchorhynchus dubius: no common name found, scientific name used
+- Tylenchorhynchus dubius: no Bengali name
+- Tylenchorhynchus dubius: no Japanese name
+- Subanguina radicicola: no common name found, scientific name used
+- Subanguina radicicola: no Bengali name
+- Subanguina radicicola: no Japanese name
+- Meloidogyne hapla: no Bengali name
+- Meloidogyne hapla: no Japanese name
+- Meloidogyne naasi: no common name found, scientific name used
+- Meloidogyne naasi: no Bengali name
+- Meloidogyne naasi: no Japanese name
+- Nacobbus aberrans: no common name found, scientific name used
+- Nacobbus aberrans: no Bengali name
+- Nacobbus aberrans: no Japanese name
+- Mesocriconema rusticum: no common name found, scientific name used
+- Mesocriconema rusticum: no Bengali name
+- Mesocriconema rusticum: no Japanese name
+- Mesocriconema xenoplax: no common name found, scientific name used
+- Mesocriconema xenoplax: no Bengali name
+- Mesocriconema xenoplax: no Japanese name
+- Helicotylenchus multicinctus: no common name found, scientific name used
+- Helicotylenchus multicinctus: no Bengali name
+- Helicotylenchus multicinctus: no Japanese name
+- Radopholus similis: no Bengali name
+- Radopholus similis: no Japanese name
+- Rotylenchus uniformis: no Bengali name
+- Rotylenchus uniformis: no Japanese name
+- Pratylenchus thornei: no common name found, scientific name used
+- Pratylenchus thornei: no Bengali name
+- Pratylenchus thornei: no Japanese name
+- Pratylenchus pratensis: no common name found, scientific name used
+- Pratylenchus pratensis: no Bengali name
+- Pratylenchus pratensis: no Japanese name
+- Scutellonema bradys: no common name found, scientific name used
+- Scutellonema bradys: no Bengali name
+- Scutellonema bradys: no Japanese name
+- Psilenchus hilarulus: no common name found, scientific name used
+- Psilenchus hilarulus: no Bengali name
+- Psilenchus hilarulus: no Japanese name
+- Farrea occa: no common name found, scientific name used
+- Farrea occa: no Bengali name
+- Farrea occa: no Japanese name
+- Calyptorete ijimai: no common name found, scientific name used
+- Calyptorete ijimai: no Bengali name
+- Calyptorete ijimai: no Japanese name
+- Heterochone calyx: no common name found, scientific name used
+- Heterochone calyx: no Bengali name
+- Heterochone calyx: no Japanese name
+- Heterochone tenera: no common name found, scientific name used
+- Heterochone tenera: no Bengali name
+- Heterochone tenera: no Japanese name
+- Aphrocallistes vastus: no Bengali name
+- Aphrocallistes vastus: no Japanese name
+- Aphrocallistes beatrix: no common name found, scientific name used
+- Aphrocallistes beatrix: no Bengali name
+- Aphrocallistes beatrix: no Japanese name
+- Acanthascus dawsoni: no common name found, scientific name used
+- Acanthascus dawsoni: no Bengali name
+- Acanthascus dawsoni: no Japanese name
+- Acanthascus dowlingi: no common name found, scientific name used
+- Acanthascus dowlingi: no Bengali name
+- Acanthascus dowlingi: no Japanese name
+- Acanthascus solidus: no common name found, scientific name used
+- Acanthascus solidus: no Bengali name
+- Acanthascus solidus: no Japanese name
+- Oopsacas minuta: no common name found, scientific name used
+- Oopsacas minuta: no Bengali name
+- Oopsacas minuta: no Japanese name
+- Leucopsacus scoliodocus: no common name found, scientific name used
+- Leucopsacus scoliodocus: no Bengali name
+- Leucopsacus scoliodocus: no Japanese name
+- Holascus undulatus: no common name found, scientific name used
+- Holascus undulatus: no Bengali name
+- Holascus undulatus: no Japanese name
+- Regadrella okinoseana: no common name found, scientific name used
+- Regadrella okinoseana: no Bengali name
+- Regadrella okinoseana: no Japanese name
+- Acoelocalyx brucei: no common name found, scientific name used
+- Acoelocalyx brucei: no Bengali name
+- Acoelocalyx brucei: no Japanese name
+- Ascandra falcata: no common name found, scientific name used
+- Ascandra falcata: no Bengali name
+- Ascandra falcata: no Japanese name
+- Ascandra contorta: no common name found, scientific name used
+- Ascandra contorta: no Bengali name
+- Ascandra contorta: no Japanese name
+- Leucetta solida: no common name found, scientific name used
+- Leucetta solida: no Bengali name
+- Leucetta solida: no Japanese name
+- Leucetta floridana: no common name found, scientific name used
+- Leucetta floridana: no Bengali name
+- Leucetta floridana: no Japanese name
+- Leucetta chagosensis: no common name found, scientific name used
+- Leucetta chagosensis: no Bengali name
+- Leucetta chagosensis: no Japanese name
+- Leucetta primigenia: no common name found, scientific name used
+- Leucetta primigenia: no Bengali name
+- Leucetta primigenia: no Japanese name
+- Leucetta microraphis: no common name found, scientific name used
+- Leucetta microraphis: no Bengali name
+- Leucetta microraphis: no Japanese name
+- Leucetta antarctica: no common name found, scientific name used
+- Leucetta antarctica: no Bengali name
+- Leucetta antarctica: no Japanese name
+- Soleneiscus irregularis: no common name found, scientific name used
+- Soleneiscus irregularis: no Bengali name
+- Soleneiscus irregularis: no Japanese name
+- Petrobiona massiliana: no common name found, scientific name used
+- Petrobiona massiliana: no Bengali name
+- Petrobiona massiliana: no Japanese name
+- Sycandra utriculus: no common name found, scientific name used
+- Sycandra utriculus: no Bengali name
+- Sycandra utriculus: no Japanese name
+- Vosmaeropsis japonica: no common name found, scientific name used
+- Vosmaeropsis japonica: no Bengali name
+- Vosmaeropsis japonica: no Japanese name
+- Grantessa mitsukurii: no common name found, scientific name used
+- Grantessa mitsukurii: no Bengali name
+- Grantessa mitsukurii: no Japanese name
+- Grantessa shimeji: no common name found, scientific name used
+- Grantessa shimeji: no Bengali name
+- Grantessa shimeji: no Japanese name
+- Leucosolenia complicata: no common name found, scientific name used
+- Leucosolenia complicata: no Bengali name
+- Leucosolenia complicata: no Japanese name
+- Leucosolenia variabilis: no common name found, scientific name used
+- Leucosolenia variabilis: no Bengali name
+- Leucosolenia variabilis: no Japanese name
+- Leucosolenia fragilis: no common name found, scientific name used
+- Leucosolenia fragilis: no Bengali name
+- Leucosolenia fragilis: no Japanese name
+- Leucosolenia eleanor: no common name found, scientific name used
+- Leucosolenia eleanor: no Bengali name
+- Leucosolenia eleanor: no Japanese name
+- Leucosolenia nautilia: no common name found, scientific name used
+- Leucosolenia nautilia: no Bengali name
+- Leucosolenia nautilia: no Japanese name
+- Sycon lambei: no common name found, scientific name used
+- Sycon lambei: no Bengali name
+- Sycon lambei: no Japanese name
+- Sycon compactum: no common name found, scientific name used
+- Sycon compactum: no Bengali name
+- Sycon compactum: no Japanese name
+- Sycon calcaravis: no common name found, scientific name used
+- Sycon calcaravis: no Bengali name
+- Sycon calcaravis: no Japanese name
+- Sycon scaldiense: no common name found, scientific name used
+- Sycon scaldiense: no Bengali name
+- Sycon scaldiense: no Japanese name
+- Sycon elegans: no common name found, scientific name used
+- Sycon elegans: no Bengali name
+- Sycon elegans: no Japanese name
+- Sycon mundulum: no common name found, scientific name used
+- Sycon mundulum: no Bengali name
+- Sycon mundulum: no Japanese name
+- Sycon raphanus: no common name found, scientific name used
+- Sycon raphanus: no Bengali name
+- Sycon raphanus: no Japanese name
+- Sycon misakiensis: no common name found, scientific name used
+- Sycon misakiensis: no Bengali name
+- Sycon misakiensis: no Japanese name
+- Sycon protectum: no common name found, scientific name used
+- Sycon protectum: no Bengali name
+- Sycon protectum: no Japanese name
+- Sycon lingua: no common name found, scientific name used
+- Sycon lingua: no Bengali name
+- Sycon lingua: no Japanese name
+- Sycetta sagitta: no common name found, scientific name used
+- Sycetta sagitta: no Bengali name
+- Sycetta sagitta: no Japanese name
+- Paraleucilla magna: no common name found, scientific name used
+- Paraleucilla magna: no Bengali name
+- Paraleucilla magna: no Japanese name
+- Leucilla nuttingi: no common name found, scientific name used
+- Leucilla nuttingi: no Bengali name
+- Leucilla nuttingi: no Japanese name
+- Spongia sterea: no common name found, scientific name used
+- Spongia sterea: no Bengali name
+- Spongia sterea: no Japanese name
+- Spongia frutescens: no common name found, scientific name used
+- Spongia frutescens: no Bengali name
+- Spongia frutescens: no Japanese name
+- Spongia barbara: no common name found, scientific name used
+- Spongia barbara: no Bengali name
+- Spongia barbara: no Japanese name
+- Spongia graminea: no common name found, scientific name used
+- Spongia graminea: no Bengali name
+- Spongia graminea: no Japanese name
+- Spongia agaricina: no common name found, scientific name used
+- Spongia agaricina: no Bengali name
+- Spongia agaricina: no Japanese name
+- Spongia ceylonensis: no common name found, scientific name used
+- Spongia ceylonensis: no Bengali name
+- Spongia ceylonensis: no Japanese name
+- Spongia anclotea: no common name found, scientific name used
+- Spongia anclotea: no Bengali name
+- Spongia anclotea: no Japanese name
+- Spongia lamella: no common name found, scientific name used
+- Spongia lamella: no Bengali name
+- Spongia lamella: no Japanese name
+- Spongia obliqua: no common name found, scientific name used
+- Spongia obliqua: no Bengali name
+- Spongia obliqua: no Japanese name
+- Spongia tampa: no common name found, scientific name used
+- Spongia tampa: no Bengali name
+- Spongia tampa: no Japanese name
+- Spongia hispida: no common name found, scientific name used
+- Spongia hispida: no Bengali name
+- Spongia hispida: no Japanese name
+- Spongia zimocca: no common name found, scientific name used
+- Spongia zimocca: no Bengali name
+- Spongia zimocca: no Japanese name
+- Spongia virgultosa: no common name found, scientific name used
+- Spongia virgultosa: no Bengali name
+- Spongia virgultosa: no Japanese name
+- Hippospongia lachne: no common name found, scientific name used
+- Hippospongia lachne: no Bengali name
+- Hippospongia lachne: no Japanese name
+- Hexarthra mira: no common name found, scientific name used
+- Hexarthra mira: no Bengali name
+- Hexarthra mira: no Japanese name
+- Filinia hofmanni: no common name found, scientific name used
+- Filinia hofmanni: no Bengali name
+- Filinia hofmanni: no Japanese name
+- Filinia longiseta: no common name found, scientific name used
+- Filinia longiseta: no Bengali name
+- Filinia longiseta: no Japanese name
+- Filinia opoliensis: no common name found, scientific name used
+- Filinia opoliensis: no Bengali name
+- Filinia opoliensis: no Japanese name
+- Filinia cornuta: no common name found, scientific name used
+- Filinia cornuta: no Bengali name
+- Filinia cornuta: no Japanese name
+- Filinia passa: no common name found, scientific name used
+- Filinia passa: no Bengali name
+- Filinia passa: no Japanese name
+- Filinia terminalis: no common name found, scientific name used
+- Filinia terminalis: no Bengali name
+- Filinia terminalis: no Japanese name
+- Conochilus unicornis: no common name found, scientific name used
+- Conochilus unicornis: no Bengali name
+- Conochilus unicornis: no Japanese name
+- Conochilus hippocrepis: no common name found, scientific name used
+- Conochilus hippocrepis: no Bengali name
+- Conochilus hippocrepis: no Japanese name
+- Conochilus natans: no common name found, scientific name used
+- Conochilus natans: no Bengali name
+- Conochilus natans: no Japanese name
+- Conochilus dossuarius: no common name found, scientific name used
+- Conochilus dossuarius: no Bengali name
+- Conochilus dossuarius: no Japanese name
+- Pompholyx complanata: no common name found, scientific name used
+- Pompholyx complanata: no Bengali name
+- Pompholyx complanata: no Japanese name
+- Collotheca coronetta: no common name found, scientific name used
+- Collotheca coronetta: no Bengali name
+- Collotheca coronetta: no Japanese name
+- Collotheca pelagica: no common name found, scientific name used
+- Collotheca pelagica: no Bengali name
+- Collotheca pelagica: no Japanese name
+- Collotheca ornata: no common name found, scientific name used
+- Collotheca ornata: no Bengali name
+- Collotheca ornata: no Japanese name
+- Adineta gracilis: no common name found, scientific name used
+- Adineta gracilis: no Bengali name
+- Adineta gracilis: no Japanese name
+- Adineta steineri: no common name found, scientific name used
+- Adineta steineri: no Bengali name
+- Adineta steineri: no Japanese name
+- Adineta vaga: no Bengali name
+- Adineta vaga: no Japanese name
+- Adineta barbata: no common name found, scientific name used
+- Adineta barbata: no Bengali name
+- Adineta barbata: no Japanese name
+- Adineta cuneata: no common name found, scientific name used
+- Adineta cuneata: no Bengali name
+- Adineta cuneata: no Japanese name
 
 Data sources: GBIF (classification), Wikipedia and Wikidata (names).
