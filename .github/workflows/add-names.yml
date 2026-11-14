@@ -1,1 +1,136 @@
+name: Add species names (GBIF)
 
+on:
+  workflow_dispatch:
+    inputs:
+      total:
+        description: "Koto ti notun name (ekbare 2000 rakho)"
+        default: "2000"
+
+permissions:
+  contents: write
+
+jobs:
+  add-names:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Fetch names from GBIF
+        env:
+          TOTAL: ${{ github.event.inputs.total }}
+        run: |
+          cat > gbif_names.py <<'PYEOF'
+          #!/usr/bin/env python3
+          """GBIF theke animal species name niye database/names.txt-e append kore.
+          Already file-e ja ache seta skip kore, tai bar bar run korle protibar notun name ashe."""
+          import argparse, re, sys, time
+          import requests
+
+          API = "https://api.gbif.org/v1"
+          PHYLA = {"Chordata": 0.35, "Arthropoda": 0.30, "Mollusca": 0.10, "Cnidaria": 0.06,
+                   "Annelida": 0.05, "Echinodermata": 0.04, "Platyhelminthes": 0.03,
+                   "Nematoda": 0.03, "Porifera": 0.03, "Rotifera": 0.01}
+          BINOMIAL = re.compile(r"^[A-Z][a-z]+ [a-z-]+$")
+
+
+          def get(url, params, tries=5):
+              for i in range(tries):
+                  try:
+                      r = requests.get(url, params=params, timeout=40)
+                      r.raise_for_status()
+                      return r.json()
+                  except Exception as e:
+                      print(f"  retry {i+1}: {e}", file=sys.stderr)
+                      time.sleep(2 * (i + 1))
+              return None
+
+
+          def phylum_key(name):
+              d = get(f"{API}/species/match", {"name": name, "rank": "PHYLUM", "kingdom": "Animalia"})
+              return d.get("usageKey") if d else None
+
+
+          def load_existing(path):
+              s = set()
+              try:
+                  for line in open(path, encoding="utf-8"):
+                      line = line.strip()
+                      if line and not line.startswith("#"):
+                          s.add(line.split("|")[0].strip().lower())
+              except FileNotFoundError:
+                  print(f"[warn] {path} nai, notun banabe", file=sys.stderr)
+              return s
+
+
+          def collect(key, want, seen, need_common):
+              out, offset = [], 0
+              while len(out) < want and offset < 90000:
+                  d = get(f"{API}/species/search", {"highertaxonKey": key, "rank": "SPECIES",
+                          "status": "ACCEPTED", "limit": 500, "offset": offset})
+                  if not d or not d.get("results"):
+                      break
+                  for r in d["results"]:
+                      n = (r.get("canonicalName") or "").strip()
+                      if not BINOMIAL.match(n) or n.lower() in seen:
+                          continue
+                      if need_common and not r.get("vernacularNames"):
+                          continue
+                      seen.add(n.lower())
+                      out.append(n)
+                      if len(out) >= want:
+                          break
+                  offset += 500
+                  if d.get("endOfRecords"):
+                      break
+                  time.sleep(0.2)
+              return out
+
+
+          def main():
+              ap = argparse.ArgumentParser()
+              ap.add_argument("--existing", default="database/names.txt")
+              ap.add_argument("--total", type=int, default=2000)
+              ap.add_argument("--append", action="store_true", help="existing file-e sorasori add koro")
+              ap.add_argument("--any", action="store_true", help="common name chara species-o nao")
+              ap.add_argument("--out", default="names_new.txt")
+              a = ap.parse_args()
+
+              seen = load_existing(a.existing)
+              print("Existing:", len(seen))
+              lines, total = [], 0
+              for phylum, share in PHYLA.items():
+                  k = phylum_key(phylum)
+                  if not k:
+                      print("[skip]", phylum)
+                      continue
+                  want = int(a.total * share)
+                  got = collect(k, want, seen, not a.any)
+                  print(f"{phylum}: {len(got)}/{want}")
+                  if got:
+                      lines.append(f"\n# --- GBIF auto: {phylum} ---")
+                      lines += got
+                      total += len(got)
+
+              if total == 0:
+                  print("Kichu paoa jay nai"); return
+              path = a.existing if a.append else a.out
+              with open(path, "a" if a.append else "w", encoding="utf-8") as f:
+                  f.write("\n".join(lines) + "\n")
+              print("Added", total, "->", path)
+
+
+          if __name__ == "__main__":
+              main()
+          PYEOF
+          python gbif_names.py --existing database/names.txt --append --total "$TOTAL"
+          rm gbif_names.py
+      - name: Commit names.txt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add database/names.txt
+          git diff --staged --quiet || (git commit -m "Add species names from GBIF" && git push)
