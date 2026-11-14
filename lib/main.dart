@@ -108,6 +108,10 @@ ThemeData _buildTheme(Brightness b, {bool cells = false}) {
   return base.copyWith(
     scaffoldBackgroundColor: Colors.transparent,
     canvasColor: bg,
+    pageTransitionsTheme: const PageTransitionsTheme(builders: {
+      TargetPlatform.android: FxPageTransitions(),
+      TargetPlatform.iOS: FxPageTransitions(),
+    }),
     textTheme: tt.copyWith(
       headlineMedium: tt.headlineMedium?.copyWith(fontWeight: FontWeight.w800, letterSpacing: -0.5, height: 1.15),
       headlineSmall: tt.headlineSmall?.copyWith(fontWeight: FontWeight.w700, letterSpacing: -0.3, height: 1.2),

@@ -243,31 +243,56 @@ class _ShimmerBoxState extends State<ShimmerBox> with SingleTickerProviderStateM
   }
 }
 
-/// Page route. The old page fades out first, then the new page fades in (no overlap).
-/// Plain route when effects are off.
+/// The page transition: the old page fades out first, then the new page fades in
+/// (no overlap). Used by fxRoute and, through [FxPageTransitions], by every
+/// other page route too (including the Home page underneath).
+Widget fxTransition(Animation<double> animation, Animation<double> secondary, Widget child) {
+  return AnimatedBuilder(
+    animation: Listenable.merge([animation, secondary]),
+    child: child,
+    builder: (context, child) {
+      final a = animation.value;
+      final s = secondary.value;
+      final fadeIn = ((a - 0.45) / 0.55).clamp(0.0, 1.0);
+      final fadeOut = (1 - s / 0.45).clamp(0.0, 1.0);
+      final lift = 0.04 * (1 - Curves.easeOutCubic.transform(a));
+      return Opacity(
+        opacity: fadeIn * fadeOut,
+        child: FractionalTranslation(translation: Offset(0, lift), child: child),
+      );
+    },
+  );
+}
+
+/// Theme-level page transition. Without this the first page (Home) used the
+/// default Android transition and never faded out, so the next page's content
+/// showed on top of it while going in and out (the "overlap" bug).
+class FxPageTransitions extends PageTransitionsBuilder {
+  const FxPageTransitions();
+
+  @override
+  Widget buildTransitions<T>(
+    PageRoute<T> route,
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    if (!fxEnabled.value) {
+      return const ZoomPageTransitionsBuilder().buildTransitions<T>(route, context, animation, secondaryAnimation, child);
+    }
+    return fxTransition(animation, secondaryAnimation, child);
+  }
+}
+
+/// Page route. Plain route when effects are off.
 Route<T> fxRoute<T>(WidgetBuilder builder) {
   if (!fxEnabled.value) return MaterialPageRoute<T>(builder: builder);
   return PageRouteBuilder<T>(
     transitionDuration: const Duration(milliseconds: 320),
     reverseTransitionDuration: const Duration(milliseconds: 260),
     pageBuilder: (context, animation, secondary) => builder(context),
-    transitionsBuilder: (context, animation, secondary, child) {
-      return AnimatedBuilder(
-        animation: Listenable.merge([animation, secondary]),
-        child: child,
-        builder: (context, child) {
-          final a = animation.value;
-          final s = secondary.value;
-          final fadeIn = ((a - 0.45) / 0.55).clamp(0.0, 1.0);
-          final fadeOut = (1 - s / 0.45).clamp(0.0, 1.0);
-          final lift = 0.04 * (1 - Curves.easeOutCubic.transform(a));
-          return Opacity(
-            opacity: fadeIn * fadeOut,
-            child: FractionalTranslation(translation: Offset(0, lift), child: child),
-          );
-        },
-      );
-    },
+    transitionsBuilder: (context, animation, secondary, child) => fxTransition(animation, secondary, child),
   );
 }
 

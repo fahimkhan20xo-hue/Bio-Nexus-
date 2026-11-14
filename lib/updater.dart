@@ -6,7 +6,8 @@ import 'package:url_launcher/url_launcher.dart';
 /// Set by the build workflow (--dart-define=BUILD_NUMBER=...). 0 = unknown.
 const int kBuildNumber = int.fromEnvironment('BUILD_NUMBER', defaultValue: 0);
 
-const String _latestReleaseApi = 'https://api.github.com/repos/fahimkhan20xo-hue/Bio-Nexus-/releases/latest';
+const String _repo = 'fahimkhan20xo-hue/Bio-Nexus-';
+const String _latestReleaseApi = 'https://api.github.com/repos/$_repo/releases/latest';
 
 class UpdateInfo {
   final int build;
@@ -16,7 +17,34 @@ class UpdateInfo {
 }
 
 /// Looks at the newest GitHub release. Returns null when it cannot be checked.
+/// First tries the GitHub API; if that fails (rate limit, 403/404, timeout) it
+/// falls back to the plain releases/latest redirect, which has no API limit.
 Future<UpdateInfo?> checkAppUpdate() async {
+  return await _viaApi() ?? await _viaRedirect();
+}
+
+Future<UpdateInfo?> _viaRedirect() async {
+  final client = http.Client();
+  try {
+    final req = http.Request('GET', Uri.parse('https://github.com/$_repo/releases/latest'))
+      ..followRedirects = false
+      ..headers['User-Agent'] = 'BioNexus-App';
+    final r = await client.send(req).timeout(const Duration(seconds: 15));
+    final loc = r.headers['location'] ?? '';
+    final m = RegExp(r'/releases/tag/([^/?#]+)').firstMatch(loc);
+    if (m == null) return null;
+    final tag = Uri.decodeComponent(m.group(1)!);
+    final n = RegExp(r'(\d+)$').firstMatch(tag);
+    if (n == null) return null;
+    return UpdateInfo(int.parse(n.group(1)!), 'https://github.com/$_repo/releases/download/$tag/BioNexus.apk');
+  } catch (e) {
+    return null;
+  } finally {
+    client.close();
+  }
+}
+
+Future<UpdateInfo?> _viaApi() async {
   try {
     final r = await http.get(
       Uri.parse(_latestReleaseApi),
