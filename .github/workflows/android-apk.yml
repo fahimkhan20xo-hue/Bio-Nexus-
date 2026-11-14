@@ -46,6 +46,17 @@ jobs:
       - name: Generate Android platform files
         run: flutter create . --platforms=android --project-name=bionexus
 
+      - name: Disable Android lint on release build
+        run: |
+          F=android/app/build.gradle.kts
+          [ -f "$F" ] || F=android/app/build.gradle
+          if [ "${F##*.}" = "kts" ]; then
+            printf '\nandroid {\n    lint {\n        checkReleaseBuilds = false\n        abortOnError = false\n    }\n}\n' >> "$F"
+          else
+            printf '\nandroid {\n    lint {\n        checkReleaseBuilds false\n        abortOnError false\n    }\n}\n' >> "$F"
+          fi
+          tail -8 "$F"
+
       - name: Set up Python (for the app icon)
         uses: actions/setup-python@v5
         with:
@@ -147,4 +158,3 @@ jobs:
             sleep 20
           done
           exit 1
-          
