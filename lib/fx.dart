@@ -243,6 +243,9 @@ class _ShimmerBoxState extends State<ShimmerBox> with SingleTickerProviderStateM
   }
 }
 
+/// How much of the transition the old page needs to disappear (smaller = shorter dip).
+const double _fxSplit = 0.3;
+
 /// The page transition: the old page fades out first, then the new page fades in
 /// (no overlap). Used by fxRoute and, through [FxPageTransitions], by every
 /// other page route too (including the Home page underneath).
@@ -253,9 +256,9 @@ Widget fxTransition(Animation<double> animation, Animation<double> secondary, Wi
     builder: (context, child) {
       final a = animation.value;
       final s = secondary.value;
-      final fadeIn = ((a - 0.45) / 0.55).clamp(0.0, 1.0);
-      final fadeOut = (1 - s / 0.45).clamp(0.0, 1.0);
-      final lift = 0.04 * (1 - Curves.easeOutCubic.transform(a));
+      final fadeIn = Curves.easeOut.transform(((a - _fxSplit) / (1 - _fxSplit)).clamp(0.0, 1.0));
+      final fadeOut = Curves.easeIn.transform((1 - s / _fxSplit).clamp(0.0, 1.0));
+      final lift = 0.015 * (1 - Curves.easeOutCubic.transform(a));
       return Opacity(
         opacity: fadeIn * fadeOut,
         child: FractionalTranslation(translation: Offset(0, lift), child: child),
@@ -289,8 +292,8 @@ class FxPageTransitions extends PageTransitionsBuilder {
 Route<T> fxRoute<T>(WidgetBuilder builder) {
   if (!fxEnabled.value) return MaterialPageRoute<T>(builder: builder);
   return PageRouteBuilder<T>(
-    transitionDuration: const Duration(milliseconds: 320),
-    reverseTransitionDuration: const Duration(milliseconds: 260),
+    transitionDuration: const Duration(milliseconds: 240),
+    reverseTransitionDuration: const Duration(milliseconds: 200),
     pageBuilder: (context, animation, secondary) => builder(context),
     transitionsBuilder: (context, animation, secondary, child) => fxTransition(animation, secondary, child),
   );
