@@ -252,6 +252,13 @@ class _ShimmerBoxState extends State<ShimmerBox> with SingleTickerProviderStateM
 // fades to blank.
 // ---------------------------------------------------------------------------
 
+/// One curve for everything, so the page and the hiding of the old page always agree.
+double _fxEase(double v) => Curves.easeInOutCubic.transform(v.clamp(0.0, 1.0));
+
+/// From this point the new page almost covers the screen: the old page is hidden
+/// and the solid cover fades out (over the plain background), so nothing pops.
+const double _fxDone = 0.9;
+
 Rect? _fxOrigin;
 DateTime _fxOriginAt = DateTime(2000);
 
@@ -296,11 +303,15 @@ Widget fxExpand(BuildContext context, Rect? origin, Animation<double> animation,
     animation: animation,
     child: child,
     builder: (context, child) {
-      final t = Curves.easeInOutCubic.transform(animation.value.clamp(0.0, 1.0));
+      final t = _fxEase(animation.value);
       final rect = Rect.lerp(from, full, t)!;
       final radius = 22.0 * (1 - t);
+      // Solid only while the page is moving, so the old page can never show
+      // through. Once it has arrived (and the old page is hidden at the very same
+      // moment) it turns see-through again, so the DNA background and the glass
+      // effects work as before.
       final rise = (t / 0.25).clamp(0.0, 1.0);
-      final fall = (1 - (t - 0.9) / 0.1).clamp(0.0, 1.0);
+      final fall = (1 - (t - _fxDone) / (1 - _fxDone)).clamp(0.0, 1.0);
       final coverAlpha = rise < fall ? rise : fall;
       final content = ((t - 0.3) / 0.5).clamp(0.0, 1.0);
       return Stack(children: [
@@ -332,7 +343,7 @@ Widget fxHideUnder(Animation<double> secondary, Widget child) {
   return AnimatedBuilder(
     animation: secondary,
     child: child,
-    builder: (context, child) => Opacity(opacity: secondary.value >= 0.9 ? 0.0 : 1.0, child: child),
+    builder: (context, child) => Opacity(opacity: _fxEase(secondary.value) >= _fxDone ? 0.0 : 1.0, child: child),
   );
 }
 
