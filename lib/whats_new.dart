@@ -66,15 +66,16 @@ Future<File> _file() async {
   return File('${d.path}/bionexus_whatsnew.json');
 }
 
+/// null = nothing saved yet. Throws if the phone storage cannot be used, so the
+/// caller can stay quiet instead of showing the window on every start.
 Future<String?> _loadSeen() async {
+  final f = await _file();
+  if (!await f.exists()) return null;
   try {
-    final f = await _file();
-    if (!await f.exists()) return null;
     final m = jsonDecode(await f.readAsString());
     return m is Map ? m['seen']?.toString() : null;
-  } catch (e) {
-    debugPrint('Could not read what\'s new: $e');
-    return null;
+  } on FormatException {
+    return null; // damaged file: treat as "nothing seen yet"
   }
 }
 
@@ -99,10 +100,19 @@ List<WhatsNewEntry> _unseen(String? seen) {
 /// Called once when the app starts. Shows the window only if there is
 /// something the user has not seen yet.
 Future<void> showWhatsNewIfNeeded(BuildContext context, Lang Function() currentLang) async {
+  // Widget tests have no phone storage and must not be left with a pending timer.
+  if (Platform.environment.containsKey('FLUTTER_TEST')) return;
   // give the saved language a moment to load, so the window opens in it
   await Future<void>.delayed(const Duration(milliseconds: 1200));
   if (!context.mounted) return;
-  final unseen = _unseen(await _loadSeen());
+  String? seen;
+  try {
+    seen = await _loadSeen();
+  } catch (e) {
+    debugPrint('What\'s new skipped: $e');
+    return;
+  }
+  final unseen = _unseen(seen);
   if (unseen.isEmpty || !context.mounted) return;
   await _saveSeen(kWhatsNew.first.id); // saved first, so it never repeats
   if (!context.mounted) return;
