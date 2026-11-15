@@ -5,6 +5,7 @@ import 'quiz.dart';
 import 'compare.dart';
 import 'dashboard.dart';
 import 'extras.dart';
+import 'flashcards.dart';
 import 'fx.dart';
 import 'images.dart';
 import 'manage.dart';
@@ -735,6 +736,14 @@ class _HomePageState extends State<HomePage> {
               subtitle: Text(t('Scientific names, families and orders.', 'বৈজ্ঞানিক নাম, গোত্র ও বর্গ।', '学名・科・目の問題。')),
               trailing: const Icon(Icons.chevron_right),
               onTap: openQuiz,
+            ),
+          ),
+          GlassCard(margin: const EdgeInsets.only(bottom: 10), padding: EdgeInsets.zero, blur: false, child: ListTile(
+              leading: const Icon(Icons.view_carousel),
+              title: Text(t('Flashcards', 'ফ্ল্যাশকার্ড', 'フラッシュカード')),
+              subtitle: Text(t('Flip cards and revise the ones you miss.', 'কার্ড উল্টিয়ে শেখো, ভুলগুলো আবার দেখো।', 'カードをめくって、間違いを復習。')),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.push(context, fxRoute((_) => FlashcardsPage(lang: lang, open: _openSpecies))),
             ),
           ),
           GlassCard(margin: const EdgeInsets.only(bottom: 10), padding: EdgeInsets.zero, blur: false, child: ListTile(
