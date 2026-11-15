@@ -43,18 +43,6 @@ class _FlashcardsPageState extends State<FlashcardsPage> {
   final List<Species> knownNow = [];
   final List<Species> missedNow = [];
 
-  // photos: asked once per card, and the next two cards are fetched ahead of time
-  final Map<String, Future<SpeciesImageData?>> _imgs = {};
-
-  Future<SpeciesImageData?> _imgFuture(Species s) =>
-      _imgs.putIfAbsent(s.scientific, () => getSpeciesImage(s.scientific));
-
-  void _prefetch() {
-    for (var i = index; i < index + 3 && i < deck.length; i++) {
-      _imgFuture(deck[i]);
-    }
-  }
-
   Lang get lang => widget.lang;
   String t(String en, String bn, String ja) => tr(lang, en, bn, ja);
 
@@ -132,10 +120,8 @@ class _FlashcardsPageState extends State<FlashcardsPage> {
       flipped = false;
       knownNow.clear();
       missedNow.clear();
-      _imgs.clear();
       stage = 1;
     });
-    _prefetch();
   }
 
   void _answer(bool know) {
@@ -152,7 +138,6 @@ class _FlashcardsPageState extends State<FlashcardsPage> {
         flipped = false;
       }
     });
-    if (stage == 1) _prefetch();
   }
 
   // ---------- screens ----------
@@ -330,37 +315,21 @@ class _FlashcardsPageState extends State<FlashcardsPage> {
 
   Widget _frontFace(BuildContext context, Species s) {
     final text = Theme.of(context).textTheme;
-    const noPhoto = Center(child: Icon(Icons.biotech, size: 64, color: Colors.white54));
     return SizedBox.expand(
       child: GlassCard(
         blur: false,
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(14),
         child: Column(
           children: [
+            // the same photo widget as the species page, so it loads the same way
             Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: SizedBox.expand(
-                  child: FutureBuilder<SpeciesImageData?>(
-                    future: _imgFuture(s),
-                    builder: (context, snap) {
-                      final d = snap.data;
-                      final waiting = snap.connectionState != ConnectionState.done;
-                      if (d != null) {
-                        return Image(
-                          image: ResizeImage(d.provider, width: 900),
-                          fit: BoxFit.cover,
-                          errorBuilder: (_, __, ___) => noPhoto,
-                        );
-                      }
-                      if (waiting) return const ShimmerBox(radius: 0);
-                      return noPhoto;
-                    },
-                  ),
+              child: Center(
+                child: SingleChildScrollView(
+                  child: SpeciesHero(scientific: s.scientific, lang: lang),
                 ),
               ),
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 10),
             Text(
               s.scientific,
               textAlign: TextAlign.center,

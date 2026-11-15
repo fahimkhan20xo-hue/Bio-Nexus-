@@ -6,6 +6,7 @@ import 'compare.dart';
 import 'dashboard.dart';
 import 'extras.dart';
 import 'flashcards.dart';
+import 'whats_new.dart';
 import 'fx.dart';
 import 'images.dart';
 import 'manage.dart';
@@ -170,7 +171,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _checkUpdateQuietly());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _checkUpdateQuietly();
+      showWhatsNewIfNeeded(context, () => lang);
+    });
   }
 
   @override
@@ -918,6 +922,14 @@ class _HomePageState extends State<HomePage> {
               await Navigator.push(context, fxRoute((_) => ManageSavedPage(lang: lang)));
               if (mounted) setState(() {});
             },
+          ),
+          ),
+          _box(
+            ListTile(
+            leading: const Icon(Icons.new_releases),
+            title: Text(t("What's new", 'নতুন কী এসেছে', '新機能')),
+            subtitle: Text(t('See what the latest update added.', 'সর্বশেষ আপডেটে কী যোগ হয়েছে দেখো।', '最新アップデートの内容を見る。')),
+            onTap: () => showWhatsNewDialog(context, lang),
           ),
           ),
           _box(
