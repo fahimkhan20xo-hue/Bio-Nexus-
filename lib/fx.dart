@@ -255,10 +255,6 @@ class _ShimmerBoxState extends State<ShimmerBox> with SingleTickerProviderStateM
 /// One curve for everything, so the page and the hiding of the old page always agree.
 double _fxEase(double v) => Curves.easeInOutCubic.transform(v.clamp(0.0, 1.0));
 
-/// From this point the new page almost covers the screen: the old page is hidden
-/// and the solid cover fades out (over the plain background), so nothing pops.
-const double _fxDone = 0.9;
-
 Rect? _fxOrigin;
 DateTime _fxOriginAt = DateTime(2000);
 
@@ -294,60 +290,88 @@ Rect? _takeFxOrigin() {
 }
 
 /// The new page grows from [origin] (or the screen centre) to full screen.
-Widget fxExpand(BuildContext context, Rect? origin, Animation<double> animation, Widget child) {
-  final size = MediaQuery.sizeOf(context);
-  final full = Offset.zero & size;
-  final from = origin ?? Rect.fromCenter(center: size.center(Offset.zero), width: size.width * .5, height: size.height * .12);
-  final cover = Theme.of(context).canvasColor;
-  return AnimatedBuilder(
-    animation: animation,
-    child: child,
-    builder: (context, child) {
-      final t = _fxEase(animation.value);
-      final rect = Rect.lerp(from, full, t)!;
-      final radius = 22.0 * (1 - t);
-      // Solid only while the page is moving, so the old page can never show
-      // through. Once it has arrived (and the old page is hidden at the very same
-      // moment) it turns see-through again, so the DNA background and the glass
-      // effects work as before.
-      final rise = (t / 0.25).clamp(0.0, 1.0);
-      final fall = (1 - (t - _fxDone) / (1 - _fxDone)).clamp(0.0, 1.0);
-      final coverAlpha = rise < fall ? rise : fall;
-      final content = ((t - 0.3) / 0.5).clamp(0.0, 1.0);
-      return Stack(children: [
-        Positioned.fromRect(
-          rect: rect,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(radius),
-            child: ColoredBox(
-              color: cover.withValues(alpha: coverAlpha),
-              child: OverflowBox(
-                alignment: Alignment.topLeft,
-                minWidth: size.width,
-                maxWidth: size.width,
-                minHeight: size.height,
-                maxHeight: size.height,
-                child: Opacity(opacity: content, child: child),
+///
+/// The page is solid while it moves, so the old page can never show through.
+/// The solid layer is removed only after the route has fully arrived (at that
+/// moment Flutter stops drawing the old page, in the very same frame) and it
+/// then fades away over the plain background. One signal, so nothing can get
+/// out of step and no ghost of the old page is possible.
+class _FxExpand extends StatefulWidget {
+  const _FxExpand({required this.origin, required this.animation, required this.child});
+
+  final Rect? origin;
+  final Animation<double> animation;
+  final Widget child;
+
+  @override
+  State<_FxExpand> createState() => _FxExpandState();
+}
+
+class _FxExpandState extends State<_FxExpand> {
+  @override
+  void initState() {
+    super.initState();
+    widget.animation.addStatusListener(_onStatus);
+  }
+
+  @override
+  void dispose() {
+    widget.animation.removeStatusListener(_onStatus);
+    super.dispose();
+  }
+
+  void _onStatus(AnimationStatus status) {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final animation = widget.animation;
+    final size = MediaQuery.sizeOf(context);
+    final full = Offset.zero & size;
+    final from = widget.origin ??
+        Rect.fromCenter(center: size.center(Offset.zero), width: size.width * .5, height: size.height * .12);
+    final cover = Theme.of(context).canvasColor;
+    final arrived = animation.status == AnimationStatus.completed;
+    return AnimatedBuilder(
+      animation: animation,
+      child: widget.child,
+      builder: (context, child) {
+        final t = _fxEase(animation.value);
+        final rect = Rect.lerp(from, full, t)!;
+        final radius = 22.0 * (1 - t);
+        final content = ((t - 0.3) / 0.5).clamp(0.0, 1.0);
+        return TweenAnimationBuilder<double>(
+          tween: Tween<double>(begin: 1.0, end: arrived ? 0.0 : 1.0),
+          duration: arrived ? const Duration(milliseconds: 240) : Duration.zero,
+          builder: (context, solid, _) => Stack(children: [
+            Positioned.fromRect(
+              rect: rect,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(radius),
+                child: ColoredBox(
+                  color: cover.withValues(alpha: solid),
+                  child: OverflowBox(
+                    alignment: Alignment.topLeft,
+                    minWidth: size.width,
+                    maxWidth: size.width,
+                    minHeight: size.height,
+                    maxHeight: size.height,
+                    child: Opacity(opacity: content, child: child),
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-      ]);
-    },
-  );
+          ]),
+        );
+      },
+    );
+  }
 }
 
-/// The page underneath stays as it is, and is only hidden once the new page
-/// fully covers it (so nothing flickers).
-Widget fxHideUnder(Animation<double> secondary, Widget child) {
-  return AnimatedBuilder(
-    animation: secondary,
-    child: child,
-    builder: (context, child) => Opacity(opacity: _fxEase(secondary.value) >= _fxDone ? 0.0 : 1.0, child: child),
-  );
-}
-
-/// Used for the first page (Home) and any other route made by the theme.
+/// Used for the first page (Home). When effects are on it gets NO transition of
+/// its own: the default one dimmed and shrank the old page while the new page
+/// grew over it, which looked like a ghost.
 class FxPageTransitions extends PageTransitionsBuilder {
   const FxPageTransitions();
 
@@ -362,7 +386,7 @@ class FxPageTransitions extends PageTransitionsBuilder {
     if (!fxEnabled.value) {
       return const ZoomPageTransitionsBuilder().buildTransitions<T>(route, context, animation, secondaryAnimation, child);
     }
-    return fxHideUnder(secondaryAnimation, child);
+    return child;
   }
 }
 
@@ -376,7 +400,7 @@ Route<T> fxRoute<T>(WidgetBuilder builder) {
     reverseTransitionDuration: const Duration(milliseconds: 320),
     pageBuilder: (context, animation, secondary) => builder(context),
     transitionsBuilder: (context, animation, secondary, child) =>
-        fxHideUnder(secondary, fxExpand(context, origin, animation, child)),
+        _FxExpand(origin: origin, animation: animation, child: child),
   );
 }
 
