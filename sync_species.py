@@ -10,6 +10,7 @@ into existing species that have none (or only an English one). Other existing da
 database/version.json is bumped, and database/sync_report.md explains what
 was added or skipped. Only the Python standard library is used.
 """
+import difflib
 import json
 import os
 import re
@@ -25,6 +26,7 @@ DB = os.path.join(ROOT, 'database', 'species.json')
 VER = os.path.join(ROOT, 'database', 'version.json')
 ASSET = os.path.join(ROOT, 'assets', 'species.json')
 REPORT = os.path.join(ROOT, 'database', 'sync_report.md')
+FIXES = os.path.join(ROOT, 'database', 'name_fixes.json')  # remembers auto-corrected names
 
 UA = 'BioNexusSync/1.0 (https://github.com/fahimkhan20xo-hue/Bio-Nexus-; educational app)'
 REQUIRED = ['scientific', 'common', 'kingdom', 'phylum', 'class', 'order', 'family']
@@ -129,20 +131,103 @@ def wikidata(name):
     return res
 
 
-def resolve(name):
-    """Returns (record, notes, error)."""
-    g = get('https://api.gbif.org/v1/species/match?name=' + quote(name))
+GBIF = 'https://api.gbif.org/v1'
+UNPLACED = 'Incertae sedis'  # the proper taxonomic term for "placement not settled"
+
+
+def similar(a, b):
+    return difflib.SequenceMatcher(None, a.lower(), b.lower()).ratio()
+
+
+def gbif_match(name):
+    d = get(GBIF + '/species/match?verbose=true&name=' + quote(name))
     time.sleep(0.2)
+    return d
+
+
+def is_species_hit(g):
+    return bool(g) and g.get('matchType') in ('EXACT', 'FUZZY') and g.get('rank') in (
+        'SPECIES', 'SUBSPECIES', 'VARIETY', 'FORM') and g.get('canonicalName')
+
+
+def find_correction(name, g):
+    """The name did not match exactly. Look for the species it most likely means:
+    first among GBIF's own alternatives, then with a GBIF search. Only close
+    spellings are accepted, so a wrong species is never added by accident."""
+    best, best_score = None, 0.0
+    cands = [g] + list(g.get('alternatives') or [])
+    for c in cands:
+        if not is_species_hit(c):
+            continue
+        sim = similar(name, c['canonicalName'])
+        score = sim + (0.05 if c.get('status') == 'ACCEPTED' else 0) + (c.get('confidence', 0) / 1000.0)
+        if sim >= 0.86 and score > best_score:
+            best, best_score = c['canonicalName'], score
+    if best:
+        return best
+    d = get(GBIF + '/species/search?rank=SPECIES&status=ACCEPTED&limit=8&q=' + quote(name))
+    time.sleep(0.2)
+    for r in (d or {}).get('results', []):
+        cn = r.get('canonicalName') or ''
+        if cn and similar(name, cn) >= 0.9 and score_ok(name, cn):
+            return cn
+    return None
+
+
+def score_ok(name, cn):
+    # same genus word or same species word, so "Rosa chinensis" cannot become "Pinus sylvestris"
+    a, b = name.lower().split(), cn.lower().split()
+    return len(a) == 2 and len(b) == 2 and (a[0] == b[0] or a[1] == b[1])
+
+
+def complete_classification(rec, g, notes):
+    """GBIF sometimes lacks a rank. Try the taxon record, then the genus."""
+    ranks = ('kingdom', 'phylum', 'class', 'order', 'family')
+
+    def missing():
+        return [k for k in ranks if not rec.get(k)]
+
+    key = g.get('acceptedUsageKey') or g.get('usageKey')
+    if missing() and key:
+        d = get('%s/species/%s' % (GBIF, key))
+        time.sleep(0.2)
+        for k in ranks:
+            if d and not rec.get(k) and d.get(k):
+                rec[k] = KINGDOM.get(d[k], d[k]) if k == 'kingdom' else d[k]
+    if missing() and g.get('genus'):
+        d = get(GBIF + '/species/match?rank=GENUS&name=' + quote(g['genus']))
+        time.sleep(0.2)
+        for k in ranks:
+            if d and d.get('matchType') == 'EXACT' and not rec.get(k) and d.get(k):
+                rec[k] = KINGDOM.get(d[k], d[k]) if k == 'kingdom' else d[k]
+    for k in ('class', 'order', 'family'):
+        if not rec.get(k) and rec.get('phylum'):
+            rec[k] = UNPLACED
+            notes.append('GBIF has no %s for this species, marked "%s"' % (k, UNPLACED))
+    return [k for k in ('kingdom', 'phylum') if not rec.get(k)]
+
+
+def resolve(name):
+    """Returns (record, notes, error). Names that do not match exactly are
+    corrected automatically when a close species exists."""
+    g = gbif_match(name)
     if not g:
         return None, [], 'GBIF did not respond'
-    if g.get('matchType') != 'EXACT':
-        hint = g.get('scientificName') or 'no suggestion'
-        return None, [], 'GBIF found no exact match (closest: %s). Check the spelling.' % hint
-
     notes = []
+    if g.get('matchType') != 'EXACT' or g.get('rank') not in ('SPECIES', 'SUBSPECIES', 'VARIETY', 'FORM'):
+        fixed = find_correction(name, g)
+        if not fixed:
+            hint = g.get('scientificName') or 'no suggestion'
+            return None, [], 'GBIF found no close match (closest: %s). Check the spelling.' % hint
+        g2 = gbif_match(fixed)
+        if not g2 or g2.get('matchType') != 'EXACT':
+            return None, [], 'GBIF could not confirm the corrected name "%s"' % fixed
+        notes.append('"%s" was corrected to "%s"' % (name, fixed))
+        g = g2
+
     sci = g.get('canonicalName') or name
-    if g.get('status') == 'SYNONYM' and g.get('rank') == 'SPECIES' and g.get('species'):
-        notes.append('"%s" is a synonym, saved as accepted name "%s"' % (name, g['species']))
+    if g.get('species') and (g.get('status') == 'SYNONYM' or g.get('rank') != 'SPECIES'):
+        notes.append('"%s" is a synonym or sub-rank, saved as accepted species "%s"' % (name, g['species']))
         sci = g['species']
 
     rec = {
@@ -153,9 +238,9 @@ def resolve(name):
         'order': g.get('order', ''),
         'family': g.get('family', ''),
     }
-    missing = [k for k in ('kingdom', 'phylum', 'class', 'order', 'family') if not rec[k]]
-    if missing:
-        return None, notes, 'GBIF has no %s for this name' % ', '.join(missing)
+    lacking = complete_classification(rec, g, notes)
+    if lacking:
+        return None, notes, 'GBIF has no %s for this name' % ', '.join(lacking)
 
     wp = wikipedia(sci)
     wd = wikidata(sci)
@@ -203,22 +288,30 @@ def main():
             existing[rec['scientific'].strip().lower()] = rec
     db_before = load_list(DB)
 
-    added, skipped, noted = [], [], []
-    for i, name in enumerate(names, 1):
-        if name.lower() in existing:
-            continue
-        print('[%d/%d] %s' % (i, len(names), name), flush=True)
+    fixes = {}
+    try:
+        with open(FIXES, encoding='utf-8') as f:
+            fixes = json.load(f)
+    except Exception:
+        pass
+    fixes_before = dict(fixes)
+
+    added, skipped, noted, corrected = [], [], [], []
+
+    def attempt(i, total, name):
+        print('[%d/%d] %s' % (i, total, name), flush=True)
         rec, notes, err = resolve(name)
         if err or rec is None:
-            skipped.append((name, err or 'unknown error'))
-            continue
+            return err or 'unknown error'
         key = rec['scientific'].lower()
+        if key != name.lower():
+            fixes[name.lower()] = rec['scientific']
+            corrected.append((name, rec['scientific']))
         if key in existing:
-            skipped.append((name, 'already in the database as "%s"' % rec['scientific']))
-            continue
+            noted.append((name, 'is the same species as "%s", already in the database' % rec['scientific']))
+            return None
         if not valid(rec):
-            skipped.append((name, 'incomplete record'))
-            continue
+            return 'incomplete record'
         p = prons.get(key) or prons.get(name.lower())
         if p:
             rec['pronunciation'] = p
@@ -226,6 +319,28 @@ def main():
         added.append(rec['scientific'])
         for n in notes:
             noted.append((rec['scientific'], n))
+        return None
+
+    retry = []
+    for i, name in enumerate(names, 1):
+        if name.lower() in existing:
+            continue
+        fx = fixes.get(name.lower())
+        if fx and fx.lower() in existing:
+            continue  # corrected earlier and already added
+        err = attempt(i, len(names), name)
+        if err and 'did not respond' in err:
+            retry.append((i, name))  # temporary problem, try again below
+        elif err:
+            skipped.append((name, err))
+
+    if retry:
+        print('Retrying %d names after a short pause...' % len(retry), flush=True)
+        time.sleep(30)
+        for i, name in retry:
+            err = attempt(i, len(names), name)
+            if err:
+                skipped.append((name, err))
 
     filled = []
     for key, p in prons.items():
@@ -237,6 +352,10 @@ def main():
 
     merged = sorted(existing.values(), key=lambda r: r['scientific'])
     changed = merged != db_before
+    if fixes != fixes_before:
+        with open(FIXES, 'w', encoding='utf-8') as f:
+            json.dump(fixes, f, ensure_ascii=False, indent=1, sort_keys=True)
+            f.write('\n')
 
     if changed:
         with open(DB, 'w', encoding='utf-8') as f:
@@ -261,6 +380,8 @@ def main():
         lines += ['## Added'] + ['- ' + a for a in added] + ['']
     if filled:
         lines += ['## Pronunciation filled in'] + ['- ' + a for a in filled] + ['']
+    if corrected:
+        lines += ['## Names corrected automatically'] + ['- %s -> %s' % c for c in corrected] + ['']
     if skipped:
         lines += ['## Skipped (fix the name or add by hand)'] + ['- %s: %s' % s for s in skipped] + ['']
     if noted:
