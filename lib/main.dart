@@ -21,6 +21,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   speciesData = await loadSpecies();
   await stats.load();
+  await stats.markActiveToday();
   await loadFx();
   runApp(const BioNexusApp());
 }
@@ -159,7 +160,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   String query = '';
   int tab = 0;
   String? kingdomFilter;
@@ -171,6 +172,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _checkUpdateQuietly();
       showWhatsNewIfNeeded(context, () => lang);
@@ -178,7 +180,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // the app was left open overnight: the new day still counts for the streak
+    if (state == AppLifecycleState.resumed) stats.markActiveToday();
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _searchCtl.dispose();
     _homeSearch.dispose();
     super.dispose();

@@ -91,6 +91,7 @@ class StatsStore {
   List<AnswerRec> answers = [];
   List<QuizRec> quizzes = [];
   List<String> viewed = [];
+  Set<String> activeDays = {}; // days the app was opened (also counted for the streak)
 
   Future<File> _file(String name) async {
     final d = await getApplicationSupportDirectory();
@@ -123,6 +124,38 @@ class StatsStore {
     } catch (e) {
       debugPrint('Could not load viewed list: $e');
     }
+    try {
+      final f = await _file('bionexus_streak.json');
+      if (await f.exists()) {
+        final l = jsonDecode(await f.readAsString());
+        if (l is List) activeDays = l.map((e) => e.toString()).toSet();
+      }
+    } catch (e) {
+      debugPrint('Could not load streak days: $e');
+    }
+  }
+
+  Future<void> _saveActive() async {
+    try {
+      final f = await _file('bionexus_streak.json');
+      final l = activeDays.toList()..sort();
+      await f.writeAsString(jsonEncode(l), flush: true);
+    } catch (e) {
+      debugPrint('Could not save streak days: $e');
+    }
+  }
+
+  /// Counts today as a day the app was used. Called when the app opens and
+  /// when it comes back to the front, so the streak does not need a quiz.
+  Future<void> markActiveToday() async {
+    final k = dayKey(DateTime.now());
+    if (activeDays.contains(k)) return;
+    activeDays.add(k);
+    if (activeDays.length > 800) {
+      final l = activeDays.toList()..sort();
+      activeDays = l.sublist(l.length - 800).toSet();
+    }
+    await _saveActive();
   }
 
   Future<void> _saveMain() async {
@@ -168,8 +201,11 @@ class StatsStore {
     answers = [];
     quizzes = [];
     viewed = [];
+    activeDays = {};
     await _saveMain();
     await _saveViewed();
+    await _saveActive();
+    await markActiveToday();
   }
 
   // ---- numbers shown on the dashboard ----
@@ -180,15 +216,65 @@ class StatsStore {
 
   bool get dailyDoneToday => quizzes.any((q) => q.daily && q.day == dayKey(DateTime.now()));
 
-  /// Days in a row (up to today) with at least one finished quiz.
+  // ---- streak: a day counts when the app was opened or a quiz was finished ----
+  Set<String> get _allDays => {...quizzes.map((q) => q.day), ...activeDays};
+
+  // noon, so daylight-saving changes can never skip or repeat a date
+  static DateTime _before(DateTime d) => DateTime(d.year, d.month, d.day - 1, 12);
+
+  static String _nextKey(String k) {
+    try {
+      final d = DateTime.parse(k);
+      return dayKey(DateTime(d.year, d.month, d.day + 1, 12));
+    } catch (_) {
+      return '';
+    }
+  }
+
+  /// Days in a row (up to today).
   int get dayStreak {
-    final days = quizzes.map((q) => q.day).toSet();
+    final days = _allDays;
     var d = DateTime.now();
-    if (!days.contains(dayKey(d))) d = d.subtract(const Duration(days: 1));
+    if (!days.contains(dayKey(d))) d = _before(d);
     var n = 0;
     while (days.contains(dayKey(d))) {
       n++;
-      d = d.subtract(const Duration(days: 1));
+      d = _before(d);
+    }
+    return n;
+  }
+
+  /// The longest run of days ever.
+  int get bestDayStreak {
+    final list = _allDays.toList()..sort();
+    var best = 0, run = 0;
+    String? prev;
+    for (final k in list) {
+      run = (prev != null && _nextKey(prev) == k) ? run + 1 : 1;
+      if (run > best) best = run;
+      prev = k;
+    }
+    return best;
+  }
+
+  /// If a streak just broke: how long it was (0 when nothing broke).
+  /// Only reported on the day the new streak starts.
+  int get lostStreak {
+    final days = _allDays;
+    final today = DateTime.now();
+    if (!days.contains(dayKey(today))) return 0;
+    var x = _before(today);
+    if (days.contains(dayKey(x))) return 0; // streak is still going
+    var guard = 0;
+    while (!days.contains(dayKey(x)) && guard < 900) {
+      x = _before(x);
+      guard++;
+    }
+    if (guard >= 900) return 0;
+    var n = 0;
+    while (days.contains(dayKey(x))) {
+      n++;
+      x = _before(x);
     }
     return n;
   }

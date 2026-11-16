@@ -4,6 +4,7 @@ import 'data.dart';
 import 'fx.dart';
 import 'quiz.dart' show ScienceBackground;
 import 'stats.dart';
+import 'streak_flame.dart';
 import 'tree.dart' show OpenSpecies;
 
 /// Study > My progress: what you have learned and where you are weak.
@@ -86,6 +87,104 @@ class _DashboardPageState extends State<DashboardPage> {
             const SizedBox(width: 12),
             Expanded(child: Text(t('Accuracy', 'সঠিক উত্তর', '正答率'), style: Theme.of(context).textTheme.bodyMedium)),
           ]),
+        ),
+      ),
+    );
+  }
+
+  Widget _streakCard() {
+    final days = stats.dayStreak;
+    final lv = streakLevelFor(days);
+    final next = nextStreakLevel(days);
+    final lost = stats.lostStreak;
+    final progress = next == null ? 1.0 : ((days - lv.minDays) / (next.minDays - lv.minDays)).clamp(0.0, 1.0);
+    return Card(
+      elevation: 0,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(color: lv.color.withValues(alpha: .55)),
+      ),
+      child: InkWell(
+        onTap: _showLevels,
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Row(children: [
+              StreakFlame(days: days, size: 96),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Row(crossAxisAlignment: CrossAxisAlignment.end, children: [
+                    AnimatedCount(days, style: Theme.of(context).textTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold, color: lv.color)),
+                    const SizedBox(width: 8),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 6),
+                      child: Text(t('day streak', 'দিনের ধারা', '日連続'), style: Theme.of(context).textTheme.bodyMedium),
+                    ),
+                  ]),
+                  const SizedBox(height: 4),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                    decoration: BoxDecoration(color: lv.color.withValues(alpha: .18), borderRadius: BorderRadius.circular(20)),
+                    child: Text(lv.name(lang), style: TextStyle(fontWeight: FontWeight.bold, color: lv.color)),
+                  ),
+                  if (next != null) ...[
+                    const SizedBox(height: 10),
+                    LinearProgressIndicator(value: progress, minHeight: 6, color: lv.color, borderRadius: BorderRadius.circular(6)),
+                    const SizedBox(height: 4),
+                    Text(
+                      '${next.minDays - days} ${t('more days to', 'আরও দিন বাকি', '日で')} ${next.name(lang)}',
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                ]),
+              ),
+            ]),
+            if (lost >= 2) ...[
+              const SizedBox(height: 10),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                const Icon(Icons.info_outline, size: 18, color: Colors.orangeAccent),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    t(
+                      'Your $lost-day streak ended. A new one started today. Open the app every day to grow it!',
+                      'তোমার $lost দিনের ধারা শেষ হয়েছে। আজ নতুন ধারা শুরু। রোজ অ্যাপ খুলে বাড়াও!',
+                      '$lost日の連続が途切れました。今日から新しい連続が始まりました。毎日開いて伸ばしましょう！',
+                    ),
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ),
+              ]),
+            ],
+          ]),
+        ),
+      ),
+    );
+  }
+
+  void _showLevels() {
+    final days = stats.dayStreak;
+    final now = streakLevelFor(days);
+    showModalBottomSheet<void>(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: ListView(
+          shrinkWrap: true,
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+          children: [
+            Text(t('Streak levels', 'ধারার স্তর', '連続レベル'), style: Theme.of(ctx).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 8),
+            for (final l in kStreakLevels.skip(1))
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                leading: StreakFlame(days: l.minDays, size: 44, animate: false),
+                title: Text(l.name(lang), style: TextStyle(fontWeight: FontWeight.bold, color: l.color)),
+                subtitle: Text('${l.minDays}+ ${t('days', 'দিন', '日')}'),
+                trailing: l.index == now.index ? const Icon(Icons.check_circle) : null,
+              ),
+          ],
         ),
       ),
     );
@@ -192,10 +291,12 @@ class _DashboardPageState extends State<DashboardPage> {
               _statCard(Icons.quiz, '${stats.quizzes.length}', t('quizzes taken', 'টি কুইজ দেওয়া', '回のクイズ'), number: stats.quizzes.length),
             ]),
             const SizedBox(height: 10),
+            _streakCard(),
+            const SizedBox(height: 10),
             Row(children: [
               _ring(),
               const SizedBox(width: 10),
-              _statCard(Icons.local_fire_department, '${stats.dayStreak}', t('day streak', 'দিনের ধারা', '日連続'), number: stats.dayStreak),
+              _statCard(Icons.emoji_events, '${stats.bestDayStreak}', t('best streak (days)', 'সেরা ধারা (দিন)', '最高連続 (日)'), number: stats.bestDayStreak),
             ]),
             _heading(t('Questions this week', 'এই সপ্তাহের প্রশ্ন', '今週の問題数')),
             _weekBars(),

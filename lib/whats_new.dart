@@ -32,6 +32,20 @@ class WhatsNewEntry {
 
 /// Newest first.
 const List<WhatsNewEntry> kWhatsNew = [
+  WhatsNewEntry('streak-1', 'Daily streak', [
+    WhatsNewItem(
+      Icons.local_fire_department,
+      'Your streak now counts every day you open the app, not only quiz days.',
+      'এখন অ্যাপ খুললেই দিনের ধারা গোনা হবে, শুধু কুইজের দিন নয়।',
+      'クイズをしなくても、アプリを開いた日が連続日数に数えられます。',
+    ),
+    WhatsNewItem(
+      Icons.whatshot,
+      'The flame grows with your streak: Spark, Flame, Blaze, Inferno, Legend, Mythic. Miss a day and it goes out.',
+      'ধারা বাড়লে শিখাও বড় হয়: স্পার্ক, শিখা, ব্লেজ, ইনফার্নো, লিজেন্ড, মিথিক। একদিন বাদ গেলে নিভে যায়।',
+      '連続日数に合わせて炎が成長します。1日休むと消えてしまいます。',
+    ),
+  ]),
   WhatsNewEntry('flashcards-1', 'Flashcards & more', [
     WhatsNewItem(
       Icons.view_carousel,
