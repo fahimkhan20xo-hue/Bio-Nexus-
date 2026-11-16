@@ -14,6 +14,7 @@ permissions:
 jobs:
   add-names:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,8 +28,20 @@ jobs:
           cat > gbif_names.py <<'PYEOF'
           #!/usr/bin/env python3
           """GBIF theke animal species name niye database/names.txt-e append kore.
-          Already file-e ja ache seta skip kore, tai bar bar run korle protibar notun name ashe."""
-          import argparse, re, sys, time
+
+          Ager version protibar offset 0 theke shuru korto, tai database jotoi boro hoy
+          toi beshi page skip kore korte hoto (ghonta ghonta lagto). Ekhon:
+            * kothay porjonto dekha hoyeche seta database/gbif_progress.json-e mone rakhe
+              ar porer bar sekhan theke shuru kore
+            * nijer shomoy-er limit (--minutes) ache, shesh hole jotota paise ota-i save kore
+          """
+          import argparse
+          import json
+          import os
+          import re
+          import sys
+          import time
+
           import requests
 
           API = "https://api.gbif.org/v1"
@@ -36,16 +49,18 @@ jobs:
                    "Annelida": 0.05, "Echinodermata": 0.04, "Platyhelminthes": 0.03,
                    "Nematoda": 0.03, "Porifera": 0.03, "Rotifera": 0.01}
           BINOMIAL = re.compile(r"^[A-Z][a-z]+ [a-z-]+$")
+          PAGE = 500
+          MAX_OFFSET = 90000  # GBIF does not allow paging deeper than ~100000
 
 
-          def get(url, params, tries=5):
+          def get(url, params, tries=3):
               for i in range(tries):
                   try:
-                      r = requests.get(url, params=params, timeout=40)
+                      r = requests.get(url, params=params, timeout=30)
                       r.raise_for_status()
                       return r.json()
                   except Exception as e:
-                      print(f"  retry {i+1}: {e}", file=sys.stderr)
+                      print(f"  retry {i + 1}: {e}", file=sys.stderr, flush=True)
                       time.sleep(2 * (i + 1))
               return None
 
@@ -67,13 +82,23 @@ jobs:
               return s
 
 
-          def collect(key, want, seen, need_common):
-              out, offset = [], 0
-              while len(out) < want and offset < 90000:
+          def load_progress(path):
+              try:
+                  with open(path, encoding="utf-8") as f:
+                      d = json.load(f)
+                      return d if isinstance(d, dict) else {}
+              except Exception:
+                  return {}
+
+
+          def collect(key, want, seen, need_common, start, deadline):
+              """Returns (names, next_offset). next_offset = -1 when this phylum is finished."""
+              out, offset = [], start
+              while len(out) < want and offset < MAX_OFFSET and time.time() < deadline:
                   d = get(f"{API}/species/search", {"highertaxonKey": key, "rank": "SPECIES",
-                          "status": "ACCEPTED", "limit": 500, "offset": offset})
+                          "status": "ACCEPTED", "limit": PAGE, "offset": offset})
                   if not d or not d.get("results"):
-                      break
+                      break  # network trouble: keep the same offset, try again next time
                   for r in d["results"]:
                       n = (r.get("canonicalName") or "").strip()
                       if not BINOMIAL.match(n) or n.lower() in seen:
@@ -82,58 +107,79 @@ jobs:
                           continue
                       seen.add(n.lower())
                       out.append(n)
-                      if len(out) >= want:
-                          break
-                  offset += 500
-                  if d.get("endOfRecords"):
-                      break
+                  offset += PAGE
+                  if d.get("endOfRecords") or offset >= MAX_OFFSET:
+                      return out, -1
                   time.sleep(0.2)
-              return out
+              return out, offset
 
 
           def main():
               ap = argparse.ArgumentParser()
               ap.add_argument("--existing", default="database/names.txt")
               ap.add_argument("--total", type=int, default=2000)
+              ap.add_argument("--minutes", type=float, default=30, help="shomoy-er limit")
               ap.add_argument("--append", action="store_true", help="existing file-e sorasori add koro")
               ap.add_argument("--any", action="store_true", help="common name chara species-o nao")
               ap.add_argument("--out", default="names_new.txt")
               a = ap.parse_args()
 
+              progress_path = os.path.join(os.path.dirname(a.existing) or ".", "gbif_progress.json")
+              progress = load_progress(progress_path)
               seen = load_existing(a.existing)
-              print("Existing:", len(seen))
+              print("Existing:", len(seen), "| progress:", progress, flush=True)
+
+              start = time.time()
+              budget = a.minutes * 60
               lines, total = [], 0
               for phylum, share in PHYLA.items():
+                  pos = progress.get(phylum, 0)
+                  if pos == -1:
+                      print(f"{phylum}: sob dekha hoye geche, skip", flush=True)
+                      continue
+                  left = budget - (time.time() - start)
+                  if left < 20:
+                      print("Shomoy shesh, baki phylum porer bar.", flush=True)
+                      break
                   k = phylum_key(phylum)
                   if not k:
                       print("[skip]", phylum)
                       continue
                   want = int(a.total * share)
-                  got = collect(k, want, seen, not a.any)
-                  print(f"{phylum}: {len(got)}/{want}")
+                  # protita phylum-er jonno tar ongsho onujayi shomoy, kintu ekta dhimi hole onnogulo ghure na
+                  deadline = time.time() + max(60.0, min(left, budget * share * 1.5))
+                  got, nxt = collect(k, want, seen, not a.any, pos, deadline)
+                  progress[phylum] = nxt
+                  print(f"{phylum}: {len(got)}/{want} (porer offset: {nxt})", flush=True)
                   if got:
                       lines.append(f"\n# --- GBIF auto: {phylum} ---")
                       lines += got
                       total += len(got)
 
+              os.makedirs(os.path.dirname(progress_path) or ".", exist_ok=True)
+              with open(progress_path, "w", encoding="utf-8") as f:
+                  json.dump(progress, f, indent=1, sort_keys=True)
+                  f.write("\n")
+
               if total == 0:
-                  print("Kichu paoa jay nai"); return
+                  print("Notun name paoa jay ni (progress save kora holo)")
+                  return
               path = a.existing if a.append else a.out
               with open(path, "a" if a.append else "w", encoding="utf-8") as f:
                   f.write("\n".join(lines) + "\n")
-              print("Added", total, "->", path)
+              print("Added", total, "->", path, flush=True)
 
 
           if __name__ == "__main__":
               main()
           PYEOF
-          python gbif_names.py --existing database/names.txt --append --total "$TOTAL"
+          python gbif_names.py --existing database/names.txt --append --total "$TOTAL" --minutes 35
           rm gbif_names.py
       - name: Commit names.txt
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add database/names.txt
+          git add database/names.txt database/gbif_progress.json
           if git diff --staged --quiet; then
             echo "No new names."
           else
