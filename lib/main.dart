@@ -13,17 +13,23 @@ import 'manage.dart';
 import 'online.dart';
 import 'pronounce.dart';
 import 'speech.dart';
+import 'splash.dart';
 import 'stats.dart';
 import 'tree.dart';
 import 'updater.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  speciesData = await loadSpecies();
-  await stats.load();
-  await stats.markActiveToday();
-  await loadFx();
-  runApp(const BioNexusApp());
+  // The splash screen shows at once, while the data loads behind it.
+  runApp(BootApp(
+    init: () async {
+      speciesData = await loadSpecies();
+      await stats.load();
+      await stats.markActiveToday();
+      await loadFx();
+    },
+    builder: () => const BioNexusApp(),
+  ));
 }
 
 class BioNexusApp extends StatefulWidget {
@@ -1048,6 +1054,15 @@ class _SpeciesPageState extends State<SpeciesPage> {
     index = i < 0 ? 0 : i;
     controller = PageController(initialPage: index);
     stats.addViewed(items[index].scientific);
+    _prefetchAround(index);
+  }
+
+  // load the photos of the species the user is likely to swipe to next
+  void _prefetchAround(int i) {
+    prefetchSpeciesImages([
+      for (var k = i - 1; k <= i + 2; k++)
+        if (k >= 0 && k < items.length) items[k].scientific,
+    ]);
   }
 
   @override
@@ -1081,6 +1096,7 @@ class _SpeciesPageState extends State<SpeciesPage> {
           onPageChanged: (i) {
             stopSpeaking();
             stats.addViewed(items[i].scientific);
+            _prefetchAround(i);
             setState(() => index = i);
           },
           itemBuilder: (context, i) => AnimatedBuilder(

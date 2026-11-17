@@ -54,6 +54,15 @@ class SpeciesImageData {
   ImageProvider get provider => file != null ? FileImage(file!) : MemoryImage(bytes!) as ImageProvider;
 }
 
+// One client for every request, so the connection to Wikipedia / Wikimedia is
+// kept open. A new client for each photo meant a new connection (and TLS
+// handshake) every time, which is slow on a weak network.
+final http.Client _client = http.Client();
+
+// What Wikipedia told us about a species, remembered so the next photo of it
+// needs only ONE request (the picture itself) instead of two.
+final Map<String, Map<String, String>> _meta = {};
+
 const Map<String, String> _headers = {
   'User-Agent': 'BioNexus/1.1 (Flutter species encyclopedia app)',
 };
@@ -101,6 +110,24 @@ Future<SpeciesImageData?> _persist(String sci, Uint8List bytes, String credit) a
   }
 }
 
+Future<Map<String, String>?> _cachedMeta(String sci, Directory d, String k) async {
+  final m = _meta[sci];
+  if (m != null) return m;
+  try {
+    final f = File('${d.path}/$k.url');
+    if (!await f.exists()) return null;
+    final j = jsonDecode(await f.readAsString());
+    if (j is Map && (j['thumb'] ?? '').toString().isNotEmpty) {
+      final out = {'thumb': j['thumb'].toString(), 'title': (j['title'] ?? sci).toString()};
+      _meta[sci] = out;
+      return out;
+    }
+  } catch (e) {
+    debugPrint('Could not read photo link for $sci: $e');
+  }
+  return null;
+}
+
 Future<SpeciesImageData?> _download(String sci) async {
   try {
     final d = await _imgDir();
@@ -111,28 +138,42 @@ Future<SpeciesImageData?> _download(String sci) async {
       if (age < const Duration(days: 7)) return null;
     }
 
-    final title = Uri.encodeComponent(sci.trim().replaceAll(' ', '_'));
-    final res = await http
-        .get(Uri.parse('https://en.wikipedia.org/api/rest_v1/page/summary/$title?redirect=true'), headers: _headers)
-        .timeout(const Duration(seconds: 15));
-    if (res.statusCode == 404) {
-      await miss.writeAsString('x');
-      return null;
-    }
-    if (res.statusCode != 200) return null;
+    // Step 1 (skipped when we already know the picture link): ask Wikipedia.
+    var info = await _cachedMeta(sci, d, k);
+    final fromCache = info != null;
+    if (info == null) {
+      final title = Uri.encodeComponent(sci.trim().replaceAll(' ', '_'));
+      final res = await _client
+          .get(Uri.parse('https://en.wikipedia.org/api/rest_v1/page/summary/$title?redirect=true'), headers: _headers)
+          .timeout(const Duration(seconds: 15));
+      if (res.statusCode == 404) {
+        await miss.writeAsString('x');
+        return null;
+      }
+      if (res.statusCode != 200) return null;
 
-    final j = jsonDecode(res.body) as Map<String, dynamic>;
-    final thumb = (j['thumbnail'] as Map?)?['source']?.toString();
-    if (thumb == null || thumb.isEmpty) {
-      await miss.writeAsString('x');
-      return null;
+      final j = jsonDecode(res.body) as Map<String, dynamic>;
+      final thumb = (j['thumbnail'] as Map?)?['source']?.toString();
+      if (thumb == null || thumb.isEmpty) {
+        await miss.writeAsString('x');
+        return null;
+      }
+      info = {'thumb': thumb, 'title': (j['title'] ?? sci).toString()};
+      _meta[sci] = info;
+      try {
+        await File('${d.path}/$k.url').writeAsString(jsonEncode(info));
+      } catch (e) {
+        debugPrint('Could not save photo link for $sci: $e');
+      }
     }
 
+    // Step 2: the picture itself.
+    final thumb = info['thumb']!;
     final big = thumb.replaceFirstMapped(RegExp(r'/\d+px-'), (m) => '/500px-');
     http.Response? imgRes;
-    for (final u in [big, thumb]) {
+    for (final u in {big, thumb}) {
       try {
-        final r = await http.get(Uri.parse(u), headers: _headers).timeout(const Duration(seconds: 20));
+        final r = await _client.get(Uri.parse(u), headers: _headers).timeout(const Duration(seconds: 20));
         if (r.statusCode == 200 && r.bodyBytes.isNotEmpty) {
           imgRes = r;
           break;
@@ -141,9 +182,19 @@ Future<SpeciesImageData?> _download(String sci) async {
         debugPrint('Image download failed for $u: $e');
       }
     }
-    if (imgRes == null) return null;
+    if (imgRes == null) {
+      if (fromCache) {
+        // the remembered link may be out of date: forget it, ask Wikipedia next time
+        _meta.remove(sci);
+        try {
+          final f = File('${d.path}/$k.url');
+          if (await f.exists()) await f.delete();
+        } catch (_) {}
+      }
+      return null;
+    }
 
-    final credit = 'Wikipedia – ${(j['title'] ?? sci).toString()}';
+    final credit = 'Wikipedia – ${info['title']}';
     if (savePhotos.value) return _persist(sci, imgRes.bodyBytes, credit);
 
     // Saving is off: keep it in memory for this session only.
@@ -170,6 +221,14 @@ Future<SpeciesImageData?> getSpeciesImage(String sci, {bool online = true}) asyn
   }
   if (!online) return null;
   return _inflight.putIfAbsent(sci, () => _download(sci).whenComplete(() => _inflight.remove(sci)));
+}
+
+/// Starts loading photos in the background, so they are ready by the time the
+/// user swipes to them. Safe to call for photos that are already loaded.
+void prefetchSpeciesImages(Iterable<String> scientifics) {
+  for (final sci in scientifics) {
+    getSpeciesImage(sci).catchError((_) => null);
+  }
 }
 
 /// Bumped whenever saved photos are deleted, so list thumbnails refresh.

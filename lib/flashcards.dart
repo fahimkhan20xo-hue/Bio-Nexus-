@@ -84,6 +84,11 @@ class _FlashcardsPageState extends State<FlashcardsPage> {
     }
   }
 
+  // photos of the next cards load while you look at this one
+  void _prefetch() {
+    prefetchSpeciesImages(deck.skip(index).take(3).map((s) => s.scientific));
+  }
+
   // ---------- choosing cards ----------
   // missed first, then never seen, then the ones you know better and better
   int _priority(Species s) {
@@ -122,6 +127,7 @@ class _FlashcardsPageState extends State<FlashcardsPage> {
       missedNow.clear();
       stage = 1;
     });
+    _prefetch();
   }
 
   void _answer(bool know) {
@@ -138,6 +144,7 @@ class _FlashcardsPageState extends State<FlashcardsPage> {
         flipped = false;
       }
     });
+    if (stage == 1) _prefetch();
   }
 
   // ---------- screens ----------

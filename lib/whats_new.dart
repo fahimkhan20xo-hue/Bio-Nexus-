@@ -32,6 +32,20 @@ class WhatsNewEntry {
 
 /// Newest first.
 const List<WhatsNewEntry> kWhatsNew = [
+  WhatsNewEntry('splash-1', 'Speed & opening screen', [
+    WhatsNewItem(
+      Icons.bolt,
+      'Photos load faster: the next species photos are prepared while you read.',
+      'ছবি আরও দ্রুত লোড হয়: তুমি পড়ার সময়েই পরের প্রজাতির ছবি তৈরি হয়ে যায়।',
+      '写真の読み込みが速くなりました。読んでいる間に次の写真を準備します。',
+    ),
+    WhatsNewItem(
+      Icons.auto_awesome,
+      'A new opening screen with a loading animation.',
+      'নতুন ওপেনিং স্ক্রিন ও লোডিং অ্যানিমেশন।',
+      '読み込みアニメーション付きの新しいオープニング画面。',
+    ),
+  ]),
   WhatsNewEntry('streak-1', 'Daily streak', [
     WhatsNewItem(
       Icons.local_fire_department,
