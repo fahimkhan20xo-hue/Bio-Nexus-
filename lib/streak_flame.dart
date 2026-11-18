@@ -122,6 +122,58 @@ class _StreakFlameState extends State<StreakFlame> with SingleTickerProviderStat
   }
 }
 
+/// Flame outlines, one per level (index 0 is unused: that level is the burnt-out flame).
+/// x is -1..1 across the flame, y is 0 (bottom) to 1 (tip). `true` marks a sharp tip.
+const List<List<_P>> _kShapes = [
+  [],
+  [
+    _P(0.00, 0.00), _P(0.62, 0.04), _P(0.90, 0.28), _P(0.80, 0.52),
+    _P(0.56, 0.72), _P(0.44, 0.90), _P(0.34, 1.00, true), _P(0.14, 0.80),
+    _P(-0.10, 0.70), _P(-0.46, 0.54), _P(-0.86, 0.34), _P(-0.64, 0.06),
+  ],
+  [
+    _P(0.00, 0.00), _P(0.62, 0.04), _P(0.92, 0.28), _P(0.84, 0.48),
+    _P(0.70, 0.58, true), _P(0.88, 0.74, true), _P(0.58, 0.74), _P(0.40, 0.90),
+    _P(0.22, 1.00, true), _P(0.06, 0.78), _P(-0.14, 0.68, true), _P(-0.40, 0.86, true),
+    _P(-0.50, 0.58), _P(-0.88, 0.40), _P(-0.70, 0.08),
+  ],
+  [
+    _P(0.00, 0.00), _P(0.64, 0.04), _P(0.94, 0.26), _P(0.86, 0.46),
+    _P(0.72, 0.54, true), _P(0.92, 0.72, true), _P(0.62, 0.70), _P(0.50, 0.82),
+    _P(0.34, 0.96, true), _P(0.18, 0.74, true), _P(0.04, 1.00, true), _P(-0.14, 0.76),
+    _P(-0.34, 0.70, true), _P(-0.56, 0.88, true), _P(-0.58, 0.60), _P(-0.90, 0.44),
+    _P(-0.72, 0.08),
+  ],
+  [
+    _P(0.00, 0.00), _P(0.66, 0.03), _P(0.96, 0.24), _P(0.88, 0.42),
+    _P(0.76, 0.50, true), _P(0.96, 0.66, true), _P(0.66, 0.66), _P(0.60, 0.80),
+    _P(0.52, 0.90, true), _P(0.30, 0.74, true), _P(0.20, 1.00, true), _P(0.00, 0.74, true),
+    _P(-0.22, 0.92, true), _P(-0.34, 0.66, true), _P(-0.62, 0.80, true), _P(-0.64, 0.54),
+    _P(-0.94, 0.40), _P(-0.74, 0.08),
+  ],
+  [
+    _P(0.00, 0.00), _P(0.66, 0.03), _P(0.98, 0.22), _P(0.90, 0.40),
+    _P(0.80, 0.48, true), _P(1.00, 0.62, true), _P(0.72, 0.62), _P(0.66, 0.74),
+    _P(0.70, 0.86, true), _P(0.46, 0.72, true), _P(0.50, 1.00, true), _P(0.20, 0.78),
+    _P(0.02, 0.66, true), _P(-0.18, 0.90, true), _P(-0.34, 0.60, true), _P(-0.64, 0.76, true),
+    _P(-0.66, 0.50), _P(-0.96, 0.38), _P(-0.76, 0.07),
+  ],
+  [
+    _P(0.00, 0.00), _P(0.68, 0.03), _P(1.00, 0.22), _P(0.94, 0.38),
+    _P(0.84, 0.46, true), _P(1.02, 0.60, true), _P(0.76, 0.60), _P(0.74, 0.72),
+    _P(0.82, 0.84, true), _P(0.54, 0.70, true), _P(0.58, 0.94, true), _P(0.32, 0.72, true),
+    _P(0.22, 1.00, true), _P(0.04, 0.72, true), _P(-0.14, 0.92, true), _P(-0.30, 0.62, true),
+    _P(-0.52, 0.82, true), _P(-0.62, 0.52, true), _P(-0.84, 0.64, true), _P(-0.84, 0.40),
+    _P(-1.00, 0.30), _P(-0.78, 0.07),
+  ],
+];
+
+class _P {
+  final double x, y;
+  final bool sharp;
+  const _P(this.x, this.y, [this.sharp = false]);
+}
+
 class _FlamePainter extends CustomPainter {
   final double t; // 0..1, loops
   final StreakLevel level;
@@ -139,6 +191,35 @@ class _FlamePainter extends CustomPainter {
     return p;
   }
 
+  /// One layer of the flame: the level's outline, moving with the wind.
+  Path _layer(double cx, double baseY, double halfW, double tall, double sx, double sy, double time, double phase) {
+    final pts = _kShapes[level.index];
+    final n = pts.length;
+    final xy = <Offset>[];
+    for (var i = 0; i < n; i++) {
+      final p = pts[i];
+      final dx = math.sin(time * _two + p.y * 2.6 + phase + i * .35) * .10 * p.y * p.y;
+      final dy = (p.sharp && p.y > .5) ? math.sin(time * _two * 2 + i) * .025 * p.y : 0.0;
+      xy.add(Offset(cx + (p.x + dx) * halfW * sx, baseY - (p.y + dy) * tall * sy));
+    }
+    final path = Path()..moveTo(xy[0].dx, xy[0].dy);
+    for (var i = 0; i < n; i++) {
+      final p0 = xy[(i - 1 + n) % n], p1 = xy[i], p2 = xy[(i + 1) % n], p3 = xy[(i + 2) % n];
+      final c1 = pts[i].sharp ? p1 : p1 + (p2 - p0) / 6;
+      final c2 = pts[(i + 1) % n].sharp ? p2 : p2 - (p3 - p1) / 6;
+      path.cubicTo(c1.dx, c1.dy, c2.dx, c2.dy, p2.dx, p2.dy);
+    }
+    return path..close();
+  }
+
+  Path _drop(Offset c, double s) {
+    return Path()
+      ..moveTo(c.dx, c.dy - s * 1.6)
+      ..cubicTo(c.dx + s * .2, c.dy - s * .6, c.dx + s, c.dy - s * .2, c.dx, c.dy + s)
+      ..cubicTo(c.dx - s, c.dy - s * .2, c.dx - s * .2, c.dy - s * .6, c.dx, c.dy - s * 1.6)
+      ..close();
+  }
+
   @override
   void paint(Canvas canvas, Size size) {
     final w = size.width, h = size.height;
@@ -150,9 +231,6 @@ class _FlamePainter extends CustomPainter {
     }
     final tall = h * level.height;
     final wide = w * level.width;
-    final sway = math.sin(t * _two);
-    final sway2 = math.sin(t * _two + 1.3);
-    final wob = math.sin(t * _two * 2 + .7);
 
     // soft glow behind the flame
     final pulse = .75 + .25 * math.sin(t * _two * 2);
@@ -164,29 +242,25 @@ class _FlamePainter extends CustomPainter {
         ..maskFilter = MaskFilter.blur(BlurStyle.normal, wide * .45),
     );
 
-    // outer, middle and inner flame
-    canvas.drawPath(
-      _flame(cx, baseY, wide, tall * (1 + .03 * wob), sway, wob),
-      Paint()..shader = ui.Gradient.linear(Offset(cx, baseY), Offset(cx, baseY - tall), [level.bottom, level.top]),
-    );
-    canvas.drawPath(
-      _flame(cx, baseY - tall * .02, wide * .68, tall * .72 * (1 - .04 * wob), sway2, -wob),
-      Paint()..color = level.mid,
-    );
-    canvas.drawPath(
-      _flame(cx, baseY - tall * .03, wide * .36, tall * .42 * (1 + .05 * wob), sway, wob),
-      Paint()..color = level.core,
-    );
+    // four layers, like the flame icons: outer, middle, inner and core
+    final halfW = wide / 2;
+    const layers = [(1.0, 1.0), (.66, .70), (.40, .46), (.20, .24)];
+    final colors = [level.bottom, level.top, level.mid, level.core];
+    for (var k = 0; k < layers.length; k++) {
+      canvas.drawPath(
+        _layer(cx, baseY, halfW, tall, layers[k].$1, layers[k].$2, t + .13 * k, k * 1.1),
+        Paint()..color = colors[k],
+      );
+    }
 
-    // sparks rising from the top
+    // little flames floating up from the top
     for (var i = 0; i < level.sparks; i++) {
       final ph = (t + i / level.sparks) % 1.0;
-      final x = cx + math.sin(ph * _two + i * 2.1) * wide * .45;
-      final y = baseY - tall * (.55 + ph * .45);
-      canvas.drawCircle(
-        Offset(x, y),
-        wide * .05 * (1 - ph) + .6,
-        Paint()..color = level.mid.withValues(alpha: (1 - ph).clamp(0.0, 1.0)),
+      final x = cx + math.sin(ph * _two + i * 2.1) * wide * .42;
+      final y = baseY - tall * (.60 + ph * .40);
+      canvas.drawPath(
+        _drop(Offset(x, y), wide * .05 * (1 - ph) + .8),
+        Paint()..color = level.top.withValues(alpha: (1 - ph).clamp(0.0, 1.0)),
       );
     }
   }

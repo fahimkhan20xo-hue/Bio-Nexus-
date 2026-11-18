@@ -17,7 +17,7 @@ class BootApp extends StatefulWidget {
     super.key,
     required this.init,
     required this.builder,
-    this.minShow = const Duration(milliseconds: 1500),
+    this.minShow = const Duration(milliseconds: 900),
   });
 
   @override
@@ -26,6 +26,7 @@ class BootApp extends StatefulWidget {
 
 class _BootAppState extends State<BootApp> {
   bool _ready = false;
+  bool _leaving = false; // the logo fades out first, then the screen opens into the app
   Object? _error;
 
   @override
@@ -46,6 +47,11 @@ class _BootAppState extends State<BootApp> {
       return;
     }
     await wait;
+    if (!mounted) return;
+    // 1) the logo and texts fade away (the dark background stays)
+    setState(() => _leaving = true);
+    await Future<void>.delayed(Platform.environment.containsKey('FLUTTER_TEST') ? Duration.zero : const Duration(milliseconds: 280));
+    // 2) only then the plain dark screen fades into the app, so no logo is left on top of it
     if (mounted) setState(() => _ready = true);
   }
 
@@ -58,7 +64,7 @@ class _BootAppState extends State<BootApp> {
         switchInCurve: Curves.easeOut,
         child: _ready
             ? KeyedSubtree(key: const ValueKey('app'), child: widget.builder())
-            : _SplashApp(key: const ValueKey('splash'), error: _error, onRetry: _run),
+            : _SplashApp(key: const ValueKey('splash'), error: _error, leaving: _leaving, onRetry: _run),
       ),
     );
   }
@@ -70,8 +76,9 @@ const Color _bgBottom = Color(0xFF0B2019);
 
 class _SplashApp extends StatelessWidget {
   final Object? error;
+  final bool leaving;
   final VoidCallback onRetry;
-  const _SplashApp({super.key, required this.error, required this.onRetry});
+  const _SplashApp({super.key, required this.error, required this.leaving, required this.onRetry});
 
   @override
   Widget build(BuildContext context) {
@@ -82,15 +89,16 @@ class _SplashApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF10B981), brightness: Brightness.dark),
         scaffoldBackgroundColor: _bgTop,
       ),
-      home: _SplashScreen(error: error, onRetry: onRetry),
+      home: _SplashScreen(error: error, leaving: leaving, onRetry: onRetry),
     );
   }
 }
 
 class _SplashScreen extends StatefulWidget {
   final Object? error;
+  final bool leaving;
   final VoidCallback onRetry;
-  const _SplashScreen({required this.error, required this.onRetry});
+  const _SplashScreen({required this.error, required this.leaving, required this.onRetry});
 
   @override
   State<_SplashScreen> createState() => _SplashScreenState();
@@ -124,7 +132,10 @@ class _SplashScreenState extends State<_SplashScreen> with SingleTickerProviderS
             ),
           ),
           SafeArea(
-            child: Column(children: [
+            child: AnimatedOpacity(
+              opacity: widget.leaving ? 0 : 1,
+              duration: const Duration(milliseconds: 250),
+              child: Column(children: [
               const Spacer(flex: 5),
               // logo with orbiting dots
               TweenAnimationBuilder<double>(
@@ -181,7 +192,8 @@ class _SplashScreenState extends State<_SplashScreen> with SingleTickerProviderS
                 Text('Loading species…', style: text.bodySmall?.copyWith(color: Colors.white54)),
               ],
               const SizedBox(height: 34),
-            ]),
+              ]),
+            ),
           ),
         ]),
       ),

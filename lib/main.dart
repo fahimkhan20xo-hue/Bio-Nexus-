@@ -21,19 +21,24 @@ import 'updater.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // The splash screen shows at once, while the data loads behind it.
+  AppPrefs? savedPrefs;
   runApp(BootApp(
     init: () async {
       speciesData = await loadSpecies();
       await stats.load();
       await stats.markActiveToday();
       await loadFx();
+      // language and theme are read now, so the first screen is already in the right language
+      savedPrefs = await loadAppPrefs();
+      await loadPhotoPref();
     },
-    builder: () => const BioNexusApp(),
+    builder: () => BioNexusApp(initialPrefs: savedPrefs),
   ));
 }
 
 class BioNexusApp extends StatefulWidget {
-  const BioNexusApp({super.key});
+  final AppPrefs? initialPrefs;
+  const BioNexusApp({super.key, this.initialPrefs});
   @override
   State<BioNexusApp> createState() => _BioNexusAppState();
 }
@@ -45,11 +50,17 @@ class _BioNexusAppState extends State<BioNexusApp> {
   @override
   void initState() {
     super.initState();
-    // Restore the saved language and theme.
-    loadAppPrefs().then((p) {
-      if (p != null && mounted) setState(() { lang = p.lang; dark = p.dark; });
-    });
-    loadPhotoPref();
+    // Restore the saved language and theme (already read while the splash was showing).
+    final first = widget.initialPrefs;
+    if (first != null) {
+      lang = first.lang;
+      dark = first.dark;
+    } else {
+      loadAppPrefs().then((p) {
+        if (p != null && mounted) setState(() { lang = p.lang; dark = p.dark; });
+      });
+      loadPhotoPref();
+    }
     // The bundled/cached database is already available; this refresh runs in
     // the background and rebuilds the UI only if a newer database is installed.
     syncRemoteSpecies(onUpdated: () {
