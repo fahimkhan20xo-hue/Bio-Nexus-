@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show RenderBox;
+
+import 'nexus_context.dart';
 import 'package:path_provider/path_provider.dart';
 
 // Visual effects shared by the whole app. Everything here respects the
@@ -390,15 +392,21 @@ class FxPageTransitions extends PageTransitionsBuilder {
   }
 }
 
+/// Builds the page and tells Nexus which screen it is (the page's class name).
+Widget _taggedPage(BuildContext context, WidgetBuilder builder) {
+  final page = builder(context);
+  return NexusScreenTag(name: page.runtimeType.toString(), child: page);
+}
+
 /// Page route. Plain route when effects are off.
 Route<T> fxRoute<T>(WidgetBuilder builder) {
-  if (!fxEnabled.value) return MaterialPageRoute<T>(builder: builder);
+  if (!fxEnabled.value) return MaterialPageRoute<T>(builder: (c) => _taggedPage(c, builder));
   final origin = _takeFxOrigin();
   return PageRouteBuilder<T>(
     opaque: true,
     transitionDuration: const Duration(milliseconds: 380),
     reverseTransitionDuration: const Duration(milliseconds: 320),
-    pageBuilder: (context, animation, secondary) => builder(context),
+    pageBuilder: (context, animation, secondary) => _taggedPage(context, builder),
     transitionsBuilder: (context, animation, secondary, child) =>
         _FxExpand(origin: origin, animation: animation, child: child),
   );
