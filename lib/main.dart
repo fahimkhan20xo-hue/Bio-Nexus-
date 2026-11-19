@@ -15,6 +15,7 @@ import 'online.dart';
 import 'pronounce.dart';
 import 'speech.dart';
 import 'splash.dart';
+import 'storage_check.dart';
 import 'stats.dart';
 import 'tree.dart';
 import 'updater.dart';
@@ -25,6 +26,7 @@ Future<void> main() async {
   AppPrefs? savedPrefs;
   runApp(BootApp(
     init: () async {
+      await recordLaunch();
       speciesData = await loadSpecies();
       await stats.load();
       await stats.markActiveToday();
@@ -966,6 +968,27 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                     'アプリや生物学の質問に答えるバブル。')),
                 secondary: const Icon(Icons.auto_awesome),
               ),
+            ),
+          ),
+          _box(
+            ListTile(
+              leading: const Icon(Icons.storage),
+              title: Text(t('Storage check', 'স্টোরেজ পরীক্ষা', 'ストレージ確認')),
+              subtitle: Text(t('Shows whether settings and progress can be saved on this phone.',
+                  'এই ফোনে সেটিংস ও অগ্রগতি সেভ হচ্ছে কিনা দেখায়।',
+                  'この端末で設定や進捗が保存できるか確認します。')),
+              onTap: () async {
+                final report = await storageReport();
+                if (!context.mounted) return;
+                showDialog<void>(
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                    title: const Text('Storage check'),
+                    content: SingleChildScrollView(child: SelectableText(report)),
+                    actions: [TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('OK'))],
+                  ),
+                );
+              },
             ),
           ),
           _box(

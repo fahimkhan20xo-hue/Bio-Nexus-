@@ -154,6 +154,8 @@ List<WhatsNewEntry> _unseen(String? seen) {
   return kWhatsNew.sublist(0, i);
 }
 
+bool _shownThisStart = false;
+
 /// Called once when the app starts. Shows the window only if there is
 /// something the user has not seen yet.
 Future<void> showWhatsNewIfNeeded(BuildContext context, Lang Function() currentLang) async {
@@ -163,15 +165,23 @@ Future<void> showWhatsNewIfNeeded(BuildContext context, Lang Function() currentL
   await Future<void>.delayed(const Duration(milliseconds: 1200));
   if (!context.mounted) return;
   String? seen;
+  var storageOk = true;
   try {
     seen = await _loadSeen();
   } catch (e) {
-    debugPrint('What\'s new skipped: $e');
-    return;
+    // The phone storage cannot be read. Do not hide the news because of that:
+    // show it once per start instead (and Settings → Storage check shows the reason).
+    storageOk = false;
+    debugPrint('What\'s new: storage problem: $e');
   }
   final unseen = _unseen(seen);
   if (unseen.isEmpty || !context.mounted) return;
-  await _saveSeen(kWhatsNew.first.id); // saved first, so it never repeats
+  if (storageOk) {
+    await _saveSeen(kWhatsNew.first.id); // saved first, so it never repeats
+  } else {
+    if (_shownThisStart) return;
+  }
+  _shownThisStart = true;
   if (!context.mounted) return;
   await showWhatsNewDialog(context, currentLang(), unseen);
 }
