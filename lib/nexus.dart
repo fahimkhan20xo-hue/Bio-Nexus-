@@ -383,8 +383,8 @@ class NexusController extends ChangeNotifier {
       enabled.value = m['enabled'] != false;
       introSeen = m['introSeen'] == true;
       lastGreetingMs = (m['lastGreeting'] as num?)?.toInt() ?? 0;
-      fx = (m['fx'] as num?)?.toDouble();
-      fy = (m['fy'] as num?)?.toDouble();
+      fx = (m['bx'] as num?)?.toDouble();
+      fy = (m['by'] as num?)?.toDouble();
       final h = m['history'];
       if (h is List) {
         for (final x in h) {
@@ -406,8 +406,8 @@ class NexusController extends ChangeNotifier {
           'enabled': enabled.value,
           'introSeen': introSeen,
           'lastGreeting': lastGreetingMs,
-          'fx': fx,
-          'fy': fy,
+          'bx': fx,
+          'by': fy,
           'history': [for (final m in tail) {'u': m.fromUser, 't': m.text}],
         }),
         flush: true,
@@ -546,6 +546,9 @@ class NexusHost extends StatefulWidget {
 class _NexusHostState extends State<NexusHost> {
   static const double _size = 58;
   Offset? _pos;
+  Offset _last = Offset.zero; // where the bubble was at the latest build
+  Offset _before = Offset.zero; // where it was when the finger touched it
+  double _moved = 0; // how far the finger travelled
   bool _dragging = false;
   bool _sheetOpen = false;
   String? _greeting;
@@ -593,7 +596,7 @@ class _NexusHostState extends State<NexusHost> {
   Offset _start(Size s, EdgeInsets pad) {
     final fx = nexus.fx, fy = nexus.fy;
     if (fx != null && fy != null) return Offset(fx * (s.width - _size), fy * (s.height - _size));
-    return Offset(s.width - _size - 14, s.height - _size - 126 - pad.bottom);
+    return Offset(8, s.height - _size - 126 - pad.bottom);
   }
 
   Offset _clamp(Offset o, Size s, EdgeInsets pad) => Offset(
@@ -632,6 +635,7 @@ class _NexusHostState extends State<NexusHost> {
         if (!on || keyboard || _sheetOpen || onQuiz) return const SizedBox.shrink();
 
         final pos = _clamp(_pos ?? _start(size, mq.padding), size, mq.padding);
+        _last = pos;
         final right = pos.dx + _size / 2 > size.width / 2;
         final below = pos.dy < size.height / 2;
 
@@ -651,12 +655,30 @@ class _NexusHostState extends State<NexusHost> {
               curve: Curves.easeOutCubic,
               left: pos.dx,
               top: pos.dy,
-              child: GestureDetector(
-                onTap: _open,
-                onPanStart: (_) => setState(() => _dragging = true),
-                onPanUpdate: (d) => setState(() => _pos = _clamp(pos + d.delta, size, mq.padding)),
-                onPanEnd: (_) {
-                  final p = _clamp(_pos ?? pos, size, mq.padding);
+              // raw pointer events: the bubble follows the finger from the very first pixel
+              child: Listener(
+                behavior: HitTestBehavior.opaque,
+                onPointerDown: (_) {
+                  _moved = 0;
+                  _before = _pos ?? _last;
+                  setState(() => _dragging = true);
+                },
+                onPointerMove: (e) {
+                  _moved += e.delta.distance;
+                  setState(() => _pos = _clamp((_pos ?? _last) + e.delta, size, mq.padding));
+                },
+                onPointerCancel: (_) => setState(() => _dragging = false),
+                onPointerUp: (_) {
+                  if (_moved < 8) {
+                    // a tap, not a drag: put it back and open the chat
+                    setState(() {
+                      _dragging = false;
+                      _pos = _before;
+                    });
+                    _open();
+                    return;
+                  }
+                  final p = _clamp(_pos ?? _last, size, mq.padding);
                   final snapRight = p.dx + _size / 2 > size.width / 2;
                   final snapped = Offset(snapRight ? size.width - _size - 6 : 6, p.dy);
                   setState(() {
@@ -665,10 +687,14 @@ class _NexusHostState extends State<NexusHost> {
                   });
                   nexus.rememberPosition(snapRight ? 1.0 : 0.0, snapped.dy / (size.height - _size));
                 },
-                child: Semantics(
-                  button: true,
-                  label: 'Nexus assistant',
-                  child: const NexusOrb(size: _size),
+                child: AnimatedScale(
+                  scale: _dragging ? 1.12 : 1.0,
+                  duration: const Duration(milliseconds: 120),
+                  child: Semantics(
+                    button: true,
+                    label: 'Nexus assistant',
+                    child: const NexusOrb(size: _size),
+                  ),
                 ),
               ),
             ),

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'data.dart';
+import 'updater.dart';
 
 // ---------------------------------------------------------------------------
 // "What's new" window.
@@ -32,6 +33,20 @@ class WhatsNewEntry {
 
 /// Newest first.
 const List<WhatsNewEntry> kWhatsNew = [
+  WhatsNewEntry('nexus-2', 'Smoother Nexus & full database', [
+    WhatsNewItem(
+      Icons.open_with,
+      'The Nexus bubble now follows your finger smoothly and starts on the left, so it no longer covers switches and buttons.',
+      'Nexus বাবল এখন আঙুলের সঙ্গে মসৃণভাবে চলে এবং বাঁ দিকে শুরু হয়, তাই সুইচ বা বোতাম ঢাকে না।',
+      'Nexusバブルが指にスムーズに追従し、左側から始まるので、スイッチやボタンを隠しません。',
+    ),
+    WhatsNewItem(
+      Icons.storage,
+      'The full species database is now built into the app, so a fresh install has every species right away.',
+      'পুরো প্রজাতির ডেটাবেস এখন অ্যাপের ভেতরেই আছে, তাই নতুন ইনস্টলেই সব প্রজাতি পাবে।',
+      '全種のデータベースをアプリに内蔵しました。インストール直後からすべての種が使えます。',
+    ),
+  ]),
   WhatsNewEntry('nexus-1', 'Meet Nexus', [
     WhatsNewItem(
       Icons.auto_awesome,
@@ -194,6 +209,10 @@ Future<void> showWhatsNewDialog(BuildContext context, Lang lang, [List<WhatsNewE
                       ]),
                     ),
                 ],
+                Text(
+                  '${t('Installed build', 'ইনস্টল করা বিল্ড', 'インストール済みビルド')}: ${kBuildNumber == 0 ? '-' : kBuildNumber}',
+                  style: text.bodySmall,
+                ),
               ],
             ),
           ),
