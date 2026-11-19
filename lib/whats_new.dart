@@ -32,6 +32,20 @@ class WhatsNewEntry {
 
 /// Newest first.
 const List<WhatsNewEntry> kWhatsNew = [
+  WhatsNewEntry('nexus-1', 'Meet Nexus', [
+    WhatsNewItem(
+      Icons.auto_awesome,
+      'Meet Nexus, your biology companion. Tap the glowing bubble to ask how the app works, look up a species or learn basic biology. It works offline.',
+      'পরিচয় করো Nexus-এর সঙ্গে, তোমার বায়োলজি সঙ্গী। জ্বলজ্বলে বাবলে চেপে অ্যাপ কীভাবে চলে, কোনো প্রজাতির তথ্য বা বেসিক বায়োলজি জিজ্ঞেস করো। এটি অফলাইনেও চলে।',
+      'あなたの生物学パートナー「Nexus」です。光るバブルをタップして、アプリの使い方や種の情報、基本の生物学を聞けます。オフラインでも使えます。',
+    ),
+    WhatsNewItem(
+      Icons.open_with,
+      'Drag the bubble anywhere you like, or turn it off in Settings → Nexus assistant.',
+      'বাবলটি টেনে যেখানে খুশি সরাও, বা সেটিংস → Nexus সহকারী থেকে বন্ধ করো।',
+      'バブルは好きな場所にドラッグできます。設定 → Nexusアシスタントでオフにもできます。',
+    ),
+  ]),
   WhatsNewEntry('splash-1', 'Speed & opening screen', [
     WhatsNewItem(
       Icons.bolt,

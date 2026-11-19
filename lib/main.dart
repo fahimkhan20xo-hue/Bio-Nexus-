@@ -6,6 +6,7 @@ import 'compare.dart';
 import 'dashboard.dart';
 import 'extras.dart';
 import 'flashcards.dart';
+import 'nexus.dart';
 import 'whats_new.dart';
 import 'fx.dart';
 import 'images.dart';
@@ -30,6 +31,7 @@ Future<void> main() async {
       await loadFx();
       // language and theme are read now, so the first screen is already in the right language
       savedPrefs = await loadAppPrefs();
+      await nexus.load();
       await loadPhotoPref();
     },
     builder: () => BioNexusApp(initialPrefs: savedPrefs),
@@ -79,6 +81,7 @@ class _BioNexusAppState extends State<BioNexusApp> {
           builder: (context, fx, _) => MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'BioNexus',
+            navigatorKey: nexusNavKey,
             themeMode: cells ? ThemeMode.dark : (dark ? ThemeMode.dark : ThemeMode.light),
             theme: _buildTheme(cells ? Brightness.dark : Brightness.light, cells: cells),
             darkTheme: _buildTheme(Brightness.dark, cells: cells),
@@ -91,6 +94,7 @@ class _BioNexusAppState extends State<BioNexusApp> {
                   child: Stack(children: [
                     const Positioned(top: 0, left: 0, right: 0, child: GlassTopStrip()),
                     Positioned.fill(child: child ?? const SizedBox.shrink()),
+                    Positioned.fill(child: NexusHost(lang: lang)),
                   ]),
                 ),
               ),
@@ -190,6 +194,16 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    // lets Nexus open things for the user
+    nexusHooks.openTab = (i) {
+      if (mounted) _goTab(i);
+    };
+    nexusHooks.openFlashcards = () {
+      if (mounted) Navigator.push(context, fxRoute((_) => FlashcardsPage(lang: lang, open: _openSpecies)));
+    };
+    nexusHooks.openSpecies = (s) {
+      if (mounted) _openSpecies(context, s, [s]);
+    };
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _checkUpdateQuietly();
       showWhatsNewIfNeeded(context, () => lang);
@@ -205,6 +219,9 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    nexusHooks.openTab = null;
+    nexusHooks.openFlashcards = null;
+    nexusHooks.openSpecies = null;
     _searchCtl.dispose();
     _homeSearch.dispose();
     super.dispose();
@@ -248,6 +265,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    nexusCtx.tab = tab; // so Nexus knows which tab is open
     Widget body;
     switch (tab) {
       case 0:
@@ -937,6 +955,20 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
           ),
           ),
           _box(
+            ValueListenableBuilder<bool>(
+              valueListenable: nexus.enabled,
+              builder: (context, on, _) => SwitchListTile(
+                value: on,
+                onChanged: (v) => nexus.setEnabled(v),
+                title: Text(t('Nexus assistant', 'Nexus সহকারী', 'Nexusアシスタント')),
+                subtitle: Text(t('The helper bubble that answers questions about the app and biology.',
+                    'অ্যাপ ও বায়োলজি নিয়ে প্রশ্নের উত্তর দেওয়া সহকারী বাবল।',
+                    'アプリや生物学の質問に答えるバブル。')),
+                secondary: const Icon(Icons.auto_awesome),
+              ),
+            ),
+          ),
+          _box(
             ListTile(
             leading: const Icon(Icons.delete_sweep),
             title: Text(t('Manage saved data', 'সেভ করা ডেটা ম্যানেজ করো', '保存データの管理')),
@@ -1065,6 +1097,7 @@ class _SpeciesPageState extends State<SpeciesPage> {
     index = i < 0 ? 0 : i;
     controller = PageController(initialPage: index);
     stats.addViewed(items[index].scientific);
+    nexusCtx.species = items[index];
     _prefetchAround(index);
   }
 
@@ -1078,6 +1111,7 @@ class _SpeciesPageState extends State<SpeciesPage> {
 
   @override
   void dispose() {
+    nexusCtx.species = null;
     controller.dispose();
     super.dispose();
   }
@@ -1107,6 +1141,7 @@ class _SpeciesPageState extends State<SpeciesPage> {
           onPageChanged: (i) {
             stopSpeaking();
             stats.addViewed(items[i].scientific);
+            nexusCtx.species = items[i];
             _prefetchAround(i);
             setState(() => index = i);
           },
