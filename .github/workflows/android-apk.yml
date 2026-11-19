@@ -20,6 +20,17 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
+      - name: Bundle the latest species database in the app
+        run: |
+          if [ -f database/species.json ]; then
+            mkdir -p assets
+            cp database/species.json assets/species.json
+            python3 -c "import json; print('Bundled species:', len(json.load(open('assets/species.json', encoding='utf-8'))))"
+            ls -l assets/species.json
+          else
+            echo "database/species.json not found, keeping the species.json already in assets"
+          fi
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
