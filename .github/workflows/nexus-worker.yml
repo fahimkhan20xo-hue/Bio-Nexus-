@@ -1,0 +1,203 @@
+name: Nexus API (Cloudflare Worker)
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'nexus-worker/**'
+      - '.github/workflows/nexus-worker.yml'
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "What should this run do?"
+        type: choice
+        default: test-only
+        options:
+          - install-from-zip
+          - test-only
+          - deploy-staging
+          - deploy-production
+          - recreate-secrets-staging
+          - recreate-secrets-production
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nexus-worker
+  cancel-in-progress: false
+
+jobs:
+  # 1) Unpack nexus-worker.zip (uploaded to the repository root) into nexus-worker/ and commit it.
+  install:
+    if: github.event_name == 'workflow_dispatch' && inputs.action == 'install-from-zip'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack nexus-worker.zip
+        shell: bash
+        run: |
+          if [ ! -f nexus-worker.zip ]; then
+            echo "::error::Upload nexus-worker.zip to the root of the repository first."
+            exit 1
+          fi
+          # nothing outside nexus-worker/ may come from the zip (it must never touch workflows or the app)
+          if unzip -Z1 nexus-worker.zip | grep -v '^nexus-worker/' | grep -q .; then
+            echo "::error::The zip contains files outside nexus-worker/."
+            exit 1
+          fi
+          unzip -q -o nexus-worker.zip
+          test -f nexus-worker/wrangler.toml
+          git rm -q -f nexus-worker.zip
+          git config user.name "nexus-bot"
+          git config user.email "nexus-bot@users.noreply.github.com"
+          git add nexus-worker
+          git commit -m "Install Nexus API (Phase 3A)"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && break
+            sleep 5
+          done
+          echo "Installed. Now run this workflow again with action = test-only, then deploy-staging." >> "$GITHUB_STEP_SUMMARY"
+
+  # 2) Tests (real SQLite, the real Worker code). Deployment never happens if these fail.
+  test:
+    if: github.event_name == 'push' || contains(fromJSON('["test-only","deploy-staging","deploy-production"]'), inputs.action)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: nexus-worker
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --version
+      - name: Run tests
+        run: node --test test/*.test.js
+
+  # 3) Staging: deploy, create missing secrets, then test the DEPLOYED Worker.
+  deploy-staging:
+    needs: test
+    if: github.event_name == 'push' || inputs.action == 'deploy-staging' || inputs.action == 'deploy-production'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: nexus-worker
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Cloudflare credentials
+        id: cf
+        shell: bash
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+              echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID as repository secrets (see nexus-worker/docs/DEPLOY.md)."
+              exit 1
+            fi
+            echo "::warning::Deployment skipped: CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID are not set yet (see nexus-worker/docs/DEPLOY.md)."
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-node@v4
+        if: steps.cf.outputs.ready == 'true'
+        with:
+          node-version: 22
+      - name: Install Wrangler
+        if: steps.cf.outputs.ready == 'true'
+        run: npm install --no-audit --no-fund
+      - name: Deploy staging
+        id: deploy
+        if: steps.cf.outputs.ready == 'true'
+        shell: bash
+        run: |
+          npx wrangler deploy --env staging 2>&1 | tee deploy.log
+          url="$(grep -Eo 'https://[A-Za-z0-9._-]+\.workers\.dev' deploy.log | head -1)"
+          if [ -z "$url" ]; then echo "::error::Could not find the Worker URL in the deploy log."; exit 1; fi
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+      - name: Create missing secrets (values are never printed)
+        if: steps.cf.outputs.ready == 'true'
+        run: bash scripts/ensure-secrets.sh staging
+      - name: Test the deployed staging Worker
+        if: steps.cf.outputs.ready == 'true'
+        run: node scripts/smoke.mjs "${{ steps.deploy.outputs.url }}" staging | tee smoke.log
+      - name: Summary
+        if: always() && steps.cf.outputs.ready == 'true'
+        shell: bash
+        run: |
+          {
+            echo "### Nexus API staging"
+            echo "URL: ${{ steps.deploy.outputs.url }}"
+            echo '```'
+            tail -n 40 smoke.log 2>/dev/null || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # 4) Production: only when you ask for it, and only after staging passed.
+  deploy-production:
+    needs: deploy-staging
+    if: inputs.action == 'deploy-production'
+    runs-on: ubuntu-latest
+    environment: production
+    defaults:
+      run:
+        working-directory: nexus-worker
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Deploy production
+        id: deploy
+        shell: bash
+        run: |
+          npx wrangler deploy 2>&1 | tee deploy.log
+          url="$(grep -Eo 'https://[A-Za-z0-9._-]+\.workers\.dev' deploy.log | head -1)"
+          if [ -z "$url" ]; then echo "::error::Could not find the Worker URL in the deploy log."; exit 1; fi
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+      - name: Create missing secrets (values are never printed)
+        run: bash scripts/ensure-secrets.sh production
+      - name: Test the deployed production Worker
+        run: node scripts/smoke.mjs "${{ steps.deploy.outputs.url }}" production | tee smoke.log
+      - name: Summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "### Nexus API production"
+            echo "URL: ${{ steps.deploy.outputs.url }}"
+            echo '```'
+            tail -n 40 smoke.log 2>/dev/null || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # 5) Replace the secrets (every installation will simply register again).
+  recreate-secrets:
+    if: inputs.action == 'recreate-secrets-staging' || inputs.action == 'recreate-secrets-production'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: nexus-worker
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Replace secrets
+        shell: bash
+        run: |
+          target="${{ inputs.action == 'recreate-secrets-staging' && 'staging' || 'production' }}"
+          bash scripts/ensure-secrets.sh "$target" force
