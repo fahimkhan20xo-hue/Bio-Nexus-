@@ -9,6 +9,9 @@ on:
       - 'sync_species.py'
       - '.github/workflows/sync-species.yml'
       - '**.md'
+      - 'nexus-worker/**'
+      - '.github/workflows/nexus-worker.yml'
+      - 'nexus-worker.zip'
 
 permissions:
   contents: write
@@ -169,3 +172,4 @@ jobs:
             sleep 20
           done
           exit 1
+          
