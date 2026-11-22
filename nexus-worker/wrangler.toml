@@ -1,0 +1,47 @@
+# Nexus API: Cloudflare Worker + one SQLite-backed Durable Object (the shared quota and budget).
+# No secrets live in this file. TOKEN_SECRET and IP_SALT are created by the deploy workflow
+# (scripts/ensure-secrets.sh) and are only ever stored inside Cloudflare.
+
+name = "nexus-api"                    # production
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+workers_dev = true
+
+[observability]
+enabled = true
+
+[vars]
+ENVIRONMENT = "production"
+AI_ENABLED = "false"                  # stays false in Phase 3A: there is no AI code yet
+# Everything below is optional: the defaults are written in src/config.js. Uncomment to change.
+# FREE_DAILY_PER_INSTALL = "15"
+# GLOBAL_DAILY_BUDGET_UNITS = "9000"   # Workers AI neurons per day we allow ourselves (free allowance: 10000)
+# IP_REQ_PER_MIN = "120"               # keep generous: many phones share one IP (carrier NAT)
+
+[[durable_objects.bindings]]
+name = "QUOTA"
+class_name = "QuotaDO"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["QuotaDO"]
+
+# ---------------- staging: a separate Worker with its own storage and its own secrets ----------------
+[env.staging]
+name = "nexus-api-staging"
+workers_dev = true
+
+[env.staging.observability]
+enabled = true
+
+[env.staging.vars]
+ENVIRONMENT = "staging"
+AI_ENABLED = "false"
+
+[[env.staging.durable_objects.bindings]]
+name = "QUOTA"
+class_name = "QuotaDO"
+
+[[env.staging.migrations]]
+tag = "v1"
+new_sqlite_classes = ["QuotaDO"]
