@@ -16,6 +16,7 @@ on:
           - install-from-zip
           - test-only
           - deploy-staging
+          - run-eval-staging
           - deploy-production
           - recreate-secrets-staging
           - recreate-secrets-production
@@ -23,6 +24,8 @@ on:
 permissions:
   contents: read
 
+# SAFETY RULE: nothing deploys by itself. A push (or an upload of this file) only runs the tests.
+# Deploying, running the model evaluation and changing secrets each need a manual "Run workflow" with that action.
 concurrency:
   group: nexus-worker
   cancel-in-progress: false
@@ -63,10 +66,11 @@ jobs:
 
   # 2) Tests (real SQLite, the real Worker code). Deployment never happens if these fail.
   test:
-    if: github.event_name == 'push' || contains(fromJSON('["test-only","deploy-staging","deploy-production"]'), inputs.action)
+    if: github.event_name == 'push' || contains(fromJSON('["test-only","deploy-staging","deploy-production","run-eval-staging"]'), inputs.action)
     runs-on: ubuntu-latest
     defaults:
       run:
+        shell: bash
         working-directory: nexus-worker
     steps:
       - uses: actions/checkout@v4
@@ -80,10 +84,11 @@ jobs:
   # 3) Staging: deploy, create missing secrets, then test the DEPLOYED Worker.
   deploy-staging:
     needs: test
-    if: github.event_name == 'push' || inputs.action == 'deploy-staging' || inputs.action == 'deploy-production'
+    if: inputs.action == 'deploy-staging' || inputs.action == 'deploy-production' || inputs.action == 'run-eval-staging'
     runs-on: ubuntu-latest
     defaults:
       run:
+        shell: bash
         working-directory: nexus-worker
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -92,18 +97,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check Cloudflare credentials
         id: cf
-        shell: bash
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-              echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID as repository secrets (see nexus-worker/docs/DEPLOY.md)."
-              exit 1
-            fi
-            echo "::warning::Deployment skipped: CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID are not set yet (see nexus-worker/docs/DEPLOY.md)."
-          else
-            echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "::error::Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID as repository secrets (see nexus-worker/docs/DEPLOY.md)."
+            exit 1
           fi
+          echo "ready=true" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-node@v4
         if: steps.cf.outputs.ready == 'true'
         with:
@@ -125,7 +125,30 @@ jobs:
         run: bash scripts/ensure-secrets.sh staging
       - name: Test the deployed staging Worker
         if: steps.cf.outputs.ready == 'true'
-        run: node scripts/smoke.mjs "${{ steps.deploy.outputs.url }}" staging | tee smoke.log
+        run: |
+          set -o pipefail
+          node scripts/smoke.mjs "${{ steps.deploy.outputs.url }}" staging | tee smoke.log
+      - name: Evaluate candidate models (staging only, temporary key)
+        if: steps.cf.outputs.ready == 'true' && inputs.action == 'run-eval-staging'
+        shell: bash
+        run: |
+          key="$(openssl rand -hex 32)"
+          echo "::add-mask::$key"
+          printf '%s' "$key" | npx wrangler secret put EVAL_KEY --env staging >/dev/null
+          cleanup() {
+            printf 'y\n' | npx wrangler secret delete EVAL_KEY --env staging >/dev/null 2>&1 \
+              || echo "::warning::Could not delete EVAL_KEY. Delete it in the Cloudflare dashboard (Workers, nexus-api-staging, Settings, Variables and secrets)."
+          }
+          trap cleanup EXIT
+          set -o pipefail
+          EVAL_KEY="$key" node scripts/eval.mjs "${{ steps.deploy.outputs.url }}" --out eval-out 2>&1 | tee eval.log
+      - name: Upload the evaluation report
+        if: always() && steps.cf.outputs.ready == 'true' && inputs.action == 'run-eval-staging'
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-evaluation
+          path: nexus-worker/eval-out/
+          if-no-files-found: warn
       - name: Summary
         if: always() && steps.cf.outputs.ready == 'true'
         shell: bash
@@ -136,6 +159,7 @@ jobs:
             echo '```'
             tail -n 40 smoke.log 2>/dev/null || true
             echo '```'
+            if [ -f eval-out/summary.md ]; then cat eval-out/summary.md; fi
           } >> "$GITHUB_STEP_SUMMARY"
 
   # 4) Production: only when you ask for it, and only after staging passed.
@@ -146,6 +170,7 @@ jobs:
     environment: production
     defaults:
       run:
+        shell: bash
         working-directory: nexus-worker
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -167,7 +192,9 @@ jobs:
       - name: Create missing secrets (values are never printed)
         run: bash scripts/ensure-secrets.sh production
       - name: Test the deployed production Worker
-        run: node scripts/smoke.mjs "${{ steps.deploy.outputs.url }}" production | tee smoke.log
+        run: |
+          set -o pipefail
+          node scripts/smoke.mjs "${{ steps.deploy.outputs.url }}" production | tee smoke.log
       - name: Summary
         if: always()
         shell: bash
@@ -186,6 +213,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
+        shell: bash
         working-directory: nexus-worker
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
