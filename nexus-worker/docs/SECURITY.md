@@ -14,6 +14,15 @@
 | Premium abuse (future) | The app cannot choose a plan. Plans come only from a table nothing in the API writes. |
 | Curated database | Not reachable from the backend at all. |
 
+## Phase 3B, step 1 (evaluation only): what changed in the security picture
+- The public `/v1/ask` still never reaches a model (a test proves it: the model is not called while `AI_ENABLED` is false).
+- The AI binding exists in **staging only**. Production has no binding, no evaluation route and no key.
+- The evaluation route needs a secret `EVAL_KEY` that exists only during an evaluation run (compared in constant time; 40 wrong-key attempts never call the model).
+- Only models with a known price may be configured. A model call can never run without first reserving budget. A call that fails or times out is charged as an uncertain cost, never refunded.
+- Nothing deploys by itself: pushes only run tests (guarded by tests).
+- Neither question, answer nor key is logged (tested).
+- **New limitation:** Cloudflare's 10,000-neuron allowance is per account, but our budget counter is per Worker. Staging and production count separately, so the real cap can be reached first. A refused model call is handled (nothing charged, 503, offline Nexus keeps working).
+
 ## Known limitations (no hiding)
 1. **An installation ID is not an identity.** Anyone can make new ones. The real brakes are per-IP limits and the global budget. Worst case an attacker uses up the day's free AI budget: AI answers pause until midnight UTC and the offline Nexus keeps working. No money is lost.
 2. **Sideloaded APKs cannot be attested** (no Play Integrity guarantee), so a determined attacker can copy the app's protocol. Accepted, and bounded by (1).
@@ -23,7 +32,8 @@
 6. Cleanup of old rows runs every 6 hours by an alarm; a short window of stale rows is harmless.
 
 ## Test report
-Run: Node v22.23.4, real SQLite (`node:sqlite`), the real Worker code, in the build sandbox. **54 tests, 54 passed, 0 failed.**
+Run: Node v22.23.4, real SQLite (`node:sqlite`), the real Worker code, in the build sandbox. **82 tests, 82 passed, 0 failed** (54 for Phase 3A, 28 for Phase 3B step 1, after the audit fixes; see AUDIT_RESPONSE.md).
+On real Cloudflare (run by the owner): the staging deployment checks, **22/22 passed**.
 Then the deployment smoke script against a local server running the same code: **staging 22/22, production 18/18.**
 
 | Phase 3C item | Status |

@@ -43,6 +43,10 @@ species text fields 60-80 characters and `description` 400. Unknown fields are r
 `reserve {"units":40}` gives `{"reservationId":"..."}`. `settle {"reservationId":"...","action":"commit"|"release","actualUnits":12}`.
 They run the real quota rules without any AI, which is how the limits are tested.
 
+### `POST /v1/_eval/run` (staging only, temporary `X-Eval-Key`; `404` everywhere else)
+Used only by the model evaluation. Body `{"model":"@cf/...","question":"...","lang":"bn"}`. Returns the answer, token usage and neuron cost.
+It exists only while the deploy workflow's evaluation run is active (the key is created for the run and deleted after it).
+
 ## Errors
 ```json
 { "ok": false, "error": { "code": "daily_limit_reached", "message": "...", "retryAfterSec": 41000 }, "requestId": "..." }

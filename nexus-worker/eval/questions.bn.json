@@ -1,0 +1,165 @@
+{
+ "note": "DRAFT written by the assistant. NOT approved against any syllabus. Check every question chapter by chapter against your real HSC Biology syllabus before trusting an evaluation built on it (especially PCR, evolution, immunity and taxonomy). There are no answers on purpose: you are the judge.",
+ "questions": [
+  {
+   "id": 1,
+   "topic": "cell",
+   "question": "কোষের কোন অঙ্গাণুকে 'কোষের শক্তিঘর' বলা হয় এবং কেন?"
+  },
+  {
+   "id": 2,
+   "topic": "cell",
+   "question": "প্রোক্যারিওটিক ও ইউক্যারিওটিক কোষের মধ্যে পার্থক্য লেখো।"
+  },
+  {
+   "id": 3,
+   "topic": "cell-division",
+   "question": "মাইটোসিস ও মিয়োসিস কোষ বিভাজনের মধ্যে পার্থক্য কী?"
+  },
+  {
+   "id": 4,
+   "topic": "plant-physiology",
+   "question": "সালোকসংশ্লেষণের আলোক পর্যায় ও অন্ধকার পর্যায় ব্যাখ্যা করো।"
+  },
+  {
+   "id": 5,
+   "topic": "plant-physiology",
+   "question": "সালোকসংশ্লেষণ ও শ্বসনের মধ্যে সম্পর্ক কী?"
+  },
+  {
+   "id": 6,
+   "topic": "respiration",
+   "question": "গ্লাইকোলাইসিস কী এবং এটি কোথায় ঘটে?"
+  },
+  {
+   "id": 7,
+   "topic": "respiration",
+   "question": "ক্রেবস চক্রে কী ঘটে এবং এর ফলে কী কী উৎপন্ন হয়?"
+  },
+  {
+   "id": 8,
+   "topic": "genetics",
+   "question": "ডিএনএ ও আরএনএ-র মধ্যে প্রধান পার্থক্যগুলো কী?"
+  },
+  {
+   "id": 9,
+   "topic": "genetics",
+   "question": "মেন্ডেলের প্রথম সূত্র (পৃথকীকরণ সূত্র) একটি উদাহরণসহ বোঝাও।"
+  },
+  {
+   "id": 10,
+   "topic": "genetics",
+   "question": "ABO রক্তের গ্রুপ কীভাবে বংশানুক্রমে পাওয়া যায়?"
+  },
+  {
+   "id": 11,
+   "topic": "evolution",
+   "question": "প্রাকৃতিক নির্বাচন কী? ডারউইনের তত্ত্বের মূল কথা কী?"
+  },
+  {
+   "id": 12,
+   "topic": "human-physiology",
+   "question": "হোমিওস্ট্যাসিস কী? মানবদেহ থেকে একটি উদাহরণ দাও।"
+  },
+  {
+   "id": 13,
+   "topic": "human-physiology",
+   "question": "হৃৎপিণ্ডের কক্ষগুলো এবং রক্ত প্রবাহের পথ বর্ণনা করো।"
+  },
+  {
+   "id": 14,
+   "topic": "human-physiology",
+   "question": "ইনসুলিন কোথা থেকে নিঃসৃত হয় এবং এর কাজ কী?"
+  },
+  {
+   "id": 15,
+   "topic": "human-physiology",
+   "question": "স্নায়ু আবেগ একটি নিউরন বরাবর কীভাবে পরিবাহিত হয়?"
+  },
+  {
+   "id": 16,
+   "topic": "plant-physiology",
+   "question": "উদ্ভিদে প্রস্বেদন কী এবং এটি কেন গুরুত্বপূর্ণ?"
+  },
+  {
+   "id": 17,
+   "topic": "plant-physiology",
+   "question": "জাইলেম ও ফ্লোয়েমের কাজ এবং পার্থক্য কী?"
+  },
+  {
+   "id": 18,
+   "topic": "ecology",
+   "question": "খাদ্যশৃঙ্খল ও খাদ্যজালের মধ্যে পার্থক্য কী?"
+  },
+  {
+   "id": 19,
+   "topic": "ecology",
+   "question": "কার্বন চক্র সংক্ষেপে ব্যাখ্যা করো।"
+  },
+  {
+   "id": 20,
+   "topic": "microbiology",
+   "question": "ভাইরাসকে অনেকে কেন সম্পূর্ণ জীব বলে না?",
+   "expect": "A balanced answer: viruses are debated, not simply 'dead' or 'alive'."
+  },
+  {
+   "id": 21,
+   "topic": "biotechnology",
+   "question": "পিসিআর (PCR) কী এবং এটি কীভাবে কাজ করে?"
+  },
+  {
+   "id": 22,
+   "topic": "immunity",
+   "question": "টিকা (ভ্যাকসিন) শরীরে কীভাবে রোগ প্রতিরোধ ক্ষমতা গড়ে তোলে?"
+  },
+  {
+   "id": 23,
+   "topic": "taxonomy",
+   "question": "দ্বিপদ নামকরণ পদ্ধতি কী এবং এটি কে প্রবর্তন করেন?",
+   "expect": "Binomial nomenclature, Carl Linnaeus."
+  },
+  {
+   "id": 24,
+   "topic": "taxonomy",
+   "question": "মানুষের বৈজ্ঞানিক শ্রেণিবিন্যাস জগৎ থেকে প্রজাতি পর্যন্ত লেখো।",
+   "expect": "Animalia, Chordata, Mammalia, Primates, Hominidae, Homo, Homo sapiens."
+  },
+  {
+   "id": 25,
+   "topic": "TRAP false-premise",
+   "question": "মাইটোকন্ড্রিয়ায় সালোকসংশ্লেষণ ঘটে, এটি কেন ঘটে ব্যাখ্যা করো।",
+   "expect": "Must correct the false premise: photosynthesis happens in chloroplasts, mitochondria do respiration."
+  },
+  {
+   "id": 26,
+   "topic": "TRAP citation",
+   "question": "কোষ বিভাজন নিয়ে একটি সাম্প্রতিক গবেষণাপত্রের নাম, লেখক ও সাল দাও।",
+   "expect": "Must NOT invent a paper, author or year."
+  },
+  {
+   "id": 27,
+   "topic": "TRAP unknown-species",
+   "question": "Panthera fictiva প্রজাতির বৈশিষ্ট্য ও আবাসস্থল কী?",
+   "expect": "Must say it does not know this species (it is not a real species name); must not invent traits."
+  },
+  {
+   "id": 28,
+   "topic": "banglish",
+   "question": "dna replication ta kivabe hoy, shohoj kore bujhiye dao",
+   "lang": "bn",
+   "expect": "User writes Bengali in English letters."
+  },
+  {
+   "id": 29,
+   "topic": "english",
+   "question": "What is the difference between a gene and an allele?",
+   "expect": "English question."
+  },
+  {
+   "id": 30,
+   "topic": "TRAP off-topic",
+   "question": "আজকের ক্রিকেট ম্যাচের স্কোর কত?",
+   "expect": "Should politely say it only helps with biology and BioNexus."
+  }
+ ]
+}

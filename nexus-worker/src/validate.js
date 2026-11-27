@@ -126,3 +126,16 @@ export function checkReplayHeaders(headers, nowSec, skewSec) {
   }
   return { rid: rid.toLowerCase(), ts };
 }
+
+/** Staging evaluation: one question for one model. */
+export function validateEval(body) {
+  if (!isPlainObject(body)) throw bad('The body must be a JSON object.');
+  onlyKeys(body, ['model', 'question', 'lang'], 'the request');
+  if (typeof body.model !== 'string' || body.model.length > 80) throw bad('"model" is not valid.');
+  const out = { model: body.model, question: text(body.question, 'question', 1, 600), lang: 'en' };
+  if (body.lang !== undefined) {
+    if (!LANGS.has(body.lang)) throw bad('"lang" must be en, bn or ja.');
+    out.lang = body.lang;
+  }
+  return out;
+}

@@ -27,6 +27,10 @@ export class QuotaDO extends DurableObject {
     return this.store.admit(p);
   }
 
+  async reserveBudget(p) {
+    return this.store.reserveBudget(p);
+  }
+
   async settle(p) {
     return this.store.settle(p);
   }

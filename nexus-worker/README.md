@@ -14,6 +14,7 @@ app depends on it.
 | `POST /v1/register` | gives an installation an anonymous signed token |
 | `GET /v1/quota` | the installation's own daily usage, plus a coarse "global" state |
 | `POST /v1/ask` | fully checks the request, then answers `503 ai_disabled` (no AI yet) |
+| `POST /v1/_eval/run` | **staging only**, temporary key: runs one question on one candidate model (see [docs/EVAL.md](docs/EVAL.md)) |
 | `POST /v1/_test/*` | **staging only**: reserve / settle budget without AI, so quota, replay and concurrency can be tested for real |
 
 Full details: [docs/API.md](docs/API.md). Security notes and test report: [docs/SECURITY.md](docs/SECURITY.md).
@@ -26,9 +27,10 @@ src/store.js      ALL quota / rate-limit / budget rules (SQL), shared by the Dur
 src/quota_do.js   the Durable Object (thin wrapper around store.js)
 src/index.js      Worker entry
 src/config.js     settings with limits; a bad setting stops the Worker (fail closed)
+src/models.js     allowed models + their prices   src/prompt.js  the instructions every model gets   src/ai.js  model call
 src/validate.js   strict request validation        src/token.js   HMAC tokens
 src/http.js       responses, size-limited body reader   src/log.js   allow-list logging
-test/             54 tests, real SQLite             scripts/      smoke test, local server, secret creation
+test/             82 tests, real SQLite             scripts/      smoke test, local server, secret creation
 wrangler.toml     Cloudflare config (production + staging)
 ```
 

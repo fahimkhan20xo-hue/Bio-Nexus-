@@ -1,6 +1,8 @@
 // Reads settings from the Worker's environment (wrangler.toml [vars] and secrets).
 // Anything missing or out of range stops the Worker from serving (fail closed).
 
+import { DEFAULT_EVAL_MODELS, MODEL_RATES } from './models.js';
+
 export class ConfigError extends Error {}
 
 const ENVIRONMENTS = new Set(['production', 'staging', 'development']);
@@ -33,6 +35,7 @@ export function loadConfig(env) {
   const reserveUnits = Math.floor(num(env, 'RESERVE_UNITS_PER_REQUEST', 40, 1, 100000));
   const maxUnits = Math.floor(num(env, 'MAX_UNITS_PER_REQUEST', 120, 1, 100000));
   if (reserveUnits > maxUnits) throw new ConfigError('RESERVE_UNITS_PER_REQUEST is above MAX_UNITS_PER_REQUEST');
+  if (Math.floor(num(env, 'UNCERTAIN_CHARGE_UNITS', 80, 1, 100000)) > maxUnits) throw new ConfigError('UNCERTAIN_CHARGE_UNITS is above MAX_UNITS_PER_REQUEST');
 
   return {
     environment,
@@ -53,6 +56,13 @@ export function loadConfig(env) {
     maxInflight: Math.floor(num(env, 'MAX_INFLIGHT_PER_INSTALL', 1, 1, 10)),
     ridTtlSec: num(env, 'RID_TTL_SEC', 900, 60, 86400),
     doTimeoutMs: num(env, 'DO_TIMEOUT_MS', 3000, 200, 15000),
+    // AI (used by the staging evaluation route today, by /v1/ask in Phase 3B)
+    aiTimeoutMs: num(env, 'AI_TIMEOUT_MS', 25000, 2000, 60000),
+    maxAnswerTokens: Math.floor(num(env, 'MAX_ANSWER_TOKENS', 450, 50, 2000)),
+    evalBudgetPct: num(env, 'EVAL_BUDGET_PCT', 0.5, 0.05, 1),
+    // What a call that timed out or failed halfway is charged: it may still have run and been billed.
+    uncertainChargeUnits: Math.floor(num(env, 'UNCERTAIN_CHARGE_UNITS', 80, 1, 100000)),
+    evalModels: evalModels(env),
     // Only "free" can be issued today. The others are prepared for future server-side verified plans.
     plans: {
       free: plan(env, 'FREE', 15, 0.8),
@@ -60,6 +70,17 @@ export function loadConfig(env) {
       institution: plan(env, 'INSTITUTION', 200, 0.95),
     },
   };
+}
+
+function evalModels(env) {
+  const raw = env.EVAL_MODELS;
+  const list = raw === undefined || raw === '' ? DEFAULT_EVAL_MODELS : String(raw).split(',').map((m) => m.trim()).filter(Boolean);
+  for (const m of list) {
+    // never call a model whose price we do not know: its cost could not be budgeted
+    if (!Object.prototype.hasOwnProperty.call(MODEL_RATES, m)) throw new ConfigError(`EVAL_MODELS has a model without a known price: ${m.slice(0, 60)}`);
+  }
+  if (list.length === 0 || list.length > 6) throw new ConfigError('EVAL_MODELS must list 1 to 6 models');
+  return list;
 }
 
 /** The part of the config the quota store needs (plain data, safe to send to the Durable Object). */

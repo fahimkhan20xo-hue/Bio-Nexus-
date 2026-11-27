@@ -45,3 +45,7 @@ class_name = "QuotaDO"
 [[env.staging.migrations]]
 tag = "v1"
 new_sqlite_classes = ["QuotaDO"]
+
+# The AI binding exists in staging ONLY (for the model evaluation). Production has none, so it cannot call a model at all.
+[env.staging.ai]
+binding = "AI"

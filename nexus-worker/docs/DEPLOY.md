@@ -19,7 +19,7 @@ for. The Free plan is built to refuse over-limit requests instead of charging.
    - Upload `nexus-worker.yml` into `.github/workflows/` (same way you uploaded `android-apk.yml`).
    - Replace `.github/workflows/android-apk.yml` with the new one (it now ignores changes under `nexus-worker/`).
 7. **Actions → "Nexus API (Cloudflare Worker)" → Run workflow → `install-from-zip`.** It unpacks the zip into `nexus-worker/` and commits it.
-8. Run it again with **`test-only`**. Green means all 54 tests passed.
+8. Run it again with **`test-only`**. Green means all tests passed.
 9. Run it with **`deploy-staging`**. It deploys `nexus-api-staging`, creates the two secrets **inside Cloudflare** (random values that are never printed
    and never stored in GitHub), then runs 22 checks against the real deployed Worker. The URL and results are in the run summary.
 
@@ -30,9 +30,10 @@ Only when staging is green and you are happy: run **`deploy-production`**. It re
 secrets, and runs the production checks (18). Staging and production have separate storage and separate secrets.
 
 ## Everyday use
-- Edit limits in `nexus-worker/wrangler.toml`. A push that touches `nexus-worker/` deploys to **staging** automatically (production is always manual).
+- **Nothing deploys by itself.** A push, or uploading the workflow file, only runs the tests. Deploying staging, deploying production, running the model evaluation and replacing secrets each need you to press **Run workflow** with that action. (The unpack step's own commit does not start other workflows: GitHub does not run workflows for pushes made with the built-in token.)
+- Edit limits in `nexus-worker/wrangler.toml`, then run `test-only`, then `deploy-staging` when you decide to.
 - **`recreate-secrets-staging|production`** replaces the secrets. Every installation then registers again by itself (the app must handle `401`).
-- If the credentials are missing, a push only shows a warning, and a manual deploy fails with a clear message.
+- If the credentials are missing, a deploy fails with a clear message.
 
 ## If something fails
 | Message | Meaning |

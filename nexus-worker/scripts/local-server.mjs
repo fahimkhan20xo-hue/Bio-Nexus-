@@ -6,6 +6,16 @@ import { makeEnv } from '../test/helpers.js';
 
 const port = Number(process.env.PORT || 8788);
 const env = makeEnv({ ENVIRONMENT: process.env.ENVIRONMENT || 'staging' });
+if (process.env.FAKE_AI && process.env.EVAL_KEY) {
+  // a stand-in model, only for testing the evaluation script on a computer
+  env.EVAL_KEY = process.env.EVAL_KEY;
+  env.AI = {
+    run: async (model, input) => ({
+      choices: [{ message: { content: `নমুনা উত্তর (sample) for: ${input.messages.at(-1).content.slice(0, 30)}` }, finish_reason: 'stop' }],
+      usage: { prompt_tokens: 300 + model.length, completion_tokens: 200 },
+    }),
+  };
+}
 
 http
   .createServer(async (nodeReq, nodeRes) => {

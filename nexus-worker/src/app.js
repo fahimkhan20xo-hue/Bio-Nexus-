@@ -3,7 +3,9 @@ import { ApiError, errorResponse, json, ok, readJsonLimited } from './http.js';
 import { ConfigError, loadConfig, storeConfig } from './config.js';
 import { logEvent } from './log.js';
 import { shortHash, signToken, verifyToken } from './token.js';
-import { checkReplayHeaders, validateAsk, validateKeys, validateRegister } from './validate.js';
+import { checkReplayHeaders, validateAsk, validateEval, validateKeys, validateRegister } from './validate.js';
+import { buildMessages, PROMPT_VERSION } from './prompt.js';
+import { runChat } from './ai.js';
 
 export const API_VERSION = '3A.1';
 
@@ -167,6 +169,84 @@ async function testSettle(ctx) {
   return ok({ charged: r.charged }, rid);
 }
 
+/** Compares two secrets without leaking, through timing, how much of the guess was right. */
+async function safeEqual(a, b) {
+  const enc = new TextEncoder();
+  const [ha, hb] = await Promise.all([crypto.subtle.digest('SHA-256', enc.encode(a)), crypto.subtle.digest('SHA-256', enc.encode(b))]);
+  const x = new Uint8Array(ha);
+  const y = new Uint8Array(hb);
+  let diff = 0;
+  for (let i = 0; i < x.length; i++) diff |= x[i] ^ y[i];
+  return diff === 0;
+}
+
+/**
+ * Staging only, and only while EVAL_KEY exists (the deploy workflow creates it for one evaluation run and deletes it).
+ * Runs ONE question on ONE allowed model, charges the shared budget with the real cost, and returns the answer for a human to grade.
+ * It does not exist in production: no route, no AI binding, no key.
+ */
+async function evalRun(ctx) {
+  const { request, env, cfg, now, rid } = ctx;
+  if (cfg.environment !== 'staging' || typeof env.EVAL_KEY !== 'string' || env.EVAL_KEY.length < 32) {
+    throw new ApiError(404, 'not_found', 'Not found.');
+  }
+  if (!(await safeEqual(request.headers.get('x-eval-key') || '', env.EVAL_KEY))) {
+    throw new ApiError(401, 'unauthorized', 'Not allowed.');
+  }
+  const body = validateEval(await readJsonLimited(request, cfg.maxBodyAsk));
+  if (!cfg.evalModels.includes(body.model)) throw new ApiError(400, 'model_not_allowed', 'That model is not on the evaluation list.');
+  if (!env.AI || typeof env.AI.run !== 'function') throw new ApiError(503, 'ai_unavailable', 'The AI binding is not configured.');
+  const ipHash = await ipHashOf(request, env);
+  const gate = await callQuota(env, cfg, (q) => q.ipGate({ ipHash, now, cfg: storeConfig(cfg) }));
+  if (!gate.ok) throw denyToError(gate);
+
+  const reserved = await callQuota(env, cfg, (q) =>
+    q.reserveBudget({ iid: 'eval', units: cfg.reserveUnits, now, cfg: storeConfig(cfg), softPct: cfg.evalBudgetPct }),
+  );
+  if (!reserved.ok) throw denyToError(reserved);
+
+  let result;
+  try {
+    result = await runChat(env, body.model, buildMessages({ question: body.question, lang: body.lang }), {
+      maxTokens: cfg.maxAnswerTokens,
+      timeoutMs: cfg.aiTimeoutMs,
+    });
+  } catch (e) {
+    logEvent({ evt: 'model_error', level: 'error', detail: String((e && e.message) || e) });
+    // A call that started may still run (and be billed) even if we gave up waiting: charge it as uncertain.
+    // Only a call that provably never started is given back.
+    const mayHaveRun = !(e && e.modelMayHaveRun === false);
+    await callQuota(env, cfg, (q) =>
+      q.settle({
+        reservationId: reserved.reservationId,
+        iid: 'eval',
+        action: mayHaveRun ? 'commit' : 'release',
+        actualUnits: mayHaveRun ? cfg.uncertainChargeUnits : undefined,
+        now,
+        cfg: storeConfig(cfg),
+      }),
+    ).catch(() => {}); // if even this fails, the reservation expires and is counted as used
+    throw new ApiError(502, 'model_error', 'The model did not return a usable answer.');
+  }
+  // charge what was really used; if this call fails the reservation expires and is counted as used (fail safe)
+  await callQuota(env, cfg, (q) =>
+    q.settle({ reservationId: reserved.reservationId, iid: 'eval', action: 'commit', actualUnits: result.neurons, now, cfg: storeConfig(cfg) }),
+  );
+  return ok(
+    {
+      model: body.model,
+      promptVersion: PROMPT_VERSION,
+      answer: result.text,
+      finish: result.finish,
+      usage: result.usage,
+      usageEstimated: result.estimated,
+      neurons: result.neurons,
+      ms: result.ms,
+    },
+    rid,
+  );
+}
+
 const ROUTES = {
   '/v1/health': { GET: health },
   '/v1/register': { POST: register },
@@ -174,6 +254,7 @@ const ROUTES = {
   '/v1/ask': { POST: ask },
   '/v1/_test/reserve': { POST: testReserve },
   '/v1/_test/settle': { POST: testSettle },
+  '/v1/_eval/run': { POST: evalRun },
 };
 
 // ---------- entry ----------

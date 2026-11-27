@@ -163,6 +163,27 @@ export class QuotaStore {
   }
 
   /**
+   * Reserve budget for an internal caller (the staging evaluation): only the global budget is checked,
+   * against softPct of the daily budget. Settle it with settle() like any other reservation.
+   */
+  reserveBudget({ iid, units, now, cfg, softPct }) {
+    return this.tx(() => {
+      const day = dayOf(now);
+      this._expireStale(now, cfg.reservationTtlSec);
+      if (!(cfg.dailyBudget > 0) || !Number.isInteger(units) || units <= 0 || units > cfg.maxUnits || !(softPct > 0 && softPct <= 1)) {
+        return deny('budget_unverifiable');
+      }
+      const b = this._budgetRow(day, true);
+      if (b.used >= cfg.dailyBudget) return deny('budget_exhausted', { retryAfterSec: secsToNextDay(now) });
+      if (b.used + b.reserved + units > Math.floor(cfg.dailyBudget * softPct)) return deny('budget_throttled', { retryAfterSec: secsToNextDay(now) });
+      const id = crypto.randomUUID();
+      this._run("INSERT INTO reservations(id, iid, day, units, created, state) VALUES(?, ?, ?, ?, ?, 'held')", id, iid, day, units, now);
+      this._run('UPDATE budget SET reserved = reserved + ? WHERE day = ?', units, day);
+      return { ok: true, reservationId: id, units };
+    });
+  }
+
+  /**
    * Finish a reservation.
    *  commit: the model ran; charge the ACTUAL units (clamped to maxUnits).
    *  release: the model did not run; give the budget and the request back.
